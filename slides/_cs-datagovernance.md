@@ -180,6 +180,18 @@ Measures **overlap of sets**: $J(Schema_A, Schema_B) = \frac{|Schema_A \cap Sche
 
 What do you think about this solution?
 
+# Step 2: Jaccard Index (Similarity Measures)
+
+|                            |   countries.xlsx |   customers_part1.csv |   customers_part2.csv |   products_a.json |   products_b.json |   sales_part1.csv |
+|:---------------------------|:----------------:|:---------------------:|:---------------------:|:-----------------:|:-----------------:|:-----------------:|
+| <b>countries.xlsx</b>      |              1   |              0.4      |              0.4      |          0        |         0         |          0        |
+| <b>customers_part1.csv</b> |              0.2 |              1        |              1        |          0.2      |         0.153846  |          0        |
+| <b>customers_part2.csv</b> |              0.2 |              1        |              1        |          0.2      |         0.153846  |          0        |
+| <b>products_a.json</b>     |              0   |              0.2      |              0.2      |          1        |         0.625     |          0.3      |
+| <b>products_b.json</b>     |              0   |              0.153846 |              0.153846 |          0.625    |         1         |          0.230769 |
+
+![Agglomerative Clustering](./img/data-gov/cluster_dendrogram.svg)
+
 # Step 2: Fuzzy Matching (Similarity Measures)
 
 Capture **spelling variations** in column names

@@ -333,7 +333,7 @@ Astronomers are creating an international Virtual Observatory
 
 [https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy](https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy) (accessed 2022-08-01)
 
-# Data provenance
+# Data provenance 
 
 ![Characteristics of data provenance [@simmhan2005survey]](img/slides15.png)
 
@@ -391,7 +391,7 @@ _Agent_
 
 :::
 ::: {.column width=40%}
-
+ 
 ![PROV standard](img/slides17.png)
 
 :::
