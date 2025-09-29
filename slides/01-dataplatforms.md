@@ -27,7 +27,7 @@ subtitle: Towards data platforms
 
 # How did we get here?
 
-![From descriptive to prescriptive analytics](imgs/slides6.png)
+![From descriptive to prescriptive analytics](img/slides6.png)
 
 # Data platform
 
@@ -57,12 +57,12 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::: {.columns}
 ::: {.column width=50%}
 
-![Google photos](imgs/slides7.png)
+![Google photos](img/slides7.png)
 
 :::
 ::: {.column width=50%}
 
-![Google photos](imgs/slides8.png)
+![Google photos](img/slides8.png)
 
 :::
 ::::
@@ -81,7 +81,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::
 ::: {.column width=50%}
 
-![Relational database](imgs/20.svg)
+![Relational database](img/20.svg)
 
 :::
 ::::
@@ -98,7 +98,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::
 ::: {.column width=50%}
 
-![DWH](imgs/21.svg)
+![DWH](img/21.svg)
 
 :::
 ::::
@@ -130,7 +130,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::
 ::: {.column width=50%}
 
-![NoSQL](imgs/24.svg)
+![NoSQL](img/24.svg)
 
 :::
 ::::
@@ -147,14 +147,14 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::
 ::: {.column width=50%}
 
-![Data lake](imgs/slides9.jpg)
+![Data lake](img/slides9.jpg)
 
 :::
 ::::
 
 # Data platform
 
-![Data lake](imgs/26.svg)
+![Data lake](img/26.svg)
 
 # DWH vs Data Lake?
 
@@ -187,7 +187,7 @@ Key technologies used to implement Data Lakehouses
 :::
 ::: {.column width=50%}
 
-![Data lakehouse](imgs/slides27.png)
+![Data lakehouse](img/slides27.png)
 
 :::
 ::::
@@ -198,7 +198,7 @@ Key technologies used to implement Data Lakehouses
 
 # Data lakehouse
 
-![Towards data lakehouse](imgs/slides26.png)
+![Towards data lakehouse](img/slides26.png)
 
 # Data lakehouse
 
@@ -279,7 +279,7 @@ A *data steward* is a role that ensures that data governance processes are follo
 :::
 ::: {.column width=40%}
 
-![Data governance](imgs/datagovernance.png)
+![Data governance](img/datagovernance.png)
 
 :::
 ::::
@@ -314,7 +314,7 @@ Astronomers are creating an international Virtual Observatory
 :::
 ::: {.column width=40%}
 
-![James Webb Space Telescope (2021)](imgs/slides14.jpg)
+![James Webb Space Telescope (2021)](img/slides14.jpg)
 
 :::
 ::::
@@ -323,7 +323,7 @@ Astronomers are creating an international Virtual Observatory
 
 # Data provenance
 
-![Characteristics of data provenance [@simmhan2005survey]](imgs/slides15.png)
+![Characteristics of data provenance [@simmhan2005survey]](img/slides15.png)
 
 # Data provenance
 
@@ -353,7 +353,7 @@ Data provenance, an example of data management
 :::
 ::: {.column width=40%}
 
-![Example of PROV](imgs/slides16.png)
+![Example of PROV](img/slides16.png)
 
 :::
 ::::
@@ -380,7 +380,7 @@ _Agent_
 :::
 ::: {.column width=40%}
 
-![PROV standard](imgs/slides17.png)
+![PROV standard](img/slides17.png)
 
 :::
 ::::
@@ -433,12 +433,12 @@ How would you represent this table update?
 :::: {.columns}
 ::: {.column width=100%}
 
-![Coarse grained](imgs/coarsegrained.svg)
+![Coarse grained](img/coarsegrained.svg)
 
 :::
 ::: {.column width=100%}
 
-![Fine grained](imgs/finegrained.svg)
+![Fine grained](img/finegrained.svg)
 
 :::
 ::::
@@ -484,7 +484,7 @@ However, data pipelines are not only about code but also about
 :::
 ::: {.column width=50%}
 
-![CRISP-DM](imgs/slides21.png)
+![CRISP-DM](img/slides21.png)
 
 :::
 ::::
@@ -498,17 +498,17 @@ For example, on [AWS (PUT, GET, DELETE)](https://docs.aws.amazon.com/AmazonS3/la
 :::: {.columns}
 ::: {.column width=40%}
 
-![GET](imgs/slides23.png)
+![GET](img/slides23.png)
 
 :::
 ::: {.column width=24%}
 
-![PUT](imgs/slides22.png)
+![PUT](img/slides22.png)
 
 :::
 ::: {.column width=25%}
 
-![DELETE](imgs/slides24.png)
+![DELETE](img/slides24.png)
 
 :::
 ::::
@@ -559,7 +559,7 @@ What about updating?
 :::
 ::: {.column width=40%}
 
-![Characteristics of data summarization [@ahmed2019data]](imgs/slides18.png)
+![Characteristics of data summarization [@ahmed2019data]](img/slides18.png)
 
 :::
 ::::
@@ -577,7 +577,7 @@ Data profiling [@naumann2014data]
 :::
 ::: {.column width=40%}
 
-![Characteristics of data profiling](imgs/slides19.png)
+![Characteristics of data profiling](img/slides19.png)
 
 :::
 ::::
@@ -646,7 +646,7 @@ No need to access `R.a` because `min(R.a) >= 10`
 :::
 ::: {.column width=70%}
 
-![[@bruno2002exploiting]](imgs/executionplan.png)
+![[@bruno2002exploiting]](img/executionplan.png)
 
 :::
 ::::
@@ -722,7 +722,7 @@ Entity resolution [@papadakis2020blocking]
 :::
 ::: {.column width=50%}
 
-![Example of entity resolution](imgs/slides20.png)
+![Example of entity resolution](img/slides20.png)
 
 ![Example of entity resolution](https://miro.medium.com/v2/resize:fit:720/format:webp/1*MjJWP2uwkTMDRg0q0i76qA.png)
 
@@ -742,7 +742,7 @@ A **data catalog** is an organized inventory of the data in your company [@olese
 :::
 ::: {.column width=40%}
 
-![Data catalog](imgs/datacatalog.PNG)
+![Data catalog](img/datacatalog.PNG)
 
 :::
 ::::
@@ -759,7 +759,7 @@ A **domain** is a group of entities sharing knowledge, goals, methods of operati
 :::
 ::: {.column width=40%}
 
-![Organization of domains](imgs/datacatalog-domain.PNG)
+![Organization of domains](img/datacatalog-domain.PNG)
 
 :::
 ::::
@@ -776,12 +776,12 @@ A **domain** is a group of entities sharing knowledge, goals, methods of operati
 
 ::: {.column width=50%}
 
-![Process oriented](imgs/datacatalog-domain1.PNG)
+![Process oriented](img/datacatalog-domain1.PNG)
 
 :::
 ::: {.column width=50%}
 
-![Capability oriented](imgs/datacatalog-domain2.PNG)
+![Capability oriented](img/datacatalog-domain2.PNG)
 
 :::
 ::::
@@ -835,7 +835,7 @@ It is a unified architecture with an integrated set of technologies and services
 
 # Data fabric: example from Cloudera
 
-![Cloudera SDX](imgs/CDP-diagram-sm.png)
+![Cloudera SDX](img/CDP-diagram-sm.png)
 
 # Data fabric
 
@@ -860,12 +860,12 @@ It is a unified architecture with an integrated set of technologies and services
 :::: {.columns}
 ::: {.column width=50%}
 
-![Providers](imgs/slides34.png)
+![Providers](img/slides34.png)
 
 :::
 ::: {.column width=50%}
 
-![Providers](imgs/slides35.png)
+![Providers](img/slides35.png)
 
 :::
 ::::
@@ -899,7 +899,7 @@ It is a unified architecture with an integrated set of technologies and services
 :::
 ::: {.column width=45%}
 
-![Data fabric](imgs/slides37.png)
+![Data fabric](img/slides37.png)
 
 :::
 ::::
@@ -940,7 +940,7 @@ Data Mesh organizes data around **business domain owners** and transforms releva
 :::
 ::: {.column width=50%}
 
-![Data mesh](imgs/slides38.png)
+![Data mesh](img/slides38.png)
 
 :::
 ::::
@@ -991,7 +991,7 @@ Dave Wells, 2021 [https://www.eckerson.com/articles/data-architecture-complex-vs
 
 # Data mesh vs data fabric
 
-![Data mesh vs data fabric](imgs/slides39.png)
+![Data mesh vs data fabric](img/slides39.png)
 
 # Data mesh vs data fabric
 
@@ -1009,12 +1009,12 @@ Take away:
 :::: {.columns}
 ::: {.column width=50%}
 
-![2023](imgs/hypecycle-dm-2023.png)
+![2023](img/hypecycle-dm-2023.png)
 
 :::
 ::: {.column width=50%}
 
-![2024](imgs/hypecycle-dm-2024.png)
+![2024](img/hypecycle-dm-2024.png)
 
 :::
 ::::
@@ -1026,24 +1026,24 @@ As new technologies and solutions mature to support a centralized approach to da
 :::: {.columns}
 ::: {.column width=33%}
 
-![Ref 1](imgs/slides40.jpg)
+![Ref 1](img/slides40.jpg)
 
 :::
 ::: {.column width=33%}
 
-![Ref 2](imgs/slides41.png)
+![Ref 2](img/slides41.png)
 
 :::
 ::: {.column width=33%}
 
-![Ref 3](imgs/slides42.png)
+![Ref 3](img/slides42.png)
 
 :::
 ::::
 
 # "Example" of architecture
 
-![https://xkcd.com/2347/](imgs/slides43.jpg)
+![https://xkcd.com/2347/](img/slides43.jpg)
 
 (*) "Ormai sta xkcd é una base troppo usata" A. Tappi
 
@@ -1051,7 +1051,7 @@ As new technologies and solutions mature to support a centralized approach to da
 
 A data platform on the Hadoop stack requires several tools
 
-![Hadoop-based data platform](imgs/74.svg)
+![Hadoop-based data platform](img/74.svg)
 
 How many levels of complexity are hidden here?
 
@@ -1086,7 +1086,7 @@ It is hardly advisable, if not for small and local tests
 :::: {.columns}
 ::: {.column width=50%}
 
-![MOSES](imgs/76.svg)
+![MOSES](img/76.svg)
 
 :::
 ::: {.column width=50%}
@@ -1108,7 +1108,7 @@ Functional architecture
 
 # Data platform: expertise and related job positions
 
-![(Big) data pipeline](imgs/slides28.png)
+![(Big) data pipeline](img/slides28.png)
 
 # Data platform: related job positions
 
@@ -1143,7 +1143,7 @@ _Data scientist_
 
 DevOps practices enable software development (dev) and operations (ops) teams to accelerate delivery through automation, collaboration, fast feedback, and iterative improvement
 
-![DevOps](imgs/slides29.png)
+![DevOps](img/slides29.png)
 
 [https://about.gitlab.com/topics/devops/](https://about.gitlab.com/topics/devops/) (accessed 2023-06-03)
 
@@ -1154,12 +1154,12 @@ DevOps practices enable software development (dev) and operations (ops) teams to
 
 **DataOps** refers to a general process aimed to shorten the end-to-end data analytic life-cycle time by introducing automation in the data collection, validation, and verification process
 
-![Evolution of DataOps [@munappy2020ad]](imgs/slides30.png)
+![Evolution of DataOps [@munappy2020ad]](img/slides30.png)
 
 :::
 ::: {.column width=50%}
 
-![Evolution of DataOps](imgs/slides31.png)
+![Evolution of DataOps](img/slides31.png)
 
 :::
 ::::
@@ -1184,9 +1184,9 @@ Some key rules
 :::
 ::: {.column width=40%}
 
-![DevOps](imgs/slides32.png)
+![DevOps](img/slides32.png)
 
-![DataOps](imgs/slides33.png)
+![DataOps](img/slides33.png)
 
 :::
 ::::

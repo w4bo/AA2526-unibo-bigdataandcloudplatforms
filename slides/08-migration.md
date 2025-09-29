@@ -32,12 +32,12 @@ Business intelligence group
 :::: {.columns}
 ::: {.column width=50%}
 
-![Data platform for Agritech](imgs/322.svg)
+![Data platform for Agritech](img/322.svg)
 
 :::
 ::: {.column width=50%}
 
-![HW + SW stack](imgs/322b.svg)
+![HW + SW stack](img/322b.svg)
 
 :::
 ::::
@@ -49,7 +49,7 @@ Hardware
 :::: {.columns}
 ::: {.column width=50%}
 
-![Hardware configuration](imgs/324.svg)
+![Hardware configuration](img/324.svg)
 
 :::
 ::: {.column width=50%}
@@ -113,7 +113,7 @@ Software
 | Hardware | 10602€/year |? |
 | Software |? |? |
 
-![Hardware configuration](imgs/slides338.png)
+![Hardware configuration](img/slides338.png)
 
 :::
 ::::
@@ -264,7 +264,7 @@ Pay attention to the region
 :::
 ::: {.column width=60%}
 
-![Ireland vs Milan](imgs/slides340.png)
+![Ireland vs Milan](img/slides340.png)
 
 :::
 ::::
@@ -306,7 +306,7 @@ How do we proceed with the migration?
 :::
 ::: {.column width=40%}
 
-![](imgs/335.svg)
+![](img/335.svg)
 
 :::
 ::::
@@ -331,7 +331,7 @@ Processing takes place each time that ESA provides a satellite image
 :::
 ::: {.column width=40%}
 
-![](imgs/336.svg)
+![](img/336.svg)
 
 :::
 ::::
@@ -373,9 +373,9 @@ AWS
 
 # On cloud v2
 
-![Total cost of EC2](imgs/slides342.png)
+![Total cost of EC2](img/slides342.png)
 
-![Cost breakdown](imgs/slides343.png)
+![Cost breakdown](img/slides343.png)
 
 # Migration
 
@@ -397,9 +397,9 @@ S3
 :::
 ::: {.column width=40%}
 
-![Total cost of EC2](imgs/slides346.png)
+![Total cost of EC2](img/slides346.png)
 
-![Cost breakdown](imgs/slides347.png)
+![Cost breakdown](img/slides347.png)
 
 :::
 ::::
@@ -409,12 +409,12 @@ S3
 :::: {.columns}
 ::: {.column width=50%}
 
-![S3 standard](imgs/slides344.png)
+![S3 standard](img/slides344.png)
 
 :::
 ::: {.column width=50%}
 
-![S3 Infrequent Access](imgs/slides345.png)
+![S3 Infrequent Access](img/slides345.png)
 
 :::
 ::::
@@ -432,7 +432,7 @@ Given the software requirements, we need
 - 1 x *Core node* (with HDFS/EBS)
 - 4 x *Task nodes* (to compute)
 
-![](imgs/342.svg)
+![](img/342.svg)
 
 :::
 ::: {.column width=40%}

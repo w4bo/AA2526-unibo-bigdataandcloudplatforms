@@ -188,17 +188,17 @@ One of the key challenges is to understand which one fits best with the required
 
 Typical use case: customers, orders and products
 
-![Running example](imgs/99.svg)
+![Running example](img/99.svg)
 
 # Relational: data model
 
 Based on tables and rows
 
-![Relational model](imgs/slides70.png)
+![Relational model](img/slides70.png)
 
 # Data modeling example: relational model
 
-![Relational implementation](imgs/slides71.png)
+![Relational implementation](img/slides71.png)
 
 # Graph: data model
 
@@ -217,7 +217,7 @@ Most known specializations:
 - Reticular data model: parent-child or owner-member relationships
 - Triplestore: subject-predicate-object relationships (e.g., RDF)
 
-![Property graph](imgs/slides72.png)
+![Property graph](img/slides72.png)
 
 # Graph: querying
 
@@ -241,12 +241,12 @@ IDs are implicitly handled; different edge colors imply different edge types
 :::: {.columns}
 ::: {.column width=50%}
 
-![Graph implementation](imgs/104a.svg)
+![Graph implementation](img/104a.svg)
 
 :::
 ::: {.column width=50%}
 
-![Running example](imgs/104b.svg)
+![Running example](img/104b.svg)
 
 :::
 ::::
@@ -297,7 +297,7 @@ Each field corresponds to a *key-value pair*
 :::
 ::: {.column width=30%}
 
-![Example of document](imgs/106.svg)
+![Example of document](img/106.svg)
 
 :::
 ::::
@@ -324,12 +324,12 @@ Different implementations, different functionalities
 :::: {.columns}
 ::: {.column width=50%}
 
-![Designing aggregates](imgs/109.svg)
+![Designing aggregates](img/109.svg)
 
 :::
 ::: {.column width=50%}
 
-![Examples of documents](imgs/111.svg)
+![Examples of documents](img/111.svg)
 
 :::
 ::::
@@ -339,12 +339,12 @@ Different implementations, different functionalities
 :::: {.columns}
 ::: {.column width=50%}
 
-![Designing aggregates](imgs/108.svg)
+![Designing aggregates](img/108.svg)
 
 :::
 ::: {.column width=50%}
 
-![Example of document](imgs/110.svg)
+![Example of document](img/110.svg)
 
 :::
 ::::
@@ -371,7 +371,7 @@ Looks like a simple dictionary
 :::
 ::: {.column width=50%}
 
-![Key-value](imgs/slides76.png)
+![Key-value](img/slides76.png)
 
 :::
 ::::
@@ -461,7 +461,7 @@ Essentially a 2-dimensional key-value store
 :::
 ::: {.column width=50%}
 
-![Wide column](imgs/slides77.png)
+![Wide column](img/slides77.png)
 
 :::
 ::::
@@ -483,17 +483,17 @@ Given the similarity with the relational model, a *SQL-like * language is often 
 :::: {.columns}
 ::: {.column width=33%}
 
-![Table](imgs/slides78.png)
+![Table](img/slides78.png)
 
 :::
 ::: {.column width=33%}
 
-![Row-oriented](imgs/slides79.png)
+![Row-oriented](img/slides79.png)
 
 :::
 ::: {.column width=33%}
 
-![Column-oriented](imgs/slides80.png)
+![Column-oriented](img/slides80.png)
 
 :::
 ::::
@@ -512,7 +512,7 @@ Do not mistake the wide column data model with the columnar storage used for OLA
 
 # Data modeling example: wide-column model
 
-![Examples of wide columns](imgs/118.svg)
+![Examples of wide columns](img/118.svg)
 
 # Aggregate modeling strategy
 
@@ -566,7 +566,7 @@ A good *sharding strategy* is **fundamental ** to optimize performances
 
 - Usually based on one or more fields composing the sharding key
 
-![Sharding](imgs/slides81.png)
+![Sharding](img/slides81.png)
 
 # Sharding strategy
 
@@ -594,7 +594,7 @@ Thumbs-up rules for a sharding strategy:
 - Pro: new nodes can be added without heavy data redistribution
 - Con: range queries become inefficient
 
-![Hash sharding](imgs/slides82.png)
+![Hash sharding](img/slides82.png)
 
 # Sharding strategy
 
@@ -605,7 +605,7 @@ Thumbs-up rules for a sharding strategy:
 - Con: global ordering often generates hot spots -> risk of bottlenecks
 - Con: ranges are defined a priori and this can determine heavy data redistribution
 
-![Range strategy](imgs/slides83.png)
+![Range strategy](img/slides83.png)
 
 # Sharding strategy
 
@@ -613,7 +613,7 @@ Thumbs-up rules for a sharding strategy:
 
 - Beware: redefining (or choosing later) the sharding strategy can be quite expensive
 
-![Auto-sharding](imgs/slides84.png)
+![Auto-sharding](img/slides84.png)
 
 # Replication
 
@@ -655,7 +655,7 @@ Main issue: each update must be pushed to every replica
 :::
 ::: {.column width=50%}
 
-![Master-slave replication](imgs/slides85.png)
+![Master-slave replication](img/slides85.png)
 
 :::
 ::::
@@ -693,7 +693,7 @@ The loss of a node does not compromise reads nor writes
 :::
 ::: {.column width=50%}
 
-![P2P replicaion](imgs/slides86.png)
+![P2P replicaion](img/slides86.png)
 
 :::
 ::::
@@ -751,7 +751,7 @@ Each data item has $N$ replicas
 :::
 ::: {.column width=40%}
 
-![Quorum](imgs/133.svg)
+![Quorum](img/133.svg)
 
 :::
 ::::
@@ -780,7 +780,7 @@ NoSQL systems are designed to succeed where RDBMSs fail
 :::
 ::: {.column width=50%}
 
-![RDBMS vs NoSQL](imgs/slides87.png)
+![RDBMS vs NoSQL](img/slides87.png)
 
 :::
 ::::
@@ -878,7 +878,7 @@ They are not properties on which NoSQL systems rely
 :::
 ::: {.column width=40%}
 
-![Network partitioning](imgs/slides88.png)
+![Network partitioning](img/slides88.png)
 
 :::
 ::::
@@ -1027,7 +1027,7 @@ Examples
   - Uploading files: approx. $0.005 per 1000 items
   - Downloading files: approx. $0.004 per 10,000 files* PLUS $0.09 per GB (first GB free)
 
-![Key-value](imgs/slides89.png)
+![Key-value](img/slides89.png)
 
 # Key-Value: when to avoid
 
@@ -1214,7 +1214,7 @@ Using a single DBMS to handle everything...
 :::
 ::: {.column width=40%}
 
-![Polyglot system](imgs/slides90.jpg)
+![Polyglot system](img/slides90.jpg)
 
 :::
 ::::
@@ -1223,13 +1223,13 @@ Using a single DBMS to handle everything...
 
 The *one-size-fits-all* solution...
 
-![One-size-fits-all](imgs/slides91.png)
+![One-size-fits-all](img/slides91.png)
 
 # Polyglot data management
 
 ... replaced by the *polyglot* solution
 
-![Polyglot solution](imgs/slides92.png)
+![Polyglot solution](img/slides92.png)
 
 
 # Service-oriented polyglot data management
@@ -1238,13 +1238,13 @@ Each DB should be "embedded" within services, which offer API services to enable
 
 - Several NoSQL systems (e.g., Riak, Neo4J) already provide REST APIs
 
-![Encapsulating DBs with API](imgs/slides93.png)
+![Encapsulating DBs with API](img/slides93.png)
 
 # Supporting existing technologies
 
 If the current solution cannot be changed, NoSQL systems can still support the existing ones
 
-![Legacy solutions](imgs/slides94.png)
+![Legacy solutions](img/slides94.png)
 
 # Beyond NoSQL
 

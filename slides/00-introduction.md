@@ -23,7 +23,9 @@ Research topics
 [BIG (Business Intelligence Group)](https://big.csr.unibo.it/)
 
 - w/ Prof. Golfarelli, Prof. Gallinucci
-- You can check our open projects [here](https://big-unibo.github.io/thesis/)
+- You can check our thesis projects [here](https://big-unibo.github.io/thesis/)
+
+<img src="./img/unibo.svg" style="box-shadow: none !important; position: absolute !important; top: -250px !important; right: -250px !important; ; max-height: 500px !important; max-width: 500px !important" />
 
 # Table of Contents and Exam
 
@@ -70,11 +72,16 @@ Be prepared: you have to wait **1 month before trying again** (in any case)
 
 # Office hours
 
-- Lectures start/end 10 minutes later/earlier than the time stated in the teaching calendar
-- You can ask questions before/after each lecture
-- ... or send an email to book an appointment
+Lectures start/end 10 minutes later/earlier than the time stated in the teaching calendar
 
-If you need help with coding and labs, *you can ask the tutor*!
+- Please, **arrive on time** to avoid interruptions
+
+Office hours:
+
+- *Short questions*: before/after each lecture
+- *Longer questions*: send an email to book an appointment
+
+If you need help for coding and labs, *you can ask me and the designed tutor*
 
 # So far
 
@@ -128,32 +135,32 @@ Two sides of the same coin, and your profile is a perfect? fit
 :::: {.columns}
 ::: {.column width=25%}
 
-![Designing Cloud Data Platforms](imgs/slides0.png)
+![Designing Cloud Data Platforms](img/slides0.png)
 
 :::
 ::: {.column width=25%}
 
-![Cloud Computing for Science and Engineering](imgs/slides2.jpg)
+![Cloud Computing for Science and Engineering](img/slides2.jpg)
 
 :::
 ::: {.column width=25%}
 
-![Amazon Web Services in Action](imgs/slides5.png)
+![Amazon Web Services in Action](img/slides5.png)
 
 :::
 ::: {.column width=25%}
 
-![Programming AWS Lambda](imgs/slides1.jpg)
+![Programming AWS Lambda](img/slides1.jpg)
 
 :::
 ::: {.column width=50%}
 
-![Coursera](imgs/slides3.png)
+![Coursera](img/slides3.png)
 
 :::
 ::: {.column width=50%}
 
-![Twitch](imgs/slides4.png)
+![Twitch](img/slides4.png)
 
 :::
 ::::

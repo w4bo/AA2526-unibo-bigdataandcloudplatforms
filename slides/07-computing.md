@@ -4,7 +4,7 @@ subtitle: Data pipelines on cloud (Computing)
 
 #
 
-![Computing](imgs/281.svg)
+![Computing](img/281.svg)
 
 # Supporting data pipelines
 
@@ -21,7 +21,7 @@ We can choose the XaaS configuration to build our pipelines
 :::
 ::: {.column width=40%}
 
-![EC2](imgs/slides197.png)
+![EC2](img/slides197.png)
 
 :::
 ::::
@@ -53,7 +53,7 @@ Interact with EC2 instance as with any computer
 :::
 ::: {.column width=40%}
 
-![AMI Instance](imgs/slides199.png)
+![AMI Instance](img/slides199.png)
 
 :::
 ::::
@@ -63,12 +63,12 @@ Interact with EC2 instance as with any computer
 :::: {.columns}
 ::: {.column width=50%}
 
-![General purpose](imgs/slides201.png)
+![General purpose](img/slides201.png)
 
 :::
 ::: {.column width=50%}
 
-![Compute optimized](imgs/slides200.png)
+![Compute optimized](img/slides200.png)
 
 :::
 ::::
@@ -84,7 +84,7 @@ Interact with EC2 instance as with any computer
 :::
 ::: {.column width=40%}
 
-![EMR](imgs/slides198.png)
+![EMR](img/slides198.png)
 
 :::
 ::::
@@ -110,12 +110,12 @@ Example of workload
 :::: {.columns}
 ::: {.column width=50%}
 
-![Deploy multiple clusters](imgs/288a.svg)
+![Deploy multiple clusters](img/288a.svg)
 
 :::
 ::: {.column width=50%}
 
-![Add or remove capacity at any time](imgs/288b.svg)
+![Add or remove capacity at any time](img/288b.svg)
 
 :::
 ::::
@@ -144,7 +144,7 @@ EMR cluster
 :::
 ::: {.column width=40%}
 
-![](imgs/289.svg)
+![](img/289.svg)
 
 :::
 ::::
@@ -217,7 +217,7 @@ Choose to launch **master**, **core**, or **task** on Spot Instances
 
 # Creating the cluster
 
-![](imgs/slides290.png)
+![](img/slides290.png)
 
 # Creating the cluster
 
@@ -237,19 +237,19 @@ Amazon EMR provides two main file systems
 
 # Creating the cluster
 
-![Software and steps](imgs/slides291.png)
+![Software and steps](img/slides291.png)
 
 # Creating the cluster
 
-![Hardware](imgs/slides288.png)
+![Hardware](img/slides288.png)
 
 # Creating the cluster
 
-![General cluster settings](imgs/slides293.png)
+![General cluster settings](img/slides293.png)
 
 # Creating the cluster
 
-![Security](imgs/slides294.png)
+![Security](img/slides294.png)
 
 # Creating the cluster
 
@@ -306,7 +306,7 @@ Creating a cluster (it takes ~10 minutes)
 :::
 ::: {.column width=60%}
 
-![Lifecycle](imgs/slides295.png)
+![Lifecycle](img/slides295.png)
 
 :::
 ::::
@@ -345,8 +345,8 @@ Step states
 
 # Running the cluster
 
-![](imgs/slides296.png)
+![](img/slides296.png)
 
 # Running the cluster
 
-![](imgs/slides297.png)
+![](img/slides297.png)

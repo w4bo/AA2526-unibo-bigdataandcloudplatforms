@@ -158,7 +158,7 @@ We can use **clustering** to group files with *similar schemas*
 
 ::::{.columns}
 :::{.column width="50%"}
-![Example of clustering](./imgs/data-gov/cluster_plot.svg)
+![Example of clustering](./img/data-gov/cluster_plot.svg)
 :::
 :::{.column width="50%"}
 How do we define the *schema similarity* (or distance)?
@@ -243,7 +243,7 @@ Fuzzy Matching does not capture **semantic similarity** between column names
 
 > ::::{.columns}
 > :::{.column width="50%"}
-> ![Example of word embeddings](./imgs/data-gov/embeddings_2d.svg)
+> ![Example of word embeddings](./img/data-gov/embeddings_2d.svg)
 > 
 > :::
 > :::{.column width="50%"}

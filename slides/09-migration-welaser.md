@@ -14,7 +14,7 @@ subtitle: Cluster migration - WeLASER
 :::
 ::: {.column width=40%}
 
-![](imgs/slides348.png)
+![](img/slides348.png)
 
 :::
 ::::
@@ -38,7 +38,7 @@ Assumptions
 :::
 ::: {.column width=40%}
 
-![](imgs/slides348.png)
+![](img/slides348.png)
 
 :::
 ::::
@@ -104,12 +104,12 @@ On-premises
 :::: {.columns}
 ::: {.column width=50%}
 
-![[Hardware](https://www.rect.coreto-europe.com/en) as of 2022-09-01](imgs/slides350.png)
+![[Hardware](https://www.rect.coreto-europe.com/en) as of 2022-09-01](img/slides350.png)
 
 :::
 ::: {.column width=50%}
 
-![[Software](https://www.cloudera.com/products/pricing.html) as of 2022-09-01](imgs/slides351.png)
+![[Software](https://www.cloudera.com/products/pricing.html) as of 2022-09-01](img/slides351.png)
 
 :::
 ::::
@@ -144,7 +144,7 @@ EMR
 | Hardware | 2900€/year | ~40000$/year |
 | Software | 40000€/year |? |
 
-![](imgs/slides352.png)
+![](img/slides352.png)
 
 :::
 ::::
@@ -183,7 +183,7 @@ EMR
 | Hardware | 2900€/year | ~4000$/year |
 | Software | 40000€/year |? |
 
-![](imgs/slides353.png)
+![](img/slides353.png)
 
 :::
 ::::

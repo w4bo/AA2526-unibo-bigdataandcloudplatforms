@@ -4,7 +4,7 @@ subtitle: Data pipelines on cloud (Storage)
 
 #
 
-![Storage](imgs/249.svg)
+![Storage](img/249.svg)
 
 # Storage
 
@@ -21,7 +21,7 @@ What storage do we choose?
 
 # Storage models
 
-![Taxonomy of storage models [@mansouri2017data]](imgs/252.svg)
+![Taxonomy of storage models [@mansouri2017data]](img/252.svg)
 
 # Storage models (AWS)
 
@@ -42,7 +42,7 @@ What storage do we choose?
 :::
 ::: {.column width=40%}
 
-![[AWS databases](https://aws.amazon.com/products/databases/)](imgs/253.svg)
+![[AWS databases](https://aws.amazon.com/products/databases/)](img/253.svg)
 
 :::
 ::::
@@ -67,7 +67,7 @@ What storage do we choose?
 :::
 ::: {.column width=40%}
 
-![[AWS databases](https://aws.amazon.com/products/databases/)](imgs/254.svg)
+![[AWS databases](https://aws.amazon.com/products/databases/)](img/254.svg)
 
 :::
 ::::
@@ -77,12 +77,12 @@ What storage do we choose?
 :::: {.columns}
 ::: {.column width=50%}
 
-![](imgs/slides188.png)
+![](img/slides188.png)
 
 :::
 ::: {.column width=50%}
 
-![](imgs/slides189.png)
+![](img/slides189.png)
 
 :::
 ::::
@@ -143,7 +143,7 @@ AWS S3: [storage classes](https://aws.amazon.com/s3/storage-classes/)
 :::
 ::: {.column width=40%}
 
-![](imgs/258.svg)
+![](img/258.svg)
 
 :::
 ::::
@@ -167,7 +167,7 @@ Two types of actions:
 :::
 ::: {.column width=40%}
 
-![](imgs/259.svg)
+![](img/259.svg)
 
 :::
 ::::
@@ -177,12 +177,12 @@ Two types of actions:
 :::: {.columns}
 ::: {.column width=50%}
 
-![](imgs/slides192.png)
+![](img/slides192.png)
 
 :::
 ::: {.column width=50%}
 
-![](imgs/slides193.png)
+![](img/slides193.png)
 
 :::
 ::::
@@ -204,7 +204,7 @@ Having consistent principles on how to organize your data is important
 :::
 ::: {.column width=40%}
 
-![Areas](imgs/261.svg)
+![Areas](img/261.svg)
 
 :::
 ::::
@@ -231,7 +231,7 @@ Having consistent principles on how to organize your data is important
 :::
 ::: {.column width=40%}
 
-![Areas](imgs/262.svg)
+![Areas](img/262.svg)
 
 :::
 ::::
@@ -260,7 +260,7 @@ Having consistent principles on how to organize your data is important
 :::
 ::: {.column width=40%}
 
-![Areas](imgs/263.svg)
+![Areas](img/263.svg)
 
 :::
 ::::
@@ -289,7 +289,7 @@ Alternative organizations are available
 :::
 ::: {.column width=40%}
 
-![](imgs/266.svg)
+![](img/266.svg)
 
 :::
 ::::
@@ -342,14 +342,14 @@ Combine the key benefits of data lakes and data warehouses
 :::
 ::: {.column width=40%}
 
-![](imgs/slides194.png)
+![](img/slides194.png)
 
 :::
 ::::
 
 # Data Lakehouse [@armbrust2021lakehouse]
 
-![From DWH to Data Lakehouse](imgs/slides195.png)
+![From DWH to Data Lakehouse](img/slides195.png)
 
 # Data Lakehouse [@armbrust2021lakehouse]
 
@@ -397,12 +397,12 @@ A two-tier architecture is highly complex for users
 :::: {.columns}
 ::: {.column width=50%}
 
-![2022](imgs/hypecycle-dm-2022.png)
+![2022](img/hypecycle-dm-2022.png)
 
 :::
 ::: {.column width=50%}
 
-![2024](imgs/hypecycle-dm-2024.png)
+![2024](img/hypecycle-dm-2024.png)
 
 :::
 ::::
@@ -427,7 +427,7 @@ Idea
 - *Implement a transactional metadata layer* on top of the object store that defines which objects are part of a table version
 - *Implement management features* within the metadata layer
 
-![Lakehouse](imgs/slides196.png)
+![Lakehouse](img/slides196.png)
 
 # Data Lakehouse
 
@@ -458,7 +458,7 @@ Delta Lake uses a **transaction log** and stores data into Apache Parquet for si
 :::
 ::: {.column width=50%}
 
-![[Delta Lake transaction log](https://www.databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html)](imgs/deltalake1.png)
+![[Delta Lake transaction log](https://www.databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html)](img/deltalake1.png)
 
 :::
 ::::
@@ -668,7 +668,7 @@ Once we have made several commits to the transaction log, Delta Lake saves a **c
 :::
 ::: {.column width=50%}
 
-![](imgs/deltalake2.png)
+![](img/deltalake2.png)
 :::
 ::::
 
@@ -689,7 +689,7 @@ Spark runs a `listFrom v` operation to view all files in the transaction log, st
 :::
 ::: {.column width=50%}
 
-![](imgs/deltalake3.png)
+![](img/deltalake3.png)
 :::
 ::::
 
@@ -754,7 +754,7 @@ deltaTable.optimize().where("date='2021-11-18'").executeCompaction()
 :::
 ::: {.column width=40%}
 
-![Optimize](imgs/deltalake6.svg)
+![Optimize](img/deltalake6.svg)
 
 :::
 ::::
@@ -791,7 +791,7 @@ while i < 20000:
     i += 1
 ```
 
-![Scalability](imgs/deltalake8.png)
+![Scalability](img/deltalake8.png)
 
 # Delta Lake
 
@@ -807,11 +807,11 @@ while i < 20000:
     i += 1
 ```
 
-![Scalability](imgs/deltalake4.png)
+![Scalability](img/deltalake4.png)
 
 # Delta Lake
 
-<img alt="Scaling out performance" src="imgs/deltalake5.png" class="center" />
+<img alt="Scaling out performance" src="img/deltalake5.png" class="center" />
 
 # Delta Lake
 
@@ -830,12 +830,12 @@ See also [I spent 5 hours understanding more about the delta lake table format](
 
 A **medallion architecture** is a data design pattern used to logically organize data in a lakehouse, with the goal of incrementally and progressively improving the structure and quality of data as it flows through each layer of the architecture 
 
-![Medallion architecture](imgs/building-data-pipelines-with-delta-lake-120823.png)
+![Medallion architecture](img/building-data-pipelines-with-delta-lake-120823.png)
 
 # Lakehouse
 
 Example of usage
 
-<img src="imgs/deltalake7.svg" class="center" />
+<img src="img/deltalake7.svg" class="center" />
 
 # References

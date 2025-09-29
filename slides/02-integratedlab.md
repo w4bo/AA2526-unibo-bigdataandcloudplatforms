@@ -24,7 +24,7 @@ Pillars to computational thinking:
 :::
 ::: {.column width=50%}
 
-![Pillars to computational thinking](imgs/slides62.png)
+![Pillars to computational thinking](img/slides62.png)
 
 :::
 ::::
@@ -87,7 +87,7 @@ Building data pipelines
 :::
 ::: {.column width=50%}
 
-![CRISP-DM](imgs/slides63.png)
+![CRISP-DM](img/slides63.png)
 
 :::
 ::::
@@ -102,12 +102,12 @@ Building data pipelines
 :::: {.columns}
 ::: {.column width=50%}
 
-![Raw data](imgs/slides65.png)
+![Raw data](img/slides65.png)
 
 :::
 ::: {.column width=50%}
 
-![Open (external) data](imgs/slides66.png)
+![Open (external) data](img/slides66.png)
 
 :::
 ::::
@@ -120,7 +120,7 @@ Building data pipelines
   * _Knowing the objective_ is important because it will determine how you frame the problem, which algorithms you will select, which performance measure you will use to evaluate your model, and how much effort you will spend tweaking it.
   * _"Your boss answers that your model’s output (a prediction of a district’s median housing price) will be fed to another Machine Learning system, along with many other signals. This downstream system will determine whether it is worth investing in a given area or not. Getting this right is critical, as it directly affects revenue."_
 
-![](imgs/slides67.png)
+![](img/slides67.png)
 
 # Integrated analytics lab
 
@@ -141,4 +141,4 @@ Building data pipelines
 
 # In action
 
-![<a href="https://colab.research.google.com/github/w4bo/AA2425-unibo-bigdataandcloudplatforms/blob/main/slides/lab-01-Metadata.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>](imgs/slides68.png)
+![<a href="https://colab.research.google.com/github/w4bo/AA2425-unibo-bigdataandcloudplatforms/blob/main/slides/lab-01-Metadata.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>](img/slides68.png)

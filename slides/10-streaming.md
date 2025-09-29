@@ -4,7 +4,7 @@ subtitle: Data pipelines on cloud (Streaming)
 
 #
 
-![Streaming](imgs/357.svg)
+![Streaming](img/357.svg)
 
 # Batch vs. Streaming systems
 
@@ -81,7 +81,7 @@ AWS Snowball
 :::
 ::: {.column width=40%}
 
-![AWS Snowball](imgs/slides354.png)
+![AWS Snowball](img/slides354.png)
 
 :::
 ::::
@@ -120,7 +120,7 @@ Two pipelines per application (data in/out)
 :::
 ::: {.column width=40%}
 
-![Connecting sources and consumers](imgs/slides356.png)
+![Connecting sources and consumers](img/slides356.png)
 
 :::
 ::::
@@ -148,7 +148,7 @@ Two pipelines per application (data in/out)
 :::
 ::: {.column width=40%}
 
-![](imgs/slides357.jpg)
+![](img/slides357.jpg)
 
 :::
 ::::
@@ -169,7 +169,7 @@ The log acts as a messaging system with durability guarantees and ordering seman
 :::
 ::: {.column width=40%}
 
-![](imgs/slides358.png)
+![](img/slides358.png)
 
 :::
 ::::
@@ -192,7 +192,7 @@ General idea:
 :::
 ::: {.column width=40%}
 
-![](imgs/slides359.jpg)
+![](img/slides359.jpg)
 
 :::
 ::::
@@ -232,7 +232,7 @@ Using a log as a universal integration mechanism is never going to be more than 
 :::
 ::: {.column width=40%}
 
-![](imgs/slides360.jpg)
+![](img/slides360.jpg)
 
 :::
 ::::
@@ -250,7 +250,7 @@ Using a log as a universal integration mechanism is never going to be more than 
 :::
 ::: {.column width=40%}
 
-![](imgs/slides361.jpg)
+![](img/slides361.jpg)
 
 :::
 ::::
@@ -274,7 +274,7 @@ Two types of processing
 :::
 ::: {.column width=40%}
 
-![](imgs/slides362.png)
+![](img/slides362.png)
 
 :::
 ::::
@@ -300,7 +300,7 @@ Two types of processing
 :::
 ::: {.column width=40%}
 
-![AWS Kinesis](imgs/slides363.png)
+![AWS Kinesis](img/slides363.png)
 
 :::
 ::::
@@ -338,7 +338,7 @@ Costs
 
 # 
 
-![Serverless computing](imgs/379.svg)
+![Serverless computing](img/379.svg)
 
 # Serverless computing/processing
 
@@ -359,7 +359,7 @@ With Lambda, you are responsible only for your code (Lambda function)
 :::
 ::: {.column width=40%}
 
-![](imgs/slides364.png)
+![](img/slides364.png)
 
 :::
 ::::
@@ -382,7 +382,7 @@ AWS Lambda
 :::
 ::: {.column width=40%}
 
-![](imgs/slides365.png)
+![](img/slides365.png)
 
 :::
 ::::
@@ -420,7 +420,7 @@ Patterns for serverless data pipelines
 :::
 ::: {.column width=40%}
 
-![](imgs/slides366.jpg)
+![](img/slides366.jpg)
 
 :::
 ::::
@@ -441,7 +441,7 @@ Encapsulate a request as an object
 :::
 ::: {.column width=40%}
 
-![](imgs/slides367.png)
+![](img/slides367.png)
 
 :::
 ::::
@@ -459,7 +459,7 @@ Decompose a complex processing task into a sequence of manageable services
 :::
 ::: {.column width=40%}
 
-![](imgs/slides368.png)
+![](img/slides368.png)
 
 :::
 ::::
@@ -481,7 +481,7 @@ Decouple services from direct dependence and allow storage of events in a queue
 :::
 ::: {.column width=40%}
 
-![](imgs/slides369.png)
+![](img/slides369.png)
 
 :::
 ::::
@@ -504,7 +504,7 @@ Control how and when messages are dealt with
 :::
 ::: {.column width=40%}
 
-![](imgs/slides370.png)
+![](img/slides370.png)
 
 :::
 ::::

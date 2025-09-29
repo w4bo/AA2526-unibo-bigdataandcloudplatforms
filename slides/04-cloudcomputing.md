@@ -4,7 +4,7 @@ subtitle: Cloud computing
 
 # 
 
-![https://xkcd.com/1444/](imgs/slides95.png)
+![https://xkcd.com/1444/](img/slides95.png)
 
 # Reference scenario
 
@@ -20,7 +20,7 @@ The big-data cube [@meijer2012your]
 :::
 ::: {.column width=40%}
 
-![Big data cube](imgs/173.svg)
+![Big data cube](img/173.svg)
 
 :::
 ::::
@@ -44,9 +44,9 @@ The big-data cube [@meijer2012your]
 :::
 ::: {.column width=40%}
 
-![Variety](imgs/slides96.png)
+![Variety](img/slides96.png)
 
-![Amount of data types](imgs/slides97.png)
+![Amount of data types](img/slides97.png)
 
 :::
 ::::
@@ -71,7 +71,7 @@ The big-data cube [@meijer2012your]
 :::
 ::: {.column width=40%}
 
-![Velocity](imgs/slides98.png)
+![Velocity](img/slides98.png)
 
 :::
 ::::
@@ -91,41 +91,41 @@ The big-data cube [@meijer2012your]
 :::: {.columns}
 ::: {.column width=50%}
 
-![2022](imgs/dns10.png)
+![2022](img/dns10.png)
 
 :::
 ::: {.column width=50%}
 
-![2023](imgs/dns11.png)
+![2023](img/dns11.png)
 
 :::
 ::::
 
 # 
 
-![DNS 10.0: over the years](imgs/dns10b.png)
+![DNS 10.0: over the years](img/dns10b.png)
 
 #
 
 :::: {.columns}
 ::: {.column width=25%}
 
-![2018](imgs/slides99.png)
+![2018](img/slides99.png)
 
 :::
 ::: {.column width=25%}
 
-![2019](imgs/slides100.jpg)
+![2019](img/slides100.jpg)
 
 :::
 ::: {.column width=25%}
 
-![2020](imgs/slides101.jpg)
+![2020](img/slides101.jpg)
 
 :::
 ::: {.column width=25%}
 
-![2021](imgs/slides102.png)
+![2021](img/slides102.png)
 
 :::
 ::::
@@ -134,7 +134,7 @@ The big-data cube [@meijer2012your]
 
 The Netflix scenario
 
-![Streaming hours](imgs/178.svg)
+![Streaming hours](img/178.svg)
 
 # Reference scenario
 
@@ -186,7 +186,7 @@ Our focus
 :::
 ::: {.column width=40%}
 
-![Big data cube](imgs/180.svg)
+![Big data cube](img/180.svg)
 
 :::
 ::::
@@ -224,7 +224,7 @@ Adopting a data-driven mindset goes far beyond adopting a business intelligence 
 :::
 ::: {.column width=50%}
 
-![Digitalization journey](imgs/186.svg)
+![Digitalization journey](img/186.svg)
 
 :::
 ::::
@@ -267,7 +267,7 @@ There are different types of cloud
 :::
 ::: {.column width=50%}
 
-![Types of cloud](imgs/slides108.png)
+![Types of cloud](img/slides108.png)
 
 :::
 ::::
@@ -280,7 +280,7 @@ There are different types of cloud
 - Scale from one to thousands of computers
   - This is not possible on-premises
 
-![Scalability](imgs/scalability.svg)
+![Scalability](img/scalability.svg)
 
 # Why moving to the cloud?
 
@@ -290,7 +290,7 @@ There are different types of cloud
 - Adapt to changes in workload by turning on/off resources to match the necessary capacity
 - Core justification for the cloud adoption
 
-![Elasticity](imgs/elasticity.svg)
+![Elasticity](img/elasticity.svg)
 
 # Why moving to the cloud?
 
@@ -308,7 +308,7 @@ Grow storage from GBs to PBs
 :::
 ::: {.column width=40%}
 
-![Physical space](imgs/slides103.jpg)
+![Physical space](img/slides103.jpg)
 
 :::
 ::::
@@ -324,7 +324,7 @@ Grow storage from GBs to PBs
 - Based on *virtualization*, running multiple virtual instances on top of a physical computer system
 - Economy of scale for physical resources
 
-![Pooling](imgs/pooling.svg)
+![Pooling](img/pooling.svg)
 
 # Virtualization
 
@@ -350,7 +350,7 @@ How do provide computational resources?
 :::
 ::: {.column width=40%}
 
-![Containers vs VMs](imgs/slides112.jpg)
+![Containers vs VMs](img/slides112.jpg)
 
 :::
 ::::
@@ -386,7 +386,7 @@ Containerization isolates an application with its environment
 :::
 ::: {.column width=60%}
 
-![Google's [Worldwide deployment](https://cloud.google.com/about/locations)](imgs/google-worlwide.jpg)
+![Google's [Worldwide deployment](https://cloud.google.com/about/locations)](img/google-worlwide.jpg)
 
 :::
 ::::
@@ -415,7 +415,7 @@ Availability zones in a region
 :::
 ::: {.column width=50%}
 
-![Regions](imgs/slides109.png)
+![Regions](img/slides109.png)
 
 :::
 ::::
@@ -426,14 +426,14 @@ Measured **quality of service**
 
 - Services leverage a quantitative metering capability making *pay-as-you-go (or pay-per-use)* billing
 
-![[AWS billing](https://aws.amazon.com/it/blogs/aws/aws-cost-explorer-update-better-filtering-grouping-report-management-ri-reports/)](imgs/aws-billing.png)
+![[AWS billing](https://aws.amazon.com/it/blogs/aws/aws-cost-explorer-update-better-filtering-grouping-report-management-ri-reports/)](img/aws-billing.png)
 
 # Why moving to the cloud?
 
 :::: {.columns}
 ::: {.column width=40%}
 
-![AWS Services](imgs/aws-services.jpg)
+![AWS Services](img/aws-services.jpg)
 
 :::
 ::: {.column width=60%}
@@ -461,7 +461,7 @@ Service **integration**
 :::: {.columns}
 ::: {.column width=50%}
 
-![Magic Quadrant 2023](imgs/gartner_mq_2023.png)
+![Magic Quadrant 2023](img/gartner_mq_2023.png)
 
 :::
 ::: {.column width=50%}
@@ -485,19 +485,19 @@ How do we choose the Cloud Service Providers?
 :::: {.columns}
 ::: {.column width=50%}
 
-![Magic Quadrant 2020](imgs/slides110.png)
+![Magic Quadrant 2020](img/slides110.png)
 
 :::
 ::: {.column width=50%}
 
-![Magic Quadrant 2023](imgs/gartner_mq_2023.png)
+![Magic Quadrant 2023](img/gartner_mq_2023.png)
 
 :::
 ::::
 
 # Data pipeline
 
-![https://xkcd.com/2054/](imgs/slides180.png)
+![https://xkcd.com/2054/](img/slides180.png)
 
 **Data pipeline**: a *sequence* of operations to transform and consume raw data
 
@@ -522,7 +522,7 @@ Three main steps
 :::
 ::: {.column width=70%}
 
-![AWS](imgs/slides181.png)
+![AWS](img/slides181.png)
 
 :::
 ::::
@@ -548,14 +548,14 @@ Three main steps
 :::
 ::: {.column width=70%}
 
-![Google Cloud](imgs/slides182.png)
+![Google Cloud](img/slides182.png)
 
 :::
 ::::
 
 # A tentative organization
 
-![Building blocks](imgs/245.svg)
+![Building blocks](img/245.svg)
 
 # A tentative organization
 
@@ -577,7 +577,7 @@ The (DIKW) pyramid abstracts many techniques and algorithms
 :::
 ::: {.column width=50%}
 
-![DIKW](imgs/246.svg)
+![DIKW](img/246.svg)
 
 :::
 ::::
@@ -597,7 +597,7 @@ This is not a sharp taxonomy
 :::
 ::: {.column width=50%}
 
-![Ingestion vs Analytics](imgs/248.svg)
+![Ingestion vs Analytics](img/248.svg)
 
 :::
 ::::
@@ -618,7 +618,7 @@ This is not a sharp taxonomy
 :::
 ::: {.column width=50%}
 
-![Storage vs Serving](imgs/249.svg)
+![Storage vs Serving](img/249.svg)
 
 :::
 ::::
@@ -627,30 +627,30 @@ This is not a sharp taxonomy
 
 # Is cloud a silver bullet?
 
-![[Millions of websites offline after fire at French cloud services firm (2021)](https://www.reuters.com/article/us-france-ovh-fire-idUSKBN2B20NU)](imgs/slides104.png)
+![[Millions of websites offline after fire at French cloud services firm (2021)](https://www.reuters.com/article/us-france-ovh-fire-idUSKBN2B20NU)](img/slides104.png)
 
 # Is cloud a silver bullet?
 
-![[Global cyber outage hits air travel (2024)](https://www.reuters.com/business/aerospace-defense/air-travel-hit-by-global-cyber-outage-2024-07-19/)](imgs/crowstrike.png)
+![[Global cyber outage hits air travel (2024)](https://www.reuters.com/business/aerospace-defense/air-travel-hit-by-global-cyber-outage-2024-07-19/)](img/crowstrike.png)
 
 # Is cloud a silver bullet?
 
 :::: {.columns}
 ::: {.column width=50%}
 
-![[Google Energy](https://sustainability.google/progress/energy/)](imgs/google-energy1.jpg)
+![[Google Energy](https://sustainability.google/progress/energy/)](img/google-energy1.jpg)
 
 :::
 ::: {.column width=50%}
 
-![[Google Energy](https://sustainability.google/progress/energy/)](imgs/google-energy2.jpg)
+![[Google Energy](https://sustainability.google/progress/energy/)](img/google-energy2.jpg)
 
 :::
 ::::
 
 # 
 
-![https://xkcd.com/908/](imgs/slides107.png)
+![https://xkcd.com/908/](img/slides107.png)
 
 # Cloud computing: deployment models
 
@@ -659,7 +659,7 @@ Understanding architectures is paramount to successful systems
 - Good architectures help to scale
 - Poor architectures cause issues that necessitate a costly rewrite
 
-![XaaS](imgs/slides111.png)
+![XaaS](img/slides111.png)
 
 **Anything as a service (XaaS)**
 
@@ -681,7 +681,7 @@ Understanding architectures is paramount to successful systems
 :::
 ::: {.column width=30%}
 
-![On-premises](imgs/202.svg)
+![On-premises](img/202.svg)
 
 :::
 ::::
@@ -701,7 +701,7 @@ Understanding architectures is paramount to successful systems
 :::
 ::: {.column width=30%}
 
-![IaaS](imgs/203.svg)
+![IaaS](img/203.svg)
 
 :::
 ::::
@@ -720,7 +720,7 @@ Understanding architectures is paramount to successful systems
 :::
 ::: {.column width=30%}
 
-![PaaS](imgs/204.svg)
+![PaaS](img/204.svg)
 
 :::
 ::::
@@ -738,7 +738,7 @@ Understanding architectures is paramount to successful systems
 :::
 ::: {.column width=30%}
 
-![FaaS](imgs/207.svg)
+![FaaS](img/207.svg)
 
 :::
 ::::
@@ -748,12 +748,12 @@ Understanding architectures is paramount to successful systems
 :::: {.columns}
 ::: {.column width=50%}
 
-![AWS Lambda](imgs/enowell_otel-python-lamda_f1_1000.png)
+![AWS Lambda](img/enowell_otel-python-lamda_f1_1000.png)
 
 :::
 ::: {.column width=50%}
 
-![AWS Lambda](imgs/enowell_otel-python-lamda_f15.png)
+![AWS Lambda](img/enowell_otel-python-lamda_f15.png)
 
 :::
 ::::
@@ -792,7 +792,7 @@ FaaS is not a silver bullet
 :::
 ::: {.column width=30%}
 
-![SaaS](imgs/209.svg)
+![SaaS](img/209.svg)
 
 :::
 ::::
@@ -801,7 +801,7 @@ FaaS is not a silver bullet
 
 On a cloud architecture, you can rely on [*serverless* or *managed* services](https://cloud.google.com/blog/topics/developers-practitioners/serverless-vs-fully-managed-whats-difference) (accessed 2020-08-01)
 
-![Serverless vs Managed](imgs/google-serverless.png)
+![Serverless vs Managed](img/google-serverless.png)
 
 # Cloud computing: deployment models
 
@@ -823,6 +823,6 @@ On a cloud architecture, you can rely on [*serverless* or *managed* services](ht
 
 # 
 
-![https://xkcd.com/1084/](imgs/slides113.png)
+![https://xkcd.com/1084/](img/slides113.png)
 
 # References
