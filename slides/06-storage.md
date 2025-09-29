@@ -650,7 +650,7 @@ Add a new `supplier`, content of `00000000000000000009.json`
 
 Checkpoint `00000000000000000002.checkpoint.parquet`
 
-<img src="lakehouse/00000000000000000002.checkpoint.parquet.png" class="center" />
+<img src="lakehouse/00000000000000000002.checkpoint.parquet.png" class="center-img" />
 
 # Delta Lake
 
@@ -811,7 +811,7 @@ while i < 20000:
 
 # Delta Lake
 
-<img alt="Scaling out performance" src="img/deltalake5.png" class="center" />
+<img alt="Scaling out performance" src="img/deltalake5.png" class="center-img" />
 
 # Delta Lake
 
@@ -836,6 +836,6 @@ A **medallion architecture** is a data design pattern used to logically organize
 
 Example of usage
 
-<img src="img/deltalake7.svg" class="center" />
+<img src="img/deltalake7.svg" class="center-img" />
 
 # References

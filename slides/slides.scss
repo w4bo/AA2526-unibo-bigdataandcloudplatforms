@@ -10,6 +10,11 @@ $presentation-h4-font-size: 1.6em;
 
 /*-- scss:rules --*/
 
+.title-icon {
+    width: 50px !important;
+    margin-bottom: -10px !important;
+}
+
 .video-js {
     background-color: #fff; 
 }
@@ -47,7 +52,7 @@ figcaption {
     font-size: 0.65em;
 }
 
-.center {
+.center-img {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;

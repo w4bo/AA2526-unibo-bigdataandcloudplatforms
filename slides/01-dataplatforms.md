@@ -74,7 +74,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::: {.columns}
 ::: {.column width=50%}
 
-> Database [@ozsu2018]
+> **Database** [@ozsu2018]
 >
 > "A database is a _structured and persistent collection_ of information about some aspect of the real world organized and stored in a way that facilitates efficient retrieval and modification. The structure of a database is determined by an _abstract data model_. Primarily, it is this structure that differentiates a database from a data file."
 
@@ -91,7 +91,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::: {.columns}
 ::: {.column width=50%}
 
-> Data Warehouse [@golfarelli2009data]
+> **Data Warehouse** [@golfarelli2009data]
 >
 > "A collection of data that supports decision-making processes. It provides the following features: subject-oriented, integrated and consistent, not volatile."
 
@@ -122,7 +122,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::: {.columns}
 ::: {.column width=50%}
 
-> Schemaless databases
+> **Schemaless databases**
 >
 > There is no predefined schema the data must conform to before it's added to the database.
 > As a result, you don't need to know the structure of your data, enabling you to store all your data more easily and quickly.
@@ -140,7 +140,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 :::: {.columns}
 ::: {.column width=50%}
 
-> Data lake [@couto2019mapping]
+> **Data lake** [@couto2019mapping]
 >
 > "A DL is a _central repository_ system for _storage, processing, and analysis of raw data_, in which the data is kept in its _original format and is processed to be queried only when needed_. It can _store a varied amount of formats_ in big data ecosystems, from unstructured, semi-structured, to structured data sources"
 
@@ -162,21 +162,21 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 
 | Characteristics | Data warehouse | Data lake |
 |:-: |:-: |:-: |
-| Data | Relational | Non-relational and relational |
-| Schema | Designed prior to implementation (**schema-on-write**) | Written at the time of analysis <br /> (**schema-on-read**) |
-| Price/performance | Fastest query results using higher cost storage | Query results getting faster using low-cost storage |
-| Data quality | Highly curated data that serves as the central version of the truth | Any data, which may or may not be curated (e.g., raw data) |
-| Users | Business analysts | Data scientists, data developers, and business analysts (using curated data) |
-| Analytics | Batch reporting, BI, and visualizations | Machine learning, predictive analytics, data discovery, and profiling. |
+| *Data* | Relational | Non-relational and relational |
+| *Schema* | Designed prior to implementation (**schema-on-write**) | Written at the time of analysis <br /> (**schema-on-read**) |
+| *Price/performance* | Fastest query results using higher cost storage | Query results getting faster using low-cost storage |
+| *Data quality* | Highly curated data that serves as the central version of the truth | Any data, which may or may not be curated (e.g., raw data) |
+| *Users* | Business analysts | Data scientists, data developers, and business analysts (using curated data) |
+| *Analytics* | Batch reporting, BI, and visualizations | Machine learning, predictive analytics, data discovery, and profiling. |
 
 # Data lakehouse
-
-**Data lakehouse**
 
 :::: {.columns}
 ::: {.column width=50%}
 
-- Data management architecture that combines the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses, enabling business intelligence (BI) and machine learning (ML) on all data
+> **Data lakehouse**
+> 
+> Data management architecture that combines the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses, enabling business intelligence (BI) and machine learning (ML) on all data
 
 Key technologies used to implement Data Lakehouses
 
@@ -198,7 +198,7 @@ Key technologies used to implement Data Lakehouses
 
 # Data lakehouse
 
-![Towards data lakehouse](img/slides26.png)
+![Evolving generations of data platforms](img/slides26.png)
 
 # Data lakehouse
 
@@ -215,29 +215,31 @@ Key technologies used to implement Data Lakehouses
 
 # Data platform
 
-Data lakes (or lakehouses) have increasingly taken the role of data hubs
+*Data lakes (or lakehouses)* have increasingly taken the role of *data hubs*
 
 - Eliminate up-front costs of ingestion and ETL since data are stored in original format
 - Once in DL, data are available for analysis by everyone in the organization
 
-Drawing a sharp line between storage/computation/analysis is hard
+*Drawing a sharp line between storage/computation/analysis is hard*
 
 - Is a database just storage?
 - What about SQL/OLAP?
 
-Blurring of the architectural borderlines
+*Blurring* of the *architectural borderlines*
 
 - DL is often replaced by "data platform" or "data ecosystem"
 - Encompass systems supporting data-intensive storage, computation, analysis
 
 # Data platform
 
-A data platform is a **centralized** infrastructure that facilitates the ingestion, storage, management, and exploitation of large volumes of heterogeneous data. It provides a collection of **independent** and **well-integrated** services meeting **end-to-end** data needs.
-
-- **Centralized**: is conceptually a single and unified component
-- **Independent**: a service is not coupled with any other
-- **Well-integrated**: services have interfaces that enable easy and frictionless composition
-- **End-to-end**: services cover the entire data life cycle
+> **Data platform**
+>
+> A *centralized* infrastructure that facilitates the ingestion, storage, management, and exploitation of large volumes of heterogeneous data. It provides a collection of *independent* and *well-integrated* services meeting *end-to-end* data needs.
+>
+> - *Centralized*: is conceptually a single and unified component
+> - *Independent*: a service is not coupled with any other
+> - *Well-integrated*: services have interfaces that enable easy and frictionless composition
+> - *End-to-end*: services cover the entire data life cycle
 
 Rationale: relieve users from the complexity of administration and provision
 
@@ -255,13 +257,15 @@ Are we done? No!
 
 # Which functionalities for (automated) data management can you think about?
 
+![Data governance](img/data-gov/dgvsds.jpg)
+
 # Managing data platforms
 
-- Tracking data pipelines: Data provenance
-- Tracking changes: Data versioning
-- Saving storage: Compression
-- Understanding the data: Data profiling
-- Integrating data sources: Entity resolution
+- *Tracking data pipelines*: Data provenance
+- *Tracking changes*: Data versioning
+- *Saving storage*: Compression
+- *Understanding the data*: Data profiling
+- *Integrating data sources*: Entity resolution
 - ...
 
 # Data governance
@@ -269,7 +273,9 @@ Are we done? No!
 :::: {.columns}
 ::: {.column width=60%}
 
-**Data governance** is everything you do to ensure data is secure, private, accurate, available, and usable
+> **Data governance**
+>
+> Techniques to ensure that data is secure, private, accurate, available, and usable
 
 - It includes the actions people must take, the processes they must follow, and the technology that supports them throughout the data life cycle
 - Every organization needs data governance since industries proceed on their digital-transformation journeys
@@ -283,6 +289,12 @@ A *data steward* is a role that ensures that data governance processes are follo
 
 :::
 ::::
+
+# <img src="./img/cs.svg" class="title-icon" /> Case study: data governance {background-color="#121011"}
+
+{{< include _cs-datagovernance.md >}}
+
+# End of the case study {background-color="#121011"}
 
 # Data provenance
 
@@ -408,7 +420,7 @@ How would you represent this table update?
 > :::
 > ::: {.column width=50%}
 > 
-> ```sales_v2 = sales_v1 + 1```
+> Update action: ```sales_v2 = sales_v1 + 1```
 > 
 > | `product_id` | `sales_v2` |
 > |:-------------|--------:|
@@ -438,8 +450,9 @@ How would you represent this table update?
 :::
 ::: {.column width=100%}
 
+:::{.fragment}
 ![Fine grained](img/finegrained.svg)
-
+:::
 :::
 ::::
 

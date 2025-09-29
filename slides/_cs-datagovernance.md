@@ -1,5 +1,3 @@
-# Hands on Data Governance
-
 # <img src="./img/cs.svg" class="title-icon" /> **Problem**: how can we manage a datalake?
 
 **Context**:
@@ -9,37 +7,35 @@
 - Your client is a large enterprise that has accumulated massive amounts of heterogeneous data across departments.
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                                DATA LAKE                                                        │
-└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-┌──────────────────────────┐    ┌────────────────────────────┐    ┌───────────────────────────┐   ┌───────────────┐
-│  bucket: dept-a          │    │  bucket: dept-b            │    │  bucket: shared           │   │  bucket: ...  │
-│  (sales)                 │    │  (support)                 │    │  (reference)              │   │               │
-│                          │    │                            │    │                           │   │               │
-│  /customers/             │    │  /customers/               │    │  /geo/                    │   │               │
-│   ├─ customers_part1.csv |    │   ├─ customers_v2.json     │    │   ├─ countries.xlsx       │   │               │
-│   ├─ customers_part2.csv |    │   └─ preferences.csv       │    │   └─ continents.parquet   │   │               │
-│   └─ README.md           │    │                            │    │                           │   │               │
-│                          │    │  /tickets/                 │    │  /products/               │   │               │
-│  /sales/                 │    │   ├─ tickets_2023.csv      │    │   ├─ products_v1.json     │   │               │
-│   ├─ sales_part1.csv     │    │   └─ tickets_2024.csv      │    │   └─ products_v2.json     │   │               │
-│   ├─ sales_part2.csv     │    │                            │    │                           │   │               │
-│   ├─ sales_part3.csv     │    │  /exports/                 │    │  /dictionaries/           │   │               │
-│   └─ sales_part4.csv     │    │   └─ customer_dump.parquet |    |   └─ country_codes.csv    │   |               │
-│                          │    │                            │    │                           │   │               │
-│  /.../                   │    │  /.../                     │    │  /.../                    │   │               │
-│   └─ ...                 │    │   └─ ...                   │    |    └─ ...                 |   |               |  
-│                          │    │                            │    │                           │   │               │
-│  /logs/                  │    │  /logs/                    │    │  /schemas/                │   │               │
-│   └─ ingestion.log       │    │   └─ api_events.log        │    │   └─ inferred_schema.yaml |   │               |
-└──────────────────────────┘    └────────────────────────────┘    └───────────────────────────┘   └───────────────┘
+            ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+            │                                                DATA LAKE                                                        │
+            └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+            ┌──────────────────────────┐    ┌────────────────────────────┐    ┌───────────────────────────┐   ┌───────────────┐
+            │  bucket: dept-a          │    │  bucket: dept-b            │    │  bucket: shared           │   │  bucket: ...  │
+            │  (sales)                 │    │  (support)                 │    │  (reference)              │   │               │
+            │                          │    │                            │    │                           │   │               │
+            │  /customers/             │    │  /customers/               │    │  /geo/                    │   │               │
+            │   ├─ customers_part1.csv |    │   ├─ customers_v2.json     │    │   ├─ countries.xlsx       │   │               │
+            │   ├─ customers_part2.csv |    │   └─ preferences.csv       │    │   └─ continents.parquet   │   │               │
+            │   └─ README.md           │    │                            │    │                           │   │               │
+            │                          │    │  /tickets/                 │    │  /products/               │   │               │
+            │  /sales/                 │    │   ├─ tickets_2023.csv      │    │   ├─ products_v1.json     │   │               │
+            │   ├─ sales_part1.csv     │    │   └─ tickets_2024.csv      │    │   └─ products_v2.json     │   │               │
+            │   ├─ sales_part2.csv     │    │                            │    │                           │   │               │
+            │   ├─ sales_part3.csv     │    │  /exports/                 │    │  /dictionaries/           │   │               │
+            │   └─ sales_part4.csv     │    │   └─ customer_dump.parquet |    |   └─ country_codes.csv    │   |               │
+            │                          │    │                            │    │                           │   │               │
+            │  /.../                   │    │  /.../                     │    │  /.../                    │   │               │
+            │   └─ ...                 │    │   └─ ...                   │    |    └─ ...                 |   |               |  
+            │                          │    │                            │    │                           │   │               │
+            │  /logs/                  │    │  /logs/                    │    │  /schemas/                │   │               │
+            │   └─ ingestion.log       │    │   └─ api_events.log        │    │   └─ inferred_schema.yaml |   │               |
+            └──────────────────────────┘    └────────────────────────────┘    └───────────────────────────┘   └───────────────┘
 ```
 
 **Objectives**: assess and organize the data lake to produce unified data assets ready for downstream analytics.
 
-Which **problems** do you see?
-
-# Brainstorming: problems
+# Brainstorming: which **problems** do you see?
 
 # Brainstorming: problems
 
@@ -209,18 +205,22 @@ Compute the **Fuzzy Matching similarity** between files
 Cluster files using **Agglomerative Clustering**
 
 ```
-Cluster 3:
-  Intersection schema: {'telephone', 'first_name', 'customer_id', 'country', 'email'}
-  Average Jaccard similarity: 1.00
-    File: /home/datalake/data/bronze/department_a/customers/customers_part1.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
-    File: /home/datalake/data/bronze/department_a/customers/customers_part2.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
-
 Cluster 1:
   Intersection schema: {'currency', 'price', 'product_id', 'name', 'type'}
   Average Jaccard similarity: 0.75
     File: /home/datalake/data/bronze/department_a/products/products_a.json  Schema: ['currency', 'price', 'product_id', 'name', 'type']
     File: /home/datalake/data/bronze/department_a/products/products_b.json  Schema: ['currency', 'material', 'price', 'product_id', 'name', 'color', 'type', 'stock']
     File: /home/datalake/data/bronze/department_b/products/products_c.json  Schema: ['currency', 'price', 'product_id', 'name', 'type']
+
+...
+
+Cluster 3:
+  Intersection schema: {'telephone', 'first_name', 'customer_id', 'country', 'email'}
+  Average Jaccard similarity: 1.00
+    File: /home/datalake/data/bronze/department_a/customers/customers_part1.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
+    File: /home/datalake/data/bronze/department_a/customers/customers_part2.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
+
+...
 ```
 
 # Step 3: Merging

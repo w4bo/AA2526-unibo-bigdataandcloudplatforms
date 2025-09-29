@@ -85,15 +85,12 @@ If you need help for coding and labs, *you can ask me and the designed tutor*
 
 # So far
 
-> Digital transformation
->
-> The process of using digital technologies to create new — or modify existing — business processes, culture, and customer experiences to meet changing business and market requirements
-
-
 You have acquainted/practiced with *on-premises* solutions
 
 * You were given a working hardware cluster
 * ... to deploy software applications on a Hadoop-based stack
+
+> **Digital transformation**: The process of using digital technologies to create new — or modify existing — business processes, culture, and customer experiences to meet changing business and market requirements
 
 In the perspective of digital transformation, let us guess
 
@@ -102,9 +99,8 @@ In the perspective of digital transformation, let us guess
 
 # So far
 
-No easy answers
+No easy answers, big-data (distributed) architectures require a lot of skills
 
-* Big-data (distributed) architectures require a lot of skills
 * *Configuration*: how do I set up dozens of new machines?
 * *Networking*: how do I cable dozens of machines?
 * *Management*: how do I replace a broken disk?
@@ -117,16 +113,16 @@ No easy answers
 
 Two sides of the same coin, and your profile is a perfect? fit
 
-* Technological perspective
+* **Technological** perspective
   * How do we configure a distributed environment?
   * How do we set up/integrate/control independent services?
   * How do we orchestrate data flows?
-* Business perspective
+* **Business** perspective
   * Can we afford to spend resources on tasks that are not mission-oriented?
     * Mission: a statement used by a company to explain its purpose(s)
   * No free lunch, each choice has a cost/benefit
-  * How much time does it take to master a technology?
-  * How many people do I need?
+  * *How much time* does it take to master a technology?
+  * *How many people* do I need?
 
 ... but first, what are our **data needs**?
 
@@ -179,4 +175,4 @@ Rule of thumb
 
 * Understand the general concepts
 * Do not be afraid of change
-* Connect the dots... and ask questions!
+* *Connect the dots... and ask questions*!
