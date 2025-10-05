@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="00-introduction_files/libs/quarto-html/tabby.min.js"></script>
-<script src="00-introduction_files/libs/quarto-html/popper.min.js"></script>
-<script src="00-introduction_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="00-introduction_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="00-introduction_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="00-introduction_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="02-integratedlab_files/libs/quarto-html/tabby.min.js"></script>
+<script src="02-integratedlab_files/libs/quarto-html/popper.min.js"></script>
+<script src="02-integratedlab_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="02-integratedlab_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="02-integratedlab_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="02-integratedlab_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Matteo Francia   DISI — University of Bologna   m.francia@unibo.it">
@@ -13,8 +13,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="00-introduction_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="00-introduction_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="02-integratedlab_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="02-integratedlab_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,11 +28,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="00-introduction_files/libs/revealjs/dist/theme/quarto-6391498a111a1f00b0d941bda0c7e264.css">
-  <link href="00-introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="00-introduction_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="00-introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="00-introduction_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="02-integratedlab_files/libs/revealjs/dist/theme/quarto-6391498a111a1f00b0d941bda0c7e264.css">
+  <link href="02-integratedlab_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="02-integratedlab_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="02-integratedlab_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="02-integratedlab_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -127,7 +127,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Big Data and Cloud Platforms (Module 2)</h1>
-  <p class="subtitle">Module 2 (Cloud Platforms)</p>
+  <p class="subtitle">Building data pipelines</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -138,210 +138,175 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div>
 
 </section>
-<section id="hi" class="title-slide slide level1 center">
-<h1>Hi!</h1>
-<p>Matteo Francia, Ph.D.</p>
-<ul>
-<li>Email: m.francia@unibo.it</li>
-<li>Assistant Professor (junior) @ DISI, UniBO</li>
-<li>www: <a href="https://www.unibo.it/sitoweb/m.francia/en">https://www.unibo.it/sitoweb/m.francia/en</a></li>
-</ul>
-<p>Teaching</p>
-<ul>
-<li>[DTM] Big Data and Cloud Platforms (Module 2)</li>
-<li>[DTM] Machine Learning and Data Mining (Module 2)</li>
-</ul>
-<p>Research topics</p>
-<ul>
-<li>Big data / database / machine learning</li>
-<li>Precision agriculture and spatio-temporal analytics</li>
-</ul>
-<p><a href="https://big.csr.unibo.it/">BIG (Business Intelligence Group)</a></p>
-<ul>
-<li><img src="./img/biglogo.svg" class="title-icon"> <a href="https://big-unibo.github.io">https://big-unibo.github.io</a></li>
-<li>w/ Prof.&nbsp;Golfarelli, Prof.&nbsp;Gallinucci</li>
-<li>You can check our thesis projects <a href="https://big-unibo.github.io/thesis/">here</a></li>
-</ul>
-<p><img src="./img/unibo.svg" style="box-shadow: none !important; position: absolute !important; top: -250px !important; right: -250px !important; ; max-height: 500px !important; max-width: 500px !important"></p>
-</section>
-
-<section id="table-of-contents-and-exam" class="title-slide slide level1 center">
-<h1>Table of Contents and Exam</h1>
-<p>Handling data pipelines in the Cloud</p>
-<ul>
-<li>Introduction to <em>data platforms</em>: shifting from databases to well-integrated data ecosystems</li>
-<li>Definition of <em>cloud computing</em> and taxonomy of cloud services</li>
-<li>Introduction to the most <em>relevant cloud platforms</em></li>
-<li>Introduction to the <em>billing models</em> of cloud computing services</li>
-<li>Cluster <em>migration</em>: on-premises vs on-cloud</li>
-<li>Real <em>case studies + labs</em></li>
-</ul>
-<p>Seminars by companies working with cloud and big data platforms</p>
-<ul>
-<li>Connect the dots</li>
-<li>Information systems, BI, data mining, big data, and machine learning</li>
-</ul>
-<p>… <strong>all these points</strong> will be part of the oral examination! :)</p>
-</section>
-
-<section id="table-of-contents-and-exam-1" class="title-slide slide level1 center">
-<h1>Table of Contents and Exam</h1>
-<p>Questions on all (<strong>theoretical</strong> and <strong>practical</strong>) aspects of the course</p>
-<ul>
-<li>A <em>single session</em> with both teachers</li>
-<li>Exam covers <em>both modules</em></li>
-<li><em>Seminars and labs</em> are included</li>
-<li><em>Interaction during the lectures/labs</em> is considered in the final evaluation</li>
-</ul>
-<p>The exam is not technical</p>
-<ul>
-<li>However, you must be capable to explain the concepts and connect the dots</li>
-</ul>
-<p>No scheduled dates, just come <strong>when you are ready</strong></p>
-<ul>
-<li>At least one week in advance</li>
-<li>Link to the <a href="https://outlook.office365.com/owa/calendar/BigDataandCloudPlatformsexams@live.unibo.it/bookings/">Booking</a> application</li>
-</ul>
-<p>According to the University’s regulation</p>
-<ul>
-<li>Exams must be in presence</li>
-<li><strong>Cannot refuse a grade more than once</strong></li>
-</ul>
-<p>Be prepared: you have to wait <strong>1 month before trying again</strong> (in any case)</p>
-</section>
-
-<section id="office-hours" class="title-slide slide level1 center">
-<h1>Office hours</h1>
-<p>Lectures start/end 10 minutes later/earlier than the time stated in the teaching calendar</p>
-<ul>
-<li>Please, <strong>arrive on time</strong> to avoid interruptions</li>
-</ul>
-<p>Office hours:</p>
-<ul>
-<li><em>Short questions</em>: before/after each lecture</li>
-<li><em>Longer questions</em>: send an email to book an appointment</li>
-</ul>
-<p>If you need help for coding and labs, <em>you can ask me and the designed tutor</em></p>
-</section>
-
-<section id="so-far" class="title-slide slide level1 center">
-<h1>So far</h1>
-<p>You have acquainted/practiced with <em>on-premises</em> solutions</p>
-<ul>
-<li>You were given a working hardware cluster</li>
-<li>… to deploy software applications on a Hadoop-based stack</li>
-</ul>
-<blockquote>
-<p><strong>Digital transformation</strong>: The process of using digital technologies to create new — or modify existing — business processes, culture, and customer experiences to meet changing business and market requirements</p>
-</blockquote>
-<p>In the perspective of digital transformation, let us guess</p>
-<ul>
-<li>How would you start from scratch?</li>
-<li>How much time would it take?</li>
-</ul>
-</section>
-
-<section id="so-far-1" class="title-slide slide level1 center">
-<h1>So far</h1>
-<p>No easy answers, big-data (distributed) architectures require a lot of skills</p>
-<ul>
-<li><em>Configuration</em>: how do I set up dozens of new machines?</li>
-<li><em>Networking</em>: how do I cable dozens of machines?</li>
-<li><em>Management</em>: how do I replace a broken disk?</li>
-<li><em>Upgrade</em>: how do I extend the cluster with new services/machines?</li>
-<li>(energy and cooling, software licenses, insurance, …)</li>
-</ul>
-<p><a href="https://aws.amazon.com/compliance/data-center/data-centers/">https://aws.amazon.com/compliance/data-center/data-centers/</a></p>
-</section>
-
-<section id="so-far-2" class="title-slide slide level1 center">
-<h1>So far</h1>
-<p>Two sides of the same coin, and your profile is a perfect? fit</p>
-<ul>
-<li><strong>Technological</strong> perspective
-<ul>
-<li>How do we configure a distributed environment?</li>
-<li>How do we set up/integrate/control independent services?</li>
-<li>How do we orchestrate data flows?</li>
-</ul></li>
-<li><strong>Business</strong> perspective
-<ul>
-<li>Can we afford to spend resources on tasks that are not mission-oriented?
-<ul>
-<li>Mission: a statement used by a company to explain its purpose(s)</li>
-</ul></li>
-<li>No free lunch, each choice has a cost/benefit</li>
-<li><em>How much time</em> does it take to master a technology?</li>
-<li><em>How many people</em> do I need?</li>
-</ul></li>
-</ul>
-<p>… but first, what are our <strong>data needs</strong>?</p>
-</section>
-
-<section id="teaching-material" class="title-slide slide level1 center">
-<h1>Teaching material</h1>
+<section id="a-necessary-introduction" class="title-slide slide level1 center">
+<h1>A necessary introduction</h1>
 <div class="columns">
-<div class="column" style="width:25%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides0.png"></p>
-<figcaption>Designing Cloud Data Platforms</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:25%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides2.jpg"></p>
-<figcaption>Cloud Computing for Science and Engineering</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:25%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides5.png"></p>
-<figcaption>Amazon Web Services in Action</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:25%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides1.jpg"></p>
-<figcaption>Programming AWS Lambda</figcaption>
-</figure>
-</div>
+<div class="column" style="width:50%;">
+<p>Computational thinking: solving problems using concepts and ideas from computer science.</p>
+<ul>
+<li>Take a complex problem</li>
+<li>Understand better what the problem involves</li>
+<li>Develop possible solutions</li>
+<li>Present these solutions in a way that a computer, human or both can understand</li>
+</ul>
+<p>Pillars to computational thinking:</p>
+<ul>
+<li>Decomposition</li>
+<li>Pattern recognition</li>
+<li>Data representation</li>
+<li>Abstraction</li>
+</ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/slides3.png"></p>
-<figcaption>Coursera</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides4.png"></p>
-<figcaption>Twitch</figcaption>
+<p><img data-src="img/slides62.png"></p>
+<figcaption>Pillars to computational thinking</figcaption>
 </figure>
 </div>
 </div></div>
 </section>
 
-<section id="teaching-material-1" class="title-slide slide level1 center">
-<h1>Teaching material</h1>
-<p>You will find all you need in these slides</p>
+<section id="computational-thinking" class="title-slide slide level1 center">
+<h1>Computational thinking</h1>
+<p><strong>Decomposition</strong></p>
 <ul>
-<li>However, keeping up the pace with data platforms and the cloud is hard</li>
-<li>There is a rapid development of technologies, and not all of them will survive</li>
-<li>Books are easily outdated with respect to cutting-edge services and technologies</li>
-<li>Research papers (often) describe solutions that are not commercial yet</li>
-<li>(IRL) You will need to deal with a lot of (bad) documentation, online articles, etc.</li>
+<li>Taking a complex problem and breaking it into more manageable sub-problems.</li>
+<li>The solution to each sub-problem may be much simpler by putting together the solutions to the sub-problems (any example?)</li>
 </ul>
-<p>Rule of thumb</p>
+<p><strong>Pattern recognition</strong></p>
 <ul>
-<li>Understand the general concepts</li>
-<li>Do not be afraid of change</li>
-<li><em>Connect the dots… and ask questions</em>!</li>
+<li>Find patterns among the sub-problems</li>
+<li>Identify problems sharing similarities or characteristics</li>
+<li>Discovering these patterns make the complex problem easier to solve since we can use the same solution for each occurrence of the pattern (any example?)</li>
 </ul>
+<p>Data <strong>representation</strong> and <strong>abstraction</strong></p>
+<ul>
+<li>Determining the important characteristics of the problem and filtering out those that are not</li>
+<li>Can create a representation of what we’re trying to solve</li>
+</ul>
+<p><strong>Algorithm</strong></p>
+<ul>
+<li>A set of step-by-step instructions of how to solve a problem.</li>
+<li>It identifies what is to be done (the instructions), and the order in which they should be done</li>
+</ul>
+<p>… there is no magic in programming computers</p>
+</section>
+
+<section id="integrated-analytics-lab" class="title-slide slide level1 center">
+<h1>Integrated analytics lab</h1>
+<p>Requirements:</p>
+<ul>
+<li>Knowledge of programming, data structures, and algorithms</li>
+<li>Acquaintance with Python programming and notebooks</li>
+</ul>
+<p>The labs will be mainly guided…</p>
+<ul>
+<li>… but the notebooks contain all the details</li>
+<li>… no time for a complete (coding) discussion during the lectures</li>
+</ul>
+<p>Focus on the problem <strong>understanding</strong>, <strong>definition</strong>, and <strong>solution</strong>!</p>
+</section>
+
+<section id="integrated-analytics-lab-1" class="title-slide slide level1 center">
+<h1>Integrated analytics lab</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Building data pipelines</p>
+<ul>
+<li>Frame the problem and look at the big picture</li>
+<li>Get the data</li>
+<li>Explore the data to gain insights</li>
+<li>Prepare the data</li>
+<li>Explore different models and find the best ones</li>
+<li>Fine-tune your models</li>
+<li>Present your solution</li>
+<li>Launch, monitor, and maintain your system</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides63.png"></p>
+<figcaption>CRISP-DM</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="integrated-analytics-lab-2" class="title-slide slide level1 center">
+<h1>Integrated analytics lab</h1>
+<p>Building data pipelines</p>
+<ul>
+<li><em>Frame the problem</em> and look at the big picture</li>
+<li><em>“We’ll use the California Housing Prices. Our task is to use California census data to forecast housing prices given the population, median income, and median housing price for each block group in California. Block groups are the smallest geographical unit for which the US Census Bureau publishes sample data (a block group typically has a population of 600 to 3,000 people)”</em></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides65.png"></p>
+<figcaption>Raw data</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides66.png"></p>
+<figcaption>Open (external) data</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="integrated-analytics-lab-3" class="title-slide slide level1 center">
+<h1>Integrated analytics lab</h1>
+<p>Building data pipelines</p>
+<ul>
+<li>Frame the problem and look at the big picture
+<ul>
+<li><em>Knowing the objective</em> is important because it will determine how you frame the problem, which algorithms you will select, which performance measure you will use to evaluate your model, and how much effort you will spend tweaking it.</li>
+<li><em>“Your boss answers that your model’s output (a prediction of a district’s median housing price) will be fed to another Machine Learning system, along with many other signals. This downstream system will determine whether it is worth investing in a given area or not. Getting this right is critical, as it directly affects revenue.”</em></li>
+</ul></li>
+</ul>
+
+<img data-src="img/slides67.png" class="r-stretch"></section>
+
+<section id="integrated-analytics-lab-4" class="title-slide slide level1 center">
+<h1>Integrated analytics lab</h1>
+<p>Building data pipelines</p>
+<ul>
+<li>✔ Frame the problem and look at the big picture
+<ul>
+<li>Define the objective in business terms</li>
+<li>How should performance be measured? (postponed for later)</li>
+</ul></li>
+<li>✔ Get the data
+<ul>
+<li>List the data you need and how much you need
+<ul>
+<li>Data could be available in a relational database and/or spread across multiple tables/documents/files</li>
+<li>In this project, however, things are much simpler</li>
+</ul></li>
+</ul></li>
+<li>Explore the data to gain insights (<em>let’s do this!</em>)
+<ul>
+<li>Create an environment to keep track of your data exploration
+<ul>
+<li>You have been provided with notebook environments</li>
+</ul></li>
+<li>Study each attribute and its characteristics</li>
+</ul></li>
+<li>Apply machine learning models</li>
+</ul>
+</section>
+
+<section id="in-action" class="title-slide slide level1 center">
+<h1>In action</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides68.png"></p>
+<figcaption><a href="https://colab.research.google.com/github/w4bo/AA2425-unibo-bigdataandcloudplatforms/blob/main/slides/lab-01-Metadata.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></figcaption>
+</figure>
+</div>
 
 </section>
     </div>
@@ -352,19 +317,19 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="00-introduction_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="00-introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="00-introduction_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="00-introduction_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="00-introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="00-introduction_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="00-introduction_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="00-introduction_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="00-introduction_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="00-introduction_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="02-integratedlab_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
