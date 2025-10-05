@@ -1,3 +1,13 @@
+## 1.0.0 (2025-10-05)
+
+### Dependency updates
+
+* **deps:** update dependency pandas to v2.3.3 ([#3](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/3)) ([c5571f6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/c5571f6c872ecbaafb10b49dd55c07cf09056278))
+
+### Bug Fixes
+
+* introduction and data platform are ready for lecture 1 ([c62b642](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/c62b6428ff7d85d2e279d27a83ddbf3717900a8e))
+
 ## [1.0.43](https://github.com/w4bo/AA2425-unibo-bigdataandcloudplatforms/compare/1.0.42...1.0.43) (2025-01-10)
 
 ### Dependency updates
