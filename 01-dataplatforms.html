@@ -281,8 +281,13 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </section>
 
-<section id="case-study-photo-gallery" class="title-slide slide level1 center">
-<h1>Case study: photo gallery</h1>
+<section id="case-study-photo-gallery" class="title-slide slide level1 center" data-background-color="#121011">
+<h1><img src="./img/cs.svg" class="title-icon"> Case study: photo gallery</h1>
+
+</section>
+
+<section id="photo-gallery" class="title-slide slide level1 center">
+<h1>Photo Gallery</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -299,6 +304,191 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </figure>
 </div>
 </div></div>
+</section>
+
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
+<p>Managing large photo collections is increasingly challenging.</p>
+<p>Common issues include:</p>
+<ul>
+<li>Difficulty searching and organizing images<br>
+</li>
+<li>Loss of contextual information about each photo<br>
+</li>
+<li>Time-consuming manual tagging and categorization</li>
+</ul>
+</section>
+
+<section id="challenges-in-photo-gallery-management" class="title-slide slide level1 center">
+<h1>Challenges in Photo Gallery Management</h1>
+<ul>
+<li>Thousands of images accumulate over time<br>
+</li>
+<li>Manual metadata entry is slow and error-prone<br>
+</li>
+<li>Finding images based on content is difficult<br>
+</li>
+<li>Metadata inconsistency leads to poor searchability</li>
+</ul>
+</section>
+
+<section id="why-metadata-matters" class="title-slide slide level1 center">
+<h1>Why Metadata Matters</h1>
+<p>Metadata provides critical information about images:</p>
+<ul>
+<li>File-level info: name, size, creation date<br>
+</li>
+<li>Camera info: make, model, GPS, exposure<br>
+</li>
+<li>Content info: objects, people, and scenes</li>
+</ul>
+<p>Well-structured metadata enables:</p>
+<ul>
+<li>Fast search and filtering<br>
+</li>
+<li>Smarter organization and categorization<br>
+</li>
+<li>Enhanced user experience</li>
+</ul>
+</section>
+
+<section id="using-yolo-for-metadata-extraction" class="title-slide slide level1 center">
+<h1>Using YOLO for Metadata Extraction</h1>
+<p>YOLO (You Only Look Once) is a state-of-the-art object detection system.</p>
+<ul>
+<li>Automatically detects objects in images<br>
+</li>
+<li>Provides labels, bounding boxes, and confidence scores<br>
+</li>
+<li>Converts visual content into structured metadata</li>
+</ul>
+</section>
+
+<section id="how-yolo-sees-the-image" class="title-slide slide level1 center">
+<h1>How YOLO Sees the Image</h1>
+<ul>
+<li>Input image is divided into a grid (e.g., 13x13)<br>
+</li>
+<li>Each grid cell is responsible for objects <strong>whose center falls in the cell</strong><br>
+</li>
+<li>Each cell predicts <strong>bounding boxes + confidence + class probabilities</strong></li>
+</ul>
+</section>
+
+<section id="what-each-cell-predicts" class="title-slide slide level1 center">
+<h1>What Each Cell Predicts</h1>
+<p>For each bounding box:</p>
+<ul>
+<li><strong>Coordinates:</strong> (x, y, width, height)<br>
+</li>
+<li><strong>Confidence:</strong> probability an object exists × IoU with ground truth<br>
+</li>
+<li><strong>Class probabilities:</strong> likelihood of each object class</li>
+</ul>
+</section>
+
+<section id="how-bounding-boxes-are-calculated" class="title-slide slide level1 center">
+<h1>How Bounding Boxes Are Calculated</h1>
+<ul>
+<li>Each cell predicts offsets relative to the cell<br>
+</li>
+<li>Uses <strong>anchor boxes</strong> for different object sizes<br>
+</li>
+<li>Confidence score = Pr(object) × IOU(predicted box, ground truth)</li>
+</ul>
+</section>
+
+<section id="yolo-neural-network" class="title-slide slide level1 center">
+<h1>YOLO Neural Network</h1>
+<ul>
+<li><strong>CNN backbone</strong> extracts features from the image<br>
+</li>
+<li><strong>Detection layers</strong> predict boxes and class probabilities for all grid cells<br>
+</li>
+<li>Outputs a single tensor containing all predictions</li>
+</ul>
+</section>
+
+<section id="post-processing-predictions" class="title-slide slide level1 center">
+<h1>Post-Processing Predictions</h1>
+<ol type="1">
+<li><strong>Thresholding:</strong> Remove boxes with confidence &lt; threshold<br>
+</li>
+<li><strong>Non-Maximum Suppression (NMS):</strong> Remove overlapping boxes that predict the same object</li>
+</ol>
+<p>Result: clean set of detected objects with labels, boxes, and confidence</p>
+</section>
+
+<section id="yolo-versions" class="title-slide slide level1 center">
+<h1>YOLO Versions</h1>
+<ul>
+<li>YOLOv1: Original, fast, less accurate for small objects<br>
+</li>
+<li>YOLOv2/v3: Anchor boxes, improved accuracy<br>
+</li>
+<li>YOLOv4/v5/v8: Modern improvements, faster, real-time capable</li>
+</ul>
+</section>
+
+<section id="why-yolo-is-fast" class="title-slide slide level1 center">
+<h1>Why YOLO is Fast</h1>
+<ul>
+<li>Single forward pass per image → all objects detected at once<br>
+</li>
+<li>No sliding windows or region proposals (unlike R-CNN)<br>
+</li>
+<li>Real-time capable: 30–150 FPS depending on model</li>
+</ul>
+</section>
+
+<section id="how-yolo-works-in-the-gallery" class="title-slide slide level1 center">
+<h1>How YOLO Works in the Gallery</h1>
+<ol type="1">
+<li>Scan images in the collection<br>
+</li>
+<li>Detect objects (e.g., person, dog, car)<br>
+</li>
+<li>Record bounding boxes and confidence<br>
+</li>
+<li>Generate per-image JSON metadata</li>
+</ol>
+<p>Example JSON snippet:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb1-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href=""></a>  <span class="dt">"filename"</span><span class="fu">:</span> <span class="st">"dog.jpg"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href=""></a>  <span class="dt">"detections"</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span><span class="dt">"label"</span><span class="fu">:</span> <span class="st">"dog"</span><span class="fu">,</span> <span class="dt">"conf"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.</span><span class="dv">87</span><span class="fu">}</span><span class="ot">]</span></span>
+<span id="cb1-4"><a href=""></a><span class="fu">}</span></span></code></pre></div>
+</section>
+
+<section id="mongodb-for-accessible-metadata" class="title-slide slide level1 center">
+<h1>MongoDB for Accessible Metadata</h1>
+<p>MongoDB stores per-image JSON metadata efficiently:</p>
+<ul>
+<li>Flexible schema for diverse metadata<br>
+</li>
+<li>Enables querying by labels, confidence, dates, or GPS<br>
+</li>
+<li>Scalable for large galleries<br>
+</li>
+<li>Integrates easily with web apps or dashboards</li>
+</ul>
+</section>
+
+<section id="making-metadata-accessible" class="title-slide slide level1 center">
+<h1>Making Metadata Accessible</h1>
+<p>Sample queries:</p>
+<ul>
+<li>Find all images containing “dog”:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource js number-lines"><code class="sourceCode javascript"><span id="cb2-1"><a href=""></a>db<span class="op">.</span><span class="at">images</span><span class="op">.</span><span class="fu">find</span>({<span class="st">"detections.label"</span><span class="op">:</span> <span class="st">"dog"</span>})</span></code></pre></div>
+<ul>
+<li>Find images taken after a certain date:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource js number-lines"><code class="sourceCode javascript"><span id="cb3-1"><a href=""></a>db<span class="op">.</span><span class="at">images</span><span class="op">.</span><span class="fu">find</span>({<span class="st">"file_info.created_time"</span><span class="op">:</span> {<span class="st">"$gte"</span><span class="op">:</span> <span class="st">"2025-01-01"</span>}})</span></code></pre></div>
+</section>
+
+<section id="end-of-the-case-study" class="title-slide slide level1 center" data-background-color="#121011">
+<h1>End of the case study</h1>
+
 </section>
 
 <section id="from-databases-to-data-platforms" class="title-slide slide level1 center">
@@ -764,7 +954,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <section id="step-0-what-do-we-have-in-the-data-lake" class="title-slide slide level1 center">
 <h1>Step 0: What do we have in the data lake?</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="fu">ls</span> <span class="at">-R</span> /home/datalake/data/bronze/</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="fu">ls</span> <span class="at">-R</span> /home/datalake/data/bronze/</span></code></pre></div>
 <pre><code>/home/datalake/data/bronze/:
 department_a  department_b
 
@@ -797,9 +987,9 @@ product_reviews.csv</code></pre>
 <h1>Step 1: Schema Extraction</h1>
 <p>For each file, read the first rows to collect column names</p>
 <p>Examples:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/customers/customers_part1.csv</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb7-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/customers/customers_part1.csv</span></code></pre></div>
 <pre><code>customer_id,first_name,email,country,telephone</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb6-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/sales/sales_part1.csv </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb9-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/sales/sales_part1.csv </span></code></pre></div>
 <pre><code>order_key,cust_id,product_id,quantity,date,amount_usd</code></pre>
 <p>What about <code>.json</code> and <code>.xlsx</code> files?</p>
 </section>
@@ -808,9 +998,9 @@ product_reviews.csv</code></pre>
 <h1>Step 1: Schema Extraction</h1>
 <p>For each file, read the first rows to collect column names</p>
 <p>Examples:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb8-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/customers/customers_part1.csv</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb11-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/customers/customers_part1.csv</span></code></pre></div>
 <pre><code>customer_id,first_name,email,country,telephone</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb10-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/sales/sales_part1.csv </span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb13-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/sales/sales_part1.csv </span></code></pre></div>
 <pre><code>order_key,cust_id,product_id,quantity,date,amount_usd</code></pre>
 <div class="fragment">
 <p>Problems:</p>
@@ -1025,15 +1215,15 @@ Cluster 3:
 </div>
 </div><div class="column" style="width:50%;">
 <p>Computing the embeddings:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>{</span>
-<span id="cb13-2"><a href=""></a>  <span class="st">'telephone'</span>: [<span class="op">-</span><span class="fl">0.11484879</span>  <span class="fl">0.06089507</span>  <span class="fl">0.01468573</span> ... ],</span>
-<span id="cb13-3"><a href=""></a>  <span class="st">'first_name'</span>: [<span class="op">-</span><span class="fl">0.11216891</span>  <span class="fl">0.04061386</span> <span class="op">-</span><span class="fl">0.01322238</span> ... ],</span>
-<span id="cb13-4"><a href=""></a>  <span class="st">'customer_id'</span>: [<span class="op">-</span><span class="fl">0.06831077</span>  <span class="fl">0.03470041</span> <span class="op">-</span><span class="fl">0.02761879</span> ... ],</span>
-<span id="cb13-5"><a href=""></a>... }</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>{</span>
+<span id="cb16-2"><a href=""></a>  <span class="st">'telephone'</span>: [<span class="op">-</span><span class="fl">0.11484879</span>  <span class="fl">0.06089507</span>  <span class="fl">0.01468573</span> ... ],</span>
+<span id="cb16-3"><a href=""></a>  <span class="st">'first_name'</span>: [<span class="op">-</span><span class="fl">0.11216891</span>  <span class="fl">0.04061386</span> <span class="op">-</span><span class="fl">0.01322238</span> ... ],</span>
+<span id="cb16-4"><a href=""></a>  <span class="st">'customer_id'</span>: [<span class="op">-</span><span class="fl">0.06831077</span>  <span class="fl">0.03470041</span> <span class="op">-</span><span class="fl">0.02761879</span> ... ],</span>
+<span id="cb16-5"><a href=""></a>... }</span></code></pre></div>
 <p>Computing the similarity between embeddings:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>sim_cos(<span class="st">'country'</span>, <span class="st">'location'</span>): <span class="fl">0.63932264</span>,</span>
-<span id="cb14-2"><a href=""></a>sim_cos(<span class="st">'location'</span>, <span class="st">'name'</span>): <span class="fl">0.39198124</span>,</span>
-<span id="cb14-3"><a href=""></a>sim_cos(<span class="st">'name'</span>, <span class="st">'first_name'</span>): <span class="fl">0.6186802</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>sim_cos(<span class="st">'country'</span>, <span class="st">'location'</span>): <span class="fl">0.63932264</span>,</span>
+<span id="cb17-2"><a href=""></a>sim_cos(<span class="st">'location'</span>, <span class="st">'name'</span>): <span class="fl">0.39198124</span>,</span>
+<span id="cb17-3"><a href=""></a>sim_cos(<span class="st">'name'</span>, <span class="st">'first_name'</span>): <span class="fl">0.6186802</span></span></code></pre></div>
 <p>Example:</p>
 <ul>
 <li><span class="math inline">\(Schema_A = \{`id', `name', `email', `country'\}\)</span></li>
@@ -1233,7 +1423,7 @@ Cluster 3:
 </ul>
 </section>
 
-<section id="end-of-the-case-study" class="title-slide slide level1 center" data-background-color="#121011">
+<section id="end-of-the-case-study-1" class="title-slide slide level1 center" data-background-color="#121011">
 <h1>End of the case study</h1>
 
 </section>
