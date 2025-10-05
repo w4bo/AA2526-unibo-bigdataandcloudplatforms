@@ -1,1 +1,1 @@
-# AA2324-unibo-bigdataandcloudplatforms
+# Big Data and Cloud Platforms
