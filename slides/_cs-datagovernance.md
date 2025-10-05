@@ -182,13 +182,14 @@ What do you think about this solution?
 
 # Step 2: Jaccard Index (Similarity Measures)
 
-|                            |   countries.xlsx |   customers_part1.csv |   customers_part2.csv |   products_a.json |   products_b.json |   sales_part1.csv |
-|:---------------------------|:----------------:|:---------------------:|:---------------------:|:-----------------:|:-----------------:|:-----------------:|
-| <b>countries.xlsx</b>      |              1   |              0.4      |              0.4      |          0        |         0         |          0        |
-| <b>customers_part1.csv</b> |              0.2 |              1        |              1        |          0.2      |         0.153846  |          0        |
-| <b>customers_part2.csv</b> |              0.2 |              1        |              1        |          0.2      |         0.153846  |          0        |
-| <b>products_a.json</b>     |              0   |              0.2      |              0.2      |          1        |         0.625     |          0.3      |
-| <b>products_b.json</b>     |              0   |              0.153846 |              0.153846 |          0.625    |         1         |          0.230769 |
+|                     |   countries.xlsx |   customers_part1.csv |   customers_part2.csv |   products_a.json |   products_b.json |   sales_part1.csv |
+|:--------------------|-----------------:|----------------------:|----------------------:|------------------:|------------------:|------------------:|
+| countries.xlsx      |                1 |                 0     |                 0     |          0        |         0         |         0         |
+| customers_part1.csv |                0 |                 1     |                 1     |          0        |         0         |         0         |
+| customers_part2.csv |                0 |                 1     |                 1     |          0        |         0         |         0         |
+| products_a.json     |                0 |                 0     |                 0     |          1        |         0.625     |         0.1       |
+| products_b.json     |                0 |                 0     |                 0     |          0.625    |         1         |         0.0769231 |
+
 
 ![Agglomerative Clustering](./img/data-gov/cluster_dendrogram.svg)
 
@@ -286,6 +287,18 @@ Fuzzy Matching does not capture **semantic similarity** between column names
 > - $J_{emb}(Schema_A, Schema_B) = \frac{4}{4} = 1.0$
 > :::
 > ::::
+
+# Step 2.alt: Embeddings (Similarity Measures)
+
+|                            |   countries.xlsx |   customers_part1.csv |   customers_part2.csv |   products_a.json |   products_b.json |   sales_part1.csv |
+|:---------------------------|:----------------:|:---------------------:|:---------------------:|:-----------------:|:-----------------:|:-----------------:|
+| <b>countries.xlsx</b>      |              1   |              0.4      |              0.4      |          0        |         0         |          0        |
+| <b>customers_part1.csv</b> |              0.2 |              1        |              1        |          0.2      |         0.153846  |          0        |
+| <b>customers_part2.csv</b> |              0.2 |              1        |              1        |          0.2      |         0.153846  |          0        |
+| <b>products_a.json</b>     |              0   |              0.2      |              0.2      |          1        |         0.625     |          0.3      |
+| <b>products_b.json</b>     |              0   |              0.153846 |              0.153846 |          0.625    |         1         |          0.230769 |
+
+![Agglomerative Clustering](./img/data-gov/cluster_dendrogram-semantic.svg)
 
 # Step 3.alt: Merging
 

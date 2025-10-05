@@ -388,7 +388,7 @@ _Agent_
 
 - A person, a piece of software
 - Takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place
-
+ 
 :::
 ::: {.column width=40%}
  
