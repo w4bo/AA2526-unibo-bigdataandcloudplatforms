@@ -52,20 +52,11 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 
 - Any example?
 
-# Case study: photo gallery
+# <img src="./img/cs.svg" class="title-icon" /> Case study: photo gallery {background-color="#121011"}
 
-:::: {.columns}
-::: {.column width=50%}
+{{< include _cs-photogallery.md >}} 
 
-![Google photos](img/slides7.png)
-
-:::
-::: {.column width=50%}
-
-![Google photos](img/slides8.png)
-
-:::
-::::
+# End of the case study {background-color="#121011"}
 
 # From databases to data platforms
 
@@ -175,7 +166,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 ::: {.column width=50%}
 
 > **Data lakehouse**
-> 
+>
 > Data management architecture that combines the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses, enabling business intelligence (BI) and machine learning (ML) on all data
 
 Key technologies used to implement Data Lakehouses

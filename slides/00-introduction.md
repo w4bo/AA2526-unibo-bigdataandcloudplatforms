@@ -84,6 +84,27 @@ Office hours:
 
 If you need help for coding and labs, *you can ask me and the designed tutor*
 
+# Context
+
+**Data Platforms as the Foundation**  
+
+- Provide *centralized, reliable, and scalable access to enterprise data.  
+- Ensure *data quality, integration, and governance**, which are critical for accurate insights.  
+- Enable *real-time analytics** and advanced *I/ML models** that drive better decision-making.  
+
+**Why It Matters for Decision Support Systems (DSS)**  
+
+- A DSS relies on *timely, consistent, and trustworthy data*.  
+- Without a robust data platform, insights may be *incomplete, delayed, or misleading*.  
+
+**Role of the Data Architect**  
+
+- Designs the *data platform’s structure and flow* to ensure efficiency and scalability.  
+- Defines *data models, standards, and integration strategies* for optimal DSS performance.  
+- Bridges business needs with technical capabilities, ensuring the platform supports *strategic decision-making*.  
+
+**Data platform + skilled data architect** = reliable, actionable, and impactful decision support.
+
 # So far
 
 You have acquainted/practiced with *on-premises* solutions
