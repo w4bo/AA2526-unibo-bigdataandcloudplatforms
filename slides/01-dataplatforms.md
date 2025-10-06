@@ -963,6 +963,12 @@ A **data product** is raw data transformed into a business context
   - *Cataloged*: All data products need to be registered in the knowledge catalog. Data products need to be searchable and discoverable by potential data product consumers and business user
 - Data products themselves are not stored in the knowledge catalog
 
+# <img src="./img/cs.svg" class="title-icon" /> Case study: dat amesh {background-color="#121011"}
+
+Check the seminars from HERA
+
+# End of the case study {background-color="#121011"}
+
 # Data mesh vs data fabric
 
 They are design concepts, not things
