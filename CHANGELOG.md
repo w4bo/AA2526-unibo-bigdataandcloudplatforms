@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.0...1.0.1) (2025-10-05)
+
+### Bug Fixes
+
+* add old seminars ([61b7242](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/61b7242d3bf92a1339d1d38c6410d7b9d8656232))
+
 ## 1.0.0 (2025-10-05)
 
 ### Dependency updates
