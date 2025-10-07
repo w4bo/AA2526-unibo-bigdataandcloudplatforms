@@ -86,6 +86,10 @@ If you need help for coding and labs, *you can ask me and the designed tutor*
 
 # Context
 
+![Overview](img/context.svg)
+
+# Context
+
 **Data Platforms as the Foundation**  
 
 - Provide *centralized, reliable, and scalable* access to enterprise data.  

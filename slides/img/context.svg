@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="464.87292mm"
+   height="196.05624mm"
+   viewBox="0 0 464.87291 196.05624"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
+   sodipodi:docname="context.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.57669925"
+     inkscape:cx="1727.937"
+     inkscape:cy="904.28417"
+     inkscape:window-width="2880"
+     inkscape:window-height="1514"
+     inkscape:window-x="8629"
+     inkscape:window-y="1600"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="clip0">
+      <rect
+         x="1273"
+         y="290"
+         width="432"
+         height="677"
+         id="rect1" />
+    </clipPath>
+    <clipPath
+       id="clip0-9">
+      <rect
+         x="112"
+         y="190"
+         width="1757"
+         height="741"
+         id="rect1-4" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(208.75626,41.010418)">
+    <g
+       clip-path="url(#clip0-9)"
+       transform="matrix(0.26458333,0,0,0.26458333,-238.38959,-91.281251)"
+       id="g22">
+      <rect
+         x="522.5"
+         y="192.5"
+         width="460"
+         height="347"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#da5354"
+         fill-opacity="0.501961"
+         id="rect2" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="36px"
+         transform="translate(585.861,248)"
+         id="text2">Information Systems &amp; <tspan
+   font-size="36px"
+   x="14.71"
+   y="43"
+   id="tspan2">Business Intelligence</tspan></text>
+      <rect
+         x="524.5"
+         y="570.5"
+         width="1096"
+         height="359"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#ec8b34"
+         fill-opacity="0.501961"
+         id="rect3" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="36px"
+         transform="translate(859.044,611)"
+         id="text3">Big Data and Cloud <tspan
+   font-size="36px"
+   x="285.48001"
+   y="0"
+   id="tspan3">Platforms</tspan></text>
+      <rect
+         x="113.5"
+         y="379.5"
+         width="307"
+         height="420"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#4c76a0"
+         fill-opacity="0.501961"
+         id="rect4" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="36px"
+         transform="translate(191.505,450)"
+         id="text4">Databases</text>
+      <path
+         d="m 195.5,518.5 c 0,9.941 32.236,18 72,18 39.764,0 72,-8.059 72,-18 v 155 c 0,9.941 -32.236,18 -72,18 -39.764,0 -72,-8.059 -72,-18 z"
+         fill="#156082"
+         fill-rule="evenodd"
+         id="path4" />
+      <path
+         d="m 195.5,518.5 c 0,-9.941 32.236,-18 72,-18 39.764,0 72,8.059 72,18 0,9.941 -32.236,18 -72,18 -39.764,0 -72,-8.059 -72,-18 z"
+         fill="#73a0b4"
+         fill-rule="evenodd"
+         id="path5" />
+      <path
+         d="m 339.5,518.5 c 0,9.941 -32.236,18 -72,18 -39.764,0 -72,-8.059 -72,-18 0,-9.941 32.236,-18 72,-18 39.764,0 72,8.059 72,18 v 155 c 0,9.941 -32.236,18 -72,18 -39.764,0 -72,-8.059 -72,-18 v -155"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path6" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="26px"
+         transform="translate(213.845,597)"
+         id="text6">Relational<tspan
+   font-size="26px"
+   x="37.650002"
+   y="32"
+   id="tspan6">DB</tspan></text>
+      <path
+         d="m 702.5,710.5 c 0,9.941 32.235,18 72,18 39.765,0 72,-8.059 72,-18 v 155 c 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 z"
+         fill="#156082"
+         fill-rule="evenodd"
+         id="path7" />
+      <path
+         d="m 702.5,710.5 c 0,-9.941 32.235,-18 72,-18 39.765,0 72,8.059 72,18 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 z"
+         fill="#73a0b4"
+         fill-rule="evenodd"
+         id="path8" />
+      <path
+         d="m 846.5,710.5 c 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 0,-9.941 32.235,-18 72,-18 39.765,0 72,8.059 72,18 v 155 c 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 v -155"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path9" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="26px"
+         transform="translate(720.869,805)"
+         id="text9">NoSQL<tspan
+   font-size="26px"
+   x="77"
+   y="0"
+   id="tspan9">DB</tspan></text>
+      <path
+         d="m 1051.5,710.5 c 0,9.941 32.24,18 72,18 39.76,0 72,-8.059 72,-18 v 155 c 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 z"
+         fill="#156082"
+         fill-rule="evenodd"
+         id="path10" />
+      <path
+         d="m 1051.5,710.5 c 0,-9.941 32.24,-18 72,-18 39.76,0 72,8.059 72,18 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 z"
+         fill="#73a0b4"
+         fill-rule="evenodd"
+         id="path11" />
+      <path
+         d="m 1195.5,710.5 c 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 0,-9.941 32.24,-18 72,-18 39.76,0 72,8.059 72,18 v 155 c 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 v -155"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path12" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="26px"
+         transform="translate(1098.05,789)"
+         id="text12">Data<tspan
+   font-size="26px"
+   x="0.89001501"
+   y="32"
+   id="tspan12">Lake</tspan></text>
+      <path
+         d="m 1399.5,710.5 c 0,9.941 32.24,18 72,18 39.76,0 72,-8.059 72,-18 v 155 c 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 z"
+         fill="#156082"
+         fill-rule="evenodd"
+         id="path13" />
+      <path
+         d="m 1399.5,710.5 c 0,-9.941 32.24,-18 72,-18 39.76,0 72,8.059 72,18 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 z"
+         fill="#73a0b4"
+         fill-rule="evenodd"
+         id="path14" />
+      <path
+         d="m 1543.5,710.5 c 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 0,-9.941 32.24,-18 72,-18 39.76,0 72,8.059 72,18 v 155 c 0,9.941 -32.24,18 -72,18 -39.76,0 -72,-8.059 -72,-18 v -155"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path15" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="26px"
+         transform="translate(1446.21,789)"
+         id="text15">Data<tspan
+   font-size="26px"
+   x="-31.360001"
+   y="32"
+   id="tspan15">Lakehouse</tspan></text>
+      <path
+         d="m 680.5,349.5 c 0,9.941 32.235,18 72,18 39.765,0 72,-8.059 72,-18 v 156 c 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 z"
+         fill="#156082"
+         fill-rule="evenodd"
+         id="path16" />
+      <path
+         d="m 680.5,349.5 c 0,-9.941 32.235,-18 72,-18 39.765,0 72,8.059 72,18 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 z"
+         fill="#73a0b4"
+         fill-rule="evenodd"
+         id="path17" />
+      <path
+         d="m 824.5,349.5 c 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 0,-9.941 32.235,-18 72,-18 39.765,0 72,8.059 72,18 v 156 c 0,9.941 -32.235,18 -72,18 -39.765,0 -72,-8.059 -72,-18 v -156"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path18" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="26px"
+         transform="translate(724.396,444)"
+         id="text18">DW<tspan
+   font-size="26px"
+   x="39.07"
+   y="0"
+   id="tspan18">H</tspan></text>
+      <path
+         d="m 388.041,625.584 201.455,104.915 8.813,-16.923 16.22,51.472 -51.472,16.219 8.813,-16.923 -201.455,-104.915 z"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path19" />
+      <path
+         d="m 368.177,516.283 213.225,-78.271 -6.575,-17.912 48.973,22.673 -22.673,48.973 -6.575,-17.912 -213.225,78.271 z"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path20" />
+      <rect
+         x="1673.5"
+         y="191.5"
+         width="194"
+         height="738"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#569b50"
+         fill-opacity="0.501961"
+         id="rect20" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="36px"
+         transform="rotate(90,726.65,1030.65)"
+         id="text20">Data Mining and Machine Learning</text>
+      <path
+         d="M 888.5,768.75 H 971 V 749.5 l 38.5,38.5 -38.5,38.5 v -19.25 h -82.5 z"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path21" />
+      <path
+         d="M 1237.5,768.75 H 1319 V 749.5 l 38.5,38.5 -38.5,38.5 v -19.25 h -81.5 z"
+         stroke="#000000"
+         stroke-width="3"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path22" />
+    </g>
+  </g>
+</svg>
