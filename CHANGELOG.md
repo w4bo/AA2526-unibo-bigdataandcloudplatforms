@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.2...1.0.3) (2025-10-06)
+
+### Bug Fixes
+
+* add cs from hera ([7c4d75f](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/7c4d75f08db98fcae3198ed87c1d5aa7d5bd8a69))
+
 ## [1.0.2](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.1...1.0.2) (2025-10-06)
 
 ### Bug Fixes
