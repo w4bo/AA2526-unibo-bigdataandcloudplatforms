@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.3...1.0.4) (2025-10-07)
+
+### Bug Fixes
+
+* add context slide ([44cd8ba](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/44cd8ba1534115a5872acf69e51768135eb4d030))
+
 ## [1.0.3](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.2...1.0.3) (2025-10-06)
 
 ### Bug Fixes
