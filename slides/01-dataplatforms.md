@@ -225,9 +225,9 @@ Key technologies used to implement Data Lakehouses
 
 > **Data platform**
 >
-> A *centralized* infrastructure that facilitates the ingestion, storage, management, and exploitation of large volumes of heterogeneous data. It provides a collection of *independent* and *well-integrated* services meeting *end-to-end* data needs.
+> A *unified* infrastructure that facilitates the ingestion, storage, management, and exploitation of large volumes of heterogeneous data. It provides a collection of *independent* and *well-integrated* services meeting *end-to-end* data needs.
 >
-> - *Centralized*: is conceptually a single and unified component
+> - *Unified*: is conceptually a data backbone
 > - *Independent*: a service is not coupled with any other
 > - *Well-integrated*: services have interfaces that enable easy and frictionless composition
 > - *End-to-end*: services cover the entire data life cycle
@@ -286,6 +286,179 @@ A *data steward* is a role that ensures that data governance processes are follo
 {{< include _cs-datagovernance.md >}}
 
 # End of the case study {background-color="#121011"}
+
+# Data governance: data profiling
+
+# Data profiling
+
+![Data profiling](https://dataedo-website.s3.amazonaws.com/cartoon/data_analysis_vs_profiling.png?1680006037)
+
+# Data profiling
+
+:::: {.columns}
+::: {.column width=60%}
+
+Data profiling [@naumann2014data]
+
+- A broad range of methods to efficiently analyze a given data set
+- E.g., in a _relational_ scenario, _tables_ of a relational database are _scanned_ to derive _metadata_, such as _data types_, _completeness_ and _uniqueness_ of columns, _keys_ and  _foreign keys_, and occasionally _functional dependencies_ and _association rules_
+
+:::
+::: {.column width=40%}
+
+![Characteristics of data profiling](img/slides19.png)
+
+:::
+::::
+
+# Data profiling: single column (Iris dataset)
+
+Schema and statistics
+
+```
+df.info()
+```
+
+> ```
+> <class 'pandas.core.frame.DataFrame'>
+> RangeIndex: 150 entries, 0 to 149
+> Data columns (total 5 columns):
+>  #   Column             Non-Null Count  Dtype  
+> ---  ------             --------------  -----  
+>  0   sepal length (cm)  150 non-null    float64
+>  1   sepal width (cm)   150 non-null    float64
+>  2   petal length (cm)  150 non-null    float64
+>  3   petal width (cm)   150 non-null    float64
+>  4   species            150 non-null    int64  
+> dtypes: float64(4), int64(1)
+> memory usage: 6.0 KB
+> ```
+
+# Data profiling: single columns (Iris dataset)
+
+Statistics
+
+```
+df.describe()
+```
+
+> |       |   sepal length (cm) |   sepal width (cm) |   petal length (cm) |   petal width (cm) |
+> |:------|--------------------:|-------------------:|--------------------:|-------------------:|
+> | count |          120        |         120        |           120       |         120        |
+> | mean  |            5.80917  |           3.06167  |             3.72667 |           1.18333  |
+> | std   |            0.823805 |           0.449123 |             1.75234 |           0.752289 |
+> | min   |            4.3      |           2        |             1       |           0.1      |
+> | 25%   |            5.1      |           2.8      |             1.5     |           0.3      |
+> | 50%   |            5.75     |           3        |             4.25    |           1.3      |
+> | 75%   |            6.4      |           3.4      |             5.1     |           1.8      |
+> | max   |            7.7      |           4.4      |             6.7     |           2.5      |
+
+# Data profiling: statistic query optimization
+
+:::: {.columns}
+::: {.column width=30%}
+
+> Table `R`
+>
+> | `a` | `b` |
+> |-----|-----|
+> | 10  | 20  |
+> | 20  | 30  |
+> | 30  | 40  |
+>
+> `min(R.a) = 10`
+>
+> `max(R.a) = 30`
+
+No need to access `R.a` because `min(R.a) >= 10`
+
+:::
+::: {.column width=70%}
+
+![[@bruno2002exploiting]](img/executionplan.png)
+
+:::
+::::
+
+# Data profiling: multiple columns (Iris dataset)
+
+```
+df.corr(method='pearson', numeric_only=True)
+```
+
+> |                   |   sepal length (cm) |   sepal width (cm) |   petal length (cm) |   petal width (cm) |
+> |:------------------|--------------------:|-------------------:|--------------------:|-------------------:|
+> | sepal length (cm) |            1        |          -0.106926 |            0.862175 |           0.80148  |
+> | sepal width (cm)  |           -0.106926 |           1        |           -0.432089 |          -0.369509 |
+> | petal length (cm) |            0.862175 |          -0.432089 |            1        |           0.962577 |
+> | petal width (cm)  |            0.80148  |          -0.369509 |            0.962577 |           1        |
+
+# Data profiling
+
+Use cases
+
+- _Query optimization_
+  - Performed by DBMS to support query optimization with statistics about tables and columns
+  - Profiling results can be used to estimate the selectivity of operators and the cost of a query plan
+- _Data cleansing _ (typical use case is profiling data)
+  - Prepare a cleansing process by revealing errors (e.g., in formatting), missing values, or outliers
+- _Data integration and analytics_
+
+Challenges?
+
+# Data profiling
+
+The results of data profiling are _computationally heavy_ to discover
+
+- E.g., discovering keys/dependencies usually involves some sorting step for each considered column
+
+Verification of _constraints on combinations (groups) of columns_ in a database
+
+:::: {.columns}
+::: {.column width=50%}
+
+**Complexity**: how many combinations (groups of columns)?
+
+Given a table with columns $C = \{w, x, y, z\}$
+
+| w | x | y | z |
+|:-: |:-: |:-: |:-: |
+| 1 | 1 | 2 | 2 |
+| 1 | 2 | 1 | 4 |
+
+:::
+::: {.column width=50%}
+
+![Powerset of three columns](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png)
+
+:::
+::::
+
+# Data profiling
+
+:::: {.columns}
+::: {.column width=50%}
+
+Given a table with columns $C = \{w, x, y, z\}$
+
+| w | x | y | z |
+|:-: |:-: |:-: |:-: |
+| 1 | 1 | 2 | 2 |
+| 1 | 2 | 1 | 4 |
+
+:::
+::: {.column width=30%}
+
+![Powerset of three columns](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png)
+
+:::
+::::
+
+- To extract the (distinct) cardinality of each column, I will consider $\binom{|C|}{1}=|C|$ columns $\{(w), (x), (y), (z)\}$
+- To extract the correlations between pairs of columns, I will consider $\binom{|C|}{2}$ groups $\{(w, x), (w, y), (w, z), (x, y), ...\}$
+- Extracting the relationships among all possible groups of columns generalizes to $\sum_{n=1}^{|C|}\binom{|C|}{n}=2^{|C|}−1$ groups
+
+# Data governance: data provenance
 
 # Data provenance
 
@@ -468,6 +641,16 @@ Debugging
 
 And so on...
 
+# <img src="./img/cs.svg" class="title-icon" /> Case study: data provenance {background-color="#121011"}
+
+Check Colab
+
+<a href="https://colab.research.google.com/github/w4bo/AA2526-unibo-bigdataandcloudplatforms/blob/main/slides/lab-01-Metadata.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+# End of the case study {background-color="#121011"}
+
+# Data governance: data versioning
+
 # Data versioning
 
 :::: {.columns}
@@ -492,6 +675,8 @@ However, data pipelines are not only about code but also about
 
 :::
 ::::
+
+# Data governance: data versioning
 
 # Data versioning
 
@@ -518,6 +703,8 @@ For example, on [AWS (PUT, GET, DELETE)](https://docs.aws.amazon.com/AmazonS3/la
 ::::
 
 What about updating?
+
+# Data governance: data compression
 
 # Compression
 
@@ -568,150 +755,7 @@ What about updating?
 :::
 ::::
 
-# Data profiling
-
-:::: {.columns}
-::: {.column width=60%}
-
-Data profiling [@naumann2014data]
-
-- A broad range of methods to efficiently analyze a given data set
-- E.g., in a _relational_ scenario, _tables_ of a relational database are _scanned_ to derive _metadata_, such as _data types_, _completeness_ and _uniqueness_ of columns, _keys_ and  _foreign keys_, and occasionally _functional dependencies_ and _association rules_
-
-:::
-::: {.column width=40%}
-
-![Characteristics of data profiling](img/slides19.png)
-
-:::
-::::
-
-# Data profiling: single column (Iris dataset)
-
-Schema and statistics
-
-```
-df.info()
-```
-
-> ```
-> <class 'pandas.core.frame.DataFrame'>
-> RangeIndex: 150 entries, 0 to 149
-> Data columns (total 5 columns):
->  #   Column             Non-Null Count  Dtype  
-> ---  ------             --------------  -----  
->  0   sepal length (cm)  150 non-null    float64
->  1   sepal width (cm)   150 non-null    float64
->  2   petal length (cm)  150 non-null    float64
->  3   petal width (cm)   150 non-null    float64
->  4   species            150 non-null    int64  
-> dtypes: float64(4), int64(1)
-> memory usage: 6.0 KB
-> ```
-
-# Data profiling: single columns (Iris dataset)
-
-Statistics
-
-```
-df.describe()
-```
-
-> |       |   sepal length (cm) |   sepal width (cm) |   petal length (cm) |   petal width (cm) |
-> |:------|--------------------:|-------------------:|--------------------:|-------------------:|
-> | count |          120        |         120        |           120       |         120        |
-> | mean  |            5.80917  |           3.06167  |             3.72667 |           1.18333  |
-> | std   |            0.823805 |           0.449123 |             1.75234 |           0.752289 |
-> | min   |            4.3      |           2        |             1       |           0.1      |
-> | 25%   |            5.1      |           2.8      |             1.5     |           0.3      |
-> | 50%   |            5.75     |           3        |             4.25    |           1.3      |
-> | 75%   |            6.4      |           3.4      |             5.1     |           1.8      |
-> | max   |            7.7      |           4.4      |             6.7     |           2.5      |
-
-# Data profiling: statistic query optimization
-
-:::: {.columns}
-::: {.column width=30%}
-
-> Table `R`
->
-> | `a` | `b` |
-> |-----|-----|
-> | 10  | 20  |
-> | 20  | 30  |
-> | 30  | 40  |
->
-> `min(R.a) = 10`
->
-> `max(R.a) = 30`
-
-No need to access `R.a` because `min(R.a) >= 10`
-
-:::
-::: {.column width=70%}
-
-![[@bruno2002exploiting]](img/executionplan.png)
-
-:::
-::::
-
-# Data profiling: multiple columns (Iris dataset)
-
-```
-df.corr(method='pearson', numeric_only=True)
-```
-
-> |                   |   sepal length (cm) |   sepal width (cm) |   petal length (cm) |   petal width (cm) |
-> |:------------------|--------------------:|-------------------:|--------------------:|-------------------:|
-> | sepal length (cm) |            1        |          -0.106926 |            0.862175 |           0.80148  |
-> | sepal width (cm)  |           -0.106926 |           1        |           -0.432089 |          -0.369509 |
-> | petal length (cm) |            0.862175 |          -0.432089 |            1        |           0.962577 |
-> | petal width (cm)  |            0.80148  |          -0.369509 |            0.962577 |           1        |
-
-# Data profiling
-
-Use cases
-
-- _Query optimization_
-  - Performed by DBMS to support query optimization with statistics about tables and columns
-  - Profiling results can be used to estimate the selectivity of operators and the cost of a query plan
-- _Data cleansing _ (typical use case is profiling data)
-  - Prepare a cleansing process by revealing errors (e.g., in formatting), missing values, or outliers
-- _Data integration and analytics_
-
-Challenges?
-
-# Data profiling
-
-The results of data profiling are _computationally heavy_ to discover
-
-- E.g., discovering keys/dependencies usually involves some sorting step for each considered column
-
-Verification of _constraints on combinations (groups) of columns_ in a database
-
-:::: {.columns}
-::: {.column width=50%}
-
-**Complexity**: how many combinations (groups of columns)?
-
-Given a table with columns $C = \{w, x, y, z\}$
-
-| w | x | y | z |
-|:-: |:-: |:-: |:-: |
-| 1 | 1 | 2 | 2 |
-| 1 | 2 | 1 | 4 |
-
-:::
-::: {.column width=30%}
-
-![Powerset of three columns](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png)
-
-:::
-::::
-
-- To extract the (distinct) cardinality of each column, I will consider $\binom{|C|}{1}=|C|$ columns $\{(w), (x), (y), (z)\}$
-- To extract the correlations between pairs of columns, I will consider $\binom{|C|}{2}$ groups $\{(w, x), (w, y), (w, z), (x, y), ...\}$
-- Extracting the relationships among all possible groups of columns generalizes to $\sum_{n=1}^{|C|}\binom{|C|}{n}=2^{|C|}−1$ groups
+# Data governance: entity resolution
 
 # Entity resolution
 
@@ -732,6 +776,8 @@ Entity resolution [@papadakis2020blocking]
 
 :::
 ::::
+
+# Data governance: data catalog
 
 # Data catalog
 
@@ -789,6 +835,8 @@ A **domain** is a group of entities sharing knowledge, goals, methods of operati
 
 :::
 ::::
+
+# Data governance: meta-metadata management
 
 # Data platform
 
