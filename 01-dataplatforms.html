@@ -812,9 +812,9 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <h1>Data platform</h1>
 <blockquote>
 <p><strong>Data platform</strong></p>
-<p>A <em>centralized</em> infrastructure that facilitates the ingestion, storage, management, and exploitation of large volumes of heterogeneous data. It provides a collection of <em>independent</em> and <em>well-integrated</em> services meeting <em>end-to-end</em> data needs.</p>
+<p>A <em>unified</em> infrastructure that facilitates the ingestion, storage, management, and exploitation of large volumes of heterogeneous data. It provides a collection of <em>independent</em> and <em>well-integrated</em> services meeting <em>end-to-end</em> data needs.</p>
 <ul>
-<li><em>Centralized</em>: is conceptually a single and unified component</li>
+<li><em>Unified</em>: is conceptually a data backbone</li>
 <li><em>Independent</em>: a service is not coupled with any other</li>
 <li><em>Well-integrated</em>: services have interfaces that enable easy and frictionless composition</li>
 <li><em>End-to-end</em>: services cover the entire data life cycle</li>
@@ -1428,6 +1428,348 @@ Cluster 3:
 
 </section>
 
+<section id="data-governance-data-profiling" class="title-slide slide level1 center">
+<h1>Data governance: data profiling</h1>
+
+</section>
+
+<section id="data-profiling" class="title-slide slide level1 center">
+<h1>Data profiling</h1>
+
+<img data-src="https://dataedo-website.s3.amazonaws.com/cartoon/data_analysis_vs_profiling.png?1680006037" class="r-stretch quarto-figure-center"><p class="caption">Data profiling</p></section>
+
+<section id="data-profiling-1" class="title-slide slide level1 center">
+<h1>Data profiling</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Data profiling <span class="citation" data-cites="naumann2014data">(<a href="#/references" role="doc-biblioref" onclick="">Naumann 2014</a>)</span></p>
+<ul>
+<li>A broad range of methods to efficiently analyze a given data set</li>
+<li>E.g., in a <em>relational</em> scenario, <em>tables</em> of a relational database are <em>scanned</em> to derive <em>metadata</em>, such as <em>data types</em>, <em>completeness</em> and <em>uniqueness</em> of columns, <em>keys</em> and <em>foreign keys</em>, and occasionally <em>functional dependencies</em> and <em>association rules</em></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides19.png"></p>
+<figcaption>Characteristics of data profiling</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="data-profiling-single-column-iris-dataset" class="title-slide slide level1 center">
+<h1>Data profiling: single column (Iris dataset)</h1>
+<p>Schema and statistics</p>
+<pre><code>df.info()</code></pre>
+<blockquote>
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   sepal length (cm)  150 non-null    float64
+ 1   sepal width (cm)   150 non-null    float64
+ 2   petal length (cm)  150 non-null    float64
+ 3   petal width (cm)   150 non-null    float64
+ 4   species            150 non-null    int64  
+dtypes: float64(4), int64(1)
+memory usage: 6.0 KB</code></pre>
+</blockquote>
+</section>
+
+<section id="data-profiling-single-columns-iris-dataset" class="title-slide slide level1 center">
+<h1>Data profiling: single columns (Iris dataset)</h1>
+<p>Statistics</p>
+<pre><code>df.describe()</code></pre>
+<blockquote>
+<table class="caption-top">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 23%">
+<col style="width: 22%">
+<col style="width: 23%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">sepal length (cm)</th>
+<th style="text-align: right;">sepal width (cm)</th>
+<th style="text-align: right;">petal length (cm)</th>
+<th style="text-align: right;">petal width (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">count</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">120</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mean</td>
+<td style="text-align: right;">5.80917</td>
+<td style="text-align: right;">3.06167</td>
+<td style="text-align: right;">3.72667</td>
+<td style="text-align: right;">1.18333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">std</td>
+<td style="text-align: right;">0.823805</td>
+<td style="text-align: right;">0.449123</td>
+<td style="text-align: right;">1.75234</td>
+<td style="text-align: right;">0.752289</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">min</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">25%</td>
+<td style="text-align: right;">5.1</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">50%</td>
+<td style="text-align: right;">5.75</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">75%</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">5.1</td>
+<td style="text-align: right;">1.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">max</td>
+<td style="text-align: right;">7.7</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">6.7</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</section>
+
+<section id="data-profiling-statistic-query-optimization" class="title-slide slide level1 center">
+<h1>Data profiling: statistic query optimization</h1>
+<div class="columns">
+<div class="column" style="width:30%;">
+<blockquote>
+<p>Table <code>R</code></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><code>a</code></th>
+<th><code>b</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><code>min(R.a) = 10</code></p>
+<p><code>max(R.a) = 30</code></p>
+</blockquote>
+<p>No need to access <code>R.a</code> because <code>min(R.a) &gt;= 10</code></p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/executionplan.png"></p>
+<figcaption><span class="citation" data-cites="bruno2002exploiting">(<a href="#/references" role="doc-biblioref" onclick="">Bruno and Chaudhuri 2002</a>)</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="data-profiling-multiple-columns-iris-dataset" class="title-slide slide level1 center">
+<h1>Data profiling: multiple columns (Iris dataset)</h1>
+<pre><code>df.corr(method='pearson', numeric_only=True)</code></pre>
+<blockquote>
+<table class="caption-top">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 20%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">sepal length (cm)</th>
+<th style="text-align: right;">sepal width (cm)</th>
+<th style="text-align: right;">petal length (cm)</th>
+<th style="text-align: right;">petal width (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">sepal length (cm)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.106926</td>
+<td style="text-align: right;">0.862175</td>
+<td style="text-align: right;">0.80148</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sepal width (cm)</td>
+<td style="text-align: right;">-0.106926</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.432089</td>
+<td style="text-align: right;">-0.369509</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">petal length (cm)</td>
+<td style="text-align: right;">0.862175</td>
+<td style="text-align: right;">-0.432089</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.962577</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">petal width (cm)</td>
+<td style="text-align: right;">0.80148</td>
+<td style="text-align: right;">-0.369509</td>
+<td style="text-align: right;">0.962577</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</section>
+
+<section id="data-profiling-2" class="title-slide slide level1 center">
+<h1>Data profiling</h1>
+<p>Use cases</p>
+<ul>
+<li><em>Query optimization</em>
+<ul>
+<li>Performed by DBMS to support query optimization with statistics about tables and columns</li>
+<li>Profiling results can be used to estimate the selectivity of operators and the cost of a query plan</li>
+</ul></li>
+<li><em>Data cleansing </em> (typical use case is profiling data)
+<ul>
+<li>Prepare a cleansing process by revealing errors (e.g., in formatting), missing values, or outliers</li>
+</ul></li>
+<li><em>Data integration and analytics</em></li>
+</ul>
+<p>Challenges?</p>
+</section>
+
+<section id="data-profiling-3" class="title-slide slide level1 center">
+<h1>Data profiling</h1>
+<p>The results of data profiling are <em>computationally heavy</em> to discover</p>
+<ul>
+<li>E.g., discovering keys/dependencies usually involves some sorting step for each considered column</li>
+</ul>
+<p>Verification of <em>constraints on combinations (groups) of columns</em> in a database</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Complexity</strong>: how many combinations (groups of columns)?</p>
+<p>Given a table with columns <span class="math inline">\(C = \{w, x, y, z\}\)</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">w</th>
+<th style="text-align: center;">x</th>
+<th style="text-align: center;">y</th>
+<th style="text-align: center;">z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png"></p>
+<figcaption>Powerset of three columns</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="data-profiling-4" class="title-slide slide level1 center">
+<h1>Data profiling</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Given a table with columns <span class="math inline">\(C = \{w, x, y, z\}\)</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">w</th>
+<th style="text-align: center;">x</th>
+<th style="text-align: center;">y</th>
+<th style="text-align: center;">z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png"></p>
+<figcaption>Powerset of three columns</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>To extract the (distinct) cardinality of each column, I will consider <span class="math inline">\(\binom{|C|}{1}=|C|\)</span> columns <span class="math inline">\(\{(w), (x), (y), (z)\}\)</span></li>
+<li>To extract the correlations between pairs of columns, I will consider <span class="math inline">\(\binom{|C|}{2}\)</span> groups <span class="math inline">\(\{(w, x), (w, y), (w, z), (x, y), ...\}\)</span></li>
+<li>Extracting the relationships among all possible groups of columns generalizes to <span class="math inline">\(\sum_{n=1}^{|C|}\binom{|C|}{n}=2^{|C|}−1\)</span> groups</li>
+</ul>
+</section>
+
+<section id="data-governance-data-provenance" class="title-slide slide level1 center">
+<h1>Data governance: data provenance</h1>
+
+</section>
+
 <section id="data-provenance" class="title-slide slide level1 center">
 <h1>Data provenance</h1>
 <p>Provenance (also referred to as lineage, pedigree, parentage, genealogy)</p>
@@ -1670,6 +2012,22 @@ Cluster 3:
 <p>And so on…</p>
 </section>
 
+<section id="case-study-data-provenance" class="title-slide slide level1 center" data-background-color="#121011">
+<h1><img src="./img/cs.svg" class="title-icon"> Case study: data provenance</h1>
+<p>Check Colab</p>
+<p><a href="https://colab.research.google.com/github/w4bo/AA2526-unibo-bigdataandcloudplatforms/blob/main/slides/lab-01-Metadata.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+</section>
+
+<section id="end-of-the-case-study-2" class="title-slide slide level1 center" data-background-color="#121011">
+<h1>End of the case study</h1>
+
+</section>
+
+<section id="data-governance-data-versioning" class="title-slide slide level1 center">
+<h1>Data governance: data versioning</h1>
+
+</section>
+
 <section id="data-versioning" class="title-slide slide level1 center">
 <h1>Data versioning</h1>
 <div class="columns">
@@ -1694,6 +2052,11 @@ Cluster 3:
 </figure>
 </div>
 </div></div>
+</section>
+
+<section id="data-governance-data-versioning-1" class="title-slide slide level1 center">
+<h1>Data governance: data versioning</h1>
+
 </section>
 
 <section id="data-versioning-1" class="title-slide slide level1 center">
@@ -1724,6 +2087,11 @@ Cluster 3:
 </div>
 </div></div>
 <p>What about updating?</p>
+</section>
+
+<section id="data-governance-data-compression" class="title-slide slide level1 center">
+<h1>Data governance: data compression</h1>
+
 </section>
 
 <section id="compression" class="title-slide slide level1 center">
@@ -1790,292 +2158,9 @@ Cluster 3:
 </div></div>
 </section>
 
-<section id="data-profiling" class="title-slide slide level1 center">
-<h1>Data profiling</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>Data profiling <span class="citation" data-cites="naumann2014data">(<a href="#/references" role="doc-biblioref" onclick="">Naumann 2014</a>)</span></p>
-<ul>
-<li>A broad range of methods to efficiently analyze a given data set</li>
-<li>E.g., in a <em>relational</em> scenario, <em>tables</em> of a relational database are <em>scanned</em> to derive <em>metadata</em>, such as <em>data types</em>, <em>completeness</em> and <em>uniqueness</em> of columns, <em>keys</em> and <em>foreign keys</em>, and occasionally <em>functional dependencies</em> and <em>association rules</em></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides19.png"></p>
-<figcaption>Characteristics of data profiling</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
+<section id="data-governance-entity-resolution" class="title-slide slide level1 center">
+<h1>Data governance: entity resolution</h1>
 
-<section id="data-profiling-single-column-iris-dataset" class="title-slide slide level1 center">
-<h1>Data profiling: single column (Iris dataset)</h1>
-<p>Schema and statistics</p>
-<pre><code>df.info()</code></pre>
-<blockquote>
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 150 entries, 0 to 149
-Data columns (total 5 columns):
- #   Column             Non-Null Count  Dtype  
----  ------             --------------  -----  
- 0   sepal length (cm)  150 non-null    float64
- 1   sepal width (cm)   150 non-null    float64
- 2   petal length (cm)  150 non-null    float64
- 3   petal width (cm)   150 non-null    float64
- 4   species            150 non-null    int64  
-dtypes: float64(4), int64(1)
-memory usage: 6.0 KB</code></pre>
-</blockquote>
-</section>
-
-<section id="data-profiling-single-columns-iris-dataset" class="title-slide slide level1 center">
-<h1>Data profiling: single columns (Iris dataset)</h1>
-<p>Statistics</p>
-<pre><code>df.describe()</code></pre>
-<blockquote>
-<table class="caption-top">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 23%">
-<col style="width: 22%">
-<col style="width: 23%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">sepal length (cm)</th>
-<th style="text-align: right;">sepal width (cm)</th>
-<th style="text-align: right;">petal length (cm)</th>
-<th style="text-align: right;">petal width (cm)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">count</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">120</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mean</td>
-<td style="text-align: right;">5.80917</td>
-<td style="text-align: right;">3.06167</td>
-<td style="text-align: right;">3.72667</td>
-<td style="text-align: right;">1.18333</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">std</td>
-<td style="text-align: right;">0.823805</td>
-<td style="text-align: right;">0.449123</td>
-<td style="text-align: right;">1.75234</td>
-<td style="text-align: right;">0.752289</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">min</td>
-<td style="text-align: right;">4.3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">25%</td>
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">50%</td>
-<td style="text-align: right;">5.75</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4.25</td>
-<td style="text-align: right;">1.3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">75%</td>
-<td style="text-align: right;">6.4</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">1.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">max</td>
-<td style="text-align: right;">7.7</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">6.7</td>
-<td style="text-align: right;">2.5</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-</section>
-
-<section id="data-profiling-statistic-query-optimization" class="title-slide slide level1 center">
-<h1>Data profiling: statistic query optimization</h1>
-<div class="columns">
-<div class="column" style="width:30%;">
-<blockquote>
-<p>Table <code>R</code></p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><code>a</code></th>
-<th><code>b</code></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>10</td>
-<td>20</td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td>30</td>
-</tr>
-<tr class="odd">
-<td>30</td>
-<td>40</td>
-</tr>
-</tbody>
-</table>
-<p><code>min(R.a) = 10</code></p>
-<p><code>max(R.a) = 30</code></p>
-</blockquote>
-<p>No need to access <code>R.a</code> because <code>min(R.a) &gt;= 10</code></p>
-</div><div class="column" style="width:70%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/executionplan.png"></p>
-<figcaption><span class="citation" data-cites="bruno2002exploiting">(<a href="#/references" role="doc-biblioref" onclick="">Bruno and Chaudhuri 2002</a>)</span></figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-
-<section id="data-profiling-multiple-columns-iris-dataset" class="title-slide slide level1 center">
-<h1>Data profiling: multiple columns (Iris dataset)</h1>
-<pre><code>df.corr(method='pearson', numeric_only=True)</code></pre>
-<blockquote>
-<table class="caption-top">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 20%">
-<col style="width: 19%">
-<col style="width: 20%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">sepal length (cm)</th>
-<th style="text-align: right;">sepal width (cm)</th>
-<th style="text-align: right;">petal length (cm)</th>
-<th style="text-align: right;">petal width (cm)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">sepal length (cm)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.106926</td>
-<td style="text-align: right;">0.862175</td>
-<td style="text-align: right;">0.80148</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sepal width (cm)</td>
-<td style="text-align: right;">-0.106926</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.432089</td>
-<td style="text-align: right;">-0.369509</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">petal length (cm)</td>
-<td style="text-align: right;">0.862175</td>
-<td style="text-align: right;">-0.432089</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.962577</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">petal width (cm)</td>
-<td style="text-align: right;">0.80148</td>
-<td style="text-align: right;">-0.369509</td>
-<td style="text-align: right;">0.962577</td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-</section>
-
-<section id="data-profiling-1" class="title-slide slide level1 center">
-<h1>Data profiling</h1>
-<p>Use cases</p>
-<ul>
-<li><em>Query optimization</em>
-<ul>
-<li>Performed by DBMS to support query optimization with statistics about tables and columns</li>
-<li>Profiling results can be used to estimate the selectivity of operators and the cost of a query plan</li>
-</ul></li>
-<li><em>Data cleansing </em> (typical use case is profiling data)
-<ul>
-<li>Prepare a cleansing process by revealing errors (e.g., in formatting), missing values, or outliers</li>
-</ul></li>
-<li><em>Data integration and analytics</em></li>
-</ul>
-<p>Challenges?</p>
-</section>
-
-<section id="data-profiling-2" class="title-slide slide level1 center">
-<h1>Data profiling</h1>
-<p>The results of data profiling are <em>computationally heavy</em> to discover</p>
-<ul>
-<li>E.g., discovering keys/dependencies usually involves some sorting step for each considered column</li>
-</ul>
-<p>Verification of <em>constraints on combinations (groups) of columns</em> in a database</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Complexity</strong>: how many combinations (groups of columns)?</p>
-<p>Given a table with columns <span class="math inline">\(C = \{w, x, y, z\}\)</span></p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;">w</th>
-<th style="text-align: center;">x</th>
-<th style="text-align: center;">y</th>
-<th style="text-align: center;">z</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">4</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width:30%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png"></p>
-<figcaption>Powerset of three columns</figcaption>
-</figure>
-</div>
-</div></div>
-<ul>
-<li>To extract the (distinct) cardinality of each column, I will consider <span class="math inline">\(\binom{|C|}{1}=|C|\)</span> columns <span class="math inline">\(\{(w), (x), (y), (z)\}\)</span></li>
-<li>To extract the correlations between pairs of columns, I will consider <span class="math inline">\(\binom{|C|}{2}\)</span> groups <span class="math inline">\(\{(w, x), (w, y), (w, z), (x, y), ...\}\)</span></li>
-<li>Extracting the relationships among all possible groups of columns generalizes to <span class="math inline">\(\sum_{n=1}^{|C|}\binom{|C|}{n}=2^{|C|}−1\)</span> groups</li>
-</ul>
 </section>
 
 <section id="entity-resolution" class="title-slide slide level1 center">
@@ -2101,6 +2186,11 @@ memory usage: 6.0 KB</code></pre>
 </figure>
 </div>
 </div></div>
+</section>
+
+<section id="data-governance-data-catalog" class="title-slide slide level1 center">
+<h1>Data governance: data catalog</h1>
+
 </section>
 
 <section id="data-catalog" class="title-slide slide level1 center">
@@ -2158,6 +2248,11 @@ memory usage: 6.0 KB</code></pre>
 </figure>
 </div>
 </div></div>
+</section>
+
+<section id="data-governance-meta-metadata-management" class="title-slide slide level1 center">
+<h1>Data governance: meta-metadata management</h1>
+
 </section>
 
 <section id="data-platform-10" class="title-slide slide level1 center">
@@ -2364,7 +2459,7 @@ memory usage: 6.0 KB</code></pre>
 <p>Check the seminars from HERA</p>
 </section>
 
-<section id="end-of-the-case-study-2" class="title-slide slide level1 center" data-background-color="#121011">
+<section id="end-of-the-case-study-3" class="title-slide slide level1 center" data-background-color="#121011">
 <h1>End of the case study</h1>
 
 </section>
