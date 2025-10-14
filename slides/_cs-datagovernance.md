@@ -39,18 +39,20 @@
 
 # Brainstorming: problems
 
-Data lakes collect data from **different sources** (e.g., departments)  
+Data lakes collect data from **different sources** (e.g., departments)
 
 Files may have:
 
-- Different **formats** (CSV, Excel, JSON)  
-- Different **schemas** (column names vary)  
+- Different **formats** (CSV, Excel, JSON)
+- Different **schemas** (column names vary)
 - Duplicated or overlapping concepts
+
+> A (table) **schema** is the blueprint or structure that defines how data is organized (within a table), specifying the names, data types, and constraints (for each column).
 
 Users need to **find and integrate** relevant data but they don't know:
 
-- What is inside each file  
-- Which files describe the **same entities**  
+- What is inside each file
+- Which files describe the **same entities**
 
 ... and more
 
@@ -91,9 +93,15 @@ products_c.json
 product_reviews.csv
 ```
 
+# Step 0: What do we have in the data lake?
+
+Let's keep to simple, and focus only csv, Excel, and JSON files
+
 # Step 1: Schema Extraction
 
-For each file, read the first rows to collect column names  
+In CSV files, the schema is in the header (first row)
+
+- For each file, read the first rows to collect column names
 
 Examples:
 
@@ -106,7 +114,7 @@ customer_id,first_name,email,country,telephone
 ```
 
 ```bash
-head -n1 /home/datalake/data/bronze/department_a/sales/sales_part1.csv 
+head -n1 /home/datalake/data/bronze/department_a/sales/sales_part1.csv
 ```
 
 ```
@@ -117,7 +125,7 @@ What about `.json` and `.xlsx` files?
 
 # Step 1: Schema Extraction
 
-For each file, read the first rows to collect column names  
+For each file, read the first rows to collect column names
 
 Examples:
 
@@ -142,9 +150,9 @@ Problems:
 
 - What about `.json` and `.xlsx` files?
 - Manual integration is:
-    - Time-consuming  
-    - Error-prone  
-    - Not scalable  
+    - Time-consuming
+    - Error-prone
+    - Not scalable
 - Even if we build a Python program (e.g., with Pandas), we have many files to manually analyze
 :::
 
