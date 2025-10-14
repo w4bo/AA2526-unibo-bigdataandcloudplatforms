@@ -1,3 +1,13 @@
+## [1.0.5](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.4...1.0.5) (2025-10-13)
+
+### Dependency updates
+
+* **deps:** update dependency matplotlib to v3.10.7 ([#4](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/4)) ([7777c2f](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/7777c2f69031b9b709b4cfd10b71d89cf4245d77))
+
+### Bug Fixes
+
+* update provenance and profiling ([e260889](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/e260889d5f4eab89f069c0990e74149f26b2c2c4))
+
 ## [1.0.4](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.3...1.0.4) (2025-10-07)
 
 ### Bug Fixes
