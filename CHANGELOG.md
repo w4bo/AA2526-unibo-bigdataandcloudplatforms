@@ -1,3 +1,13 @@
+## [1.0.6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.5...1.0.6) (2025-10-14)
+
+### Bug Fixes
+
+* update case study ([07f799b](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/07f799be8f31f6533748f22f572d0501042e07a7))
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-node action to v6 ([#5](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/5)) ([27b7b02](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/27b7b021f7316f912a17502fff6a7445ed0bc631))
+
 ## [1.0.5](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.4...1.0.5) (2025-10-13)
 
 ### Dependency updates
