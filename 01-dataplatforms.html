@@ -932,16 +932,16 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>Data lakes collect data from <strong>different sources</strong> (e.g., departments)</p>
 <p>Files may have:</p>
 <ul>
-<li>Different <strong>formats</strong> (CSV, Excel, JSON)<br>
-</li>
-<li>Different <strong>schemas</strong> (column names vary)<br>
-</li>
+<li>Different <strong>formats</strong> (CSV, Excel, JSON)</li>
+<li>Different <strong>schemas</strong> (column names vary)</li>
 <li>Duplicated or overlapping concepts</li>
 </ul>
+<blockquote>
+<p>A (table) <strong>schema</strong> is the blueprint or structure that defines how data is organized (within a table), specifying the names, data types, and constraints (for each column).</p>
+</blockquote>
 <p>Users need to <strong>find and integrate</strong> relevant data but they don’t know:</p>
 <ul>
-<li>What is inside each file<br>
-</li>
+<li>What is inside each file</li>
 <li>Which files describe the <strong>same entities</strong></li>
 </ul>
 <p>… and more</p>
@@ -983,13 +983,21 @@ products_c.json
 product_reviews.csv</code></pre>
 </section>
 
+<section id="step-0-what-do-we-have-in-the-data-lake-1" class="title-slide slide level1 center">
+<h1>Step 0: What do we have in the data lake?</h1>
+<p>Let’s keep to simple, and focus only csv, Excel, and JSON files</p>
+</section>
+
 <section id="step-1-schema-extraction" class="title-slide slide level1 center">
 <h1>Step 1: Schema Extraction</h1>
-<p>For each file, read the first rows to collect column names</p>
+<p>In CSV files, the schema is in the header (first row)</p>
+<ul>
+<li>For each file, read the first rows to collect column names</li>
+</ul>
 <p>Examples:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb7-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/customers/customers_part1.csv</span></code></pre></div>
 <pre><code>customer_id,first_name,email,country,telephone</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb9-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/sales/sales_part1.csv </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines"><code class="sourceCode bash"><span id="cb9-1"><a href=""></a><span class="fu">head</span> <span class="at">-n1</span> /home/datalake/data/bronze/department_a/sales/sales_part1.csv</span></code></pre></div>
 <pre><code>order_key,cust_id,product_id,quantity,date,amount_usd</code></pre>
 <p>What about <code>.json</code> and <code>.xlsx</code> files?</p>
 </section>
@@ -1008,12 +1016,9 @@ product_reviews.csv</code></pre>
 <li>What about <code>.json</code> and <code>.xlsx</code> files?</li>
 <li>Manual integration is:
 <ul>
-<li>Time-consuming<br>
-</li>
-<li>Error-prone<br>
-</li>
-<li>Not scalable<br>
-</li>
+<li>Time-consuming</li>
+<li>Error-prone</li>
+<li>Not scalable</li>
 </ul></li>
 <li>Even if we build a Python program (e.g., with Pandas), we have many files to manually analyze</li>
 </ul>
