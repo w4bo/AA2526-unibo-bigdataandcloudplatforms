@@ -21,7 +21,7 @@ format:
     reference-location: document
     footnotes-hover: true
     scrollable: false
-    width: 1100
+    width: 1280
     echo: true
     code-fold: show
     code-copy: false
@@ -32,7 +32,7 @@ format:
 
   pptx:
     reference-doc: slides.pptx
-  
+
   html:
     code-line-numbers: true
     code-fold: show
