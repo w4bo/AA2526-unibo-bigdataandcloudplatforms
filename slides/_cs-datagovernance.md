@@ -293,7 +293,7 @@ See the [demo](https://www.cs.cmu.edu/~dst/WordEmbeddingDemo/)
 > Example:
 >
 > - $Schema_A = \{`id', `name', `email', `country'\}$
-> - $Schema_B = \{`id', `first_name', `mail', `location'\}$
+> - $Schema_B = \{`id', `first\_name', `mail', `location'\}$
 > - $|Schema_A \cap Schema_B| = |\{`id', `email', `name', `country'\}| = 4$
 > - $|Schema_A \cup Schema_B| = |\{`id', `email', `name', `country'\}| = 4$
 > - $J_{emb}(Schema_A, Schema_B) = \frac{4}{4} = 1.0$
