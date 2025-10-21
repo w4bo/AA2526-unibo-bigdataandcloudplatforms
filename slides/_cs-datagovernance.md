@@ -205,7 +205,7 @@ What do you think about this solution?
 
 Capture **spelling variations** in column names
 
-- String similarity based on **edit distance**  
+- String similarity based on **edit distance**
 - Two attributes are match if they differ by a few characters (i.e., if their similarity is above a threshold $\alpha$)
     -  Example metric: **Levenshtein distance**
 
@@ -260,7 +260,11 @@ Concatenate into a **single governed dataset**
 Fuzzy Matching does not capture **semantic similarity** between column names
 
 - We can use *transformers* to represent words as vectors  
-- Capturing *semantic meaning*, not just spelling  
+- Capturing *semantic meaning*, not just spelling
+
+See the [demo](https://www.cs.cmu.edu/~dst/WordEmbeddingDemo/)
+
+# Step 2.alt: Embeddings (Similarity Measures)
 
 > ::::{.columns}
 > :::{.column width="50%"}

@@ -344,7 +344,7 @@ df.describe()
 
 > |       |   sepal length (cm) |   sepal width (cm) |   petal length (cm) |   petal width (cm) |
 > |:------|--------------------:|-------------------:|--------------------:|-------------------:|
-> | count |          120        |         120        |           120       |         120        |
+> | count |          150        |         150        |           150       |         150        |
 > | mean  |            5.80917  |           3.06167  |             3.72667 |           1.18333  |
 > | std   |            0.823805 |           0.449123 |             1.75234 |           0.752289 |
 > | min   |            4.3      |           2        |             1       |           0.1      |
@@ -352,6 +352,82 @@ df.describe()
 > | 50%   |            5.75     |           3        |             4.25    |           1.3      |
 > | 75%   |            6.4      |           3.4      |             5.1     |           1.8      |
 > | max   |            7.7      |           4.4      |             6.7     |           2.5      |
+
+How much metadata are we producing?
+
+:::{.fragment}
+- 8 statistics × 4 columns = 32 metadata values
+- The dataset contains 150 rows
+- Metadata-to-data ratio: $\frac{32}{150} ≈ 21.3\%$
+:::
+
+# Data profiling: multiple columns (Iris dataset)
+
+```
+df.corr(method='pearson', numeric_only=True)
+```
+
+> |                   |   sepal length (cm) |   sepal width (cm) |   petal length (cm) |   petal width (cm) |
+> |:------------------|--------------------:|-------------------:|--------------------:|-------------------:|
+> | sepal length (cm) |            1        |          -0.106926 |            0.862175 |           0.80148  |
+> | sepal width (cm)  |           -0.106926 |           1        |           -0.432089 |          -0.369509 |
+> | petal length (cm) |            0.862175 |          -0.432089 |            1        |           0.962577 |
+> | petal width (cm)  |            0.80148  |          -0.369509 |            0.962577 |           1        |
+
+# Data profiling
+
+The results of data profiling are _computationally heavy_ to discover
+
+- E.g., discovering keys/dependencies usually involves some sorting step for each considered column
+
+... and we need to verify them _for groups of columns_ in a database
+
+**Complexity**: given a table with four columns $\{w, x, y, z\}$, how many groups of columns?
+
+
+| w | x | y | z |
+|:-: |:-: |:-: |:-: |
+| 1 | 1 | 2 | 2 |
+| 1 | 2 | 1 | 4 |
+
+# Data profiling
+
+:::: {.columns}
+::: {.column width=50%}
+
+Given a table with four columns $\{w, x, y, z\}$
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+| w | x | y | z |
+|:-: |:-: |:-: |:-: |
+| 1 | 1 | 2 | 2 |
+| 1 | 2 | 1 | 4 |
+</div>
+
+:::
+::: {.column width=50%}
+
+![Powerset of four columns](img/lattice.svg)
+
+:::
+::::
+
+- To extract the (distinct) cardinality of each column, I will consider $\binom{|C|}{1}=|C|$ columns $\{(w), (x), (y), (z)\}$
+- To extract the correlations between pairs of columns, I will consider $\binom{|C|}{2}$ groups $\{(w, x), (w, y), (w, z), (x, y), ...\}$
+- Extracting the relationships among all possible groups of columns generalizes to $\sum_{n=1}^{|C|}\binom{|C|}{n}=2^{|C|}−1$ groups
+    - 3 columns → 7 groups, 4 columns → 15 groups, 5 columns → 31 groups, 10 columns → 1023 groups, ...
+
+# Data profiling
+
+Use cases
+
+- _Query optimization_
+  - Performed by DBMS to support query optimization with statistics about tables and columns
+  - Profiling results can be used to estimate the selectivity of operators and the cost of a query plan
+- _Data cleansing_ (typical use case is profiling data)
+  - Prepare a cleansing process by revealing errors (e.g., in formatting), missing values, or outliers
+- _Data integration and analytics_
+
 
 # Data profiling: statistic query optimization
 
@@ -380,101 +456,26 @@ No need to access `R.a` because `min(R.a) >= 10`
 :::
 ::::
 
-# Data profiling: multiple columns (Iris dataset)
-
-```
-df.corr(method='pearson', numeric_only=True)
-```
-
-> |                   |   sepal length (cm) |   sepal width (cm) |   petal length (cm) |   petal width (cm) |
-> |:------------------|--------------------:|-------------------:|--------------------:|-------------------:|
-> | sepal length (cm) |            1        |          -0.106926 |            0.862175 |           0.80148  |
-> | sepal width (cm)  |           -0.106926 |           1        |           -0.432089 |          -0.369509 |
-> | petal length (cm) |            0.862175 |          -0.432089 |            1        |           0.962577 |
-> | petal width (cm)  |            0.80148  |          -0.369509 |            0.962577 |           1        |
-
-# Data profiling
-
-Use cases
-
-- _Query optimization_
-  - Performed by DBMS to support query optimization with statistics about tables and columns
-  - Profiling results can be used to estimate the selectivity of operators and the cost of a query plan
-- _Data cleansing _ (typical use case is profiling data)
-  - Prepare a cleansing process by revealing errors (e.g., in formatting), missing values, or outliers
-- _Data integration and analytics_
-
-Challenges?
-
-# Data profiling
-
-The results of data profiling are _computationally heavy_ to discover
-
-- E.g., discovering keys/dependencies usually involves some sorting step for each considered column
-
-Verification of _constraints on combinations (groups) of columns_ in a database
-
-:::: {.columns}
-::: {.column width=50%}
-
-**Complexity**: how many combinations (groups of columns)?
-
-Given a table with columns $C = \{w, x, y, z\}$
-
-| w | x | y | z |
-|:-: |:-: |:-: |:-: |
-| 1 | 1 | 2 | 2 |
-| 1 | 2 | 1 | 4 |
-
-:::
-::: {.column width=50%}
-
-![Powerset of three columns](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png)
-
-:::
-::::
-
-# Data profiling
-
-:::: {.columns}
-::: {.column width=50%}
-
-Given a table with columns $C = \{w, x, y, z\}$
-
-| w | x | y | z |
-|:-: |:-: |:-: |:-: |
-| 1 | 1 | 2 | 2 |
-| 1 | 2 | 1 | 4 |
-
-:::
-::: {.column width=30%}
-
-![Powerset of three columns](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/1280px-Hasse_diagram_of_powerset_of_3.svg.png)
-
-:::
-::::
-
-- To extract the (distinct) cardinality of each column, I will consider $\binom{|C|}{1}=|C|$ columns $\{(w), (x), (y), (z)\}$
-- To extract the correlations between pairs of columns, I will consider $\binom{|C|}{2}$ groups $\{(w, x), (w, y), (w, z), (x, y), ...\}$
-- Extracting the relationships among all possible groups of columns generalizes to $\sum_{n=1}^{|C|}\binom{|C|}{n}=2^{|C|}−1$ groups
 
 # Data governance: data provenance
 
 # Data provenance
 
-Provenance (also referred to as lineage, pedigree, parentage, genealogy)
+> **Provenance** (also referred to as lineage, pedigree, parentage, genealogy)
+> 
+> - The description of the origins of data and the process by which it arrived at the database
+> - Not only data products (e.g., tables, files), but also the processes that created them
 
-- The description of the origins of data and the process by which it arrived at the database
-- Not only data products (e.g., tables, files), but also the processes that created them
-
+:::{.fragment}
 Examples of use cases [@simmhan2005survey]
 
 - Business domain.
   - Users traditionally work with an _organized data schema_, where the structure and _semantics of the data in use are shared_ across the corporation or even B2B. Yet, a large proportion of businesses deal with _bad-quality data_. _Sources_ of bad data _need to be identified_ and corrected to avoid costly errors in business forecasting.
 - Scientific/research domain.
   - _Data_ used in the scientific field can be _ad hoc_ and driven by _individual researchers_ or small communities. The scientific field is moving _towards more collaborative research_ and organizational boundaries are disappearing. _Sharing data and metadata across organizations is essential_, leading to convergence on common schemes to ensure compatibility. Issues of _trust_, _quality_, and _copyright_ of data are significant when using third-party data in such a loosely connected network.
+:::
 
-# Data provenance
+# Data provenance: astronomers 
 
 :::: {.columns}
 ::: {.column width=60%}
@@ -497,44 +498,9 @@ Astronomers are creating an international Virtual Observatory
 
 [https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy](https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy) (accessed 2022-08-01)
 
-# Data provenance 
-
-![Characteristics of data provenance [@simmhan2005survey]](img/slides15.png)
-
 # Data provenance
 
-Granularity [@simmhan2005survey]
-
-- _Fine-grained_ (instance level): tracking data items (e.g., a tuple in a dataset) transformations
-- _Coarse-grained_ (schema-level): tracking dataset transformations
-
-Queries [@ikeda2009data]
-
-- _Where_ provenance: given some output, which inputs did the output come from?
-- _How_ provenance: given some output, how were the inputs manipulated?
-- _Why_ provenance: given some output, why was data generated?
-  - E.g., in the form of a proof tree that locates source data items contributing to its creation
-
-# Data provenance
-
-:::: {.columns}
-::: {.column width=60%}
-
-Data provenance, an example of data management
-
-- Metadata pertaining to the history of a data item
-- Pipeline including the origin of objects & operations they are subjected to
-- We have a standard: [PROV-DM](https://www.w3.org/TR/prov-dm/)
-
-:::
-::: {.column width=40%}
-
-![Example of PROV](img/slides16.png)
-
-:::
-::::
-
-# Data provenance
+Provenance is a graph, for which we have a standard: [PROV-DM](https://www.w3.org/TR/prov-dm/)
 
 :::: {.columns}
 ::: {.column width=60%}
@@ -552,10 +518,10 @@ _Agent_
 
 - A person, a piece of software
 - Takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place
- 
+
 :::
 ::: {.column width=40%}
- 
+
 ![PROV standard](img/slides17.png)
 
 :::
@@ -563,9 +529,20 @@ _Agent_
 
 [https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/](https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/)
 
+# Data provenance 
+
+![Characteristics of data provenance [@simmhan2005survey]](img/slides15.png)
+
+# Data provenance
+
+Granularity [@simmhan2005survey]
+
+- _Fine-grained_ (instance level): tracking data items (e.g., a tuple in a dataset) transformations
+- _Coarse-grained_ (schema-level): tracking dataset transformations
+
 # Data provenance: fine grained vs coarse grained
 
-How would you represent this table update?
+How would you document this table update?
  
 > :::: {.columns}
 > ::: {.column width=50%}
@@ -625,21 +602,26 @@ How would you represent this table update?
 
 # Data provenance
 
+Queries [@ikeda2009data]
+
+- _Where_ provenance: given some output, which inputs did the output come from?
+- _How_ provenance: given some output, how were the inputs manipulated?
+- _Why_ provenance: given some output, why was data generated?
+  - E.g., in the form of a proof tree that locates source data items contributing to its creation
+
+![Fine grained](img/finegrained.svg)
+
+# Data provenance
+
 Use cases for data provenance
 
 - Accountability and auditing
-
-Data quality
-
-- Monitoring of the quality (e.g., accuracy) of the objects produced
-- Notify when a transformation pipeline is not behaving as expected
-
-Debugging
-
-- Inferring the cause of pipeline failures is challenging
-- Store inputs of each operation with versions and environmental settings (RAM, CPUs, etc.)
-
-And so on...
+- Data quality
+    - Monitoring of the quality (e.g., accuracy) of the objects produced
+    - Notify when a transformation pipeline is not behaving as expected
+- Debugging
+    - Inferring the cause of pipeline failures is challenging
+    - Store inputs of each operation with versions and environmental settings (RAM, CPUs, etc.)
 
 # <img src="./img/cs.svg" class="title-icon" /> Case study: data provenance {background-color="#121011"}
 
@@ -836,6 +818,12 @@ A **domain** is a group of entities sharing knowledge, goals, methods of operati
 :::
 ::::
 
+# <img src="./img/cs.svg" class="title-icon" /> Case study: data catalog {background-color="#121011"}
+
+[Link to the DataHub catalog](http://localhost:9002/)
+
+# End of the case study {background-color="#121011"}
+
 # Data governance: meta-metadata management
 
 # Data platform
@@ -850,14 +838,14 @@ We need meta meta-data (or models)...
 
 Data management is still a (research) issue in data platforms
 
-# Data platform
+# Data platform {visibility="hidden"}
 
 **Is it a Lakehouse with another name?**
 
 - A Lakehouse is a part of the data platform, a layer that enables to query multiple data sources (with SQL/Spark) transparently by using some metadata (JSON) log
 - Still, you could get a data platform where such transparency is not mandatory or could be achieved by different techniques (e.g., multistore [@forresi2021dataspace])
 
-# Data platform
+# Data platform {visibility="hidden"}
 
 **Is it a new name for BI?**
 
@@ -891,14 +879,15 @@ It is a unified architecture with an integrated set of technologies and services
 
 # Data fabric
 
-- *Catalog all your data*: including business glossary and design-time and runtime metadata
-- *Enable self-service capabilities*: data discovery, profiling, exploration, quality assessment, consumption of data-as-a-product
-- *Provide a knowledge graph*: Visualizing how data, people, processes, systems, etc. are interconnected, deriving additional actionable insight
-- *Provide intelligent (smart) information integration*: Supporting IT staff and business users alike in their data integration and transformation, data virtualization, and federation tasks
-- *Derive insight from metadata*: Orchestrating and automating tasks and jobs for data integration, data engineering, and data governance end-to-end
-- *Enforce local and global data rules/policies*: Including AI/ML-based automated generation, adjustments, and enforcement of rules and policies
-- *Manage an end-to-end unified lifecycle*: Implementing a coherent and consistent lifecycle end to end of all Data Fabric tasks across various platforms, personas, and organizations
-- *Enforce data and AI governance*: Broadening the scope of traditional data governance to include AI artifacts, for example, AI models, pipelines
+* *Catalog all data*: Cover business glossary, design-time, and runtime metadata.
+* *Enable self-service*: Support data discovery, profiling, exploration, quality checks, and consumption.
+* *Provide a knowledge graph*: Visualize links among data, people, processes, and systems for actionable insight.
+* *Deliver smart integration*: Help IT and business users with data integration, transformation, virtualization, and federation.
+* *Extract insight from metadata*: Automate and orchestrate integration, engineering, and governance workflows.
+* *Enforce data policies*: Use AI/ML to auto-generate, adjust, and apply local and global rules.
+* *Manage unified lifecycle*: Maintain a consistent end-to-end Data Fabric lifecycle across platforms and teams.
+* *Govern data and AI*: Extend governance to AI models, pipelines, and other artifacts.
+
 
 # Data fabric: is this brand new?
 
@@ -929,16 +918,16 @@ It is a unified architecture with an integrated set of technologies and services
 :::: {.columns}
 ::: {.column width=55%}
 
-**Active metadata** is a way of managing metadata that leverages open APIs to connect all services in your data platform and ferry metadata back and forth.
+**Active metadata** is a way of managing metadata that leverages open APIs to connect all services in your data platform.
 
 *Active metadata is always on*
 
-- Automatically and continually collect metadata from various sources and steps of data flow — logs, query history, usage statistics.
+- Automatically and continually collect metadata from various sources and data flows — logs, query history, usage statistics.
 
-*Active metadata is "intelligent"*: 
+*Active metadata is "intelligent"*:
 
 - Constantly process metadata to connect the dots and create intelligence from it.
-- E.g., auto-classify sensitive data, automatic suggestions to document a data asset's description, send alerts about critical issues.
+- E.g., auto-classify sensitive data, automatic suggestions to document a data asset's description.
 
 *Active metadata is action-oriented*
 
@@ -946,7 +935,7 @@ It is a unified architecture with an integrated set of technologies and services
 
 *Active metadata is open by default*
 
-- Active metadata use APIs to hook into every piece of the data platform.
+- Use APIs to hook into every piece of the data platform.
 
 :::
 ::: {.column width=45%}
@@ -956,12 +945,11 @@ It is a unified architecture with an integrated set of technologies and services
 :::
 ::::
 
-
 [Gartner (2021). Data fabric is key to modernizing data management](https://www.gartner.com/smarterwithgartner/data-fabric-architecture-is-key-to-modernizing-data-management-and-integration)
 
 # Data mesh
 
-Distributed data architecture, under centralized governance and standardization for interoperability, enabled by a shared and harmonized self-serve data infrastructure
+Distributed data architecture under centralized governance and standardization for interoperability, enabled by a shared and harmonized self-serve data infrastructure
 
 - *Domain-oriented decentralized data ownership*
   - Decentralization and distribution of responsibility to people who are closest to the data, in order to support continuous change and scalability
@@ -1001,14 +989,14 @@ Data Mesh organizes data around **business domain owners** and transforms releva
 
 A **data product** is raw data transformed into a business context
 
-- Data products are registered in **knowledge catalog ** through specifications (XML, JSON, etc.)
-- Main features
+- Data products are registered in **knowledge catalog** through specifications (XML, JSON, etc.)
+- Data products need to be searchable and discoverable by potential data product consumers and business user
   - *Data product description*: The data product needs to be well-described
   - *Access methods*: for example, REST APIs, SQL, NoSQL, etc., and where to find the data asset
   - *Policies and rules*: who is allowed to consume the data product for what purpose
   - *SLAs*: agreements regarding the data product availability, performance characteristics, functions, cost of data product usage
   - *Defined format*: A data product needs to be described using a defined format
-  - *Cataloged*: All data products need to be registered in the knowledge catalog. Data products need to be searchable and discoverable by potential data product consumers and business user
+  - *Cataloged*: All data products need to be registered in the knowledge catalog.
 - Data products themselves are not stored in the knowledge catalog
 
 # <img src="./img/cs.svg" class="title-icon" /> Case study: data mesh {background-color="#121011"}
@@ -1067,6 +1055,23 @@ Take away:
 :::: {.columns}
 ::: {.column width=50%}
 
+![2024](img/hypecycle-dm-2024.png)
+
+:::
+::: {.column width=50%}
+
+![2025](img/hypecycle-dm-2025.png)
+
+:::
+::::
+
+As new technologies and solutions mature to support a centralized approach to data access, distributed approaches like Data Mesh are expected to fall increasingly out of favor in enterprise IT.
+
+# Data mesh
+
+:::: {.columns}
+::: {.column width=50%}
+
 ![2023](img/hypecycle-dm-2023.png)
 
 :::
@@ -1078,6 +1083,10 @@ Take away:
 ::::
 
 As new technologies and solutions mature to support a centralized approach to data access, distributed approaches like Data Mesh are expected to fall increasingly out of favor in enterprise IT.
+
+# Wooclap (examples of exam questions)
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen src="https://app.wooclap.com/LKDKIY/questionnaires/670e89be981e282b0b69ee7c" style="min-height: 550px; min-width: 300px" width="100%"></iframe>
 
 # (Some) References
 
@@ -1159,10 +1168,6 @@ Functional architecture
 
 :::
 ::::
-
-# Wooclap
-
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen src="https://app.wooclap.com/LKDKIY/questionnaires/670e89be981e282b0b69ee7c" style="min-height: 550px; min-width: 300px" width="100%"></iframe>
 
 # Data platform: expertise and related job positions
 
