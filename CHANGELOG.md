@@ -1,3 +1,15 @@
+## [1.0.7](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.6...1.0.7) (2025-10-21)
+
+### Dependency updates
+
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.148 ([#6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/6)) ([506996a](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/506996a3df6f1479f66745852712cefd44dd2d3e))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.149 ([#7](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/7)) ([c2226ae](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/c2226ae0e6dc291af3f5b64b939a14d63b81d007))
+
+### Bug Fixes
+
+* slide format ([97432f6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/97432f6d900503816b73d8c12a6bd47a374b64e4))
+* updating data governance slides ([ac74990](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/ac74990688ce5abc73aeff7b55f41f43b638433d))
+
 ## [1.0.6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.5...1.0.6) (2025-10-14)
 
 ### Bug Fixes
