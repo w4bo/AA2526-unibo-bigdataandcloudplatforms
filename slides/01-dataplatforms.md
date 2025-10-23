@@ -11,7 +11,7 @@ subtitle: Towards data platforms
 
 **Analytics**
 
-- A catch-all term for different business intelligence (BI)- and application-related initiatives
+- A catch-all term for different business intelligence (BI) and application-related initiatives
   - E.g., analyzing information from a particular domain
   - E.g., applying BI capabilities to a specific content area (e.g., sales, service, supply chain)
 
@@ -31,7 +31,7 @@ subtitle: Towards data platforms
 
 # Data platform
 
-Companies are collecting tons of data to enable advanced analytics
+Companies are collecting tons of data to enable advanced analytics.
 
 - Raw data is difficult to obtain, interpret, and maintain
 - Data is more and more heterogeneous
@@ -67,7 +67,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 
 > **Database** [@ozsu2018]
 >
-> "A database is a _structured and persistent collection_ of information about some aspect of the real world organized and stored in a way that facilitates efficient retrieval and modification. The structure of a database is determined by an _abstract data model_. Primarily, it is this structure that differentiates a database from a data file."
+> "A database is a _structured and persistent collection_ of information about some aspect of the real world, organized and stored in a way that facilitates efficient retrieval and modification. The structure of a database is determined by an _abstract data model_. Primarily, it is this structure that differentiates a database from a data file."
 
 :::
 ::: {.column width=50%}
@@ -115,7 +115,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 
 > **Schemaless databases**
 >
-> There is no predefined schema the data must conform to before it's added to the database.
+> There is no predefined schema that the data must conform to before it's added to the database.
 > As a result, you don't need to know the structure of your data, enabling you to store all your data more easily and quickly.
 
 :::
@@ -133,7 +133,7 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 
 > **Data lake** [@couto2019mapping]
 >
-> "A DL is a _central repository_ system for _storage, processing, and analysis of raw data_, in which the data is kept in its _original format and is processed to be queried only when needed_. It can _store a varied amount of formats_ in big data ecosystems, from unstructured, semi-structured, to structured data sources"
+> "A DL is a _central repository_ system for _storage, processing, and analysis of raw data_, in which the data is kept in its _original format and is processed to be queried only when needed_. It can _store a varied amount of formats_ in big data ecosystems, from unstructured, semi-structured, to structured data sources."
 
 :::
 ::: {.column width=50%}
@@ -195,20 +195,20 @@ Key technologies used to implement Data Lakehouses
 
 |  | Data warehouse | Data lake | Data lakehouse |
 |:-: |:-: |:-: |:-: |
-| *Data format*       | Closed, proprietary format | Open format (e.g., Parquet) | Open format |
-| *Types of data*     | Structured data, with limited support for semi-structured data | All types: Structured data, semi-structured data, textual data, unstructured (raw) data | All types: Structured data, semi-structured data, textual data, unstructured (raw) data |
-| *Data access*       | SQL-only, no direct access to file | Open APIs for direct access to files with SQL, R, Python, and other languages | Open APIs for direct access to files with SQL, R, Python, and other languages |
-| *Reliability*       | High quality, reliable data with ACID transactions | Low quality, data swamp | High quality, reliable data with ACID transactions |
+| *Data format* | Closed, proprietary format | Open format (e.g., Parquet) | Open format |
+| *Types of data* | Structured data, with limited support for semi-structured data | All types: Structured data, semi-structured data, textual data, unstructured (raw) data | All types: Structured data, semi-structured data, textual data, unstructured (raw) data |
+| *Data access* | SQL-only, no direct access to file | Open APIs for direct access to files with SQL, R, Python, and other languages | Open APIs for direct access to files with SQL, R, Python, and other languages |
+| *Reliability* | High quality, reliable data with ACID transactions | Low quality, data swamp | High quality, reliable data with ACID transactions |
 | *Governance and security* | Fine-grained security and governance for row/columnar level for tables | Poor governance as security needs to be applied to files | Fine-grained security and governance for row/columnar level for tables |
-| *Performance*       | High | Low | High |
-| *Scalability*       | Scaling becomes exponentially more expensive | Scales to hold any amount of data at low cost, regardless of type | Scales to hold any amount of data at low cost, regardless of type |
-| *Use case support*  | Limited to BI, SQL applications and decision support | Limited to machine learning | One data architecture for BI, SQL and machine learning |
+| *Performance* | High | Low | High |
+| *Scalability* | Scaling becomes exponentially more expensive | Scales to hold any amount of data at low cost, regardless of type | Scales to hold any amount of data at low cost, regardless of type |
+| *Use case support* | Limited to BI, SQL applications and decision support | Limited to machine learning | One data architecture for BI, SQL and machine learning |
 
 # Data platform
 
 *Data lakes (or lakehouses)* have increasingly taken the role of *data hubs*
 
-- Eliminate up-front costs of ingestion and ETL since data are stored in original format
+- Eliminate up-front costs of ingestion and ETL since data are stored in the original format
 - Once in DL, data are available for analysis by everyone in the organization
 
 *Drawing a sharp line between storage/computation/analysis is hard*
@@ -234,7 +234,7 @@ Key technologies used to implement Data Lakehouses
 
 Rationale: relieve users from the complexity of administration and provision
 
-- Not only technological skills but also privacy, access control, etc.
+- Not only technological skills, but also privacy, access control, etc.
 - Users should only focus on functional aspects
 
 # Data platform
@@ -243,7 +243,7 @@ Are we done? No!
 
 - Lacking smart support to govern the complexity of data and transformations
 - Data transformations must be governed to prevent DP from turning into a swamp
-  - Amplified in data science, with data scientists prevailing data architects
+  - Amplified in data science, with data scientists prevailing over data architects
   - Leverage descriptive metadata and maintenance to keep control over data
 
 # Which functionalities for (automated) data management can you think about?
@@ -323,13 +323,13 @@ df.info()
 > <class 'pandas.core.frame.DataFrame'>
 > RangeIndex: 150 entries, 0 to 149
 > Data columns (total 5 columns):
->  #   Column             Non-Null Count  Dtype  
+> #   Column             Non-Null Count  Dtype  
 > ---  ------             --------------  -----  
->  0   sepal length (cm)  150 non-null    float64
->  1   sepal width (cm)   150 non-null    float64
->  2   petal length (cm)  150 non-null    float64
->  3   petal width (cm)   150 non-null    float64
->  4   species            150 non-null    int64  
+> 0   sepal length (cm)  150 non-null    float64
+> 1   sepal width (cm)   150 non-null    float64
+> 2   petal length (cm)  150 non-null    float64
+> 3   petal width (cm)   150 non-null    float64
+> 4   species            150 non-null    int64  
 > dtypes: float64(4), int64(1)
 > memory usage: 6.0 KB
 > ```
@@ -480,11 +480,11 @@ Examples of use cases [@simmhan2005survey]
 :::: {.columns}
 ::: {.column width=60%}
 
-Astronomers are creating an international Virtual Observatory
+Astronomers are creating an international Virtual Observatory.
 
 - A _federation_ of all the world significant astronomical _data resources_ coupled with _provision of the computational resources_ needed to exploit the data scientifically
 - Astronomy changed from being an individualistic to a _collective enterprise_
-- Telescope time is devoted/allocated to systematic sky surveys and analysis is performed using data from the archives
+- Telescope time is devoted/allocated to systematic sky surveys, and analysis is performed using data from the archives
 - Astronomers are _increasingly relying on data that they did not take themselves_
 - Raw data bear _many instrumental signatures that must be removed_ in the process of generating data products [@mann2002some]
 
@@ -540,7 +540,7 @@ Granularity [@simmhan2005survey]
 - _Fine-grained_ (instance level): tracking data items (e.g., a tuple in a dataset) transformations
 - _Coarse-grained_ (schema-level): tracking dataset transformations
 
-# Data provenance: fine grained vs coarse grained
+# Data provenance: fine-grained vs coarse-grained
 
 How would you document this table update?
  
@@ -575,7 +575,7 @@ How would you document this table update?
 > :::
 > ::::
 
-# Data provenance: fine grained vs coarse grained
+# Data provenance: fine-grained vs coarse-grained
 
 :::: {.columns}
 ::: {.column width=20%}
@@ -613,7 +613,7 @@ Queries [@ikeda2009data]
 
 # Data provenance
 
-Use cases for data provenance
+Use cases for data provenance.
 
 - Accountability and auditing
 - Data quality
@@ -622,14 +622,6 @@ Use cases for data provenance
 - Debugging
     - Inferring the cause of pipeline failures is challenging
     - Store inputs of each operation with versions and environmental settings (RAM, CPUs, etc.)
-
-# <img src="./img/cs.svg" class="title-icon" /> Case study: data provenance {background-color="#121011"}
-
-Check Colab
-
-<a href="https://colab.research.google.com/github/w4bo/AA2526-unibo-bigdataandcloudplatforms/blob/main/slides/lab-01-Metadata.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
-# End of the case study {background-color="#121011"}
 
 # Data governance: data versioning
 
@@ -662,7 +654,7 @@ However, data pipelines are not only about code but also about
 
 # Data versioning
 
-Support CRUD (Create, Read, Update, Delete) operations with versions
+Support CRUD (Create, Read, Update, Delete) operations with versions.
 
 For example, on [AWS (PUT, GET, DELETE)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html)
 
@@ -701,7 +693,7 @@ What about updating?
 - *Lossy*: reduces bits by removing less important information
   - Examples?
 
-**Summarization**: find a concise representation of a dataset in a comprehensible informative manner
+**Summarization**: find a concise representation of a dataset in a comprehensible, informative manner
 
 > :::: {.columns}
 > ::: {.column width=50%}
@@ -768,7 +760,7 @@ Entity resolution [@papadakis2020blocking]
 
 A **data catalog** is an organized inventory of the data in your company [@olesen2023enterprise]
 
-- The data catalog provides an overview at a metadata level only, and thus no actual data values are exposed.
+- The data catalog provides an overview at a metadata level only, and thus, no actual data values are exposed.
 - You can let everyone see everything without fear of exposing confidential or sensitive data.
 
 :::
@@ -784,7 +776,7 @@ A **data catalog** is an organized inventory of the data in your company [@olese
 :::: {.columns}
 ::: {.column width=60%}
 
-Meta-data is organized into domains
+Metadata is organized into domains.
 
 A **domain** is a group of entities sharing knowledge, goals, methods of operation, and communication
 
@@ -802,7 +794,7 @@ A **domain** is a group of entities sharing knowledge, goals, methods of operati
 
 *Processes* describe how a company performs its tasks.
 
-*Capabilities*  describe what tasks a company performs.
+*Capabilities* describe what tasks a company performs.
 
 - Neither processes nor capabilities reflect the business units of your company 1:1.
 
@@ -818,6 +810,12 @@ A **domain** is a group of entities sharing knowledge, goals, methods of operati
 :::
 ::::
 
+# <img src="./img/cs.svg" class="title-icon" /> Case study: data governance {background-color="#121011"}
+
+Check Colab
+
+<a href="https://colab.research.google.com/github/w4bo/AA2526-unibo-bigdataandcloudplatforms/blob/main/slides/lab-01-Metadata.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 # <img src="./img/cs.svg" class="title-icon" /> Case study: data catalog {background-color="#121011"}
 
 [Link to the DataHub catalog](http://localhost:9002/)
@@ -830,41 +828,39 @@ A **domain** is a group of entities sharing knowledge, goals, methods of operati
 
 Are we done? No!
 
-- Metadata can become bigger than data themselves
+- Metadata can become bigger than the data itself
 
 We need meta meta-data (or models)...
 
 - ... chasing our own tails
 
-Data management is still a (research) issue in data platforms
+Data management is still a (research) issue in data platforms.
 
 # Data platform {visibility="hidden"}
 
 **Is it a Lakehouse with another name?**
 
-- A Lakehouse is a part of the data platform, a layer that enables to query multiple data sources (with SQL/Spark) transparently by using some metadata (JSON) log
+- A Lakehouse is a part of the data platform, a layer that enables querying multiple data sources (with SQL/Spark) transparently by using some metadata (JSON) log
 - Still, you could get a data platform where such transparency is not mandatory or could be achieved by different techniques (e.g., multistore [@forresi2021dataspace])
 
 # Data platform {visibility="hidden"}
 
 **Is it a new name for BI?**
 
-No, in a data platform, you also need to manage (streams of) operational data and OLTP workloads
+No, in a data platform, you also need to manage (streams of) operational data and OLTP workloads.
 
 # How do we build data platforms?
 
 # Data fabric
 
-**Data fabric** is a "vision for data management [...] that seamlessly connects different clouds, whether they are private, public, or hybrid environments." ([2016](https://cloud.netapp.com/hubfs/Data-Fabric/Data%20Fabric%20WP%20April%202017.pdf))
+**Data fabric** is a "vision for data management [...] that seamlessly connects different clouds, whether they are private or public environments." ([2016](https://cloud.netapp.com/hubfs/Data-Fabric/Data%20Fabric%20WP%20April%202017.pdf))
 
 Frictionless access and sharing of data in a distributed data environment
 
 - Enables a *single and consistent data management framework*
-- ... that allows *seamless data access and processing* by design across otherwise siloed storage
-- Leverages *human and machine capabilities to access data* in place or support its consolidation where appropriate
 - *Continuously identifies and connects data* from disparate applications to discover unique business-relevant relationships
 
-It is a unified architecture with an integrated set of technologies and services
+It is a unified architecture with an integrated set of technologies and services.
 
 - Designed to deliver integrated and enriched data at the right time, in the right method, and to the right data consumer
 - Combines key data management technologies such as *data governance*, *integration*, *pipelining*, and *orchestration*
@@ -880,16 +876,10 @@ It is a unified architecture with an integrated set of technologies and services
 # Data fabric
 
 * *Catalog all data*: Cover business glossary, design-time, and runtime metadata.
-* *Enable self-service*: Support data discovery, profiling, exploration, quality checks, and consumption.
+* *Enable self-service capabilities*: Support data discovery, profiling, exploration, quality checks, and consumption.
 * *Provide a knowledge graph*: Visualize links among data, people, processes, and systems for actionable insight.
-* *Deliver smart integration*: Help IT and business users with data integration, transformation, virtualization, and federation.
-* *Extract insight from metadata*: Automate and orchestrate integration, engineering, and governance workflows.
-* *Enforce data policies*: Use AI/ML to auto-generate, adjust, and apply local and global rules.
+* *Deliver automatic integration*: Help IT and business users with data integration, transformation, virtualization, and federation.
 * *Manage unified lifecycle*: Maintain a consistent end-to-end Data Fabric lifecycle across platforms and teams.
-* *Govern data and AI*: Extend governance to AI models, pipelines, and other artifacts.
-
-
-# Data fabric: is this brand new?
 
 # Data fabric
 
@@ -952,14 +942,14 @@ It is a unified architecture with an integrated set of technologies and services
 Distributed data architecture under centralized governance and standardization for interoperability, enabled by a shared and harmonized self-serve data infrastructure
 
 - *Domain-oriented decentralized data ownership*
-  - Decentralization and distribution of responsibility to people who are closest to the data, in order to support continuous change and scalability
+  - Decentralization and distribution of responsibility to people who are closest to the data, to support continuous change and scalability
   - Each domain exposes its own op/analytical APIs
 - **Data as a product** (_quantum_)
-  - Products must be discoverable, addressable, trustworthy, self-describing, secure
+  - Products must be discoverable, addressable, trustworthy, self-describing, and secure
 - *Self-serve data infrastructure as a platform*
   - High-level abstraction of infrastructure to provision and manage the lifecycle of data products
 - *Federated computational governance*
-  - A governance model that embraces decentralization and domain self-sovereignty, interoperability through global standardization, a dynamic topology, automated execution of decisions by the platform
+  - A governance model that embraces decentralization and domain self-sovereignty, interoperability through global standardization, a dynamic topology, and automated execution of decisions by the platform
 
 [Zhamak Dehghani (2019). Data monolith to mesh](https://martinfowler.com/articles/data-monolith-to-mesh.html)
 
@@ -972,7 +962,7 @@ Distributed data architecture under centralized governance and standardization f
 :::: {.columns}
 ::: {.column width=50%}
 
-Data Mesh organizes data around **business domain owners** and transforms relevant data assets (data sources) to **data products** that can be consumed by distributed business users from various business domains or functions
+Data Mesh organizes data around **business domain owners** and transforms relevant data assets (data sources) to **data products** that can be consumed by distributed business users from various business domains or functions.
 
 - Data products are created, governed, and used in an **autonomous, decentralized**, and self-service manner
 - **Self-service capabilities**, which we have already referenced as a Data Fabric capability, enable business organizations to entertain a data marketplace with shopping-for-data characteristics
@@ -989,25 +979,24 @@ Data Mesh organizes data around **business domain owners** and transforms releva
 
 A **data product** is raw data transformed into a business context
 
-- Data products are registered in **knowledge catalog** through specifications (XML, JSON, etc.)
-- Data products need to be searchable and discoverable by potential data product consumers and business user
-  - *Data product description*: The data product needs to be well-described
-  - *Access methods*: for example, REST APIs, SQL, NoSQL, etc., and where to find the data asset
-  - *Policies and rules*: who is allowed to consume the data product for what purpose
-  - *SLAs*: agreements regarding the data product availability, performance characteristics, functions, cost of data product usage
-  - *Defined format*: A data product needs to be described using a defined format
+- Data products are registered in the **knowledge catalog** through specifications (XML, JSON, etc.).
+- Data products need to be searchable and discoverable by potential data product consumers and business users.
   - *Cataloged*: All data products need to be registered in the knowledge catalog.
+  - *Data product description*: The data product needs to be well-described.
+  - *Access methods*: for example, REST APIs, SQL, NoSQL, etc., and where to find the data asset.
+  - *Policies and rules*: who is allowed to consume the data product for what purpose.
+  - *SLAs*: agreements regarding the data product availability, performance characteristics, functions, and cost of data product usage.
 - Data products themselves are not stored in the knowledge catalog
 
 # <img src="./img/cs.svg" class="title-icon" /> Case study: data mesh {background-color="#121011"}
 
-Check the seminars from HERA
+Check the seminars from HERA.
 
 # End of the case study {background-color="#121011"}
 
 # Data mesh vs data fabric
 
-They are design concepts, not things
+They are design concepts, not things.
 
 - They are not mutually exclusive
 - They are architectural frameworks, not architectures
@@ -1020,16 +1009,19 @@ Dave Wells, 2021 [https://www.eckerson.com/articles/data-architecture-complex-vs
 
 # Data mesh vs data fabric
 
-Both provide an architectural framework to access data across multiple technologies and platforms
+Both provide an architectural framework to access data across multiple technologies and platforms.
 
-- **Data fabric**
-  - Attempts to centralize and coordinate data management
-  - Tackles the complexity of data and metadata in a smart way that works well together
-  - Focus on the architectural, technical capabilities, and intelligent analysis to produce active metadata supporting a smarter, AI-infused system to orchestrate various data integration styles
-- **Data mesh**
-  - Emphasis on decentralization and data domain autonomy
-  - Focuses on organizational change; it is more about people and process
-  - Data are primarily organized around domain owners who create business-focused data products, which can be aggregated and consumed across distributed consumers
+**Data fabric**
+
+- Attempts to centralize and coordinate data management
+- Tackles the complexity of data and metadata in a smart way that works well together
+- Focus on the architectural, technical capabilities, and intelligent analysis to produce active metadata supporting a smarter, AI-infused system to orchestrate various data integration styles
+
+**Data mesh**
+
+- Emphasis on decentralization and data domain autonomy
+- Focuses on organizational change; it is more about people and process
+- Data are primarily organized around domain owners who create business-focused data products, which can be aggregated and consumed across distributed consumers
 
 Alex Woodie, 2021 [https://www.datanami.com/2021/10/25/data-mesh-vs-data-fabric-understanding-the-differences/](https://www.datanami.com/2021/10/25/data-mesh-vs-data-fabric-understanding-the-differences/)
 
@@ -1041,11 +1033,11 @@ Dave Wells, 2021 [https://www.eckerson.com/articles/data-architecture-complex-vs
 
 # Data mesh vs data fabric
 
-Data Fabric and Mesh are the results of the data architecture evolution
+Data Fabric and Mesh are the results of the data architecture evolution.
 
 - **Many capabilities were in existence already long before** the terms were coined
 
-Take away:
+Takeaway:
 
 - Abstract the "building blocks" of such platforms
 - Let them evolve according to scalability and flexibility requirements
@@ -1116,7 +1108,7 @@ As new technologies and solutions mature to support a centralized approach to da
 
 # Example of data platform: Hadoop-based
 
-A data platform on the Hadoop stack requires several tools
+A data platform on the Hadoop stack requires several tools.
 
 ![Hadoop-based data platform](img/74.svg)
 
@@ -1130,46 +1122,29 @@ How do you provision it?
 
 # On-premises manual provisioning
 
-It is hardly advisable, if not for small and local tests
+It is hardly advisable, if not for small and local tests.
 
-- **Technical challenges**
-  - Installation: how do I set up a new machine?
-  - Networking: how do I cable dozens of machines?
-  - Management: how do I replace a broken disk?
-  - Upgrade: how do I extend the cluster with new services/machines?
-  - (energy and cooling, software licenses, insurance...)
-- **Technological challenges**
-  - How do we configure a distributed environment?
-  - How do we set up/integrate/control independent services?
-  - How do we orchestrate data flows?
-- **Business challenges**
-  - Can we afford to spend resources on tasks that are not mission-oriented?
-  - No free lunch, each choice has a cost/benefit
-  - How much time does it take to master a technology?
-  - How many people do I need?
+**Technical challenges**
+- Installation: how do I set up a new machine?
+- Networking: how do I cable dozens of machines?
+- Management: how do I replace a broken disk?
+- Upgrade: how do I extend the cluster with new services/machines?
+- (energy and cooling, software licenses, insurance...)
 
-# Example of data platform: MOSES
+**Technological challenges**
 
-:::: {.columns}
-::: {.column width=50%}
+- How do we configure a distributed environment?
+- How do we set up/integrate/control independent services?
+- How do we orchestrate data flows?
 
-![MOSES](img/76.svg)
+**Business challenges**
 
-:::
-::: {.column width=50%}
+- Can we afford to spend resources on tasks that are not mission-oriented?
+- No free lunch, each choice has a cost/benefit
+- How much time does it take to master a technology?
+- How many people do I need?
 
-Example of a data platform: MOSES [@francia2021making]
-
-Functional architecture
-
-- Components of MOSES are in orange
-- Others are standard components in charge of producing/consuming, processing, storing, and visualizing data
-- The orchestrator (e.g., Oozie) manages (e.g., schedules) the data transformation processes
-
-:::
-::::
-
-# Data platform: expertise and related job positions
+# Data platform: related job positions
 
 ![(Big) data pipeline](img/slides28.png)
 
@@ -1186,25 +1161,21 @@ _Data architect_
 - Team members who understand all aspects of a data platform's architecture
 - Work closely with the data platform engineers to create data workflows
 
-_Data pipeline engineer_
+_Data scientist_
 
-- Responsible for planning, architecting, and building large-scale data processing systems
+- Analyze and interpret complex digital data
+- Work with new technologies (e.g., machine learning) to deepen the business's understanding and gain new insights
 
 _Data analyst_
 
 - Analyze data systems, creating automated systems for retrieving data from the data platform
 - Cloud data analysts are more commonly members of the business user population
 
-_Data scientist_
-
-- Analyze and interpret complex digital data
-- Work with new technologies (e.g., machine learning) to deepen the business' understanding and gain new insights
-
 # From DevOps...
 
 **DevOps** combines development and operations to increase the efficiency, speed, and security of software development and delivery compared to traditional processes.
 
-DevOps practices enable software development (dev) and operations (ops) teams to accelerate delivery through automation, collaboration, fast feedback, and iterative improvement
+DevOps practices enable software development (dev) and operations (ops) teams to accelerate delivery through automation, collaboration, fast feedback, and iterative improvement.
 
 ![DevOps](img/slides29.png)
 
@@ -1215,7 +1186,7 @@ DevOps practices enable software development (dev) and operations (ops) teams to
 :::: {.columns}
 ::: {.column width=50%}
 
-**DataOps** refers to a general process aimed to shorten the end-to-end data analytic life-cycle time by introducing automation in the data collection, validation, and verification process
+**DataOps** refers to a general process aimed at shortening the end-to-end data analytics life-cycle time by introducing automation in the data collection, validation, and verification process
 
 ![Evolution of DataOps [@munappy2020ad]](img/slides30.png)
 
@@ -1262,17 +1233,25 @@ William Vorhies, 2017 [https://www.datasciencecentral.com/profiles/blogs/dataops
 
 # Summing up
 
-- Storage should be flexible enough to support heterogenous data models and raw data
-  - From operational databases to DWHs **(why?)**
-  - From relational data models to NoSQL **(why?)**
-  - Data lake to (directly) ingest raw data
-- Storage,  _per se_, is insufficient to get value from the data **(examples?)**
-  - We also need data processing and fruition
-  - Data lakes are blurring into data platforms
-- Data platforms support end-to-end data needs **(which ones?)**
-  - Building data platforms is hard **(why?)**
-  - Managing data platforms is hard, exploit meta-data to ease this task
-    - Data lineage, compression, profiling, resolution, etc.
-- **Open question**: how do we deploy working data platforms?
+Storage should be flexible enough to support heterogeneous data models and raw data.
+
+- From operational databases to DWHs **(why?)**
+- From relational data models to NoSQL **(why?)**
+- Data lake to (directly) ingest raw data
+
+Storage,  _per se_, is insufficient to get value from the data **(examples?)**
+
+- We also need data processing and fruition
+- Data lakes are blurring into data platforms
+
+Data platforms support end-to-end data needs **(which ones?)**
+
+- Building data platforms is hard **(why?)**
+- Managing data platforms is hard; exploit metadata to ease this task
+- Data lineage, compression, profiling, resolution, etc.
+
+**Open question**: How do we deploy working data platforms?
+
+# How do I know if I am prepared for the exam?
 
 # References
