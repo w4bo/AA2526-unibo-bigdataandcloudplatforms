@@ -1,3 +1,14 @@
+## [1.0.8](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.7...1.0.8) (2025-10-23)
+
+### Dependency updates
+
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.152 ([#9](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/9)) ([05864ca](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/05864ca53d25df09155d6df36fad30394007b65c))
+* **deps:** update node.js to 22.21 ([#8](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/8)) ([94481a4](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/94481a497bd996215c666736ac0dc0f2956f026e))
+
+### Bug Fixes
+
+* typos ([71891e3](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/71891e3b37abe2bdabd2a2122849b3e3d3184f9f))
+
 ## [1.0.7](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.6...1.0.7) (2025-10-21)
 
 ### Dependency updates
