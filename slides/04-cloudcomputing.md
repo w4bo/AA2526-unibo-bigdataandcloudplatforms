@@ -84,7 +84,7 @@ The big-data cube [@meijer2012your]
 - Take Twitter as an example
   - Hashtags can become hugely popular and appear hundreds of times in just seconds
   - ... or slow down to one tag an hour
-- Your system must be able to efficiently handle the peak as well as the lows
+- Your system must be able to efficiently handle the peaks as well as the lows
 
 # Number of days to 1 million users
 
@@ -211,13 +211,13 @@ The Netflix scenario
   - Large volume of data processed on a regularly scheduled basis
   - Velocity is very predictable
 - *Periodic*
-  - Data processed at irregular times (e.g., after collecting a certain ---large--- amount of data)
+  - Data processed at irregular times (e.g., after collecting a certain --large-- amount of data)
   - Velocity is less predictable
 - *Near real-time* 
   - Streaming data processed in small individual batches collected and processed within minutes
   - Velocity is a huge concern
 - *Real-time*
-  - Streaming data collected and processed in very small individual batches within milliseconds
+  - Streaming data is collected and processed in very small individual batches within milliseconds
   - Velocity is the paramount concern
 
 # Reference scenario
@@ -263,7 +263,7 @@ Our focus
 *Data-driven company* refers to companies where decisions and processes are supported by data
 
 - Decisions are based on quantitative rather than qualitative knowledge
-- Processes & Knowledge are asset of the company and are not lost if managers change
+- Processes & Knowledge are assets of the company and are not lost if managers change
 - The gap between a data-driven decision and a good decision is a good manager
 
 Adopting a data-driven mindset goes far beyond adopting a business intelligence solution and entails:
@@ -282,7 +282,7 @@ Adopting a data-driven mindset goes far beyond adopting a business intelligence 
 
 *Digitalization* is a journey that involves three main dimensions
 
-- Moving from A to B is a multi-year process made of intermediate goals
+- Moving from A to B is a multi-year process made up of intermediate goals
 - Each of which must be *feasible*
   - Solves a company's pain and brings value
   - Can be accomplished in a limited time range (typically less than one year)
@@ -321,10 +321,10 @@ Adopting a data-driven mindset goes far beyond adopting a business intelligence 
 :::: {.columns}
 ::: {.column width=50%}
 
-There are different types of cloud
+There are different types of clouds.
 
 - **Public**: accessible to anyone willing to pay
-  - Any resources that you are not using can be used by other
+  - Any resources that you are not using can be used by others
   - Users share the costs
   - E.g., Microsoft Azure, AWS, Google Cloud
 - **Private**: accessible by individuals within an institution
@@ -368,7 +368,7 @@ Hardware scalability
 
 - No longer think about rack space, switches, power supplies, etc.
 
-Grow storage from GBs to PBs
+Grow storage from GBs to PBs.
 
 - 1PB: one hundred 10TB Enterprise Capacity 3.5 HDD hard drives
 
@@ -387,7 +387,7 @@ Grow storage from GBs to PBs
 **Resource pooling**
 
 - Enable *cost-sharing*, a resource to serve different consumers
-- Resources are dynamically reassigned according to demands
+- Resources are dynamically reassigned according to demand
 - Based on *virtualization*, running multiple virtual instances on top of a physical computer system
 - Economy of scale for physical resources
 
@@ -395,7 +395,7 @@ Grow storage from GBs to PBs
 
 # Virtualization
 
-How do provide computational resources?
+How do we provide computational resources?
 
 :::: {.columns}
 ::: {.column width=60%}
@@ -404,10 +404,10 @@ How do provide computational resources?
 
 *Containers*
 
-- On top of physical server and its host OS
+- On top of the physical server and its host OS
 - Share the host OS kernel
 - Shared components are read-only
-- "Light", take seconds to start
+- "Light" takes seconds to start
 
 *Virtual machines*
 
@@ -422,7 +422,7 @@ How do provide computational resources?
 :::
 ::::
 
-Containerization isolates an application with its environment
+Containerization isolates an application from its environment.
 
 - Lightweight alternative to full virtualization
 - Containers are isolated but need to be deployed to (public/private) server
@@ -463,14 +463,14 @@ Containerization isolates an application with its environment
 :::: {.columns}
 ::: {.column width=50%}
 
-Cloud services are hosted in separate geographic areas
+Cloud services are hosted in separate geographic areas.
 
 - Locations are composed of **regions** and **availability zones**
 - [Using regions and availability zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
 
 Region (e.g., us-east-1)
 
-- Is an independent geographical area that groups data centers
+- It is an independent geographical area that groups data centers
 - Has availability zones
 
 Availability zones in a region
@@ -491,7 +491,7 @@ Availability zones in a region
 
 Measured **quality of service**
 
-- Services leverage a quantitative metering capability making *pay-as-you-go (or pay-per-use)* billing
+- Services leverage a quantitative metering capability, making *pay-as-you-go (or pay-per-use)* billing
 
 ![[AWS billing](https://aws.amazon.com/it/blogs/aws/aws-cost-explorer-update-better-filtering-grouping-report-management-ri-reports/)](img/aws-billing.png)
 
@@ -507,7 +507,7 @@ Measured **quality of service**
 
 Service **integration**
 
-- Do not reinvent the wheel, eliminate repetitive tasks
+- Do not reinvent the wheel; eliminate repetitive tasks
   - Use services that solve common problems (e.g., queuing)
 - Abstract and automatically adapt the architecture to requirements
   - E.g., create (test) environments on demand
@@ -641,7 +641,7 @@ We have services
 - To transform data
 - To support the transformation
 
-The (DIKW) pyramid abstracts many techniques and algorithms
+The (DIKW) pyramid abstracts many techniques and algorithms.
 
 - Standardization
 - Integration
@@ -661,7 +661,7 @@ The (DIKW) pyramid abstracts many techniques and algorithms
 :::: {.columns}
 ::: {.column width=50%}
 
-This is not a sharp taxonomy
+This is not a sharp taxonomy.
 
 *Ingestion* vs *Analytics*
 
@@ -681,7 +681,7 @@ This is not a sharp taxonomy
 :::: {.columns}
 ::: {.column width=50%}
 
-This is not a sharp taxonomy
+This is not a sharp taxonomy.
 
 *Storage* vs *Serving*
 
@@ -730,7 +730,7 @@ This is not a sharp taxonomy
 
 # Cloud computing: deployment models
 
-Understanding architectures is paramount to successful systems
+Understanding architectures is paramount to successful systems.
 
 - Good architectures help to scale
 - Poor architectures cause issues that necessitate a costly rewrite
@@ -771,7 +771,7 @@ Understanding architectures is paramount to successful systems
 
 - A computing infrastructure provisioned and managed over the internet (e.g., AWS EC2)
 - Avoid the expense/complexity of buying/managing physical servers/data centers
-- IaaS overcomes issues on-premises
+- IaaS overcomes issues with on-premises
 - Possibly requires managing many environments
 
 :::
@@ -808,7 +808,7 @@ Understanding architectures is paramount to successful systems
 
 **Function as a Service (FaaS)**
 
-- A coding environment, cloud provider provisions platform to run the code (e.g., AWS Lambda)
+- A coding environment, a cloud provider provisions a platform to run the code (e.g., AWS Lambda)
 - Infrastructure provisioning and management are invisible to the developer
 
 :::
@@ -848,7 +848,7 @@ Functions *react to events*
 - Create thicker, more powerful front ends
 - Embrace third-party services (e.g., security)
 
-FaaS is not a silver bullet
+FaaS is not a silver bullet.
 
 - *Not appropriate for latency-sensitive applications*
 - Strict specific service-level agreements
@@ -863,7 +863,7 @@ FaaS is not a silver bullet
 **Software as a service (SaaS)**
 
 - An application environment
-- Access cloud-based apps over the Internet (e.g., email, Microsoft Office 365, Github)
+- Access cloud-based apps over the Internet (e.g., email, Microsoft Office 365, GitHub)
 
 :::
 ::: {.column width=30%}
@@ -887,14 +887,14 @@ On a cloud architecture, you can rely on [*serverless* or *managed* services](ht
 - No visibility into the machines
   - There are still servers in serverless, but they are abstracted away
   - No server management, do not have to manage any servers or scale them
-  - E.g., when you run a query on [BigQuery](https://cloud.google.com/blog/products/bigquery/separation-of-storage-and-compute-in-bigquery) you do not know how many machines were used
+  - E.g., when you run a query on [BigQuery](https://cloud.google.com/blog/products/bigquery/separation-of-storage-and-compute-in-bigquery), you do not know how many machines were used
 - Pay for what your application uses, usually per request or usage
 
 *(Fully) Managed*
 
 - Visibility and control of machines
   - You can choose the number of machines that are being used to run your application
-- Do not have to set up any machines, the management and backup are taken care for you
+- Do not have to set up any machines, the management and backup are taken care of for you
 - Pay for machine runtime, however long you run the machines and resources that your application uses
 
 # 

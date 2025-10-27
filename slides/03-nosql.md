@@ -19,7 +19,7 @@ subtitle: NoSQL DBMS
 *Standard model and query language*
 
 - The relational model and SQL are very well-known standards
-- The same theoretical background is shared by the different implementations
+- The different implementations share the same theoretical background
 
 *Robustness*
 
@@ -175,7 +175,7 @@ Can NoSQL systems be used for OLAP?
 
 # NoSQL: several data models
 
-One of the key challenges is to understand which one fits best with the required application.
+One of the key challenges is to determine which one best suits the required application.
 
 | Model | Description | Use cases |
 |:-: |:-: |:-: |
@@ -294,27 +294,27 @@ Each field corresponds to a *key-value pair*
 
 ```json
 [
-    {
+ {
         "_id": "A12345",
         "name": "Alice",
         "address": {
             "street": "1st Avenue",
             "city": "Wonderland"
-        },
+ },
         "contacts": [
-            {"type": "email", "value": "alice@example.com"},
-            {"type": "phone", "number": "+123456789"}
-        ]
-    },
-    {
+ {"type": "email", "value": "alice@example.com"},
+ {"type": "phone", "number": "+123456789"}
+ ]
+ },
+ {
         "_id": "B67890",
         "name": "Bob",
         "address": {
             "street": "2nd Street",
             "postalCode": "47522"
-        },
+ },
         "birthdate": "1990-05-15"
-    }
+ }
 ]
 ```
 
@@ -389,7 +389,7 @@ Disadvantages
 - Can optimize only a limited set of queries
 - Data denormalization -> possible inconsistencies
 
-RDBMSs are agnostic from this point of view
+RDBMSs are agnostic from this point of view.
 
 # Sharding data
 
@@ -499,7 +499,7 @@ Main issue: each update must be pushed to every replica
 *Master*
 
 - It’s the manager of the data
-- *Handles each and every write operation*
+- *Handles every write operation*
 - Can be chosen or drawn
 
 *Slaves*
@@ -621,7 +621,7 @@ A look behind the curtain
 :::: {.columns}
 ::: {.column width=50%}
 
-RDBMSs come from decades of widespread usage
+RDBMSs come from decades of widespread usage.
 
 - Strong focus on data consistency
 - Years of research activities to optimize performances
@@ -655,7 +655,7 @@ What should never happen
 - A query on the database shows an intermediate state
   - E.g., A+B = 0€
 
-RDBMSs adopt *transactions * to avoid this kind of issue
+RDBMSs adopt *transactions * to avoid this kind of issue.
 
 # Consistency in RDBMSs: ACID
 
@@ -768,7 +768,7 @@ Consider two users who want to book the same room when a network partition happe
 
 **caP**: only one can book
 
-- The other will see the room available but cannot book it
+- The other will see the room available, but cannot book it
 
 *This is admissible only in certain scenarios*
 

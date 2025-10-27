@@ -16,11 +16,11 @@ Organizations manage **data catalogs** with details about data, algorithms, and 
 
 ```sql
 CREATE TABLE entity (
-  entity_id INTEGER PRIMARY KEY,
+ entity_id INTEGER PRIMARY KEY,
   name TEXT,
-  file_type TEXT,
-  created_at TEXT,
-  wasDerivedFrom INTEGER REFERENCES entity(entity_id)
+ file_type TEXT,
+ created_at TEXT,
+ wasDerivedFrom INTEGER REFERENCES entity(entity_id)
 );
 CREATE TABLE agent (agent_id INTEGER, name TEXT);
 CREATE TABLE activity (activity_id INTEGER, name TEXT);
@@ -32,27 +32,27 @@ CREATE TABLE wasGeneratedBy (entity_id, activity_id);
 
 ```
 erDiagram
-    ENTITY {
-        string id
-        string file_type
-        date create_at
-    }
-    ACTIVITY {
-        string id
-    }
-    AGENT {
-        string id
-    }
-    ENTITY }o--|| ACTIVITY : "wasGeneratedBy"
-    ACTIVITY }o--o{ ENTITY : "used"
-    ACTIVITY }o--|| AGENT : "wasAssociatedWith"
-    ENTITY }o--|| AGENT : "wasAttributedTo"
-    ENTITY ||--o{ ENTITY : "wasDerivedFrom"
+ ENTITY {
+ string id
+ string file_type
+ date create_at
+ }
+ ACTIVITY {
+ string id
+ }
+ AGENT {
+ string id
+ }
+ ENTITY }o--|| ACTIVITY : "wasGeneratedBy"
+ ACTIVITY }o--o{ ENTITY : "used"
+ ACTIVITY }o--|| AGENT : "wasAssociatedWith"
+ ENTITY }o--|| AGENT : "wasAttributedTo"
+ ENTITY ||--o{ ENTITY : "wasDerivedFrom"
 ```
 
 # What are the limitations of the relational model?
 
-# Limitations of Relational Model
+# Limitations of the Relational Model
 
 Difficult to store **heterogeneous metadata**:
 
@@ -60,29 +60,29 @@ Difficult to store **heterogeneous metadata**:
 * TIFF: resolution, color depth
 * JSON: nested structures
 
-# Limitations of Relational Model
+# Limitations of the Relational Model
 
 | Column Name             | Type      | Applies To | Description                             |
 | ----------------------- | --------- | ---------- | --------------------------------------- |
-| **entity_id**           | `INTEGER` | all        | Unique ID (primary key).                |
-| **name**                | `TEXT`    | all        | Human-readable name of the entity.      |
-| **file_type**           | `TEXT`    | all        | Type of file (`csv`, `tiff`, `json`).   |
-| **file_path**           | `TEXT`    | all        | File path or URI.                       |
-| **file_size**           | `INTEGER` | all        | File size in bytes.                     |
-| **checksum**            | `TEXT`    | all        | File checksum (e.g., SHA256).           |
-| **created_at**          | `TEXT`    | all        | Timestamp when created.                 |
-| **wasDerivedFrom**      | `INTEGER` | all        | Foreign key to parent entity.           |
-| **csv_columns**         | `TEXT`    | CSV        | Column names (e.g., `"id,name,price"`). |
-| **csv_delimiter**       | `TEXT`    | CSV        | Column separator (e.g., `","`).         |
-| **csv_has_header**      | `BOOLEAN` | CSV        | Indicates if first row is header.       |
-| **tiff_resolution**     | `TEXT`    | TIFF       | Image resolution (e.g., `300dpi`).      |
-| **tiff_color_depth**    | `INTEGER` | TIFF       | Bits per pixel (e.g., `24`).            |
-| **tiff_compression**    | `TEXT`    | TIFF       | Compression type (e.g., `LZW`).         |
-| **json_schema_version** | `TEXT`    | JSON       | Version of JSON schema.                 |
-| **json_root_keys**      | `TEXT`    | JSON       | Top-level keys.                         |
-| **json_nesting_level**  | `INTEGER` | JSON       | Max nesting depth.                      |
+| **entity_id** | `INTEGER` | all        | Unique ID (primary key).                |
+| **name** | `TEXT` | all        | Human-readable name of the entity.      |
+| **file_type** | `TEXT` | all        | Type of file (`csv`, `tiff`, `json`).   |
+| **file_path** | `TEXT` | all        | File path or URI.                       |
+| **file_size** | `INTEGER` | all        | File size in bytes.                     |
+| **checksum** | `TEXT` | all        | File checksum (e.g., SHA256).           |
+| **created_at** | `TEXT` | all        | Timestamp when created.                 |
+| **wasDerivedFrom** | `INTEGER` | all        | Foreign key to parent entity.           |
+| **csv_columns** | `TEXT` | CSV        | Column names (e.g., `"id,name,price"`). |
+| **csv_delimiter** | `TEXT` | CSV        | Column separator (e.g., `","`).         |
+| **csv_has_header** | `BOOLEAN` | CSV        | Indicates if first row is header.       |
+| **tiff_resolution** | `TEXT` | TIFF       | Image resolution (e.g., `300dpi`).      |
+| **tiff_color_depth** | `INTEGER` | TIFF       | Bits per pixel (e.g., `24`).            |
+| **tiff_compression** | `TEXT` | TIFF       | Compression type (e.g., `LZW`).         |
+| **json_schema_version** | `TEXT` | JSON       | Version of JSON schema.                 |
+| **json_root_keys** | `TEXT` | JSON       | Top-level keys.                         |
+| **json_nesting_level** | `INTEGER` | JSON       | Max nesting depth.                      |
 
-# Limitations of Relational Model
+# Limitations of the Relational Model
 
 <div style=font-size:0.6em>
 | entity_id | name              | file_type | file_size | csv_columns     | csv_delimiter | csv_has_header | tiff_resolution | tiff_color_depth | json_schema_version | json_root_keys         | json_nesting_level |
@@ -107,7 +107,7 @@ WHERE e1.name = 'a';
 ```
 :::
 
-# Limitations of Relational Model
+# Limitations of the Relational Model
 
 Reference schema
 
@@ -130,7 +130,7 @@ WHERE e1.name = 'a';
 ```
 :::
 
-# Limitations of Relational Model
+# Limitations of the Relational Model
 
 Reference schema
 
@@ -200,7 +200,7 @@ A *collection* is a list of documents.
 
 ::::{.columns}
 ::: {.column width=50%}
-The relational model is *data driven*
+The relational model is *data-driven*
 
 - It represents concepts as relations and relationships.
 
@@ -242,7 +242,7 @@ WHERE e.name = 'a';
 
 :::{.fragment}
 
-The document-based model is *aggregate oriented*
+The document-based model is *aggregate-oriented*
 
 - Each document contains the data necessary to answer a query.
 
@@ -329,9 +329,9 @@ Cypher
 ```cypher
 MATCH (e1:Entity {name: 'a'})
 MATCH (e1)-[:WAS_DERIVED_FROM]->(e2:Entity)
-      -[:WAS_DERIVED_FROM]->(e3:Entity)
-      -[:WAS_DERIVED_FROM]->(e4:Entity)
-      -[:WAS_DERIVED_FROM]->(e5:Entity)
+ -[:WAS_DERIVED_FROM]->(e3:Entity)
+ -[:WAS_DERIVED_FROM]->(e4:Entity)
+ -[:WAS_DERIVED_FROM]->(e5:Entity)
 RETURN e1.name, e2.name, e3.name, e4.name, e5.name;
 ```
 
