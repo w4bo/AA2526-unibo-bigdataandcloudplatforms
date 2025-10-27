@@ -1,3 +1,9 @@
+## [1.0.10](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.9...1.0.10) (2025-10-27)
+
+### Bug Fixes
+
+* cloud computing ([d611ae8](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/d611ae8380b47b0cb1d3a2a924ddd61a083cf1d9))
+
 ## [1.0.9](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.8...1.0.9) (2025-10-27)
 
 ### Bug Fixes
