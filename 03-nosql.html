@@ -348,7 +348,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <h1>NoSQL common features</h1>
 <p><em>Distributed, shared-nothing architecture</em></p>
 <ul>
-<li>A shared-nothing architecture is a distributed computing architecture in which each update request is satisfied by a single node in a computer cluster
+<li>A shared-nothing architecture is a distributed architecture in which each update request is satisfied by a single node in a computer cluster
 <ul>
 <li>Nodes do not share (independently access) the same memory or storage.</li>
 </ul></li>
@@ -495,11 +495,6 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li>Vertices and arcs are described by <em>properties</em></li>
 <li>Arcs are stored as physical pointers</li>
 </ul>
-<p>Most known specializations:</p>
-<ul>
-<li>Reticular data model: parent-child or owner-member relationships</li>
-<li>Triplestore: subject-predicate-object relationships (e.g., RDF)</li>
-</ul>
 
 <img data-src="img/slides72.png" class="r-stretch quarto-figure-center"><p class="caption">Property graph</p></section>
 
@@ -590,7 +585,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="document-data-model" class="title-slide slide level1 center">
 <h1>Document: data model</h1>
 <div class="columns">
-<div class="column" style="width:70%;">
+<div class="column" style="width:60%;">
 <p>Each DB contains one or more <em>collections</em> (corresponding to tables)</p>
 <ul>
 <li>Each collection contains a list of <em>documents</em> (usually JSON)</li>
@@ -602,19 +597,36 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 <p>Each field corresponds to a <em>key-value pair</em></p>
 <ul>
-<li>Key: unique string in the document</li>
-<li>Value: either simple (string, number, boolean) or complex (object, array, BLOB)
+<li><em>Key</em>: unique string in the document</li>
+<li><em>Value</em>: either simple (string, number, boolean) or complex (object, array, BLOB)
 <ul>
 <li>A complex field can contain other fields</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:30%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/106.svg"></p>
-<figcaption>Example of document</figcaption>
-</figure>
-</div>
+</div><div class="column" style="width:40%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb2-1"><a href=""></a><span class="ot">[</span></span>
+<span id="cb2-2"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb2-3"><a href=""></a>        <span class="dt">"_id"</span><span class="fu">:</span> <span class="st">"A12345"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href=""></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="dt">"address"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-6"><a href=""></a>            <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"1st Avenue"</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href=""></a>            <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Wonderland"</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="fu">},</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="dt">"contacts"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-10"><a href=""></a>            <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"email"</span><span class="fu">,</span> <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"alice@example.com"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-11"><a href=""></a>            <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"phone"</span><span class="fu">,</span> <span class="dt">"number"</span><span class="fu">:</span> <span class="st">"+123456789"</span><span class="fu">}</span></span>
+<span id="cb2-12"><a href=""></a>        <span class="ot">]</span></span>
+<span id="cb2-13"><a href=""></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-14"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb2-15"><a href=""></a>        <span class="dt">"_id"</span><span class="fu">:</span> <span class="st">"B67890"</span><span class="fu">,</span></span>
+<span id="cb2-16"><a href=""></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Bob"</span><span class="fu">,</span></span>
+<span id="cb2-17"><a href=""></a>        <span class="dt">"address"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-18"><a href=""></a>            <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"2nd Street"</span><span class="fu">,</span></span>
+<span id="cb2-19"><a href=""></a>            <span class="dt">"postalCode"</span><span class="fu">:</span> <span class="st">"47522"</span></span>
+<span id="cb2-20"><a href=""></a>        <span class="fu">},</span></span>
+<span id="cb2-21"><a href=""></a>        <span class="dt">"birthdate"</span><span class="fu">:</span> <span class="st">"1990-05-15"</span></span>
+<span id="cb2-22"><a href=""></a>    <span class="fu">}</span></span>
+<span id="cb2-23"><a href=""></a><span class="ot">]</span></span></code></pre></div>
 </div></div>
 </section>
 
@@ -676,240 +688,6 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div>
 </div></div>
 </section>
-
-<section id="key-value-data-model" class="title-slide slide level1 center">
-<h1>Key-value: data model</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Each DB contains one or more <em>collections</em> (corresponding to tables)</p>
-<ul>
-<li>Each collection contains a list of <em>key-value pairs</em></li>
-<li>Key: a unique string
-<ul>
-<li>E.g.: ids, hashes, paths, queries, REST calls</li>
-</ul></li>
-<li>Value: a BLOB (binary large object)
-<ul>
-<li>E.g.: text, documents, web pages, multimedia files</li>
-</ul></li>
-</ul>
-<p>Looks like a simple dictionary</p>
-<ul>
-<li><em>The collection is indexed by key</em></li>
-<li><em>The value may contain several information</em>
-<ul>
-<li>Definitions, synonyms and antonyms, images, etc.</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides76.png"></p>
-<figcaption>Key-value</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-
-<section id="key-value-querying" class="title-slide slide level1 center">
-<h1>Key-value: querying</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Three simple kinds of query:</p>
-<ul>
-<li><em>put($key as xs:string, $value as item())</em>
-<ul>
-<li>Adds a key-value pair to the collection</li>
-<li>If the key already exists, the value is replaced</li>
-</ul></li>
-<li><em>get($key as xs:string) as item()</em>
-<ul>
-<li>Returns the value corresponding to the key (if it exists)</li>
-</ul></li>
-<li><em>delete($key as xs:string)</em>
-<ul>
-<li>Deletes the key-value pair</li>
-</ul></li>
-</ul>
-<p>The value is a <em>black box</em>: it cannot be queried!</p>
-<ul>
-<li>No “where” clauses</li>
-<li>No indexes on the values</li>
-<li>Schema information is often indicated in the key</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Key</th>
-<th style="text-align: center;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">user:1234:name</td>
-<td style="text-align: center;">Enrico</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">user:1234:city</td>
-<td style="text-align: center;">Cesena</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">post:9876:written-by</td>
-<td style="text-align: center;">user:1234</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">post:9876:title</td>
-<td style="text-align: center;">NoSQL Databases</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">comment:5050:reply-to</td>
-<td style="text-align: center;">post:9876</td>
-</tr>
-</tbody>
-</table>
-</div></div>
-</section>
-
-<section id="data-modeling-example-key-value-model" class="title-slide slide level1 center">
-<h1>Data modeling example: key-value model</h1>
-<div class="columns">
-<div class="column" style="width:20%;">
-<p>Product collection</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;">key</th>
-<th style="text-align: center;">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">p-1:name</td>
-<td style="text-align: center;">Cola</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">p-2:name</td>
-<td style="text-align: center;">Fanta</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width:80%;">
-<p>Customer collection</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">key</th>
-<th style="text-align: center;">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">cust-1:name</td>
-<td style="text-align: center;">Martin</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">cust-1:adrs</td>
-<td style="text-align: center;">[ {“street”:“Adam”, “city”:“Chicago”, “state”:“Illinois”, “code”:60007}, {“street”:“9th”, “city”:“NewYork”, “state”:“NewYork”, “code”:10001}]</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">cust-1:ord-99</td>
-<td style="text-align: center;">{ “orderpayments”: [ {“card”:477, “billadrs”: {“street”:“Adam”, “city”:“Chicago”, “state”:“illinois”, “code”:60007} }, {“card”:457, “billadrs”: {“street”:“9th”, “city”:“NewYork”, “state”:“NewYork”, “code”:10001} ], “products”: [ {“id”:1, “name”:“Cola”, “price”:12.4}, {“id”:2, “name”:“Fanta”, “price”:14.4} ], “shipAdrs”: {“street”:“9th”, “city”:“NewYork”, “state”:“NewYork”, code”:10001}}</td>
-</tr>
-</tbody>
-</table>
-</div></div>
-</section>
-
-<section id="wide-column-data-model" class="title-slide slide level1 center">
-<h1>Wide column: data model</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Each DB contains one or more <em>column families</em> (corresponding to tables)</p>
-<ul>
-<li>Each column family contains a list of <em>rows</em> in the form of a key-value pair</li>
-<li>Key: unique string in the column family</li>
-<li>Value: a set of <em>columns</em></li>
-</ul>
-<p>Each column is a key-value pair itself.</p>
-<ul>
-<li>Key: unique string in the row</li>
-<li>Value: simple or complex (<em>supercolumn</em>)</li>
-</ul>
-<p>Essentially a 2-dimensional key-value store</p>
-<ul>
-<li>Rows specify only the columns <em>for which a value exists</em></li>
-<li>Particularly suited for sparse matrices and many-to-many relationships</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides77.png"></p>
-<figcaption>Wide column</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-
-<section id="wide-column-querying" class="title-slide slide level1 center">
-<h1>Wide column: querying</h1>
-<p>The query language expressiveness is between key-value and document data models.</p>
-<ul>
-<li>Column indexes are discouraged</li>
-<li>Can filter on column values (not always)</li>
-<li>Can return more rows with one query</li>
-<li>Can select which columns to project</li>
-<li>Can update specific columns (not always)</li>
-</ul>
-<p>Given the similarity with the relational model, a <em>SQL-like </em> language is often used.</p>
-</section>
-
-<section id="wide-column-columnar" class="title-slide slide level1 center">
-<h1>Wide column: ≠ columnar</h1>
-<div class="columns">
-<div class="column" style="width:33%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides78.png"></p>
-<figcaption>Table</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:33%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides79.png"></p>
-<figcaption>Row-oriented</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:33%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/slides80.png"></p>
-<figcaption>Column-oriented</figcaption>
-</figure>
-</div>
-</div></div>
-<p>Do not mistake the wide column data model with the columnar storage used for OLAP applications.</p>
-<p><em>Row-oriented</em></p>
-<ul>
-<li>Pro: inserting a record is easy</li>
-<li>Con: several unnecessary data points may be accessed when reading a record</li>
-</ul>
-<p><em>Column-oriented</em></p>
-<ul>
-<li>Pro: only the required values are accessed</li>
-<li>Con: writing a record requires multiple accesses</li>
-</ul>
-</section>
-
-<section id="data-modeling-example-wide-column-model" class="title-slide slide level1 center">
-<h1>Data modeling example: wide-column model</h1>
-
-<img data-src="img/118.svg" class="r-stretch quarto-figure-center"><p class="caption">Examples of wide columns</p></section>
 
 <section id="aggregate-modeling-strategy" class="title-slide slide level1 center">
 <h1>Aggregate modeling strategy</h1>
@@ -1003,8 +781,11 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p><em>Hash strategy</em>: a hash function is used to allocate data to partitions</p>
 <ul>
 <li>Adopted by DynamoDB and Cassandra</li>
-<li>Pro: ensures even data distribution across nodes and massive scalability</li>
-<li>Pro: new nodes can be added without heavy data redistribution</li>
+<li>Pros:
+<ul>
+<li>ensures even data distribution across nodes and massive scalability</li>
+<li>new nodes can be added without heavy data redistribution</li>
+</ul></li>
 <li>Con: range queries become inefficient</li>
 </ul>
 
@@ -1016,8 +797,11 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <ul>
 <li>Adopted by HBase</li>
 <li>Pro: efficiently run range queries that work on the sharding key values</li>
-<li>Con: global ordering often generates hot spots -&gt; risk of bottlenecks</li>
-<li>Con: ranges are defined a priori, and this can determine heavy data redistribution</li>
+<li>Cons:
+<ul>
+<li>global ordering often generates hot spots -&gt; risk of bottlenecks</li>
+<li>ranges are defined a priori, and this can determine heavy data redistribution</li>
+</ul></li>
 </ul>
 
 <img data-src="img/slides83.png" class="r-stretch quarto-figure-center"><p class="caption">Range strategy</p></section>
@@ -1481,86 +1265,6 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>To each application, its own data model</p>
 </section>
 
-<section id="key-value-popular-dbs" class="title-slide slide level1 center">
-<h1>Key-Value: popular DBs</h1>
-<p><strong>Redis</strong> (Data Structure server): <a href="http://redis.io/">http://redis.io/</a></p>
-<ul>
-<li>Supports complex fields (list, set, …) and operations on values (range, diff, …)</li>
-</ul>
-<p><strong>Memcached DB: </strong> <a href="http://memcached.org/">http://memcached.org/</a></p>
-<ul>
-<li><strong>Riak</strong>: <a href="http://basho.com/riak/">http://basho.com/riak/</a></li>
-</ul>
-</section>
-
-<section id="key-value-when-to-use" class="title-slide slide level1 center">
-<h1>Key-Value: when to use</h1>
-<p>Very simple use cases</p>
-<ul>
-<li>Independent data (no need to model relationships)</li>
-<li>The typical query is a simple lookup</li>
-<li>Need super-fast performance</li>
-</ul>
-<p>Examples</p>
-<ul>
-<li><strong>Session information</strong>
-<ul>
-<li>Each web session is identified by its own sessionId: All related data can be stored with a PUT request and returned with a GET request</li>
-</ul></li>
-<li><strong>User profiles, preferences</strong>
-<ul>
-<li>Each user is uniquely identified (userId, username) and has their own preferences in terms of language, colors, timezone, products, etc.</li>
-<li><em>data that fits well within an aggregate</em></li>
-</ul></li>
-<li><strong>Shopping cart, chat services</strong>
-<ul>
-<li>Each e-commerce website associates a shopping cart to a user; it can be stored as <em>an aggregate identified by the user ID</em></li>
-</ul></li>
-</ul>
-</section>
-
-<section id="key-value-real-use-cases" class="title-slide slide level1 center">
-<h1>Key-Value: real use cases</h1>
-<p><strong>Crawling of web pages</strong></p>
-<ul>
-<li>The URL is the key, the whole page content (HTML, CSS, JS, images, …) is the value</li>
-</ul>
-<p><strong>Twitter timeline</strong></p>
-<ul>
-<li>The user ID is the key, the list of most recent tweets to be shown is the value</li>
-</ul>
-<p><strong>Amazon S3 (Simple Storage Service)</strong></p>
-<ul>
-<li>A cloud-based file system service</li>
-<li>Useful for personal backups, file sharing, website or app publication</li>
-<li>The more you store, the more you pay
-<ul>
-<li>Storage: approx. $0.03 per GB per month</li>
-<li>Uploading files: approx. $0.005 per 1000 items</li>
-<li>Downloading files: approx. $0.004 per 10,000 files* PLUS $0.09 per GB (first GB free)</li>
-</ul></li>
-</ul>
-
-<img data-src="img/slides89.png" class="r-stretch quarto-figure-center"><p class="caption">Key-value</p></section>
-
-<section id="key-value-when-to-avoid" class="title-slide slide level1 center">
-<h1>Key-Value: when to avoid</h1>
-<p><strong>Data with many relationships</strong></p>
-<ul>
-<li>When relationships between data (in the same or in different collections) must be followed</li>
-<li>Some systems offer limited link-walking mechanisms</li>
-</ul>
-<p><strong>Multi-record operations</strong></p>
-<ul>
-<li>Because operations (mostly) involve one record at a time</li>
-</ul>
-<p><strong>Querying the data</strong></p>
-<ul>
-<li>If it is necessary to query the values, not just the key</li>
-<li>Few systems offer limited functionalities (e.g., Riak Search)</li>
-</ul>
-</section>
-
 <section id="document-popular-dbs" class="title-slide slide level1 center">
 <h1>Document: popular DBs</h1>
 <p><strong>MongoDB</strong>: <a href="http://www.mongodb.org/">http://www.mongodb.org</a></p>
@@ -1628,67 +1332,6 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p><strong>Queries on high-variety data</strong></p>
 <ul>
 <li><em>If the aggregate structure continuously evolves, queries must be constantly updated </em> (and normalization clashes with the concept of aggregate)</li>
-</ul>
-</section>
-
-<section id="wide-column-popular-dbs" class="title-slide slide level1 center">
-<h1>Wide column: popular DBs</h1>
-<p><strong>Cassandra</strong>: <a href="http://cassandra.apache.org/">http://cassandra.apache.org</a></p>
-<p><strong>HBase</strong>: <a href="https://hbase.apache.org/">https://hbase.apache.org</a></p>
-<p><strong>Google </strong> <strong>BigTable</strong>: <a href="https://cloud.google.com/bigtable/">https://cloud.google.com/bigtable</a></p>
-</section>
-
-<section id="wide-column-when-to-use" class="title-slide slide level1 center">
-<h1>Wide column: when to use</h1>
-<p>Compromise between expressiveness and simplicity</p>
-<ul>
-<li>Limited (but some) requirements in terms of data model</li>
-<li>Limited (but some) requirements in terms of querying records</li>
-</ul>
-<p>Examples</p>
-<ul>
-<li><strong>Event logs; CMS, blogging platforms</strong>
-<ul>
-<li>Similarly to document databases, <em>different applications may use different columns</em></li>
-</ul></li>
-<li><strong>Sparse matrixes</strong>
-<ul>
-<li>While an RDBMS would store <em>null </em> values, a wide column <em>stores only the columns for which a value is specified</em></li>
-</ul></li>
-<li><strong>GIS applications</strong>
-<ul>
-<li>Pieces of a map (tiles) can be stored as <em>couples of latitude and longitude</em></li>
-</ul></li>
-</ul>
-</section>
-
-<section id="wide-column-real-use-cases" class="title-slide slide level1 center">
-<h1>Wide column: real use cases</h1>
-<p><strong>Google applications</strong></p>
-<ul>
-<li>BigTable is the DB used by Google for most of its applications, including Search, Analytics, Maps, and Gmail</li>
-</ul>
-<p><strong>User profiles and preferences</strong></p>
-<ul>
-<li>Spotify uses Cassandra to store metadata about users, artists, songs, playlists, etc.</li>
-</ul>
-<p><strong>Manhattan</strong></p>
-<ul>
-<li>After using Cassandra, Twitter has developed its own proprietary NoSQL system to support most of its services</li>
-</ul>
-</section>
-
-<section id="wide-column-when-to-avoid" class="title-slide slide level1 center">
-<h1>Wide column: when to avoid</h1>
-<p><strong>Same as for document model</strong></p>
-<ul>
-<li>ACID transactions requirement</li>
-<li>Queries on high-variety data</li>
-</ul>
-<p><strong>Need for full query expressiveness</strong></p>
-<ul>
-<li>Joins are highly discouraged</li>
-<li>Limited support for filters and group bys</li>
 </ul>
 </section>
 
@@ -1820,6 +1463,902 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>Database-as-a-service</p>
 <ul>
 <li>All cloud providers offer storage services supporting all data models</li>
+</ul>
+</section>
+
+<section id="case-study-data-governance" class="title-slide slide level1 center" data-background-color="#121011">
+<h1><img src="./img/cs.svg" class="title-icon"> Case study: data governance</h1>
+
+</section>
+
+<section id="metadata-governance" class="title-slide slide level1 center">
+<h1>Metadata Governance</h1>
+<p>Organizations manage <strong>data catalogs</strong> with details about data, algorithms, and agents.</p>
+
+<img data-src="img/datacatalog.PNG" class="r-stretch quarto-figure-center"><p class="caption">Data catalog</p></section>
+
+<section id="how-can-we-implement-these-concepts-into-the-database" class="title-slide slide level1 center">
+<h1>How can we implement these concepts into the database?</h1>
+
+<img data-src="img/slides17.png" class="r-stretch quarto-figure-center"><p class="caption">PROV Standard</p></section>
+
+<section id="relational-data-model-1" class="title-slide slide level1 center">
+<h1>Relational data model</h1>
+
+<img data-src="img/cs-nosql/er.png" class="r-stretch quarto-figure-center"><p class="caption">ER representation</p></section>
+
+<section id="relational-data-model-2" class="title-slide slide level1 center">
+<h1>Relational data model</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (</span>
+<span id="cb3-2"><a href=""></a>  entity_id <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb3-3"><a href=""></a>  name TEXT,</span>
+<span id="cb3-4"><a href=""></a>  file_type TEXT,</span>
+<span id="cb3-5"><a href=""></a>  created_at TEXT,</span>
+<span id="cb3-6"><a href=""></a>  wasDerivedFrom <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> entity(entity_id)</span>
+<span id="cb3-7"><a href=""></a>);</span>
+<span id="cb3-8"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id <span class="dt">INTEGER</span>, name TEXT);</span>
+<span id="cb3-9"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id <span class="dt">INTEGER</span>, name TEXT);</span>
+<span id="cb3-10"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb3-11"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+</section>
+
+
+
+<section id="what-are-the-limitations-of-the-relational-model" class="title-slide slide level1 center">
+<h1>What are the limitations of the relational model?</h1>
+
+</section>
+
+<section id="limitations-of-relational-model" class="title-slide slide level1 center">
+<h1>Limitations of Relational Model</h1>
+<p>Difficult to store <strong>heterogeneous metadata</strong>:</p>
+<ul>
+<li>CSV: columns, delimiter</li>
+<li>TIFF: resolution, color depth</li>
+<li>JSON: nested structures</li>
+</ul>
+</section>
+
+<section id="limitations-of-relational-model-1" class="title-slide slide level1 center">
+<h1>Limitations of Relational Model</h1>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Type</th>
+<th>Applies To</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>entity_id</strong></td>
+<td><code>INTEGER</code></td>
+<td>all</td>
+<td>Unique ID (primary key).</td>
+</tr>
+<tr class="even">
+<td><strong>name</strong></td>
+<td><code>TEXT</code></td>
+<td>all</td>
+<td>Human-readable name of the entity.</td>
+</tr>
+<tr class="odd">
+<td><strong>file_type</strong></td>
+<td><code>TEXT</code></td>
+<td>all</td>
+<td>Type of file (<code>csv</code>, <code>tiff</code>, <code>json</code>).</td>
+</tr>
+<tr class="even">
+<td><strong>file_path</strong></td>
+<td><code>TEXT</code></td>
+<td>all</td>
+<td>File path or URI.</td>
+</tr>
+<tr class="odd">
+<td><strong>file_size</strong></td>
+<td><code>INTEGER</code></td>
+<td>all</td>
+<td>File size in bytes.</td>
+</tr>
+<tr class="even">
+<td><strong>checksum</strong></td>
+<td><code>TEXT</code></td>
+<td>all</td>
+<td>File checksum (e.g., SHA256).</td>
+</tr>
+<tr class="odd">
+<td><strong>created_at</strong></td>
+<td><code>TEXT</code></td>
+<td>all</td>
+<td>Timestamp when created.</td>
+</tr>
+<tr class="even">
+<td><strong>wasDerivedFrom</strong></td>
+<td><code>INTEGER</code></td>
+<td>all</td>
+<td>Foreign key to parent entity.</td>
+</tr>
+<tr class="odd">
+<td><strong>csv_columns</strong></td>
+<td><code>TEXT</code></td>
+<td>CSV</td>
+<td>Column names (e.g., <code>"id,name,price"</code>).</td>
+</tr>
+<tr class="even">
+<td><strong>csv_delimiter</strong></td>
+<td><code>TEXT</code></td>
+<td>CSV</td>
+<td>Column separator (e.g., <code>","</code>).</td>
+</tr>
+<tr class="odd">
+<td><strong>csv_has_header</strong></td>
+<td><code>BOOLEAN</code></td>
+<td>CSV</td>
+<td>Indicates if first row is header.</td>
+</tr>
+<tr class="even">
+<td><strong>tiff_resolution</strong></td>
+<td><code>TEXT</code></td>
+<td>TIFF</td>
+<td>Image resolution (e.g., <code>300dpi</code>).</td>
+</tr>
+<tr class="odd">
+<td><strong>tiff_color_depth</strong></td>
+<td><code>INTEGER</code></td>
+<td>TIFF</td>
+<td>Bits per pixel (e.g., <code>24</code>).</td>
+</tr>
+<tr class="even">
+<td><strong>tiff_compression</strong></td>
+<td><code>TEXT</code></td>
+<td>TIFF</td>
+<td>Compression type (e.g., <code>LZW</code>).</td>
+</tr>
+<tr class="odd">
+<td><strong>json_schema_version</strong></td>
+<td><code>TEXT</code></td>
+<td>JSON</td>
+<td>Version of JSON schema.</td>
+</tr>
+<tr class="even">
+<td><strong>json_root_keys</strong></td>
+<td><code>TEXT</code></td>
+<td>JSON</td>
+<td>Top-level keys.</td>
+</tr>
+<tr class="odd">
+<td><strong>json_nesting_level</strong></td>
+<td><code>INTEGER</code></td>
+<td>JSON</td>
+<td>Max nesting depth.</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section id="limitations-of-relational-model-2" class="title-slide slide level1 center">
+<h1>Limitations of Relational Model</h1>
+<div style="font-size:0.6em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 9%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>entity_id</th>
+<th>name</th>
+<th>file_type</th>
+<th>file_size</th>
+<th>csv_columns</th>
+<th>csv_delimiter</th>
+<th>csv_has_header</th>
+<th>tiff_resolution</th>
+<th>tiff_color_depth</th>
+<th>json_schema_version</th>
+<th>json_root_keys</th>
+<th>json_nesting_level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>customers_raw</code></td>
+<td>csv</td>
+<td>10432</td>
+<td><code>id,name,email</code></td>
+<td><code>,</code></td>
+<td>TRUE</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>satellite_image</code></td>
+<td>tiff</td>
+<td>8500000</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td><code>300dpi</code></td>
+<td>24</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>api_response</code></td>
+<td>json</td>
+<td>2000</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td><code>v2.1</code></td>
+<td><code>["users","metadata"]</code></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="limitations-of-relational-model-3" class="title-slide slide level1 center">
+<h1>Limitations of Relational Model</h1>
+<p>Relationships (e.g., lineage chains) need complex joins:</p>
+<p>Which entity was derived from the entity <code>'a'</code>?</p>
+<div class="fragment">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb5-2"><a href=""></a><span class="kw">FROM</span> entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id</span>
+<span id="cb5-3"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+</div>
+</section>
+
+<section id="limitations-of-relational-model-4" class="title-slide slide level1 center">
+<h1>Limitations of Relational Model</h1>
+<p>Reference schema</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb6-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb6-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb6-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb6-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb6-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<p>Which entity was derived from an entity derived from <code>'a'</code>?</p>
+<div class="fragment">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb7-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id)</span>
+<span id="cb7-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb7-4"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+</div>
+</section>
+
+<section id="limitations-of-relational-model-5" class="title-slide slide level1 center">
+<h1>Limitations of Relational Model</h1>
+<p>Reference schema</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb8-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb8-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb8-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb8-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<p>Which entity was (derived from an entity)<span class="math inline">\(^5\)</span> derived from <code>'a'</code>?</p>
+<div class="fragment">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb9-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb9-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id)</span>
+<span id="cb9-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb9-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
+<span id="cb9-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
+<span id="cb9-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+</div>
+</section>
+
+<section id="document-based-model" class="title-slide slide level1 center">
+<h1>Document-based model</h1>
+<p>Each entity becomes a (JSON) <strong>document</strong> with customizable attributes.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb10-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"customers_raw"</span><span class="fu">,</span></span>
+<span id="cb10-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"csv"</span><span class="fu">,</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
+<span id="cb10-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb10-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"extract_sales_data"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb10-7"><a href=""></a>  <span class="dt">"columns"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
+<span id="cb10-8"><a href=""></a>  <span class="dt">"delimiter"</span><span class="fu">:</span> <span class="st">","</span><span class="fu">,</span></span>
+<span id="cb10-9"><a href=""></a>  <span class="dt">"encoding"</span><span class="fu">:</span> <span class="st">"utf-8"</span><span class="fu">,</span></span>
+<span id="cb10-10"><a href=""></a>  <span class="dt">"wasDerivedFrom"</span><span class="fu">:</span> <span class="st">"a"</span></span>
+<span id="cb10-11"><a href=""></a><span class="fu">}</span></span></code></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb11-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb11-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"satellite_image"</span><span class="fu">,</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"tiff"</span><span class="fu">,</span></span>
+<span id="cb11-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
+<span id="cb11-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb11-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span></span>
+<span id="cb11-7"><a href=""></a>  <span class="dt">"tiff_resolution"</span><span class="fu">:</span> <span class="st">"300dpi"</span><span class="fu">,</span></span>
+<span id="cb11-8"><a href=""></a>  <span class="dt">"tiff_color_depth"</span><span class="fu">:</span> <span class="dv">24</span><span class="fu">,</span></span>
+<span id="cb11-9"><a href=""></a><span class="fu">}</span></span></code></pre></div>
+</div></div>
+<p>A <em>collection</em> is a list of documents.</p>
+</section>
+
+<section id="document-based-model-1" class="title-slide slide level1 center">
+<h1>Document-based model</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>The relational model is <em>data driven</em></p>
+<ul>
+<li>It represents concepts as relations and relationships.</li>
+</ul>
+<p>Reference schema</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb12-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb12-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb12-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb12-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb12-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<p>Which agents were attributed to the entity?</p>
+<div class="fragment">
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a><span class="kw">SELECT</span> e.name <span class="kw">AS</span> entity_name,a.name <span class="kw">AS</span> agent_name</span>
+<span id="cb13-2"><a href=""></a><span class="kw">FROM</span> entity e <span class="kw">JOIN</span> wasAttributedTo w <span class="kw">ON</span> e.<span class="kw">id</span> <span class="op">=</span> w.entity_id</span>
+<span id="cb13-3"><a href=""></a>    <span class="kw">JOIN</span> <span class="kw">agent</span> a <span class="kw">ON</span> w.agent_id <span class="op">=</span> a.<span class="kw">id</span></span>
+<span id="cb13-4"><a href=""></a><span class="kw">WHERE</span> e.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<p>Which activities generated the entity?</p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a><span class="kw">SELECT</span> e.name <span class="kw">AS</span> entity_name, act.name <span class="kw">AS</span> activity_name</span>
+<span id="cb14-2"><a href=""></a><span class="kw">FROM</span> entity e <span class="kw">JOIN</span> wasGeneratedBy wgb <span class="kw">ON</span> e.<span class="kw">id</span> <span class="op">=</span> wgb.entity_id</span>
+<span id="cb14-3"><a href=""></a>    <span class="kw">JOIN</span> activity act <span class="kw">ON</span> wgb.activity_id <span class="op">=</span> act.<span class="kw">id</span></span>
+<span id="cb14-4"><a href=""></a><span class="kw">WHERE</span> e.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p>The document-based model is <em>aggregate oriented</em></p>
+<ul>
+<li>Each document contains the data necessary to answer a query.</li>
+</ul>
+<p>Which agents were attributed to the entity?</p>
+<p>Which activities generated the entity?</p>
+<div class="sourceCode" id="cb15" data-code-line-numbers="5-6"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb15-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb15-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"a"</span><span class="fu">,</span></span>
+<span id="cb15-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"csv"</span><span class="fu">,</span></span>
+<span id="cb15-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
+<span id="cb15-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb15-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"extract_sales_data"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb15-7"><a href=""></a>  <span class="dt">"columns"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
+<span id="cb15-8"><a href=""></a>  <span class="dt">"delimiter"</span><span class="fu">:</span> <span class="st">","</span><span class="fu">,</span></span>
+<span id="cb15-9"><a href=""></a>  <span class="dt">"encoding"</span><span class="fu">:</span> <span class="st">"utf-8"</span><span class="fu">,</span></span>
+<span id="cb15-10"><a href=""></a><span class="fu">}</span></span></code></pre></div>
+</div>
+</div></div>
+</section>
+
+<section id="limitations-of-document-based-model" class="title-slide slide level1 center">
+<h1>Limitations of Document-based Model</h1>
+<ul>
+<li>Chains of relationships are implicit and difficult to traverse</li>
+<li>Data lineage analysis is cumbersome</li>
+</ul>
+</section>
+
+<section id="the-graph-data-model" class="title-slide slide level1 center">
+<h1>The graph data model</h1>
+<p>Reference schema</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb16-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb16-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb16-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb16-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+
+<img data-src="img/cs-nosql/graph.svg" class="r-stretch quarto-figure-center"><p class="caption">Graph representation</p></section>
+
+<section id="the-graph-data-model-1" class="title-slide slide level1 center">
+<h1>The graph data model</h1>
+
+<img data-src="img/cs-nosql/graph.svg" class="r-stretch quarto-figure-center"><p class="caption">Graph representation</p><p>Relationships become <strong>first-class citizens</strong>.</p>
+<ul>
+<li>Example of implementation in Resource Description Framework (RDF) triples (Subject-Predicate-Object)</li>
+</ul>
+<pre><code>&lt;http://example.org/entity/a&gt; &lt;http://example.org/wasDerivedFrom&gt; &lt;http://example.org/entity/b&gt; .
+&lt;http://example.org/entity/a&gt; &lt;http://example.org/wasAttributedTo&gt; &lt;http://example.org/agent/alice&gt; .
+&lt;http://example.org/entity/a&gt; &lt;http://example.org/wasGeneratedBy&gt; &lt;http://example.org/activity/extract_sales_data&gt; .</code></pre>
+</section>
+
+<section id="the-graph-data-model-2" class="title-slide slide level1 center">
+<h1>The graph data model</h1>
+<p>Cypher is a declarative graph query language that allows for expressive and efficient data querying in a property graph.</p>
+<ul>
+<li><code>(:Agent)-[:WAS_ATTRIBUTED_TO]-&gt;(:Entity)</code></li>
+<li><code>(:Activity)-[:WAS_GENERATED_BY]-&gt;(:Entity)</code></li>
+<li><code>(:Entity)-[:WAS_DERIVED_FROM]-&gt;(:Entity)</code></li>
+</ul>
+<p>Metadata stays attached as key-value node properties.</p>
+</section>
+
+<section id="the-graph-data-model-3" class="title-slide slide level1 center">
+<h1>The graph data model</h1>
+<p>SQL</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb18-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb18-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id) </span>
+<span id="cb18-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb18-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
+<span id="cb18-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
+<span id="cb18-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<p>Cypher</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource cypher number-lines"><code class="sourceCode"><span id="cb19-1"><a href=""></a>MATCH (e1:Entity {name: 'a'})</span>
+<span id="cb19-2"><a href=""></a>MATCH (e1)-[:WAS_DERIVED_FROM]-&gt;(e2:Entity)</span>
+<span id="cb19-3"><a href=""></a>      -[:WAS_DERIVED_FROM]-&gt;(e3:Entity)</span>
+<span id="cb19-4"><a href=""></a>      -[:WAS_DERIVED_FROM]-&gt;(e4:Entity)</span>
+<span id="cb19-5"><a href=""></a>      -[:WAS_DERIVED_FROM]-&gt;(e5:Entity)</span>
+<span id="cb19-6"><a href=""></a>RETURN e1.name, e2.name, e3.name, e4.name, e5.name;</span></code></pre></div>
+</section>
+
+<section id="the-graph-data-model-4" class="title-slide slide level1 center">
+<h1>The graph data model</h1>
+<p>SQL</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb20-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb20-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id) </span>
+<span id="cb20-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb20-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
+<span id="cb20-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
+<span id="cb20-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<p>Cypher</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource cypher number-lines"><code class="sourceCode"><span id="cb21-1"><a href=""></a>MATCH (e1:Entity {name: 'a'})-[:WAS_DERIVED_FROM*1..5]-&gt;(e2:Entity)</span>
+<span id="cb21-2"><a href=""></a>RETURN e1.name, e2.name;</span></code></pre></div>
+</section>
+
+<section id="comparison-summary" class="title-slide slide level1 center">
+<h1>Comparison Summary</h1>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 23%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th style="text-align: center;">Relational</th>
+<th style="text-align: center;">Document</th>
+<th style="text-align: center;">Graph</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Schema Flexibility</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr class="even">
+<td>Relationship Modeling</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️ (manual)</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr class="odd">
+<td>Querying Relationships</td>
+<td style="text-align: center;">⚠️ (joins)</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr class="even">
+<td>Use Case Fit</td>
+<td style="text-align: center;">Structured data</td>
+<td style="text-align: center;">Semi-structured data</td>
+<td style="text-align: center;">Semi-structured data + Lineage</td>
+</tr>
+</tbody>
+</table>
+<p>Takeaways</p>
+<ul>
+<li><strong>No single DB fits all purposes.</strong></li>
+<li>This example mirrors <strong>real-world metadata governance systems</strong> (e.g., DataHub, Amundsen, OpenMetadata).</li>
+</ul>
+</section>
+
+<section id="end-of-the-case-study" class="title-slide slide level1 center" data-background-color="#121011">
+<h1>End of the case study</h1>
+
+</section>
+
+<section id="supplementary-material" class="title-slide slide level1 center">
+<h1>Supplementary material</h1>
+
+</section>
+
+<section id="key-value-data-model" class="title-slide slide level1 center">
+<h1>Key-value: data model</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Each DB contains one or more <em>collections</em> (corresponding to tables)</p>
+<ul>
+<li>Each collection contains a list of <em>key-value pairs</em></li>
+<li>Key: a unique string
+<ul>
+<li>E.g.: ids, hashes, paths, queries, REST calls</li>
+</ul></li>
+<li>Value: a BLOB (binary large object)
+<ul>
+<li>E.g.: text, documents, web pages, multimedia files</li>
+</ul></li>
+</ul>
+<p>Looks like a simple dictionary</p>
+<ul>
+<li><em>The collection is indexed by key</em></li>
+<li><em>The value may contain several information</em>
+<ul>
+<li>Definitions, synonyms and antonyms, images, etc.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides76.png"></p>
+<figcaption>Key-value</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="key-value-querying" class="title-slide slide level1 center">
+<h1>Key-value: querying</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Three simple kinds of query:</p>
+<ul>
+<li><em>put($key as xs:string, $value as item())</em>
+<ul>
+<li>Adds a key-value pair to the collection</li>
+<li>If the key already exists, the value is replaced</li>
+</ul></li>
+<li><em>get($key as xs:string) as item()</em>
+<ul>
+<li>Returns the value corresponding to the key (if it exists)</li>
+</ul></li>
+<li><em>delete($key as xs:string)</em>
+<ul>
+<li>Deletes the key-value pair</li>
+</ul></li>
+</ul>
+<p>The value is a <em>black box</em>: it cannot be queried!</p>
+<ul>
+<li>No “where” clauses</li>
+<li>No indexes on the values</li>
+<li>Schema information is often indicated in the key</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">user:1234:name</td>
+<td style="text-align: center;">Enrico</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">user:1234:city</td>
+<td style="text-align: center;">Cesena</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">post:9876:written-by</td>
+<td style="text-align: center;">user:1234</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">post:9876:title</td>
+<td style="text-align: center;">NoSQL Databases</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">comment:5050:reply-to</td>
+<td style="text-align: center;">post:9876</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+
+<section id="data-modeling-example-key-value-model" class="title-slide slide level1 center">
+<h1>Data modeling example: key-value model</h1>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p>Product collection</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">key</th>
+<th style="text-align: center;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">p-1:name</td>
+<td style="text-align: center;">Cola</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">p-2:name</td>
+<td style="text-align: center;">Fanta</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:80%;">
+<p>Customer collection</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">key</th>
+<th style="text-align: center;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">cust-1:name</td>
+<td style="text-align: center;">Martin</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">cust-1:adrs</td>
+<td style="text-align: center;">[ {“street”:“Adam”, “city”:“Chicago”, “state”:“Illinois”, “code”:60007}, {“street”:“9th”, “city”:“NewYork”, “state”:“NewYork”, “code”:10001}]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">cust-1:ord-99</td>
+<td style="text-align: center;">{ “orderpayments”: [ {“card”:477, “billadrs”: {“street”:“Adam”, “city”:“Chicago”, “state”:“illinois”, “code”:60007} }, {“card”:457, “billadrs”: {“street”:“9th”, “city”:“NewYork”, “state”:“NewYork”, “code”:10001} ], “products”: [ {“id”:1, “name”:“Cola”, “price”:12.4}, {“id”:2, “name”:“Fanta”, “price”:14.4} ], “shipAdrs”: {“street”:“9th”, “city”:“NewYork”, “state”:“NewYork”, code”:10001}}</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+
+<section id="wide-column-data-model" class="title-slide slide level1 center">
+<h1>Wide column: data model</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Each DB contains one or more <em>column families</em> (corresponding to tables)</p>
+<ul>
+<li>Each column family contains a list of <em>rows</em> in the form of a key-value pair</li>
+<li>Key: unique string in the column family</li>
+<li>Value: a set of <em>columns</em></li>
+</ul>
+<p>Each column is a key-value pair itself.</p>
+<ul>
+<li>Key: unique string in the row</li>
+<li>Value: simple or complex (<em>supercolumn</em>)</li>
+</ul>
+<p>Essentially a 2-dimensional key-value store</p>
+<ul>
+<li>Rows specify only the columns <em>for which a value exists</em></li>
+<li>Particularly suited for sparse matrices and many-to-many relationships</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides77.png"></p>
+<figcaption>Wide column</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="wide-column-querying" class="title-slide slide level1 center">
+<h1>Wide column: querying</h1>
+<p>The query language expressiveness is between key-value and document data models.</p>
+<ul>
+<li>Column indexes are discouraged</li>
+<li>Can filter on column values (not always)</li>
+<li>Can return more rows with one query</li>
+<li>Can select which columns to project</li>
+<li>Can update specific columns (not always)</li>
+</ul>
+<p>Given the similarity with the relational model, a <em>SQL-like </em> language is often used.</p>
+</section>
+
+<section id="wide-column-columnar" class="title-slide slide level1 center">
+<h1>Wide column: ≠ columnar</h1>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides78.png"></p>
+<figcaption>Table</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides79.png"></p>
+<figcaption>Row-oriented</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/slides80.png"></p>
+<figcaption>Column-oriented</figcaption>
+</figure>
+</div>
+</div></div>
+<p>Do not mistake the wide column data model with the columnar storage used for OLAP applications.</p>
+<p><em>Row-oriented</em></p>
+<ul>
+<li>Pro: inserting a record is easy</li>
+<li>Con: several unnecessary data points may be accessed when reading a record</li>
+</ul>
+<p><em>Column-oriented</em></p>
+<ul>
+<li>Pro: only the required values are accessed</li>
+<li>Con: writing a record requires multiple accesses</li>
+</ul>
+</section>
+
+<section id="data-modeling-example-wide-column-model" class="title-slide slide level1 center">
+<h1>Data modeling example: wide-column model</h1>
+
+<img data-src="img/118.svg" class="r-stretch quarto-figure-center"><p class="caption">Examples of wide columns</p></section>
+
+<section id="key-value-popular-dbs" class="title-slide slide level1 center">
+<h1>Key-Value: popular DBs</h1>
+<p><strong>Redis</strong> (Data Structure server): <a href="http://redis.io/">http://redis.io/</a></p>
+<ul>
+<li>Supports complex fields (list, set, …) and operations on values (range, diff, …)</li>
+</ul>
+<p><strong>Memcached DB: </strong> <a href="http://memcached.org/">http://memcached.org/</a></p>
+<ul>
+<li><strong>Riak</strong>: <a href="http://basho.com/riak/">http://basho.com/riak/</a></li>
+</ul>
+</section>
+
+<section id="key-value-when-to-use" class="title-slide slide level1 center">
+<h1>Key-Value: when to use</h1>
+<p>Very simple use cases</p>
+<ul>
+<li>Independent data (no need to model relationships)</li>
+<li>The typical query is a simple lookup</li>
+<li>Need super-fast performance</li>
+</ul>
+<p>Examples</p>
+<ul>
+<li><strong>Session information</strong>
+<ul>
+<li>Each web session is identified by its own sessionId: All related data can be stored with a PUT request and returned with a GET request</li>
+</ul></li>
+<li><strong>User profiles, preferences</strong>
+<ul>
+<li>Each user is uniquely identified (userId, username) and has their own preferences in terms of language, colors, timezone, products, etc.</li>
+<li><em>data that fits well within an aggregate</em></li>
+</ul></li>
+<li><strong>Shopping cart, chat services</strong>
+<ul>
+<li>Each e-commerce website associates a shopping cart to a user; it can be stored as <em>an aggregate identified by the user ID</em></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="key-value-real-use-cases" class="title-slide slide level1 center">
+<h1>Key-Value: real use cases</h1>
+<p><strong>Crawling of web pages</strong></p>
+<ul>
+<li>The URL is the key, the whole page content (HTML, CSS, JS, images, …) is the value</li>
+</ul>
+<p><strong>Twitter timeline</strong></p>
+<ul>
+<li>The user ID is the key, the list of most recent tweets to be shown is the value</li>
+</ul>
+<p><strong>Amazon S3 (Simple Storage Service)</strong></p>
+<ul>
+<li>A cloud-based file system service</li>
+<li>Useful for personal backups, file sharing, website or app publication</li>
+<li>The more you store, the more you pay
+<ul>
+<li>Storage: approx. $0.03 per GB per month</li>
+<li>Uploading files: approx. $0.005 per 1000 items</li>
+<li>Downloading files: approx. $0.004 per 10,000 files* PLUS $0.09 per GB (first GB free)</li>
+</ul></li>
+</ul>
+
+<img data-src="img/slides89.png" class="r-stretch quarto-figure-center"><p class="caption">Key-value</p></section>
+
+<section id="key-value-when-to-avoid" class="title-slide slide level1 center">
+<h1>Key-Value: when to avoid</h1>
+<p><strong>Data with many relationships</strong></p>
+<ul>
+<li>When relationships between data (in the same or in different collections) must be followed</li>
+<li>Some systems offer limited link-walking mechanisms</li>
+</ul>
+<p><strong>Multi-record operations</strong></p>
+<ul>
+<li>Because operations (mostly) involve one record at a time</li>
+</ul>
+<p><strong>Querying the data</strong></p>
+<ul>
+<li>If it is necessary to query the values, not just the key</li>
+<li>Few systems offer limited functionalities (e.g., Riak Search)</li>
+</ul>
+</section>
+
+<section id="wide-column-popular-dbs" class="title-slide slide level1 center">
+<h1>Wide column: popular DBs</h1>
+<p><strong>Cassandra</strong>: <a href="http://cassandra.apache.org/">http://cassandra.apache.org</a></p>
+<p><strong>HBase</strong>: <a href="https://hbase.apache.org/">https://hbase.apache.org</a></p>
+<p><strong>Google BigTable</strong>: <a href="https://cloud.google.com/bigtable/">https://cloud.google.com/bigtable</a></p>
+</section>
+
+<section id="wide-column-when-to-use" class="title-slide slide level1 center">
+<h1>Wide column: when to use</h1>
+<p>Compromise between expressiveness and simplicity</p>
+<ul>
+<li>Limited (but some) requirements in terms of data model</li>
+<li>Limited (but some) requirements in terms of querying records</li>
+</ul>
+<p>Examples</p>
+<ul>
+<li><strong>Event logs; CMS, blogging platforms</strong>
+<ul>
+<li>Similarly to document databases, <em>different applications may use different columns</em></li>
+</ul></li>
+<li><strong>Sparse matrixes</strong>
+<ul>
+<li>While an RDBMS would store <em>null </em> values, a wide column <em>stores only the columns for which a value is specified</em></li>
+</ul></li>
+<li><strong>GIS applications</strong>
+<ul>
+<li>Pieces of a map (tiles) can be stored as <em>couples of latitude and longitude</em></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="wide-column-real-use-cases" class="title-slide slide level1 center">
+<h1>Wide column: real use cases</h1>
+<p><strong>Google applications</strong></p>
+<ul>
+<li>BigTable is the DB used by Google for most of its applications, including Search, Analytics, Maps, and Gmail</li>
+</ul>
+<p><strong>User profiles and preferences</strong></p>
+<ul>
+<li>Spotify uses Cassandra to store metadata about users, artists, songs, playlists, etc.</li>
+</ul>
+<p><strong>Manhattan</strong></p>
+<ul>
+<li>After using Cassandra, Twitter has developed its own proprietary NoSQL system to support most of its services</li>
+</ul>
+</section>
+
+<section id="wide-column-when-to-avoid" class="title-slide slide level1 center">
+<h1>Wide column: when to avoid</h1>
+<p><strong>Same as for document model</strong></p>
+<ul>
+<li>ACID transactions requirement</li>
+<li>Queries on high-variety data</li>
+</ul>
+<p><strong>Need for full query expressiveness</strong></p>
+<ul>
+<li>Joins are highly discouraged</li>
+<li>Limited support for filters and group bys</li>
 </ul>
 
 </section>
