@@ -120,7 +120,7 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 
 *Distributed, shared-nothing architecture*
 
-- A shared-nothing architecture is a distributed computing architecture in which each update request is satisfied by a single node in a computer cluster
+- A shared-nothing architecture is a distributed architecture in which each update request is satisfied by a single node in a computer cluster
   - Nodes do not share (independently access) the same memory or storage. 
 - Trivial scalability in a distributed environment with no performance decay
 
@@ -212,11 +212,6 @@ Each DB contains one or more *graphs*
 - Vertices and arcs are described by *properties*
 - Arcs are stored as physical pointers
 
-Most known specializations:
-
-- Reticular data model: parent-child or owner-member relationships
-- Triplestore: subject-predicate-object relationships (e.g., RDF)
-
 ![Property graph](img/slides72.png)
 
 # Graph: querying
@@ -277,7 +272,7 @@ Based on the concept of encapsulation
 # Document: data model
 
 :::: {.columns}
-::: {.column width=70%}
+::: {.column width=60%}
 
 Each DB contains one or more *collections* (corresponding to tables)
 
@@ -290,14 +285,38 @@ Each document contains a set of *fields*
 
 Each field corresponds to a *key-value pair*
 
-- Key: unique string in the document
-- Value: either simple (string, number, boolean) or complex (object, array, BLOB)
+- *Key*: unique string in the document
+- *Value*: either simple (string, number, boolean) or complex (object, array, BLOB)
   - A complex field can contain other fields
- 
-:::
-::: {.column width=30%}
 
-![Example of document](img/106.svg)
+:::
+::: {.column width=40%}
+
+```json
+[
+    {
+        "_id": "A12345",
+        "name": "Alice",
+        "address": {
+            "street": "1st Avenue",
+            "city": "Wonderland"
+        },
+        "contacts": [
+            {"type": "email", "value": "alice@example.com"},
+            {"type": "phone", "number": "+123456789"}
+        ]
+    },
+    {
+        "_id": "B67890",
+        "name": "Bob",
+        "address": {
+            "street": "2nd Street",
+            "postalCode": "47522"
+        },
+        "birthdate": "1990-05-15"
+    }
+]
+```
 
 :::
 ::::
@@ -348,171 +367,6 @@ Different implementations, different functionalities
 
 :::
 ::::
-
-# Key-value: data model
-
-:::: {.columns}
-::: {.column width=50%}
-
-Each DB contains one or more *collections* (corresponding to tables)
-
-- Each collection contains a list of *key-value pairs*
-- Key: a unique string
-  - E.g.: ids, hashes, paths, queries, REST calls
-- Value: a BLOB (binary large object)
-  - E.g.: text, documents, web pages, multimedia files
-
-Looks like a simple dictionary
-
-- *The collection is indexed by key*
-- *The value may contain several information*
-  - Definitions, synonyms and antonyms, images, etc.
-
-:::
-::: {.column width=50%}
-
-![Key-value](img/slides76.png)
-
-:::
-::::
-
-# Key-value: querying
-
-:::: {.columns}
-::: {.column width=50%}
-
-Three simple kinds of query:
-
-- *put($key as xs:string, $value as item())*
-  - Adds a key-value pair to the collection
-  - If the key already exists, the value is replaced
-- *get($key as xs:string) as item()*
-  - Returns the value corresponding to the key (if it exists)
-- *delete($key as xs:string)*
-  - Deletes the key-value pair
-
-The value is a *black box*: it cannot be queried!
-
-- No "where" clauses
-- No indexes on the values
-- Schema information is often indicated in the key
-
-:::
-::: {.column width=50%}
-
-| Key | Value |
-|:-: |:-: |
-| user:1234:name | Enrico |
-| user:1234:city | Cesena |
-| post:9876:written-by | user:1234 |
-| post:9876:title | NoSQL Databases |
-| comment:5050:reply-to | post:9876 |
-
-:::
-::::
-
-# Data modeling example: key-value model
-
-:::: {.columns}
-::: {.column width=20%}
-
-Product collection
-
-| key | value |
-|:-: |:-: |
-| p-1:name | Cola |
-| p-2:name | Fanta |
-
-:::
-::: {.column width=80%}
-
-Customer collection
-
-| key | value |
-|:-: |:-: |
-| cust-1:name | Martin |
-| cust-1:adrs | [   {"street":"Adam", "city":"Chicago", "state":"Illinois", "code":60007},    {"street":"9th", "city":"NewYork", "state":"NewYork", "code":10001}] |
-| cust-1:ord-99 | {   "orderpayments": [      {"card":477, "billadrs":         {"street":"Adam", "city":"Chicago", "state":"illinois", "code":60007} },      {"card":457, "billadrs":        {"street":"9th", "city":"NewYork", "state":"NewYork", "code":10001}   ], "products": [      {"id":1, "name":"Cola", "price":12.4},      {"id":2, "name":"Fanta", "price":14.4}   ], "shipAdrs": {"street":"9th", "city":"NewYork", "state":"NewYork", code":10001}} |
-
-:::
-::::
-
-# Wide column: data model
-
-:::: {.columns}
-::: {.column width=50%}
-
-Each DB contains one or more *column families* (corresponding to tables)
-
-- Each column family contains a list of *rows* in the form of a key-value pair
-- Key: unique string in the column family
-- Value: a set of *columns*
-
-Each column is a key-value pair itself.
-
-- Key: unique string in the row
-- Value: simple or complex (*supercolumn*)
-
-Essentially a 2-dimensional key-value store
-
-- Rows specify only the columns *for which a value exists*
-- Particularly suited for sparse matrices and many-to-many relationships
-
-:::
-::: {.column width=50%}
-
-![Wide column](img/slides77.png)
-
-:::
-::::
-
-# Wide column: querying
-
-The query language expressiveness is between key-value and document data models.
-
-- Column indexes are discouraged
-- Can filter on column values (not always)
-- Can return more rows with one query
-- Can select which columns to project
-- Can update specific columns (not always)
-
-Given the similarity with the relational model, a *SQL-like * language is often used.
-
-# Wide column: ≠ columnar
-
-:::: {.columns}
-::: {.column width=33%}
-
-![Table](img/slides78.png)
-
-:::
-::: {.column width=33%}
-
-![Row-oriented](img/slides79.png)
-
-:::
-::: {.column width=33%}
-
-![Column-oriented](img/slides80.png)
-
-:::
-::::
-
-Do not mistake the wide column data model with the columnar storage used for OLAP applications.
-
-*Row-oriented*
-
-- Pro: inserting a record is easy
-- Con: several unnecessary data points may be accessed when reading a record
-
-*Column-oriented*
-
-- Pro: only the required values are accessed
-- Con: writing a record requires multiple accesses
-
-# Data modeling example: wide-column model
-
-![Examples of wide columns](img/118.svg)
 
 # Aggregate modeling strategy
 
@@ -590,8 +444,9 @@ Thumbs-up rules for a sharding strategy:
 *Hash strategy*: a hash function is used to allocate data to partitions
 
 - Adopted by DynamoDB and Cassandra
-- Pro: ensures even data distribution across nodes and massive scalability
-- Pro: new nodes can be added without heavy data redistribution
+- Pros:
+    - ensures even data distribution across nodes and massive scalability
+    - new nodes can be added without heavy data redistribution
 - Con: range queries become inefficient
 
 ![Hash sharding](img/slides82.png)
@@ -602,8 +457,9 @@ Thumbs-up rules for a sharding strategy:
 
 - Adopted by HBase
 - Pro: efficiently run range queries that work on the sharding key values
-- Con: global ordering often generates hot spots -> risk of bottlenecks
-- Con: ranges are defined a priori, and this can determine heavy data redistribution
+- Cons:
+    - global ordering often generates hot spots -> risk of bottlenecks
+    - ranges are defined a priori, and this can determine heavy data redistribution
 
 ![Range strategy](img/slides83.png)
 
@@ -980,71 +836,6 @@ BASE
 
 To each application, its own data model
 
-# Key-Value: popular DBs
-
-**Redis** (Data Structure server): [http://redis.io/](http://redis.io/)
-
-- Supports complex fields (list, set, ...) and operations on values (range, diff, ...)
-
-**Memcached DB: ** [http://memcached.org/](http://memcached.org/)
-
-- **Riak**: [http://basho.com/riak/](http://basho.com/riak/)
-
-# Key-Value: when to use
-
-Very simple use cases
-
-- Independent data (no need to model relationships)
-- The typical query is a simple lookup
-- Need super-fast performance
-
-Examples
-
-- **Session information**
-  - Each web session is identified by its own sessionId: All related data can be stored with a PUT request and returned with a GET request
-- **User profiles, preferences**
-  - Each user is uniquely identified (userId, username) and has their own preferences in terms of language, colors, timezone, products, etc.
-  - *data that fits well within an aggregate*
-- **Shopping cart, chat services**
-  - Each e-commerce website associates a shopping cart to a user; it can be stored as *an aggregate identified by the user ID*
-
-# Key-Value: real use cases
-
-**Crawling of web pages**
-
-- The URL is the key, the whole page content (HTML, CSS, JS, images, ...) is the value
-
-**Twitter timeline**
-
-- The user ID is the key, the list of most recent tweets to be shown is the value
-
-**Amazon S3 (Simple Storage Service)**
-
-- A cloud-based file system service
-- Useful for personal backups, file sharing, website or app publication
-- The more you store, the more you pay
-  - Storage: approx. $0.03 per GB per month
-  - Uploading files: approx. $0.005 per 1000 items
-  - Downloading files: approx. $0.004 per 10,000 files* PLUS $0.09 per GB (first GB free)
-
-![Key-value](img/slides89.png)
-
-# Key-Value: when to avoid
-
-**Data with many relationships**
-
-- When relationships between data (in the same or in different collections) must be followed
-- Some systems offer limited link-walking mechanisms
-
-**Multi-record operations**
-
-- Because operations (mostly) involve one record at a time
-
-**Querying the data**
-
-- If it is necessary to query the values, not just the key
-- Few systems offer limited functionalities (e.g., Riak Search)
-
 # Document: popular DBs
 
 **MongoDB**: [http://www.mongodb.org](http://www.mongodb.org/)
@@ -1097,56 +888,6 @@ Examples
 **Queries on high-variety data**
 
 - *If the aggregate structure continuously evolves, queries must be constantly updated * (and normalization clashes with the concept of aggregate)
-
-# Wide column: popular DBs
-
-**Cassandra**: [http://cassandra.apache.org](http://cassandra.apache.org/)
-
-**HBase**: [https://hbase.apache.org](https://hbase.apache.org/)
-
-**Google ** **BigTable**:  [https://cloud.google.com/bigtable](https://cloud.google.com/bigtable/)
-
-# Wide column: when to use
-
-Compromise between expressiveness and simplicity
-
-- Limited (but some) requirements in terms of data model
-- Limited (but some) requirements in terms of querying records
-
-Examples
-
-- **Event logs; CMS, blogging platforms**
-  - Similarly to document databases, *different applications may use different columns*
-- **Sparse matrixes**
-  - While an RDBMS would store *null * values, a wide column *stores only the columns for which a value is specified*
-- **GIS applications**
-  - Pieces of a map (tiles) can be stored as *couples of latitude and longitude*
-
-# Wide column: real use cases
-
-**Google applications**
-
-- BigTable is the DB used by Google for most of its applications, including Search, Analytics, Maps, and Gmail
-
-**User profiles and preferences**
-
-- Spotify uses Cassandra to store metadata about users, artists, songs, playlists, etc.
-
-**Manhattan**
-
-- After using Cassandra, Twitter has developed its own proprietary NoSQL system to support most of its services
-
-# Wide column: when to avoid
-
-**Same as for document model**
-
-- ACID transactions requirement
-- Queries on high-variety data
-
-**Need for full query expressiveness**
-
-- Joins are highly discouraged
-- Limited support for filters and group bys
 
 # Graph: popular DBs
 
@@ -1268,3 +1009,291 @@ Multi-model NoSQL DBMSs
 Database-as-a-service
 
 - All cloud providers offer storage services supporting all data models
+
+# <img src="./img/cs.svg" class="title-icon" /> Case study: data governance {background-color="#121011"}
+
+{{< include _cs-nosql.md >}}
+
+# End of the case study {background-color="#121011"}
+
+# Supplementary material
+
+# Key-value: data model
+
+:::: {.columns}
+::: {.column width=50%}
+
+Each DB contains one or more *collections* (corresponding to tables)
+
+- Each collection contains a list of *key-value pairs*
+- Key: a unique string
+  - E.g.: ids, hashes, paths, queries, REST calls
+- Value: a BLOB (binary large object)
+  - E.g.: text, documents, web pages, multimedia files
+
+Looks like a simple dictionary
+
+- *The collection is indexed by key*
+- *The value may contain several information*
+  - Definitions, synonyms and antonyms, images, etc.
+
+:::
+::: {.column width=50%}
+
+![Key-value](img/slides76.png)
+
+:::
+::::
+
+# Key-value: querying
+
+:::: {.columns}
+::: {.column width=50%}
+
+Three simple kinds of query:
+
+- *put($key as xs:string, $value as item())*
+  - Adds a key-value pair to the collection
+  - If the key already exists, the value is replaced
+- *get($key as xs:string) as item()*
+  - Returns the value corresponding to the key (if it exists)
+- *delete($key as xs:string)*
+  - Deletes the key-value pair
+
+The value is a *black box*: it cannot be queried!
+
+- No "where" clauses
+- No indexes on the values
+- Schema information is often indicated in the key
+
+:::
+::: {.column width=50%}
+
+| Key | Value |
+|:-: |:-: |
+| user:1234:name | Enrico |
+| user:1234:city | Cesena |
+| post:9876:written-by | user:1234 |
+| post:9876:title | NoSQL Databases |
+| comment:5050:reply-to | post:9876 |
+
+:::
+::::
+
+# Data modeling example: key-value model
+
+:::: {.columns}
+::: {.column width=20%}
+
+Product collection
+
+| key | value |
+|:-: |:-: |
+| p-1:name | Cola |
+| p-2:name | Fanta |
+
+:::
+::: {.column width=80%}
+
+Customer collection
+
+| key | value |
+|:-: |:-: |
+| cust-1:name | Martin |
+| cust-1:adrs | [   {"street":"Adam", "city":"Chicago", "state":"Illinois", "code":60007},    {"street":"9th", "city":"NewYork", "state":"NewYork", "code":10001}] |
+| cust-1:ord-99 | {   "orderpayments": [      {"card":477, "billadrs":         {"street":"Adam", "city":"Chicago", "state":"illinois", "code":60007} },      {"card":457, "billadrs":        {"street":"9th", "city":"NewYork", "state":"NewYork", "code":10001}   ], "products": [      {"id":1, "name":"Cola", "price":12.4},      {"id":2, "name":"Fanta", "price":14.4}   ], "shipAdrs": {"street":"9th", "city":"NewYork", "state":"NewYork", code":10001}} |
+
+:::
+::::
+
+# Wide column: data model
+
+:::: {.columns}
+::: {.column width=50%}
+
+Each DB contains one or more *column families* (corresponding to tables)
+
+- Each column family contains a list of *rows* in the form of a key-value pair
+- Key: unique string in the column family
+- Value: a set of *columns*
+
+Each column is a key-value pair itself.
+
+- Key: unique string in the row
+- Value: simple or complex (*supercolumn*)
+
+Essentially a 2-dimensional key-value store
+
+- Rows specify only the columns *for which a value exists*
+- Particularly suited for sparse matrices and many-to-many relationships
+
+:::
+::: {.column width=50%}
+
+![Wide column](img/slides77.png)
+
+:::
+::::
+
+# Wide column: querying
+
+The query language expressiveness is between key-value and document data models.
+
+- Column indexes are discouraged
+- Can filter on column values (not always)
+- Can return more rows with one query
+- Can select which columns to project
+- Can update specific columns (not always)
+
+Given the similarity with the relational model, a *SQL-like * language is often used.
+
+# Wide column: ≠ columnar
+
+:::: {.columns}
+::: {.column width=33%}
+
+![Table](img/slides78.png)
+
+:::
+::: {.column width=33%}
+
+![Row-oriented](img/slides79.png)
+
+:::
+::: {.column width=33%}
+
+![Column-oriented](img/slides80.png)
+
+:::
+::::
+
+Do not mistake the wide column data model with the columnar storage used for OLAP applications.
+
+*Row-oriented*
+
+- Pro: inserting a record is easy
+- Con: several unnecessary data points may be accessed when reading a record
+
+*Column-oriented*
+
+- Pro: only the required values are accessed
+- Con: writing a record requires multiple accesses
+
+# Data modeling example: wide-column model
+
+![Examples of wide columns](img/118.svg)
+
+# Key-Value: popular DBs
+
+**Redis** (Data Structure server): [http://redis.io/](http://redis.io/)
+
+- Supports complex fields (list, set, ...) and operations on values (range, diff, ...)
+
+**Memcached DB: ** [http://memcached.org/](http://memcached.org/)
+
+- **Riak**: [http://basho.com/riak/](http://basho.com/riak/)
+
+# Key-Value: when to use
+
+Very simple use cases
+
+- Independent data (no need to model relationships)
+- The typical query is a simple lookup
+- Need super-fast performance
+
+Examples
+
+- **Session information**
+  - Each web session is identified by its own sessionId: All related data can be stored with a PUT request and returned with a GET request
+- **User profiles, preferences**
+  - Each user is uniquely identified (userId, username) and has their own preferences in terms of language, colors, timezone, products, etc.
+  - *data that fits well within an aggregate*
+- **Shopping cart, chat services**
+  - Each e-commerce website associates a shopping cart to a user; it can be stored as *an aggregate identified by the user ID*
+
+# Key-Value: real use cases 
+
+**Crawling of web pages**
+
+- The URL is the key, the whole page content (HTML, CSS, JS, images, ...) is the value
+
+**Twitter timeline**
+
+- The user ID is the key, the list of most recent tweets to be shown is the value
+
+**Amazon S3 (Simple Storage Service)**
+
+- A cloud-based file system service
+- Useful for personal backups, file sharing, website or app publication
+- The more you store, the more you pay
+  - Storage: approx. $0.03 per GB per month
+  - Uploading files: approx. $0.005 per 1000 items
+  - Downloading files: approx. $0.004 per 10,000 files* PLUS $0.09 per GB (first GB free)
+
+![Key-value](img/slides89.png)
+
+# Key-Value: when to avoid
+
+**Data with many relationships**
+
+- When relationships between data (in the same or in different collections) must be followed
+- Some systems offer limited link-walking mechanisms
+
+**Multi-record operations**
+
+- Because operations (mostly) involve one record at a time
+
+**Querying the data**
+
+- If it is necessary to query the values, not just the key
+- Few systems offer limited functionalities (e.g., Riak Search)
+
+# Wide column: popular DBs
+
+**Cassandra**: [http://cassandra.apache.org](http://cassandra.apache.org/)
+
+**HBase**: [https://hbase.apache.org](https://hbase.apache.org/)
+
+**Google BigTable**:  [https://cloud.google.com/bigtable](https://cloud.google.com/bigtable/)
+
+# Wide column: when to use
+
+Compromise between expressiveness and simplicity
+
+- Limited (but some) requirements in terms of data model
+- Limited (but some) requirements in terms of querying records
+
+Examples
+
+- **Event logs; CMS, blogging platforms**
+  - Similarly to document databases, *different applications may use different columns*
+- **Sparse matrixes**
+  - While an RDBMS would store *null * values, a wide column *stores only the columns for which a value is specified*
+- **GIS applications**
+  - Pieces of a map (tiles) can be stored as *couples of latitude and longitude*
+
+# Wide column: real use cases
+
+**Google applications**
+
+- BigTable is the DB used by Google for most of its applications, including Search, Analytics, Maps, and Gmail
+
+**User profiles and preferences**
+
+- Spotify uses Cassandra to store metadata about users, artists, songs, playlists, etc.
+
+**Manhattan**
+
+- After using Cassandra, Twitter has developed its own proprietary NoSQL system to support most of its services
+
+# Wide column: when to avoid
+
+**Same as for document model**
+
+- ACID transactions requirement
+- Queries on high-variety data
+
+**Need for full query expressiveness**
+
+- Joins are highly discouraged 
+- Limited support for filters and group bys
