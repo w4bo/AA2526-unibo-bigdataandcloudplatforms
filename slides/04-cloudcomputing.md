@@ -277,24 +277,17 @@ Adopting a data-driven mindset goes far beyond adopting a business intelligence 
 
 # Why moving to the cloud?
 
-:::: {.columns}
-::: {.column width=50%}
-
 *Digitalization* is a journey that involves three main dimensions
-
-- Moving from A to B is a multi-year process made up of intermediate goals
-- Each of which must be *feasible*
-  - Solves a company's pain and brings value
-  - Can be accomplished in a limited time range (typically less than one year)
-  - Costs must be economically related to gains
-
-:::
-::: {.column width=50%}
 
 ![Digitalization journey](img/186.svg)
 
-:::
-::::
+Moving from A to B is a multi-year process made up of intermediate goals
+
+... each of which must be *feasible*
+
+- Solves a company's pain and brings value
+- Can be accomplished in a limited time range (typically less than one year)
+- Costs must be economically related to gains
 
 # Why moving to the cloud?
 
