@@ -1,3 +1,9 @@
+## [1.0.11](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.10...1.0.11) (2025-10-27)
+
+### Bug Fixes
+
+* typos ([21d19ad](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/21d19adfd6639bde411e7973c61b57636ab2523b))
+
 ## [1.0.10](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.9...1.0.10) (2025-10-27)
 
 ### Bug Fixes
