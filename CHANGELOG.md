@@ -1,3 +1,9 @@
+## [1.0.9](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.8...1.0.9) (2025-10-27)
+
+### Bug Fixes
+
+* nosql slides2 ([22247cf](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/22247cf4d77201a1b3926a7395fc0d38e8b5531b))
+
 ## [1.0.8](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.7...1.0.8) (2025-10-23)
 
 ### Dependency updates
