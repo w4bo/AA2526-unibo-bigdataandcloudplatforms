@@ -226,7 +226,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p><em>Standard model and query language</em></p>
 <ul>
 <li>The relational model and SQL are very well-known standards</li>
-<li>The same theoretical background is shared by the different implementations</li>
+<li>The different implementations share the same theoretical background</li>
 </ul>
 <p><em>Robustness</em></p>
 <ul>
@@ -423,7 +423,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <section id="nosql-several-data-models" class="title-slide slide level1 center">
 <h1>NoSQL: several data models</h1>
-<p>One of the key challenges is to understand which one fits best with the required application.</p>
+<p>One of the key challenges is to determine which one best suits the required application.</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -605,27 +605,27 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb2-1"><a href=""></a><span class="ot">[</span></span>
-<span id="cb2-2"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb2-2"><a href=""></a> <span class="fu">{</span></span>
 <span id="cb2-3"><a href=""></a>        <span class="dt">"_id"</span><span class="fu">:</span> <span class="st">"A12345"</span><span class="fu">,</span></span>
 <span id="cb2-4"><a href=""></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
 <span id="cb2-5"><a href=""></a>        <span class="dt">"address"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb2-6"><a href=""></a>            <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"1st Avenue"</span><span class="fu">,</span></span>
 <span id="cb2-7"><a href=""></a>            <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Wonderland"</span></span>
-<span id="cb2-8"><a href=""></a>        <span class="fu">},</span></span>
+<span id="cb2-8"><a href=""></a> <span class="fu">},</span></span>
 <span id="cb2-9"><a href=""></a>        <span class="dt">"contacts"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb2-10"><a href=""></a>            <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"email"</span><span class="fu">,</span> <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"alice@example.com"</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-11"><a href=""></a>            <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"phone"</span><span class="fu">,</span> <span class="dt">"number"</span><span class="fu">:</span> <span class="st">"+123456789"</span><span class="fu">}</span></span>
-<span id="cb2-12"><a href=""></a>        <span class="ot">]</span></span>
-<span id="cb2-13"><a href=""></a>    <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-14"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb2-10"><a href=""></a> <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"email"</span><span class="fu">,</span> <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"alice@example.com"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-11"><a href=""></a> <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"phone"</span><span class="fu">,</span> <span class="dt">"number"</span><span class="fu">:</span> <span class="st">"+123456789"</span><span class="fu">}</span></span>
+<span id="cb2-12"><a href=""></a> <span class="ot">]</span></span>
+<span id="cb2-13"><a href=""></a> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-14"><a href=""></a> <span class="fu">{</span></span>
 <span id="cb2-15"><a href=""></a>        <span class="dt">"_id"</span><span class="fu">:</span> <span class="st">"B67890"</span><span class="fu">,</span></span>
 <span id="cb2-16"><a href=""></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Bob"</span><span class="fu">,</span></span>
 <span id="cb2-17"><a href=""></a>        <span class="dt">"address"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb2-18"><a href=""></a>            <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"2nd Street"</span><span class="fu">,</span></span>
 <span id="cb2-19"><a href=""></a>            <span class="dt">"postalCode"</span><span class="fu">:</span> <span class="st">"47522"</span></span>
-<span id="cb2-20"><a href=""></a>        <span class="fu">},</span></span>
+<span id="cb2-20"><a href=""></a> <span class="fu">},</span></span>
 <span id="cb2-21"><a href=""></a>        <span class="dt">"birthdate"</span><span class="fu">:</span> <span class="st">"1990-05-15"</span></span>
-<span id="cb2-22"><a href=""></a>    <span class="fu">}</span></span>
+<span id="cb2-22"><a href=""></a> <span class="fu">}</span></span>
 <span id="cb2-23"><a href=""></a><span class="ot">]</span></span></code></pre></div>
 </div></div>
 </section>
@@ -716,7 +716,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li>Can optimize only a limited set of queries</li>
 <li>Data denormalization -&gt; possible inconsistencies</li>
 </ul>
-<p>RDBMSs are agnostic from this point of view</p>
+<p>RDBMSs are agnostic from this point of view.</p>
 </section>
 
 <section id="sharding-data" class="title-slide slide level1 center">
@@ -850,7 +850,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p><em>Master</em></p>
 <ul>
 <li>It’s the manager of the data</li>
-<li><em>Handles each and every write operation</em></li>
+<li><em>Handles every write operation</em></li>
 <li>Can be chosen or drawn</li>
 </ul>
 <p><em>Slaves</em></p>
@@ -995,7 +995,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <h1>RDBMS vs NoSQL: different philosophies</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>RDBMSs come from decades of widespread usage</p>
+<p>RDBMSs come from decades of widespread usage.</p>
 <ul>
 <li>Strong focus on data consistency</li>
 <li>Years of research activities to optimize performances</li>
@@ -1033,7 +1033,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li>E.g., A+B = 0€</li>
 </ul></li>
 </ul>
-<p>RDBMSs adopt <em>transactions </em> to avoid this kind of issue</p>
+<p>RDBMSs adopt <em>transactions </em> to avoid this kind of issue.</p>
 </section>
 
 <section id="consistency-in-rdbmss-acid" class="title-slide slide level1 center">
@@ -1152,7 +1152,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 <p><strong>caP</strong>: only one can book</p>
 <ul>
-<li>The other will see the room available but cannot book it</li>
+<li>The other will see the room available, but cannot book it</li>
 </ul>
 <p><em>This is admissible only in certain scenarios</em></p>
 <ul>
@@ -1490,11 +1490,11 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="relational-data-model-2" class="title-slide slide level1 center">
 <h1>Relational data model</h1>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (</span>
-<span id="cb3-2"><a href=""></a>  entity_id <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb3-2"><a href=""></a> entity_id <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
 <span id="cb3-3"><a href=""></a>  name TEXT,</span>
-<span id="cb3-4"><a href=""></a>  file_type TEXT,</span>
-<span id="cb3-5"><a href=""></a>  created_at TEXT,</span>
-<span id="cb3-6"><a href=""></a>  wasDerivedFrom <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> entity(entity_id)</span>
+<span id="cb3-4"><a href=""></a> file_type TEXT,</span>
+<span id="cb3-5"><a href=""></a> created_at TEXT,</span>
+<span id="cb3-6"><a href=""></a> wasDerivedFrom <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> entity(entity_id)</span>
 <span id="cb3-7"><a href=""></a>);</span>
 <span id="cb3-8"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id <span class="dt">INTEGER</span>, name TEXT);</span>
 <span id="cb3-9"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id <span class="dt">INTEGER</span>, name TEXT);</span>
@@ -1509,8 +1509,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 </section>
 
-<section id="limitations-of-relational-model" class="title-slide slide level1 center">
-<h1>Limitations of Relational Model</h1>
+<section id="limitations-of-the-relational-model" class="title-slide slide level1 center">
+<h1>Limitations of the Relational Model</h1>
 <p>Difficult to store <strong>heterogeneous metadata</strong>:</p>
 <ul>
 <li>CSV: columns, delimiter</li>
@@ -1519,8 +1519,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </section>
 
-<section id="limitations-of-relational-model-1" class="title-slide slide level1 center">
-<h1>Limitations of Relational Model</h1>
+<section id="limitations-of-the-relational-model-1" class="title-slide slide level1 center">
+<h1>Limitations of the Relational Model</h1>
 <table class="caption-top">
 <colgroup>
 <col style="width: 28%">
@@ -1643,8 +1643,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </table>
 </section>
 
-<section id="limitations-of-relational-model-2" class="title-slide slide level1 center">
-<h1>Limitations of Relational Model</h1>
+<section id="limitations-of-the-relational-model-2" class="title-slide slide level1 center">
+<h1>Limitations of the Relational Model</h1>
 <div style="font-size:0.6em">
 <table class="caption-top">
 <colgroup>
@@ -1725,7 +1725,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div>
 </section>
 
-<section id="limitations-of-relational-model-3" class="title-slide slide level1 center">
+<section id="limitations-of-relational-model" class="title-slide slide level1 center">
 <h1>Limitations of Relational Model</h1>
 <p>Relationships (e.g., lineage chains) need complex joins:</p>
 <p>Which entity was derived from the entity <code>'a'</code>?</p>
@@ -1736,8 +1736,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div>
 </section>
 
-<section id="limitations-of-relational-model-4" class="title-slide slide level1 center">
-<h1>Limitations of Relational Model</h1>
+<section id="limitations-of-the-relational-model-3" class="title-slide slide level1 center">
+<h1>Limitations of the Relational Model</h1>
 <p>Reference schema</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb6-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
 <span id="cb6-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
@@ -1753,8 +1753,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div>
 </section>
 
-<section id="limitations-of-relational-model-5" class="title-slide slide level1 center">
-<h1>Limitations of Relational Model</h1>
+<section id="limitations-of-the-relational-model-4" class="title-slide slide level1 center">
+<h1>Limitations of the Relational Model</h1>
 <p>Reference schema</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
 <span id="cb8-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
@@ -1806,7 +1806,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <h1>Document-based model</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>The relational model is <em>data driven</em></p>
+<p>The relational model is <em>data-driven</em></p>
 <ul>
 <li>It represents concepts as relations and relationships.</li>
 </ul>
@@ -1832,7 +1832,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div>
 </div><div class="column" style="width:50%;">
 <div class="fragment">
-<p>The document-based model is <em>aggregate oriented</em></p>
+<p>The document-based model is <em>aggregate-oriented</em></p>
 <ul>
 <li>Each document contains the data necessary to answer a query.</li>
 </ul>
@@ -1906,9 +1906,9 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>Cypher</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode numberSource cypher number-lines"><code class="sourceCode"><span id="cb19-1"><a href=""></a>MATCH (e1:Entity {name: 'a'})</span>
 <span id="cb19-2"><a href=""></a>MATCH (e1)-[:WAS_DERIVED_FROM]-&gt;(e2:Entity)</span>
-<span id="cb19-3"><a href=""></a>      -[:WAS_DERIVED_FROM]-&gt;(e3:Entity)</span>
-<span id="cb19-4"><a href=""></a>      -[:WAS_DERIVED_FROM]-&gt;(e4:Entity)</span>
-<span id="cb19-5"><a href=""></a>      -[:WAS_DERIVED_FROM]-&gt;(e5:Entity)</span>
+<span id="cb19-3"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e3:Entity)</span>
+<span id="cb19-4"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e4:Entity)</span>
+<span id="cb19-5"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e5:Entity)</span>
 <span id="cb19-6"><a href=""></a>RETURN e1.name, e2.name, e3.name, e4.name, e5.name;</span></code></pre></div>
 </section>
 
