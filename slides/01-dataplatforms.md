@@ -1100,12 +1100,6 @@ As new technologies and solutions mature to support a centralized approach to da
 :::
 ::::
 
-# "Example" of architecture
-
-![https://xkcd.com/2347/](img/slides43.jpg)
-
-(*) "Ormai sta xkcd é una base troppo usata" A. Tappi
-
 # Example of data platform: Hadoop-based
 
 A data platform on the Hadoop stack requires several tools.
@@ -1120,11 +1114,18 @@ How do you provision it?
 - Semi-automatic provisioning on-premises
 - Automatic provisioning in the cloud
 
+# "Example" of architecture
+
+![https://xkcd.com/2347/](img/slides43.jpg)
+
+(*) "Ormai sta xkcd é una base troppo usata" A. Tappi
+
 # On-premises manual provisioning
 
 It is hardly advisable, if not for small and local tests.
 
 **Technical challenges**
+
 - Installation: how do I set up a new machine?
 - Networking: how do I cable dozens of machines?
 - Management: how do I replace a broken disk?
@@ -1253,5 +1254,9 @@ Data platforms support end-to-end data needs **(which ones?)**
 **Open question**: How do we deploy working data platforms?
 
 # How do I know if I am prepared for the exam?
+
+:::{.fragment}
+Open a random slide, are you able to explain its content and connect it to the rest of the topics?
+:::
 
 # References
