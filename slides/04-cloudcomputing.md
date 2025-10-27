@@ -724,6 +724,8 @@ This is not a sharp taxonomy.
 
 [(2025) Nuclear reactor project with Kairos Power and Tennessee Valley Authority](https://blog.google/outreach-initiatives/sustainability/google-first-advanced-nuclear-reactor-project-with-kairos-power-and-tennessee-valley-authority/)
 
+[(2025) Carbon capture and storage project](https://blog.google/outreach-initiatives/sustainability/first-carbon-capture-storage-project/)
+
 #
 
 ![https://xkcd.com/908/](img/slides107.png)
