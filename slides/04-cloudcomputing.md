@@ -461,7 +461,7 @@ Cloud services are hosted in separate geographic areas.
 - Locations are composed of **regions** and **availability zones**
 - [Using regions and availability zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
 
-Region (e.g., us-east-1)
+Region (e.g., `us-east-1`)
 
 - It is an independent geographical area that groups data centers
 - Has availability zones
