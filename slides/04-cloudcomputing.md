@@ -86,46 +86,113 @@ The big-data cube [@meijer2012your]
   - ... or slow down to one tag an hour
 - Your system must be able to efficiently handle the peak as well as the lows
 
+# Number of days to 1 million users
+
+::: {.fragment}
+
+:::: {.columns}
+::: {.column width=50%}
+
+
+![Number of days to 1 million users](https://miro.medium.com/v2/resize:fit:640/format:webp/1*-apRT2gFLb4sr_2MYzKmbQ.png)
+
+:::
+::: {.column width=50%}
+
+![Number of days to 1 million users](https://preview.redd.it/threads-fastest-to-one-million-users-v0-qo0af6nignab1.jpg?width=1080&crop=smart&auto=webp&s=1f2c3e93e79f4771ac8ed4521436829e91d1cb87)
+
+:::
+::::
+
+::: 
+
+# [Data never sleeps](https://www.domo.com/learn/infographic/data-never-sleeps-11)
+
+:::: {.columns}
+::: {.column width=33%}
+
+<figure>
+    <img src="img/dns10.png" class="center-img"  style="max-height:550px!important" />
+    <figcaption>2022</figcaption>
+</figure>
+
+:::
+::: {.column width=33%}
+
+<figure>
+<img src="img/dns11.png" class="center-img"  style="max-height:550px!important" />
+<figcaption>2023</figcaption>
+</figure>
+
+:::
+::: {.column width=33%}
+
+<figure>
+<img src="img/dns12.avif" class="center-img"  style="max-height:550px!important" />
+<figcaption>2024</figcaption>
+</figure>
+
+:::
+::::
+
+#
+
+![DNS 10.0: over the years](img/dns10b.png)
+
 # [Data never sleeps](https://www.domo.com/learn/infographic/data-never-sleeps-11)
 
 :::: {.columns}
 ::: {.column width=50%}
 
-![2022](img/dns10.png)
+<figure>
+    <img src="img/dns-ai-2024.avif" class="center-img" style="max-height:550px!important" />
+    <figcaption>2024</figcaption>
+</figure>
 
 :::
 ::: {.column width=50%}
 
-![2023](img/dns11.png)
+<figure>
+<img src="img/dns-ai-2025.png" class="center-img"  style="max-height:550px!important" />
+<figcaption>2025</figcaption>
+</figure>
 
 :::
 ::::
-
-# 
-
-![DNS 10.0: over the years](img/dns10b.png)
 
 #
 
 :::: {.columns}
 ::: {.column width=25%}
 
-![2018](img/slides99.png)
+<figure>
+    <img src="img/slides99.png" style="max-height:475px!important" />
+    <figcaption>2018</figcaption>
+</figure>
 
 :::
 ::: {.column width=25%}
 
-![2019](img/slides100.jpg)
+<figure>
+    <img src="img/slides100.jpg" style="max-height:475px!important" />
+    <figcaption>2019</figcaption>
+</figure>
 
 :::
 ::: {.column width=25%}
 
-![2020](img/slides101.jpg)
+<figure>
+    <img src="img/slides101.jpg" style="max-height:475px!important" />
+    <figcaption>2020</figcaption>
+</figure>
 
 :::
 ::: {.column width=25%}
 
-![2021](img/slides102.png)
+<figure>
+    <img src="img/slides102.png" style="max-height:475px!important" />
+    <figcaption>2021</figcaption>
+</figure>
 
 :::
 ::::
@@ -461,7 +528,8 @@ Service **integration**
 :::: {.columns}
 ::: {.column width=50%}
 
-![Magic Quadrant 2023](img/gartner_mq_2023.png)
+
+![Magic Quadrant 2025](img/gartner-mq-2025.png)
 
 :::
 ::: {.column width=50%}
@@ -483,14 +551,20 @@ How do we choose the Cloud Service Providers?
 # Cloud computing: principal vendors
 
 :::: {.columns}
-::: {.column width=50%}
+::: {.column width=33%}
 
 ![Magic Quadrant 2020](img/slides110.png)
 
 :::
-::: {.column width=50%}
+::: {.column width=33%}
 
 ![Magic Quadrant 2023](img/gartner_mq_2023.png)
+
+:::
+:::
+::: {.column width=33%}
+
+![Magic Quadrant 2025](img/gartner-mq-2025.png)
 
 :::
 ::::
@@ -648,7 +722,9 @@ This is not a sharp taxonomy
 :::
 ::::
 
-# 
+[(2025) Nuclear reactor project with Kairos Power and Tennessee Valley Authority](https://blog.google/outreach-initiatives/sustainability/google-first-advanced-nuclear-reactor-project-with-kairos-power-and-tennessee-valley-authority/)
+
+#
 
 ![https://xkcd.com/908/](img/slides107.png)
 
