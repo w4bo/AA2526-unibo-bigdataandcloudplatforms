@@ -1490,11 +1490,11 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="relational-data-model-2" class="title-slide slide level1 center">
 <h1>Relational data model</h1>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (</span>
-<span id="cb3-2"><a href=""></a> entity_id <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
-<span id="cb3-3"><a href=""></a>  name TEXT,</span>
-<span id="cb3-4"><a href=""></a> file_type TEXT,</span>
-<span id="cb3-5"><a href=""></a> created_at TEXT,</span>
-<span id="cb3-6"><a href=""></a> wasDerivedFrom <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> entity(entity_id)</span>
+<span id="cb3-2"><a href=""></a>    entity_id <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb3-3"><a href=""></a>    name TEXT,</span>
+<span id="cb3-4"><a href=""></a>    file_type TEXT,</span>
+<span id="cb3-5"><a href=""></a>    created_at TEXT,</span>
+<span id="cb3-6"><a href=""></a>    wasDerivedFrom <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> entity(entity_id)</span>
 <span id="cb3-7"><a href=""></a>);</span>
 <span id="cb3-8"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id <span class="dt">INTEGER</span>, name TEXT);</span>
 <span id="cb3-9"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id <span class="dt">INTEGER</span>, name TEXT);</span>
@@ -1868,16 +1868,17 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <span id="cb16-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
 <span id="cb16-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
 <span id="cb16-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<p>The graph data model is <strong>data-driven</strong> and represents data as <strong>nodes</strong> and <strong>edges</strong>.</p>
+<ul>
+<li>Relationships become <em>first-class citizens</em>.</li>
+</ul>
 
 <img data-src="img/cs-nosql/graph.svg" class="r-stretch quarto-figure-center"><p class="caption">Graph representation</p></section>
 
 <section id="the-graph-data-model-1" class="title-slide slide level1 center">
 <h1>The graph data model</h1>
 
-<img data-src="img/cs-nosql/graph.svg" class="r-stretch quarto-figure-center"><p class="caption">Graph representation</p><p>Relationships become <strong>first-class citizens</strong>.</p>
-<ul>
-<li>Example of implementation in Resource Description Framework (RDF) triples (Subject-Predicate-Object)</li>
-</ul>
+<img data-src="img/cs-nosql/graph.svg" class="r-stretch quarto-figure-center"><p class="caption">Graph representation</p><p>Example of implementation in Resource Description Framework (RDF) triples (Subject-Predicate-Object)</p>
 <pre><code>&lt;http://example.org/entity/a&gt; &lt;http://example.org/wasDerivedFrom&gt; &lt;http://example.org/entity/b&gt; .
 &lt;http://example.org/entity/a&gt; &lt;http://example.org/wasAttributedTo&gt; &lt;http://example.org/agent/alice&gt; .
 &lt;http://example.org/entity/a&gt; &lt;http://example.org/wasGeneratedBy&gt; &lt;http://example.org/activity/extract_sales_data&gt; .</code></pre>
