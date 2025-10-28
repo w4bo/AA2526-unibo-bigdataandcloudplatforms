@@ -16,11 +16,11 @@ Organizations manage **data catalogs** with details about data, algorithms, and 
 
 ```sql
 CREATE TABLE entity (
- entity_id INTEGER PRIMARY KEY,
-  name TEXT,
- file_type TEXT,
- created_at TEXT,
- wasDerivedFrom INTEGER REFERENCES entity(entity_id)
+    entity_id INTEGER PRIMARY KEY,
+    name TEXT,
+    file_type TEXT,
+    created_at TEXT,
+    wasDerivedFrom INTEGER REFERENCES entity(entity_id)
 );
 CREATE TABLE agent (agent_id INTEGER, name TEXT);
 CREATE TABLE activity (activity_id INTEGER, name TEXT);
@@ -285,15 +285,17 @@ CREATE TABLE wasAttributedTo (entity_id, agent_id);
 CREATE TABLE wasGeneratedBy (entity_id, activity_id);
 ```
 
+The graph data model is **data-driven** and represents data as **nodes** and **edges**.
+
+- Relationships become *first-class citizens*.
+
 ![Graph representation](img/cs-nosql/graph.svg)
 
 # The graph data model
 
 ![Graph representation](img/cs-nosql/graph.svg)
 
-Relationships become **first-class citizens**.
-
-- Example of implementation in Resource Description Framework (RDF) triples (Subject-Predicate-Object)
+Example of implementation in Resource Description Framework (RDF) triples (Subject-Predicate-Object)
 
 ```
 <http://example.org/entity/a> <http://example.org/wasDerivedFrom> <http://example.org/entity/b> .
