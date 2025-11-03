@@ -390,9 +390,9 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </table>
 </div><div class="column" style="width:50%;">
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb1-1"><a href=""></a><span class="ot">[</span></span>
-<span id="cb1-2"><a href=""></a> <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P1"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Beer"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span> <span class="dt">"Quantity"</span><span class="fu">:</span> <span class="st">"0.4L"</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-3"><a href=""></a> <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P2"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Milk"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">"Expiration"</span><span class="fu">:</span> <span class="st">"2024-11-30"</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-4"><a href=""></a> <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P3"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Pizza"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span> <span class="dt">"Ingredients"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-2"><a href=""></a>    <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P1"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Beer"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span> <span class="dt">"Quantity"</span><span class="fu">:</span> <span class="st">"0.4L"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P2"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Milk"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">"Expiration"</span><span class="fu">:</span> <span class="st">"2024-11-30"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P3"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Pizza"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span> <span class="dt">"Ingredients"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span><span class="fu">}</span><span class="ot">,</span></span>
 <span id="cb1-5"><a href=""></a><span class="ot">]</span></span></code></pre></div>
 </div></div>
 </section>
@@ -502,10 +502,11 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <h1>Graph: querying</h1>
 <p>Graph databases usually model relationship-rich scenarios.</p>
 <ul>
-<li>The query language simplifies the navigation of these relationships</li>
-<li><strong>Query language based on detecting patterns</strong></li>
-<li>Support for transactions</li>
-<li>Support for indexes, selections, and projections</li>
+<li><em>Query language based on detecting patterns</em> (e.g., Cypher)
+<ul>
+<li>Simplifies the navigation of the relationships</li>
+</ul></li>
+<li>Support for transactions, indexes, selections, and projections</li>
 </ul>
 <table class="caption-top">
 <colgroup>
@@ -514,22 +515,22 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Query</th>
-<th style="text-align: center;">Pattern</th>
+<th style="text-align: left;">Query</th>
+<th style="text-align: left;">Pattern</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Find friends of friends</td>
-<td style="text-align: center;">(user)-[:KNOWS]-(friend)-[:KNOWS]-(foaf)</td>
+<td style="text-align: left;">Find friends of friends</td>
+<td style="text-align: left;"><code>(user)-[:KNOWS]-(friend)-[:KNOWS]-(foaf)</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Find shortest path from A to B</td>
-<td style="text-align: center;">shortestPath((userA)-[:KNOWS*..5]-(userB))</td>
+<td style="text-align: left;">Find shortest path from A to B</td>
+<td style="text-align: left;"><code>shortestPath((userA)-[:KNOWS*..5]-(userB))</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">What products have been bought by those who bought my same products?</td>
-<td style="text-align: center;">(user)-[:PURCHASED]-&gt;(product)&lt;-[:PURCHASED]-()-[:PURCHASED]-&gt;(otherProduct)</td>
+<td style="text-align: left;">What products were bought by users who purchased the same items?</td>
+<td style="text-align: left;"><code>(u)-[:PURCHASED]-&gt;(p)&lt;-[:PURCHASED]-()-[:PURCHASED]-&gt;(otherP)</code></td>
 </tr>
 </tbody>
 </table>
@@ -605,27 +606,27 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb2-1"><a href=""></a><span class="ot">[</span></span>
-<span id="cb2-2"><a href=""></a> <span class="fu">{</span></span>
+<span id="cb2-2"><a href=""></a>    <span class="fu">{</span></span>
 <span id="cb2-3"><a href=""></a>        <span class="dt">"_id"</span><span class="fu">:</span> <span class="st">"A12345"</span><span class="fu">,</span></span>
 <span id="cb2-4"><a href=""></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
 <span id="cb2-5"><a href=""></a>        <span class="dt">"address"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb2-6"><a href=""></a>            <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"1st Avenue"</span><span class="fu">,</span></span>
 <span id="cb2-7"><a href=""></a>            <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Wonderland"</span></span>
-<span id="cb2-8"><a href=""></a> <span class="fu">},</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="fu">},</span></span>
 <span id="cb2-9"><a href=""></a>        <span class="dt">"contacts"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb2-10"><a href=""></a> <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"email"</span><span class="fu">,</span> <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"alice@example.com"</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-11"><a href=""></a> <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"phone"</span><span class="fu">,</span> <span class="dt">"number"</span><span class="fu">:</span> <span class="st">"+123456789"</span><span class="fu">}</span></span>
-<span id="cb2-12"><a href=""></a> <span class="ot">]</span></span>
-<span id="cb2-13"><a href=""></a> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-14"><a href=""></a> <span class="fu">{</span></span>
+<span id="cb2-10"><a href=""></a>              <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"email"</span><span class="fu">,</span> <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"alice@example.com"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-11"><a href=""></a>              <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"phone"</span><span class="fu">,</span> <span class="dt">"number"</span><span class="fu">:</span> <span class="st">"+123456789"</span><span class="fu">}</span></span>
+<span id="cb2-12"><a href=""></a>        <span class="ot">]</span></span>
+<span id="cb2-13"><a href=""></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-14"><a href=""></a>    <span class="fu">{</span></span>
 <span id="cb2-15"><a href=""></a>        <span class="dt">"_id"</span><span class="fu">:</span> <span class="st">"B67890"</span><span class="fu">,</span></span>
 <span id="cb2-16"><a href=""></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Bob"</span><span class="fu">,</span></span>
 <span id="cb2-17"><a href=""></a>        <span class="dt">"address"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb2-18"><a href=""></a>            <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"2nd Street"</span><span class="fu">,</span></span>
 <span id="cb2-19"><a href=""></a>            <span class="dt">"postalCode"</span><span class="fu">:</span> <span class="st">"47522"</span></span>
-<span id="cb2-20"><a href=""></a> <span class="fu">},</span></span>
+<span id="cb2-20"><a href=""></a>        <span class="fu">},</span></span>
 <span id="cb2-21"><a href=""></a>        <span class="dt">"birthdate"</span><span class="fu">:</span> <span class="st">"1990-05-15"</span></span>
-<span id="cb2-22"><a href=""></a> <span class="fu">}</span></span>
+<span id="cb2-22"><a href=""></a>    <span class="fu">}</span></span>
 <span id="cb2-23"><a href=""></a><span class="ot">]</span></span></code></pre></div>
 </div></div>
 </section>
@@ -634,58 +635,114 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <h1>Document: querying</h1>
 <p>The query language is quite expressive.</p>
 <ul>
-<li>Can create indexes on fields</li>
-<li>Can filter on the fields</li>
-<li>Can return more documents with one query</li>
-<li>Can select which fields to project</li>
-<li>Can update specific fields</li>
+<li>Return more documents with one query</li>
 </ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource js number-lines"><code class="sourceCode javascript"><span id="cb3-1"><a href=""></a>db<span class="op">.</span><span class="at">collection</span><span class="op">.</span><span class="fu">find</span>({})  <span class="co">// retrieves multiple documents matching the filter</span></span></code></pre></div>
+<ul>
+<li>Select which fields to project</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource js number-lines"><code class="sourceCode javascript"><span id="cb4-1"><a href=""></a>db<span class="op">.</span><span class="at">collection</span><span class="op">.</span><span class="fu">find</span>({}<span class="op">,</span> { <span class="dt">field1</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">field2</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">_id</span><span class="op">:</span> <span class="dv">0</span> })  <span class="co">// only include specific fields</span></span></code></pre></div>
+<ul>
+<li>Filter on the fields</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource js number-lines"><code class="sourceCode javascript"><span id="cb5-1"><a href=""></a>db<span class="op">.</span><span class="at">collection</span><span class="op">.</span><span class="fu">find</span>({ <span class="dt">status</span><span class="op">:</span> <span class="st">"active"</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> { <span class="dt">$gt</span><span class="op">:</span> <span class="dv">30</span> } })  <span class="co">// filter by conditions</span></span></code></pre></div>
+<ul>
+<li>Update specific fields</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource js number-lines"><code class="sourceCode javascript"><span id="cb6-1"><a href=""></a>db<span class="op">.</span><span class="at">collection</span><span class="op">.</span><span class="fu">updateMany</span>(</span>
+<span id="cb6-2"><a href=""></a>  { <span class="dt">status</span><span class="op">:</span> <span class="st">"active"</span> }<span class="op">,</span>           <span class="co">// filter</span></span>
+<span id="cb6-3"><a href=""></a>  { <span class="dt">$set</span><span class="op">:</span> { <span class="dt">verified</span><span class="op">:</span> <span class="kw">true</span> } }    <span class="co">// update specific field(s)</span></span>
+<span id="cb6-4"><a href=""></a>)</span></code></pre></div>
 <p>Different implementations, different functionalities</p>
 <ul>
-<li>Some enable (possibly materialized) views</li>
-<li>Some enable MapReduce queries</li>
-<li>Some provide connectors to Big Data tools (e.g., Spark, Hive)</li>
-<li>Some provide <em>full-text search </em> capabilities</li>
+<li>Create indexes on fields and (materialized) views</li>
+<li>Provide connectors to Big Data tools (e.g., Spark, Hive, MapReduce)</li>
+<li>Provide <em>full-text search</em> capabilities</li>
 </ul>
 </section>
 
 <section id="data-modeling-example-aggregate-model" class="title-slide slide level1 center">
 <h1>Data modeling example: aggregate model</h1>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/109.svg"></p>
 <figcaption>Designing aggregates</figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/111.svg"></p>
-<figcaption>Examples of documents</figcaption>
-</figure>
-</div>
+</div><div class="column" style="width:60%;">
+<p>Collection answering the blue query</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb7-1"><a href=""></a><span class="ot">[</span></span>
+<span id="cb7-2"><a href=""></a>  <span class="fu">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="dt">"_id"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb7-4"><a href=""></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Martin"</span><span class="fu">,</span></span>
+<span id="cb7-5"><a href=""></a>    <span class="dt">"adrs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb7-6"><a href=""></a>      <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"Adam"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Chicago"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"Illinois"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">60007</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb7-7"><a href=""></a>      <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"9th"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">10001</span> <span class="fu">}</span></span>
+<span id="cb7-8"><a href=""></a>    <span class="ot">]</span></span>
+<span id="cb7-9"><a href=""></a>  <span class="fu">}</span></span>
+<span id="cb7-10"><a href=""></a><span class="ot">]</span></span></code></pre></div>
+<p>Collection answering the purple query</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb8-1"><a href=""></a><span class="ot">[</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">{</span></span>
+<span id="cb8-3"><a href=""></a>    <span class="dt">"_id"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb8-4"><a href=""></a>    <span class="dt">"customer"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb8-5"><a href=""></a>    <span class="dt">"orderpayments"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb8-6"><a href=""></a>      <span class="fu">{</span> </span>
+<span id="cb8-7"><a href=""></a>        <span class="dt">"card"</span><span class="fu">:</span> <span class="dv">457</span><span class="fu">,</span></span>
+<span id="cb8-8"><a href=""></a>        <span class="dt">"billadrs"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"Adam"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Chicago"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"Illinois"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">60007</span> <span class="fu">}</span> </span>
+<span id="cb8-9"><a href=""></a>      </span>
+<span id="cb8-10"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb8-11"><a href=""></a>      <span class="fu">{</span> </span>
+<span id="cb8-12"><a href=""></a>        <span class="dt">"card"</span><span class="fu">:</span> <span class="dv">457</span><span class="fu">,</span></span>
+<span id="cb8-13"><a href=""></a>        <span class="dt">"billadrs"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"9th"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">10001</span> <span class="fu">}</span></span>
+<span id="cb8-14"><a href=""></a>      <span class="fu">}</span></span>
+<span id="cb8-15"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb8-16"><a href=""></a>    <span class="dt">"products"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb8-17"><a href=""></a>      <span class="fu">{</span> <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Cola"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="fl">10.4</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb8-18"><a href=""></a>      <span class="fu">{</span> <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Beer"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="fl">14.4</span> <span class="fu">}</span></span>
+<span id="cb8-19"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb8-20"><a href=""></a>    <span class="dt">"shipadrs"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"9th"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">10001</span> <span class="fu">}</span></span>
+<span id="cb8-21"><a href=""></a>  <span class="fu">}</span></span>
+<span id="cb8-22"><a href=""></a><span class="ot">]</span></span></code></pre></div>
 </div></div>
 </section>
 
 <section id="data-modeling-example-document-model" class="title-slide slide level1 center">
 <h1>Data modeling example: document model</h1>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/108.svg"></p>
 <figcaption>Designing aggregates</figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/110.svg"></p>
-<figcaption>Example of document</figcaption>
-</figure>
-</div>
+</div><div class="column" style="width:60%;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb9-1"><a href=""></a><span class="ot">[</span></span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="dt">"_id"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb9-4"><a href=""></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Martin"</span><span class="fu">,</span></span>
+<span id="cb9-5"><a href=""></a>    <span class="dt">"adrs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb9-6"><a href=""></a>      <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"Adam"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Chicago"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"Illinois"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">60007</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb9-7"><a href=""></a>      <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"9th"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">10001</span> <span class="fu">}</span></span>
+<span id="cb9-8"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb9-9"><a href=""></a>    <span class="dt">"orders"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb9-10"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb9-11"><a href=""></a>        <span class="dt">"orderpayments"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb9-12"><a href=""></a>          <span class="fu">{</span> <span class="dt">"card"</span><span class="fu">:</span> <span class="dv">457</span><span class="fu">,</span> <span class="dt">"billadrs"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"Adam"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Chicago"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"Illinois"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">60007</span> <span class="fu">}</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb9-13"><a href=""></a>          <span class="fu">{</span> <span class="dt">"card"</span><span class="fu">:</span> <span class="dv">457</span><span class="fu">,</span> <span class="dt">"billadrs"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"9th"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">10001</span> <span class="fu">}</span> <span class="fu">}</span></span>
+<span id="cb9-14"><a href=""></a>        <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb9-15"><a href=""></a>        <span class="dt">"products"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb9-16"><a href=""></a>          <span class="fu">{</span> <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Cola"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="fl">10.4</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb9-17"><a href=""></a>          <span class="fu">{</span> <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span> <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Beer"</span><span class="fu">,</span> <span class="dt">"price"</span><span class="fu">:</span> <span class="fl">14.4</span> <span class="fu">}</span></span>
+<span id="cb9-18"><a href=""></a>        <span class="ot">]</span></span>
+<span id="cb9-19"><a href=""></a>      <span class="fu">}</span></span>
+<span id="cb9-20"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb9-21"><a href=""></a>    <span class="dt">"shipadrs"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"street"</span><span class="fu">:</span> <span class="st">"9th"</span><span class="fu">,</span> <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span> <span class="dt">"code"</span><span class="fu">:</span> <span class="dv">10001</span> <span class="fu">}</span></span>
+<span id="cb9-22"><a href=""></a>  <span class="fu">}</span></span>
+<span id="cb9-23"><a href=""></a><span class="ot">]</span></span></code></pre></div>
 </div></div>
 </section>
 
@@ -1486,17 +1543,17 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <section id="relational-data-model-2" class="title-slide slide level1 center">
 <h1>Relational data model</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (</span>
-<span id="cb3-2"><a href=""></a>    entity_id <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
-<span id="cb3-3"><a href=""></a>    name TEXT,</span>
-<span id="cb3-4"><a href=""></a>    file_type TEXT,</span>
-<span id="cb3-5"><a href=""></a>    created_at TEXT,</span>
-<span id="cb3-6"><a href=""></a>    wasDerivedFrom <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> entity(entity_id)</span>
-<span id="cb3-7"><a href=""></a>);</span>
-<span id="cb3-8"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id <span class="dt">INTEGER</span>, name TEXT);</span>
-<span id="cb3-9"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id <span class="dt">INTEGER</span>, name TEXT);</span>
-<span id="cb3-10"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
-<span id="cb3-11"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb10-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (</span>
+<span id="cb10-2"><a href=""></a>    entity_id <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb10-3"><a href=""></a>    name TEXT,</span>
+<span id="cb10-4"><a href=""></a>    file_type TEXT,</span>
+<span id="cb10-5"><a href=""></a>    created_at TEXT,</span>
+<span id="cb10-6"><a href=""></a>    wasDerivedFrom <span class="dt">INTEGER</span> <span class="kw">REFERENCES</span> entity(entity_id)</span>
+<span id="cb10-7"><a href=""></a>);</span>
+<span id="cb10-8"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id <span class="dt">INTEGER</span>, name TEXT);</span>
+<span id="cb10-9"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id <span class="dt">INTEGER</span>, name TEXT);</span>
+<span id="cb10-10"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb10-11"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
 </section>
 
 
@@ -1727,45 +1784,45 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>Relationships (e.g., lineage chains) need complex joins:</p>
 <p>Which entity was derived from the entity <code>'a'</code>?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
-<span id="cb5-2"><a href=""></a><span class="kw">FROM</span> entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id</span>
-<span id="cb5-3"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb12-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb12-2"><a href=""></a><span class="kw">FROM</span> entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id</span>
+<span id="cb12-3"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
 </div>
 </section>
 
 <section id="limitations-of-the-relational-model-3" class="title-slide slide level1 center">
 <h1>Limitations of the Relational Model</h1>
 <p>Reference schema</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb6-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
-<span id="cb6-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
-<span id="cb6-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
-<span id="cb6-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
-<span id="cb6-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb13-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb13-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb13-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb13-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
 <p>Which entity was derived from an entity derived from <code>'a'</code>?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
-<span id="cb7-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id)</span>
-<span id="cb7-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
-<span id="cb7-4"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb14-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id)</span>
+<span id="cb14-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb14-4"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
 </div>
 </section>
 
 <section id="limitations-of-the-relational-model-4" class="title-slide slide level1 center">
 <h1>Limitations of the Relational Model</h1>
 <p>Reference schema</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
-<span id="cb8-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
-<span id="cb8-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
-<span id="cb8-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
-<span id="cb8-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb15-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb15-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb15-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb15-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb15-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
 <p>Which entity was (derived from an entity)<span class="math inline">\(^5\)</span> derived from <code>'a'</code>?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb9-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
-<span id="cb9-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id)</span>
-<span id="cb9-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
-<span id="cb9-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
-<span id="cb9-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
-<span id="cb9-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb16-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id)</span>
+<span id="cb16-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb16-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
+<span id="cb16-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
+<span id="cb16-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
 </div>
 </section>
 
@@ -1774,27 +1831,27 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>Each entity becomes a (JSON) <strong>document</strong> with customizable attributes.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb10-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb10-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"customers_raw"</span><span class="fu">,</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"csv"</span><span class="fu">,</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
-<span id="cb10-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb10-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"extract_sales_data"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="dt">"columns"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
-<span id="cb10-8"><a href=""></a>  <span class="dt">"delimiter"</span><span class="fu">:</span> <span class="st">","</span><span class="fu">,</span></span>
-<span id="cb10-9"><a href=""></a>  <span class="dt">"encoding"</span><span class="fu">:</span> <span class="st">"utf-8"</span><span class="fu">,</span></span>
-<span id="cb10-10"><a href=""></a>  <span class="dt">"wasDerivedFrom"</span><span class="fu">:</span> <span class="st">"a"</span></span>
-<span id="cb10-11"><a href=""></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb17-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"customers_raw"</span><span class="fu">,</span></span>
+<span id="cb17-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"csv"</span><span class="fu">,</span></span>
+<span id="cb17-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
+<span id="cb17-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb17-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"extract_sales_data"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb17-7"><a href=""></a>  <span class="dt">"columns"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
+<span id="cb17-8"><a href=""></a>  <span class="dt">"delimiter"</span><span class="fu">:</span> <span class="st">","</span><span class="fu">,</span></span>
+<span id="cb17-9"><a href=""></a>  <span class="dt">"encoding"</span><span class="fu">:</span> <span class="st">"utf-8"</span><span class="fu">,</span></span>
+<span id="cb17-10"><a href=""></a>  <span class="dt">"wasDerivedFrom"</span><span class="fu">:</span> <span class="st">"a"</span></span>
+<span id="cb17-11"><a href=""></a><span class="fu">}</span></span></code></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb11-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"satellite_image"</span><span class="fu">,</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"tiff"</span><span class="fu">,</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
-<span id="cb11-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb11-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span></span>
-<span id="cb11-7"><a href=""></a>  <span class="dt">"tiff_resolution"</span><span class="fu">:</span> <span class="st">"300dpi"</span><span class="fu">,</span></span>
-<span id="cb11-8"><a href=""></a>  <span class="dt">"tiff_color_depth"</span><span class="fu">:</span> <span class="dv">24</span><span class="fu">,</span></span>
-<span id="cb11-9"><a href=""></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb18-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"satellite_image"</span><span class="fu">,</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"tiff"</span><span class="fu">,</span></span>
+<span id="cb18-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
+<span id="cb18-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb18-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span></span>
+<span id="cb18-7"><a href=""></a>  <span class="dt">"tiff_resolution"</span><span class="fu">:</span> <span class="st">"300dpi"</span><span class="fu">,</span></span>
+<span id="cb18-8"><a href=""></a>  <span class="dt">"tiff_color_depth"</span><span class="fu">:</span> <span class="dv">24</span><span class="fu">,</span></span>
+<span id="cb18-9"><a href=""></a><span class="fu">}</span></span></code></pre></div>
 </div></div>
 <p>A <em>collection</em> is a list of documents.</p>
 </section>
@@ -1808,24 +1865,24 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li>It represents concepts as relations and relationships.</li>
 </ul>
 <p>Reference schema</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb12-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
-<span id="cb12-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
-<span id="cb12-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
-<span id="cb12-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
-<span id="cb12-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb19-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb19-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb19-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb19-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb19-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
 <p>Which agents were attributed to the entity?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a><span class="kw">SELECT</span> e.name <span class="kw">AS</span> entity_name,a.name <span class="kw">AS</span> agent_name</span>
-<span id="cb13-2"><a href=""></a><span class="kw">FROM</span> entity e <span class="kw">JOIN</span> wasAttributedTo w <span class="kw">ON</span> e.<span class="kw">id</span> <span class="op">=</span> w.entity_id</span>
-<span id="cb13-3"><a href=""></a>    <span class="kw">JOIN</span> <span class="kw">agent</span> a <span class="kw">ON</span> w.agent_id <span class="op">=</span> a.<span class="kw">id</span></span>
-<span id="cb13-4"><a href=""></a><span class="kw">WHERE</span> e.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb20-1"><a href=""></a><span class="kw">SELECT</span> e.name <span class="kw">AS</span> entity_name,a.name <span class="kw">AS</span> agent_name</span>
+<span id="cb20-2"><a href=""></a><span class="kw">FROM</span> entity e <span class="kw">JOIN</span> wasAttributedTo w <span class="kw">ON</span> e.<span class="kw">id</span> <span class="op">=</span> w.entity_id</span>
+<span id="cb20-3"><a href=""></a>    <span class="kw">JOIN</span> <span class="kw">agent</span> a <span class="kw">ON</span> w.agent_id <span class="op">=</span> a.<span class="kw">id</span></span>
+<span id="cb20-4"><a href=""></a><span class="kw">WHERE</span> e.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
 <p>Which activities generated the entity?</p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a><span class="kw">SELECT</span> e.name <span class="kw">AS</span> entity_name, act.name <span class="kw">AS</span> activity_name</span>
-<span id="cb14-2"><a href=""></a><span class="kw">FROM</span> entity e <span class="kw">JOIN</span> wasGeneratedBy wgb <span class="kw">ON</span> e.<span class="kw">id</span> <span class="op">=</span> wgb.entity_id</span>
-<span id="cb14-3"><a href=""></a>    <span class="kw">JOIN</span> activity act <span class="kw">ON</span> wgb.activity_id <span class="op">=</span> act.<span class="kw">id</span></span>
-<span id="cb14-4"><a href=""></a><span class="kw">WHERE</span> e.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb21-1"><a href=""></a><span class="kw">SELECT</span> e.name <span class="kw">AS</span> entity_name, act.name <span class="kw">AS</span> activity_name</span>
+<span id="cb21-2"><a href=""></a><span class="kw">FROM</span> entity e <span class="kw">JOIN</span> wasGeneratedBy wgb <span class="kw">ON</span> e.<span class="kw">id</span> <span class="op">=</span> wgb.entity_id</span>
+<span id="cb21-3"><a href=""></a>    <span class="kw">JOIN</span> activity act <span class="kw">ON</span> wgb.activity_id <span class="op">=</span> act.<span class="kw">id</span></span>
+<span id="cb21-4"><a href=""></a><span class="kw">WHERE</span> e.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="fragment">
@@ -1835,16 +1892,16 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 <p>Which agents were attributed to the entity?</p>
 <p>Which activities generated the entity?</p>
-<div class="sourceCode" id="cb15" data-code-line-numbers="5-6"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb15-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb15-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"a"</span><span class="fu">,</span></span>
-<span id="cb15-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"csv"</span><span class="fu">,</span></span>
-<span id="cb15-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
-<span id="cb15-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb15-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"extract_sales_data"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb15-7"><a href=""></a>  <span class="dt">"columns"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
-<span id="cb15-8"><a href=""></a>  <span class="dt">"delimiter"</span><span class="fu">:</span> <span class="st">","</span><span class="fu">,</span></span>
-<span id="cb15-9"><a href=""></a>  <span class="dt">"encoding"</span><span class="fu">:</span> <span class="st">"utf-8"</span><span class="fu">,</span></span>
-<span id="cb15-10"><a href=""></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb22" data-code-line-numbers="5-6"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb22-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"a"</span><span class="fu">,</span></span>
+<span id="cb22-3"><a href=""></a>  <span class="dt">"file_type"</span><span class="fu">:</span> <span class="st">"csv"</span><span class="fu">,</span></span>
+<span id="cb22-4"><a href=""></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2025-07-12"</span><span class="fu">,</span></span>
+<span id="cb22-5"><a href=""></a>  <span class="dt">"agents"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"alice"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb22-6"><a href=""></a>  <span class="dt">"activities"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"extract_sales_data"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb22-7"><a href=""></a>  <span class="dt">"columns"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
+<span id="cb22-8"><a href=""></a>  <span class="dt">"delimiter"</span><span class="fu">:</span> <span class="st">","</span><span class="fu">,</span></span>
+<span id="cb22-9"><a href=""></a>  <span class="dt">"encoding"</span><span class="fu">:</span> <span class="st">"utf-8"</span><span class="fu">,</span></span>
+<span id="cb22-10"><a href=""></a><span class="fu">}</span></span></code></pre></div>
 </div>
 </div></div>
 </section>
@@ -1860,11 +1917,11 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="the-graph-data-model" class="title-slide slide level1 center">
 <h1>The graph data model</h1>
 <p>Reference schema</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
-<span id="cb16-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
-<span id="cb16-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
-<span id="cb16-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
-<span id="cb16-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb23-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> entity (entity_id, wasDerivedFrom);</span>
+<span id="cb23-2"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">agent</span> (agent_id, name);</span>
+<span id="cb23-3"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> activity (activity_id, name);</span>
+<span id="cb23-4"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasAttributedTo (entity_id, agent_id);</span>
+<span id="cb23-5"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> wasGeneratedBy (entity_id, activity_id);</span></code></pre></div>
 <p>The graph data model is <strong>data-driven</strong> and represents data as <strong>nodes</strong> and <strong>edges</strong>.</p>
 <ul>
 <li>Relationships become <em>first-class citizens</em>.</li>
@@ -1895,33 +1952,33 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="the-graph-data-model-3" class="title-slide slide level1 center">
 <h1>The graph data model</h1>
 <p>SQL</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb18-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
-<span id="cb18-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id) </span>
-<span id="cb18-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
-<span id="cb18-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
-<span id="cb18-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
-<span id="cb18-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb25-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb25-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id) </span>
+<span id="cb25-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb25-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
+<span id="cb25-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
+<span id="cb25-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
 <p>Cypher</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource cypher number-lines"><code class="sourceCode"><span id="cb19-1"><a href=""></a>MATCH (e1:Entity {name: 'a'})</span>
-<span id="cb19-2"><a href=""></a>MATCH (e1)-[:WAS_DERIVED_FROM]-&gt;(e2:Entity)</span>
-<span id="cb19-3"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e3:Entity)</span>
-<span id="cb19-4"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e4:Entity)</span>
-<span id="cb19-5"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e5:Entity)</span>
-<span id="cb19-6"><a href=""></a>RETURN e1.name, e2.name, e3.name, e4.name, e5.name;</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource cypher number-lines"><code class="sourceCode"><span id="cb26-1"><a href=""></a>MATCH (e1:Entity {name: 'a'})</span>
+<span id="cb26-2"><a href=""></a>MATCH (e1)-[:WAS_DERIVED_FROM]-&gt;(e2:Entity)</span>
+<span id="cb26-3"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e3:Entity)</span>
+<span id="cb26-4"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e4:Entity)</span>
+<span id="cb26-5"><a href=""></a> -[:WAS_DERIVED_FROM]-&gt;(e5:Entity)</span>
+<span id="cb26-6"><a href=""></a>RETURN e1.name, e2.name, e3.name, e4.name, e5.name;</span></code></pre></div>
 </section>
 
 <section id="the-graph-data-model-4" class="title-slide slide level1 center">
 <h1>The graph data model</h1>
 <p>SQL</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb20-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
-<span id="cb20-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id) </span>
-<span id="cb20-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
-<span id="cb20-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
-<span id="cb20-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
-<span id="cb20-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines"><code class="sourceCode sql"><span id="cb27-1"><a href=""></a><span class="kw">SELECT</span> e1.name, e2.name</span>
+<span id="cb27-2"><a href=""></a><span class="kw">FROM</span> (entity e1 <span class="kw">JOIN</span> entity e2 <span class="kw">ON</span> e1.wasDerivedFrom <span class="op">=</span> e2.entity_id) </span>
+<span id="cb27-3"><a href=""></a>    <span class="kw">JOIN</span> entity e3 <span class="kw">ON</span> e2.wasDerivedFrom <span class="op">=</span> e3.entity_id</span>
+<span id="cb27-4"><a href=""></a>    <span class="kw">JOIN</span> entity e4 <span class="kw">ON</span> e3.wasDerivedFrom <span class="op">=</span> e4.entity_id</span>
+<span id="cb27-5"><a href=""></a>    <span class="kw">JOIN</span> entity e5 <span class="kw">ON</span> e4.wasDerivedFrom <span class="op">=</span> e5.entity_id</span>
+<span id="cb27-6"><a href=""></a><span class="kw">WHERE</span> e1.name <span class="op">=</span> <span class="st">'a'</span>;</span></code></pre></div>
 <p>Cypher</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource cypher number-lines"><code class="sourceCode"><span id="cb21-1"><a href=""></a>MATCH (e1:Entity {name: 'a'})-[:WAS_DERIVED_FROM*1..5]-&gt;(e2:Entity)</span>
-<span id="cb21-2"><a href=""></a>RETURN e1.name, e2.name;</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource cypher number-lines"><code class="sourceCode"><span id="cb28-1"><a href=""></a>MATCH (e1:Entity {name: 'a'})-[:WAS_DERIVED_FROM*1..5]-&gt;(e2:Entity)</span>
+<span id="cb28-2"><a href=""></a>RETURN e1.name, e2.name;</span></code></pre></div>
 </section>
 
 <section id="comparison-summary" class="title-slide slide level1 center">
