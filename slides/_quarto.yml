@@ -22,6 +22,7 @@ format:
     footnotes-hover: true
     scrollable: false
     width: 1280
+    pdf-separate-fragments: true
     echo: true
     code-fold: show
     code-copy: false
