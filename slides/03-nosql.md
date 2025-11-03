@@ -784,8 +784,8 @@ It’s important to understand:
 
 Evolution of the CAP theorem (less known, but more precise)
 
-- if (*P*artition) then {  *A*vaialbility or *C*onsistency? }
-- Else  { *L*atency or *C*onsistency? }
+If (*P*artition) then {  *A*vailability or *C*onsistency? }
+Else  { *L*atency or *C*onsistency? }
 
 Different behavior in the case of partitioning
 
