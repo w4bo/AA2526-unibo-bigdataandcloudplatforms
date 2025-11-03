@@ -94,12 +94,12 @@ The big-data cube [@meijer2012your]
 ::: {.column width=50%}
 
 
-![Number of days to 1 million users](https://miro.medium.com/v2/resize:fit:640/format:webp/1*-apRT2gFLb4sr_2MYzKmbQ.png)
+![Number of days to 1 million users](img/1-million-users-a.png)
 
 :::
 ::: {.column width=50%}
 
-![Number of days to 1 million users](https://preview.redd.it/threads-fastest-to-one-million-users-v0-qo0af6nignab1.jpg?width=1080&crop=smart&auto=webp&s=1f2c3e93e79f4771ac8ed4521436829e91d1cb87)
+![Number of days to 1 million users](1-million-users-b.png)
 
 :::
 ::::

@@ -144,9 +144,9 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 
 ```json
 [
- { "Product": "P1", "Name": "Beer", "Price": 6, "Quantity": "0.4L"},
- { "Product": "P2", "Name": "Milk", "Price": 1, "Expiration": "2024-11-30"},
- { "Product": "P3", "Name": "Pizza", "Price": 6, "Ingredients": [...]},
+    { "Product": "P1", "Name": "Beer", "Price": 6, "Quantity": "0.4L"},
+    { "Product": "P2", "Name": "Milk", "Price": 1, "Expiration": "2024-11-30"},
+    { "Product": "P3", "Name": "Pizza", "Price": 6, "Ingredients": [...]},
 ]
 ```
 
@@ -218,16 +218,15 @@ Each DB contains one or more *graphs*
 
 Graph databases usually model relationship-rich scenarios.
 
-- The query language simplifies the navigation of these relationships
-- **Query language based on detecting patterns**
-- Support for transactions
-- Support for indexes, selections, and projections
+- *Query language based on detecting patterns* (e.g., Cypher)
+  - Simplifies the navigation of the relationships
+- Support for transactions, indexes, selections, and projections
 
 | Query | Pattern |
-|:-: |:-: |
-| Find friends of friends | (user)-[:KNOWS]-(friend)-[:KNOWS]-(foaf) |
-| Find shortest path from A to B | shortestPath((userA)-[:KNOWS*..5]-(userB)) |
-| What products have been bought by those who bought my same products? | (user)-[:PURCHASED]->(product)<-[:PURCHASED]-()-[:PURCHASED]->(otherProduct) |
+|:- |:- |
+| Find friends of friends | `(user)-[:KNOWS]-(friend)-[:KNOWS]-(foaf)` |
+| Find shortest path from A to B | `shortestPath((userA)-[:KNOWS*..5]-(userB))` |
+| What products were bought by users who purchased the same items? | `(u)-[:PURCHASED]->(p)<-[:PURCHASED]-()-[:PURCHASED]->(otherP)` |
 
 # Data modeling example: graph model
 
@@ -294,27 +293,27 @@ Each field corresponds to a *key-value pair*
 
 ```json
 [
- {
+    {
         "_id": "A12345",
         "name": "Alice",
         "address": {
             "street": "1st Avenue",
             "city": "Wonderland"
- },
+        },
         "contacts": [
- {"type": "email", "value": "alice@example.com"},
- {"type": "phone", "number": "+123456789"}
- ]
- },
- {
+              {"type": "email", "value": "alice@example.com"},
+              {"type": "phone", "number": "+123456789"}
+        ]
+    },
+    {
         "_id": "B67890",
         "name": "Bob",
         "address": {
             "street": "2nd Street",
             "postalCode": "47522"
- },
+        },
         "birthdate": "1990-05-15"
- }
+    }
 ]
 ```
 
@@ -325,45 +324,128 @@ Each field corresponds to a *key-value pair*
 
 The query language is quite expressive.
 
-- Can create indexes on fields
-- Can filter on the fields
-- Can return more documents with one query
-- Can select which fields to project
-- Can update specific fields
+- Return more documents with one query
+
+```js
+db.collection.find({})  // retrieves multiple documents matching the filter
+```
+
+- Select which fields to project
+
+```js
+db.collection.find({}, { field1: 1, field2: 1, _id: 0 })  // only include specific fields
+```
+
+- Filter on the fields
+
+```js
+db.collection.find({ status: "active", age: { $gt: 30 } })  // filter by conditions
+```
+
+- Update specific fields
+
+```js
+db.collection.updateMany(
+  { status: "active" },           // filter
+  { $set: { verified: true } }    // update specific field(s)
+)
+```
 
 Different implementations, different functionalities
 
-- Some enable (possibly materialized) views
-- Some enable MapReduce queries
-- Some provide connectors to Big Data tools (e.g., Spark, Hive)
-- Some provide *full-text search * capabilities
+- Create indexes on fields and (materialized) views
+- Provide connectors to Big Data tools (e.g., Spark, Hive, MapReduce)
+- Provide *full-text search* capabilities
 
 # Data modeling example: aggregate model
 
 :::: {.columns}
-::: {.column width=50%}
+::: {.column width=40%}
 
 ![Designing aggregates](img/109.svg)
 
 :::
-::: {.column width=50%}
+::: {.column width=60%}
 
-![Examples of documents](img/111.svg)
+Collection answering the blue query
 
+```json
+[
+  {
+    "_id": 1,
+    "name": "Martin",
+    "adrs": [
+      { "street": "Adam", "city": "Chicago", "state": "Illinois", "code": 60007 },
+      { "street": "9th", "city": "New York", "state": "New York", "code": 10001 }
+    ]
+  }
+]
+```
+
+Collection answering the purple query
+
+```json
+[
+  {
+    "_id": 1,
+    "customer": "1",
+    "orderpayments": [
+      { 
+        "card": 457,
+        "billadrs": { "street": "Adam", "city": "Chicago", "state": "Illinois", "code": 60007 } 
+      
+      },
+      { 
+        "card": 457,
+        "billadrs": { "street": "9th", "city": "New York", "state": "New York", "code": 10001 }
+      }
+    ],
+    "products": [
+      { "id": 1, "name": "Cola", "price": 10.4 },
+      { "id": 2, "name": "Beer", "price": 14.4 }
+    ],
+    "shipadrs": { "street": "9th", "city": "New York", "state": "New York", "code": 10001 }
+  }
+]
+```
 :::
 ::::
 
 # Data modeling example: document model
 
 :::: {.columns}
-::: {.column width=50%}
+::: {.column width=40%}
 
 ![Designing aggregates](img/108.svg)
 
 :::
-::: {.column width=50%}
+::: {.column width=60%}
 
-![Example of document](img/110.svg)
+```json
+[
+  {
+    "_id": 1,
+    "name": "Martin",
+    "adrs": [
+      { "street": "Adam", "city": "Chicago", "state": "Illinois", "code": 60007 },
+      { "street": "9th", "city": "New York", "state": "New York", "code": 10001 }
+    ],
+    "orders": [
+      {
+        "orderpayments": [
+          { "card": 457, "billadrs": { "street": "Adam", "city": "Chicago", "state": "Illinois", "code": 60007 } },
+          { "card": 457, "billadrs": { "street": "9th", "city": "New York", "state": "New York", "code": 10001 } }
+        ],
+        "products": [
+          { "id": 1, "name": "Cola", "price": 10.4 },
+          { "id": 2, "name": "Beer", "price": 14.4 }
+        ]
+      }
+    ],
+    "shipadrs": { "street": "9th", "city": "New York", "state": "New York", "code": 10001 }
+  }
+]
+```
 
 :::
 ::::
