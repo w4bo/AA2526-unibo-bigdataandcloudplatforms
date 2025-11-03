@@ -1,3 +1,9 @@
+## [1.0.14](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.13...1.0.14) (2025-11-03)
+
+### Bug Fixes
+
+* update slides ([fedab44](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/fedab44d9e095d76ef78a470b629e593b28b4f06))
+
 ## [1.0.13](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.12...1.0.13) (2025-11-03)
 
 ### Dependency updates
