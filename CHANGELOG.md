@@ -1,3 +1,12 @@
+## [1.0.12](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.11...1.0.12) (2025-10-28)
+
+### Bug Fixes
+
+* graph data model ([1437ce5](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/1437ce5e109db647eb0bb4802b0942a692989e66))
+* slide order ([c5b32ac](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/c5b32ac871cb75814d6c812ef5c051aba5606362))
+* slide order ([bf8cbbc](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/bf8cbbc021cce6cbc1cc64305d1ac61184dcc157))
+* slide order ([8551833](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/8551833bd92ec256acd8d062e01de8356c156497))
+
 ## [1.0.11](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.10...1.0.11) (2025-10-27)
 
 ### Bug Fixes
