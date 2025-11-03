@@ -586,13 +586,15 @@ How would you document this table update?
 :::: {.columns}
 ::: {.column width=100%}
 
-![Coarse grained](img/coarsegrained.svg)
+![Coarse grained](img/coarsegrained.png)
 
 :::
 ::: {.column width=100%}
 
 :::{.fragment}
-![Fine grained](img/finegrained.svg)
+
+![Fine grained](img/finegrained.png)
+
 :::
 :::
 ::::
@@ -609,7 +611,7 @@ Queries [@ikeda2009data]
 - _Why_ provenance: given some output, why was data generated?
   - E.g., in the form of a proof tree that locates source data items contributing to its creation
 
-![Fine grained](img/finegrained.svg)
+![Fine grained](img/finegrained.png)
 
 # Data provenance
 
@@ -746,7 +748,7 @@ Entity resolution [@papadakis2020blocking]
 
 ![Example of entity resolution](img/slides20.png)
 
-![Example of entity resolution](https://miro.medium.com/v2/resize:fit:720/format:webp/1*MjJWP2uwkTMDRg0q0i76qA.png)
+![Example of entity resolution](img/entityresolution.png)
 
 :::
 ::::
