@@ -1,3 +1,16 @@
+## [1.0.13](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.12...1.0.13) (2025-11-03)
+
+### Dependency updates
+
+* **deps:** update dependency awswrangler to v3.14.0 ([#12](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/12)) ([af5b6ea](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/af5b6ea2d0b26683029223b62807dcef6fae655d))
+* **deps:** update dependency scipy to v1.16.3 ([#10](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/10)) ([9c23975](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/9c239752633cc845a447c27a86258cc9dd4287b6))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.153 ([#13](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/13)) ([586ad9f](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/586ad9f1014c529821da1de462fe1fec95f024ca))
+* **deps:** update node.js to v24 ([#11](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/11)) ([332f911](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/332f9110583650f3a4dc18c792b4508b0c877028))
+
+### Bug Fixes
+
+* update slides ([82cbcbb](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/82cbcbb8b05236f507e9180063e899820e9d2f92))
+
 ## [1.0.12](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.11...1.0.12) (2025-10-28)
 
 ### Bug Fixes
