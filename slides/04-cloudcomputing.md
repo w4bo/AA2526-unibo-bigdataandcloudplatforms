@@ -438,9 +438,9 @@ Containerization isolates an application from its environment.
 
 **Worldwide deployment**
 
+- Improve data locality
 - Deploy applications as close to customers as possible
   - E.g., to reduce network latency
-- Improve data locality
 - Compliant to privacy regulations (e.g., GDPR)
 
 :::
@@ -450,6 +450,12 @@ Containerization isolates an application from its environment.
 
 :::
 ::::
+
+# Cesena Campus (UniBO), May 2023
+
+The importance of geographical redundancy.
+
+<img src="img/phdslides_25.jpg" class="center-img" style="max-height: 600px !important" alt="Cesena, 2023-05-18" />
 
 # Worldwide deployment
 

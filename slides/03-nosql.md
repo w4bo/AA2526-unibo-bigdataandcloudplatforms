@@ -382,6 +382,7 @@ Collection answering the blue query
 ]
 ```
 
+:::{.fragment}
 Collection answering the purple query
 
 ```json
@@ -408,6 +409,7 @@ Collection answering the purple query
   }
 ]
 ```
+:::
 :::
 ::::
 
