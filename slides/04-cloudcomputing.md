@@ -99,7 +99,7 @@ The big-data cube [@meijer2012your]
 :::
 ::: {.column width=50%}
 
-![Number of days to 1 million users](1-million-users-b.png)
+![Number of days to 1 million users](img/1-million-users-b.png)
 
 :::
 ::::
