@@ -1,3 +1,13 @@
+## [1.0.19](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.18...1.0.19) (2025-11-05)
+
+### Bug Fixes
+
+* update slides ([24ca9f6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/24ca9f6a2321f1e1718581f57d59373a401ac9c7))
+
+### Build and continuous integration
+
+* **deps:** update jamesives/github-pages-deploy-action action to v4.7.4 ([#15](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/15)) ([87fd7c0](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/87fd7c0157d659a78369e8c0945b667715cee3a0))
+
 ## [1.0.18](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.17...1.0.18) (2025-11-04)
 
 ### Bug Fixes
