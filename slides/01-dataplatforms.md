@@ -259,6 +259,36 @@ The DFM is a graphical conceptual model for DWH design, devised to:
 
 ![Data lake](img/26.svg)
 
+# Data platform
+
+The data lake started with the Apache Hadoop movement, using the Hadoop File System (HDFS) for cheap storage
+
+- *Schema-on-read* architecture 
+- Agility of storing any data at low cost
+- Eludes the problems of quality and governance
+
+A two-tier data lake + DWH architecture is dominant in the industry
+
+- HDFS replaced by cloud data lakes (e.g., S3, ADLS, GCS)
+- Data lake data directly accessible to a wide range of analytics engines
+- A subset of data is "ETL-ed" to a data warehouse for important decision support and BI apps
+
+# Data platform
+
+Downsides of data lakes
+
+- *Security*
+  - All the data is stored and managed as files
+  - No fine-grained access control on the contents of files, but only coarse-grained access governing who can access what files or directories
+- *Quality*
+  - Hard to prevent data corruption and manage schema changes
+  - Challenging to ensure atomic operations when writing a group of files
+  - No roll-back mechanism
+- *Query performance*
+  - Formats are not optimized for fast access
+
+It is often said that the *lake* easily turns into a *swamp*
+
 # DWH vs Data Lake?
 
 # Data platform: DWH vs Data Lake
@@ -271,6 +301,26 @@ The DFM is a graphical conceptual model for DWH design, devised to:
 | Data quality | Highly curated data that serves as the central version of the truth | Any data, which may or may not be curated (e.g., raw data) |
 | Users | Business analysts | Data scientists, data developers, and business analysts (using curated data) |
 | Analytics | Batch reporting, BI, and visualizations | Machine learning, predictive analytics, data discovery, and profiling. |
+
+# Data platform
+
+While the data lake and warehouse architecture is ostensibly cheap, a two-tier architecture is highly complex for users
+
+- Data is first ELTed into lakes, and then again ETLed into warehouses
+- Enterprise use cases now include advanced analytics such as machine learning, for which neither data lakes nor warehouses are ideal
+
+(Some) main problems:
+
+- *Reliability*. Keeping the data lake and warehouse consistent is difficult and costly
+- *Data staleness*. The data in the warehouse is stale compared to that of the data lake, with new data frequently taking days to load
+- *Limited support for advanced analytics*.
+  - Businesses want to ask predictive questions using their warehousing data
+  - Machine learning systems does not work well on (directly) top of warehouses
+- *Process large datasets using complex non-SQL code*
+
+# Data lakehouse
+
+![Evolving generations of data platforms](img/slides26.png)
 
 # Data lakehouse
 
@@ -301,20 +351,59 @@ Key technologies used to implement Data Lakehouses
 
 # Data lakehouse
 
-![Evolving generations of data platforms](img/slides26.png)
+Main features:
+
+- Store data in a low-cost object store using a standard file format such as Apache Parquet
+- Implement a transactional metadata layer on top of the object store that defines which objects are part of a table version
+- Implement management features within the metadata layer
+
+Challenges:
+
+- The metadata layer is insufficient to achieve good SQL performance
+- Data warehouses use several techniques to get state-of-the-art performance
+-   Storing hot data on fast devices such as SSDs, maintaining statistics, building efficient indexes, etc.
+- In a Lakehouse it is not possible to change the format, but it is possible to implement other optimizations that leave the data files unchanged
 
 # Data lakehouse
 
-|  | Data warehouse | Data lake | Data lakehouse |
-|:-: |:-: |:-: |:-: |
-| *Data format* | Closed, proprietary format | Open format (e.g., Parquet) | Open format |
-| *Types of data* | Structured data, with limited support for semi-structured data | All types: Structured data, semi-structured data, textual data, unstructured (raw) data | All types: Structured data, semi-structured data, textual data, unstructured (raw) data |
-| *Data access* | SQL-only, no direct access to file | Open APIs for direct access to files with SQL, R, Python, and other languages | Open APIs for direct access to files with SQL, R, Python, and other languages |
-| *Reliability* | High quality, reliable data with ACID transactions | Low quality, data swamp | High quality, reliable data with ACID transactions |
-| *Governance and security* | Fine-grained security and governance for row/columnar level for tables | Poor governance as security needs to be applied to files | Fine-grained security and governance for row/columnar level for tables |
+**Challenges:**
+
+- Most data lakes (e.g., cloud object stores) are simple key-value stores without cross-key consistency.  
+- Multi-object updates aren't atomic, and there's no isolation between queries.  
+  - Queries updating multiple objects can expose readers to partial updates as each object is written individually.  
+- For large tables with millions of objects, metadata operations are costly.
+  - The latency of cloud object stores can make data-skipping checks slower than the query itself.  
+
+:::: {.columns}
+::: {.column width=50%}
+
+**Delta Lake** uses a transaction log compacted into Apache Parquet for much faster metadata operations on large tabular datasets.  
+
+- The log resides in the `_delta_log` subdirectory.  
+- It contains:  
+  - JSON objects with sequential, zero-padded numeric IDs for log records  
+  - Periodic checkpoints summarizing the log up to that point  
+
+:::
+::: {.column width=50%}
+
+![Delta lake](img/deltalake.png)
+
+:::
+::::
+
+# Data lakehouse
+
+|  | **Data Warehouse** | **Data Lake** | **Data Lakehouse** |
+|:-:|:-:|:-:|:-:|
+| *Data format* | Proprietary format | Open format (e.g., Parquet) | Open format |
+| *Types of data* | Structured, limited semi-structured | Structured, semi-structured, text, unstructured | Structured, semi-structured, text, unstructured |
+| *Data access* | SQL-only, no file access | Open APIs for SQL, R, Python, etc. | Open APIs for SQL, R, Python, etc. |
+| *Reliability* | High quality, ACID transactions | Low quality, “data swamp” | High quality, ACID transactions |
+| *Governance & security* | Fine-grained (row/column-level) | Weak governance; file-level security | Fine-grained (row/column-level) |
 | *Performance* | High | Low | High |
-| *Scalability* | Scaling becomes exponentially more expensive | Scales to hold any amount of data at low cost, regardless of type | Scales to hold any amount of data at low cost, regardless of type |
-| *Use case support* | Limited to BI, SQL applications and decision support | Limited to machine learning | One data architecture for BI, SQL and machine learning |
+| *Scalability* | Expensive at scale | Scales cheaply for any data type | Scales cheaply for any data type |
+| *Use case support* | BI, SQL, decision support | Machine learning only | Unified for BI, SQL, and ML |
 
 # Data platform
 
