@@ -397,7 +397,7 @@ A two-tier architecture is highly complex for users
 :::: {.columns}
 ::: {.column width=50%}
 
-![2022](img/hypecycle-dm-2022.png)
+![2023](img/hypecycle-dm-2023.png)
 
 :::
 ::: {.column width=50%}
