@@ -771,6 +771,45 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <img data-src="img/26.svg" class="r-stretch quarto-figure-center"><p class="caption">Data lake</p></section>
 
+<section id="data-platform-15" class="title-slide slide level1 center">
+<h1>Data platform</h1>
+<p>The data lake started with the Apache Hadoop movement, using the Hadoop File System (HDFS) for cheap storage</p>
+<ul>
+<li><em>Schema-on-read</em> architecture</li>
+<li>Agility of storing any data at low cost</li>
+<li>Eludes the problems of quality and governance</li>
+</ul>
+<p>A two-tier data lake + DWH architecture is dominant in the industry</p>
+<ul>
+<li>HDFS replaced by cloud data lakes (e.g., S3, ADLS, GCS)</li>
+<li>Data lake data directly accessible to a wide range of analytics engines</li>
+<li>A subset of data is “ETL-ed” to a data warehouse for important decision support and BI apps</li>
+</ul>
+</section>
+
+<section id="data-platform-16" class="title-slide slide level1 center">
+<h1>Data platform</h1>
+<p>Downsides of data lakes</p>
+<ul>
+<li><em>Security</em>
+<ul>
+<li>All the data is stored and managed as files</li>
+<li>No fine-grained access control on the contents of files, but only coarse-grained access governing who can access what files or directories</li>
+</ul></li>
+<li><em>Quality</em>
+<ul>
+<li>Hard to prevent data corruption and manage schema changes</li>
+<li>Challenging to ensure atomic operations when writing a group of files</li>
+<li>No roll-back mechanism</li>
+</ul></li>
+<li><em>Query performance</em>
+<ul>
+<li>Formats are not optimized for fast access</li>
+</ul></li>
+</ul>
+<p>It is often said that the <em>lake</em> easily turns into a <em>swamp</em></p>
+</section>
+
 <section id="dwh-vs-data-lake" class="title-slide slide level1 center">
 <h1>DWH vs Data Lake?</h1>
 
@@ -826,7 +865,32 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </table>
 </section>
 
+<section id="data-platform-17" class="title-slide slide level1 center">
+<h1>Data platform</h1>
+<p>While the data lake and warehouse architecture is ostensibly cheap, a two-tier architecture is highly complex for users</p>
+<ul>
+<li>Data is first ELTed into lakes, and then again ETLed into warehouses</li>
+<li>Enterprise use cases now include advanced analytics such as machine learning, for which neither data lakes nor warehouses are ideal</li>
+</ul>
+<p>(Some) main problems:</p>
+<ul>
+<li><em>Reliability</em>. Keeping the data lake and warehouse consistent is difficult and costly</li>
+<li><em>Data staleness</em>. The data in the warehouse is stale compared to that of the data lake, with new data frequently taking days to load</li>
+<li><em>Limited support for advanced analytics</em>.
+<ul>
+<li>Businesses want to ask predictive questions using their warehousing data</li>
+<li>Machine learning systems does not work well on (directly) top of warehouses</li>
+</ul></li>
+<li><em>Process large datasets using complex non-SQL code</em></li>
+</ul>
+</section>
+
 <section id="data-lakehouse" class="title-slide slide level1 center">
+<h1>Data lakehouse</h1>
+
+<img data-src="img/slides26.png" class="r-stretch quarto-figure-center"><p class="caption">Evolving generations of data platforms</p></section>
+
+<section id="data-lakehouse-1" class="title-slide slide level1 center">
 <h1>Data lakehouse</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -852,12 +916,63 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p><a href="https://www.databricks.com/glossary/data-lakehouse">https://www.databricks.com/glossary/data-lakehouse</a></p>
 </section>
 
-<section id="data-lakehouse-1" class="title-slide slide level1 center">
-<h1>Data lakehouse</h1>
-
-<img data-src="img/slides26.png" class="r-stretch quarto-figure-center"><p class="caption">Evolving generations of data platforms</p></section>
-
 <section id="data-lakehouse-2" class="title-slide slide level1 center">
+<h1>Data lakehouse</h1>
+<p>Main features:</p>
+<ul>
+<li>Store data in a low-cost object store using a standard file format such as Apache Parquet</li>
+<li>Implement a transactional metadata layer on top of the object store that defines which objects are part of a table version</li>
+<li>Implement management features within the metadata layer</li>
+</ul>
+<p>Challenges:</p>
+<ul>
+<li>The metadata layer is insufficient to achieve good SQL performance</li>
+<li>Data warehouses use several techniques to get state-of-the-art performance</li>
+<li>Storing hot data on fast devices such as SSDs, maintaining statistics, building efficient indexes, etc.</li>
+<li>In a Lakehouse it is not possible to change the format, but it is possible to implement other optimizations that leave the data files unchanged</li>
+</ul>
+</section>
+
+<section id="data-lakehouse-3" class="title-slide slide level1 center">
+<h1>Data lakehouse</h1>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Most data lakes (e.g., cloud object stores) are simple key-value stores without cross-key consistency.<br>
+</li>
+<li>Multi-object updates aren’t atomic, and there’s no isolation between queries.
+<ul>
+<li>Queries updating multiple objects can expose readers to partial updates as each object is written individually.<br>
+</li>
+</ul></li>
+<li>For large tables with millions of objects, metadata operations are costly.
+<ul>
+<li>The latency of cloud object stores can make data-skipping checks slower than the query itself.</li>
+</ul></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Delta Lake</strong> uses a transaction log compacted into Apache Parquet for much faster metadata operations on large tabular datasets.</p>
+<ul>
+<li>The log resides in the <code>_delta_log</code> subdirectory.<br>
+</li>
+<li>It contains:
+<ul>
+<li>JSON objects with sequential, zero-padded numeric IDs for log records<br>
+</li>
+<li>Periodic checkpoints summarizing the log up to that point</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/deltalake.png"></p>
+<figcaption>Delta lake</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="data-lakehouse-4" class="title-slide slide level1 center">
 <h1>Data lakehouse</h1>
 <table class="caption-top">
 <colgroup>
@@ -869,41 +984,41 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <thead>
 <tr class="header">
 <th style="text-align: center;"></th>
-<th style="text-align: center;">Data warehouse</th>
-<th style="text-align: center;">Data lake</th>
-<th style="text-align: center;">Data lakehouse</th>
+<th style="text-align: center;"><strong>Data Warehouse</strong></th>
+<th style="text-align: center;"><strong>Data Lake</strong></th>
+<th style="text-align: center;"><strong>Data Lakehouse</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><em>Data format</em></td>
-<td style="text-align: center;">Closed, proprietary format</td>
+<td style="text-align: center;">Proprietary format</td>
 <td style="text-align: center;">Open format (e.g., Parquet)</td>
 <td style="text-align: center;">Open format</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><em>Types of data</em></td>
-<td style="text-align: center;">Structured data, with limited support for semi-structured data</td>
-<td style="text-align: center;">All types: Structured data, semi-structured data, textual data, unstructured (raw) data</td>
-<td style="text-align: center;">All types: Structured data, semi-structured data, textual data, unstructured (raw) data</td>
+<td style="text-align: center;">Structured, limited semi-structured</td>
+<td style="text-align: center;">Structured, semi-structured, text, unstructured</td>
+<td style="text-align: center;">Structured, semi-structured, text, unstructured</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><em>Data access</em></td>
-<td style="text-align: center;">SQL-only, no direct access to file</td>
-<td style="text-align: center;">Open APIs for direct access to files with SQL, R, Python, and other languages</td>
-<td style="text-align: center;">Open APIs for direct access to files with SQL, R, Python, and other languages</td>
+<td style="text-align: center;">SQL-only, no file access</td>
+<td style="text-align: center;">Open APIs for SQL, R, Python, etc.</td>
+<td style="text-align: center;">Open APIs for SQL, R, Python, etc.</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><em>Reliability</em></td>
-<td style="text-align: center;">High quality, reliable data with ACID transactions</td>
-<td style="text-align: center;">Low quality, data swamp</td>
-<td style="text-align: center;">High quality, reliable data with ACID transactions</td>
+<td style="text-align: center;">High quality, ACID transactions</td>
+<td style="text-align: center;">Low quality, “data swamp”</td>
+<td style="text-align: center;">High quality, ACID transactions</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><em>Governance and security</em></td>
-<td style="text-align: center;">Fine-grained security and governance for row/columnar level for tables</td>
-<td style="text-align: center;">Poor governance as security needs to be applied to files</td>
-<td style="text-align: center;">Fine-grained security and governance for row/columnar level for tables</td>
+<td style="text-align: center;"><em>Governance &amp; security</em></td>
+<td style="text-align: center;">Fine-grained (row/column-level)</td>
+<td style="text-align: center;">Weak governance; file-level security</td>
+<td style="text-align: center;">Fine-grained (row/column-level)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><em>Performance</em></td>
@@ -913,21 +1028,21 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><em>Scalability</em></td>
-<td style="text-align: center;">Scaling becomes exponentially more expensive</td>
-<td style="text-align: center;">Scales to hold any amount of data at low cost, regardless of type</td>
-<td style="text-align: center;">Scales to hold any amount of data at low cost, regardless of type</td>
+<td style="text-align: center;">Expensive at scale</td>
+<td style="text-align: center;">Scales cheaply for any data type</td>
+<td style="text-align: center;">Scales cheaply for any data type</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><em>Use case support</em></td>
-<td style="text-align: center;">Limited to BI, SQL applications and decision support</td>
-<td style="text-align: center;">Limited to machine learning</td>
-<td style="text-align: center;">One data architecture for BI, SQL and machine learning</td>
+<td style="text-align: center;">BI, SQL, decision support</td>
+<td style="text-align: center;">Machine learning only</td>
+<td style="text-align: center;">Unified for BI, SQL, and ML</td>
 </tr>
 </tbody>
 </table>
 </section>
 
-<section id="data-platform-15" class="title-slide slide level1 center">
+<section id="data-platform-18" class="title-slide slide level1 center">
 <h1>Data platform</h1>
 <p><em>Data lakes (or lakehouses)</em> have increasingly taken the role of <em>data hubs</em></p>
 <ul>
@@ -946,7 +1061,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </section>
 
-<section id="data-platform-16" class="title-slide slide level1 center">
+<section id="data-platform-19" class="title-slide slide level1 center">
 <h1>Data platform</h1>
 <blockquote>
 <p><strong>Data platform</strong></p>
@@ -965,7 +1080,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </section>
 
-<section id="data-platform-17" class="title-slide slide level1 center">
+<section id="data-platform-20" class="title-slide slide level1 center">
 <h1>Data platform</h1>
 <p>Are we done? No!</p>
 <ul>
@@ -2395,7 +2510,7 @@ memory usage: 6.0 KB</code></pre>
 
 </section>
 
-<section id="data-platform-18" class="title-slide slide level1 center">
+<section id="data-platform-21" class="title-slide slide level1 center">
 <h1>Data platform</h1>
 <p>Are we done? No!</p>
 <ul>
