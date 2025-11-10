@@ -1,3 +1,13 @@
+## [1.0.21](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.20...1.0.21) (2025-11-10)
+
+### Dependency updates
+
+* **deps:** update dependency neo4j to v6.0.3 ([#16](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/16)) ([9aee108](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/9aee108dea351f4ee189fc314df0a5c2cffe8e2d))
+
+### Bug Fixes
+
+* update slides ([f8e1f17](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/f8e1f17fee5c1f17bb033588ad842c87889c8e16))
+
 ## [1.0.20](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.19...1.0.20) (2025-11-05)
 
 ### Bug Fixes
