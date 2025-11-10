@@ -92,7 +92,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="03-nosql_files/libs/revealjs/dist/theme/quarto-6391498a111a1f00b0d941bda0c7e264.css">
   <link href="03-nosql_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="03-nosql_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -205,7 +225,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </section>
 <section id="not-only-sql" class="title-slide slide level1 center">
 <h1>Not only SQL</h1>
-
+<p>After the relational model <span class="citation" data-cites="DBLP:journals/cacm/Codd70">(<a href="#/wide-column-when-to-avoid" role="doc-biblioref" onclick="">Codd 1970</a>)</span> new types of databases have emerged.</p>
 </section>
 
 <section id="strengths-of-rdbmss" class="title-slide slide level1 center">
@@ -293,12 +313,12 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p><em>Google, 2005</em></p>
 <ul>
 <li>Goal: handle Big Data (web indexing, Maps, Gmail, etc.)</li>
-<li>Solution: <em>BigTable</em>, designed for scalability and high performance on Petabytes of data</li>
+<li>Solution: <em>BigTable</em> <span class="citation" data-cites="DBLP:journals/tocs/ChangDGHWBCFG08">(<a href="#/wide-column-when-to-avoid" role="doc-biblioref" onclick="">Chang et al. 2008</a>)</span>, designed for scalability and high performance on Petabytes of data</li>
 </ul>
 <p><em>Amazon, 2007</em></p>
 <ul>
 <li>Goal: ensure the availability and reliability of its e-commerce service 24/7</li>
-<li>Solution: <em>DynamoDB</em>, characterized by strong simplicity for data storage and manipulation</li>
+<li>Solution: <em>DynamoDB</em> <span class="citation" data-cites="sivasubramanian2012amazon">(<a href="#/wide-column-when-to-avoid" role="doc-biblioref" onclick="">Sivasubramanian 2012</a>)</span>, characterized by strong simplicity for data storage and manipulation</li>
 </ul>
 </section>
 
@@ -390,10 +410,25 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </table>
 </div><div class="column" style="width:50%;">
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource json number-lines"><code class="sourceCode json"><span id="cb1-1"><a href=""></a><span class="ot">[</span></span>
-<span id="cb1-2"><a href=""></a>    <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P1"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Beer"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span> <span class="dt">"Quantity"</span><span class="fu">:</span> <span class="st">"0.4L"</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P2"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Milk"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">"Expiration"</span><span class="fu">:</span> <span class="st">"2024-11-30"</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="fu">{</span> <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P3"</span><span class="fu">,</span> <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Pizza"</span><span class="fu">,</span> <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span> <span class="dt">"Ingredients"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb1-5"><a href=""></a><span class="ot">]</span></span></code></pre></div>
+<span id="cb1-2"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb1-3"><a href=""></a>        <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P1"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href=""></a>        <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Beer"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href=""></a>        <span class="dt">"Quantity"</span><span class="fu">:</span> <span class="st">"0.4L"</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb1-9"><a href=""></a>        <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P2"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href=""></a>        <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Milk"</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href=""></a>        <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href=""></a>        <span class="dt">"Expiration"</span><span class="fu">:</span> <span class="st">"2024-11-30"</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-14"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb1-15"><a href=""></a>        <span class="dt">"Product"</span><span class="fu">:</span> <span class="st">"P3"</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href=""></a>        <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"Pizza"</span><span class="fu">,</span></span>
+<span id="cb1-17"><a href=""></a>        <span class="dt">"Price"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
+<span id="cb1-18"><a href=""></a>        <span class="dt">"Ingredients"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span></span>
+<span id="cb1-19"><a href=""></a>    <span class="fu">}</span></span>
+<span id="cb1-20"><a href=""></a><span class="ot">]</span></span></code></pre></div>
 </div></div>
 </section>
 
@@ -479,8 +514,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <img data-src="img/slides71.png" class="r-stretch quarto-figure-center"><p class="caption">Relational implementation</p></section>
 
-<section id="graph-data-model" class="title-slide slide level1 center">
-<h1>Graph: data model</h1>
+<section id="graph-data-model-dblpconficdeangles12" class="title-slide slide level1 center">
+<h1>Graph: data model <span class="citation" data-cites="DBLP:conf/icde/Angles12">(<a href="#/wide-column-when-to-avoid" role="doc-biblioref" onclick="">Angles 2012</a>)</span></h1>
 <p>Each DB contains one or more <em>graphs</em></p>
 <ul>
 <li>Each graph contains <em>vertices</em> and <em>arcs</em></li>
@@ -497,6 +532,51 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 
 <img data-src="img/slides72.png" class="r-stretch quarto-figure-center"><p class="caption">Property graph</p></section>
+
+<section id="data-modeling-example-graph-model" class="title-slide slide level1 center">
+<h1>Data modeling example: graph model</h1>
+<p>IDs are implicitly handled; different edge colors imply different edge types.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/104a.svg"></p>
+<figcaption>Graph implementation</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/104b.svg"></p>
+<figcaption>Running example</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="graph-storage" class="title-slide slide level1 center">
+<h1>Graph: storage</h1>
+<p><strong>Index-free adjacency</strong></p>
+<ul>
+<li>Each node directly references its adjacent (neighboring) nodes</li>
+<li>Accessing relationships is simply a memory pointer lookup</li>
+</ul>
+<p>Graph processing time</p>
+<ul>
+<li>Proportional to the amount of data processed</li>
+<li>Not increasing exponentially with the number of relationships traversed</li>
+</ul>
+</section>
+
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+
+<img data-src="https://dist.neo4j.com/wp-content/uploads/20181218005826/non-native-graph-database-relying-on-index.png" class="r-stretch quarto-figure-center"><p class="caption">Implementing a graph as a relational database</p></section>
+
+<section id="section-1" class="title-slide slide level1 center">
+<h1></h1>
+
+<img data-src="https://dist.neo4j.com/wp-content/uploads/20181218005743/native-graph-technology-index-free-adjacency.png" class="r-stretch quarto-figure-center"><p class="caption">Index-free adjacency</p></section>
 
 <section id="graph-querying" class="title-slide slide level1 center">
 <h1>Graph: querying</h1>
@@ -534,27 +614,6 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </tr>
 </tbody>
 </table>
-</section>
-
-<section id="data-modeling-example-graph-model" class="title-slide slide level1 center">
-<h1>Data modeling example: graph model</h1>
-<p>IDs are implicitly handled; different edge colors imply different edge types.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/104a.svg"></p>
-<figcaption>Graph implementation</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/104b.svg"></p>
-<figcaption>Running example</figcaption>
-</figure>
-</div>
-</div></div>
 </section>
 
 <section id="graph-vs-aggregate-modeling" class="title-slide slide level1 center">
@@ -2284,7 +2343,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <ul>
 <li>Supports complex fields (list, set, …) and operations on values (range, diff, …)</li>
 </ul>
-<p><strong>Memcached DB: </strong> <a href="http://memcached.org/">http://memcached.org/</a></p>
+<p><strong>Memcached DB:</strong> <a href="http://memcached.org/">http://memcached.org/</a></p>
 <ul>
 <li><strong>Riak</strong>: <a href="http://basho.com/riak/">http://basho.com/riak/</a></li>
 </ul>
@@ -2405,7 +2464,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </section>
 
-<section id="wide-column-when-to-avoid" class="title-slide slide level1 center">
+<section id="wide-column-when-to-avoid" class="title-slide slide level1 smaller scrollable">
 <h1>Wide column: when to avoid</h1>
 <p><strong>Same as for document model</strong></p>
 <ul>
@@ -2418,6 +2477,20 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li>Limited support for filters and group bys</li>
 </ul>
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-DBLP:conf/icde/Angles12" class="csl-entry" role="listitem">
+Angles, Renzo. 2012. <span>“A Comparison of Current Graph Database Models.”</span> In <em>Workshops Proceedings of the <span>IEEE</span> 28th International Conference on Data Engineering, <span>ICDE</span> 2012, Arlington, VA, USA, April 1-5, 2012</em>, edited by Anastasios Kementsietsidis and Marcos Antonio Vaz Salles, 171–77. <span>IEEE</span> Computer Society. <a href="https://doi.org/10.1109/ICDEW.2012.31">https://doi.org/10.1109/ICDEW.2012.31</a>.
+</div>
+<div id="ref-DBLP:journals/tocs/ChangDGHWBCFG08" class="csl-entry" role="listitem">
+Chang, Fay, Jeffrey Dean, Sanjay Ghemawat, Wilson C. Hsieh, Deborah A. Wallach, Michael Burrows, Tushar Chandra, Andrew Fikes, and Robert E. Gruber. 2008. <span>“Bigtable: <span>A</span> Distributed Storage System for Structured Data.”</span> <em><span>ACM</span> Trans. Comput. Syst.</em> 26 (2): 4:1–26. <a href="https://doi.org/10.1145/1365815.1365816">https://doi.org/10.1145/1365815.1365816</a>.
+</div>
+<div id="ref-DBLP:journals/cacm/Codd70" class="csl-entry" role="listitem">
+Codd, E. F. 1970. <span>“A Relational Model of Data for Large Shared Data Banks.”</span> <em>Commun. <span>ACM</span></em> 13 (6): 377–87. <a href="https://doi.org/10.1145/362384.362685">https://doi.org/10.1145/362384.362685</a>.
+</div>
+<div id="ref-sivasubramanian2012amazon" class="csl-entry" role="listitem">
+Sivasubramanian, Swaminathan. 2012. <span>“Amazon dynamoDB: A Seamlessly Scalable Non-Relational Database Service.”</span> In <em>Proceedings of the 2012 ACM SIGMOD International Conference on Management of Data</em>, 729–30.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
