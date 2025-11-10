@@ -1417,5 +1417,7 @@ Examples
 
 **Need for full query expressiveness**
 
-- Joins are highly discouraged 
+- Joins are highly discouraged
 - Limited support for filters and group bys
+
+# References
