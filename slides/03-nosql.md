@@ -4,6 +4,8 @@ subtitle: NoSQL DBMS
 
 # Not only SQL
 
+After the relational model [@DBLP:journals/cacm/Codd70] new types of databases have emerged.
+
 # Strengths of RDBMSs?
 
 # Strengths of RDBMSs
@@ -75,12 +77,12 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 *Google, 2005*
 
 - Goal: handle Big Data (web indexing, Maps, Gmail, etc.)
-- Solution: *BigTable*, designed for scalability and high performance on Petabytes of data
+- Solution: *BigTable* [@DBLP:journals/tocs/ChangDGHWBCFG08], designed for scalability and high performance on Petabytes of data
 
 *Amazon, 2007*
 
 - Goal: ensure the availability and reliability of its e-commerce service 24/7
-- Solution: *DynamoDB*, characterized by strong simplicity for data storage and manipulation
+- Solution: *DynamoDB* [@sivasubramanian2012amazon], characterized by strong simplicity for data storage and manipulation
 
 # NoSQL common features
 
@@ -144,9 +146,24 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 
 ```json
 [
-    { "Product": "P1", "Name": "Beer", "Price": 6, "Quantity": "0.4L"},
-    { "Product": "P2", "Name": "Milk", "Price": 1, "Expiration": "2024-11-30"},
-    { "Product": "P3", "Name": "Pizza", "Price": 6, "Ingredients": [...]},
+    {
+        "Product": "P1",
+        "Name": "Beer",
+        "Price": 6,
+        "Quantity": "0.4L"
+    },
+    {
+        "Product": "P2",
+        "Name": "Milk",
+        "Price": 1,
+        "Expiration": "2024-11-30"
+    },
+    {
+        "Product": "P3",
+        "Name": "Pizza",
+        "Price": 6,
+        "Ingredients": [...]
+    }
 ]
 ```
 
@@ -200,7 +217,7 @@ Based on tables and rows
 
 ![Relational implementation](img/slides71.png)
 
-# Graph: data model
+# Graph: data model [@DBLP:conf/icde/Angles12]
 
 Each DB contains one or more *graphs*
 
@@ -213,20 +230,6 @@ Each DB contains one or more *graphs*
 - Arcs are stored as physical pointers
 
 ![Property graph](img/slides72.png)
-
-# Graph: querying
-
-Graph databases usually model relationship-rich scenarios.
-
-- *Query language based on detecting patterns* (e.g., Cypher)
-  - Simplifies the navigation of the relationships
-- Support for transactions, indexes, selections, and projections
-
-| Query | Pattern |
-|:- |:- |
-| Find friends of friends | `(user)-[:KNOWS]-(friend)-[:KNOWS]-(foaf)` |
-| Find shortest path from A to B | `shortestPath((userA)-[:KNOWS*..5]-(userB))` |
-| What products were bought by users who purchased the same items? | `(u)-[:PURCHASED]->(p)<-[:PURCHASED]-()-[:PURCHASED]->(otherP)` |
 
 # Data modeling example: graph model
 
@@ -244,6 +247,41 @@ IDs are implicitly handled; different edge colors imply different edge types.
 
 :::
 ::::
+
+# Graph: storage
+
+**Index-free adjacency**
+
+- Each node directly references its adjacent (neighboring) nodes
+- Accessing relationships is simply a memory pointer lookup
+
+Graph processing time
+
+- Proportional to the amount of data processed
+- Not increasing exponentially with the number of relationships traversed
+
+#
+
+![Implementing a graph as a relational database](https://dist.neo4j.com/wp-content/uploads/20181218005826/non-native-graph-database-relying-on-index.png)
+
+#
+
+![Index-free adjacency](https://dist.neo4j.com/wp-content/uploads/20181218005743/native-graph-technology-index-free-adjacency.png)
+
+# Graph: querying
+
+Graph databases usually model relationship-rich scenarios.
+
+- *Query language based on detecting patterns* (e.g., Cypher)
+  - Simplifies the navigation of the relationships
+- Support for transactions, indexes, selections, and projections
+
+| Query | Pattern |
+|:- |:- |
+| Find friends of friends | `(user)-[:KNOWS]-(friend)-[:KNOWS]-(foaf)` |
+| Find shortest path from A to B | `shortestPath((userA)-[:KNOWS*..5]-(userB))` |
+| What products were bought by users who purchased the same items? | `(u)-[:PURCHASED]->(p)<-[:PURCHASED]-()-[:PURCHASED]->(otherP)` |
+
 
 # Graph vs Aggregate modeling
 
@@ -1273,7 +1311,7 @@ Do not mistake the wide column data model with the columnar storage used for OLA
 
 - Supports complex fields (list, set, ...) and operations on values (range, diff, ...)
 
-**Memcached DB: ** [http://memcached.org/](http://memcached.org/)
+**Memcached DB:** [http://memcached.org/](http://memcached.org/)
 
 - **Riak**: [http://basho.com/riak/](http://basho.com/riak/)
 
