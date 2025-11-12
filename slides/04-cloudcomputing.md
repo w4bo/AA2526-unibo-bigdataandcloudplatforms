@@ -727,6 +727,12 @@ This is not a sharp taxonomy.
 
 #
 
+[(2020) Microsoft finds underwater datacenters are reliable, practical and use energy sustainably](https://news.microsoft.com/source/features/sustainability/project-natick-underwater-datacenter/)
+
+{{<video https://news.microsoft.com/wp-content/uploads/prod/sites/549/2020/09/GIF_5.mp4 >}}
+
+#
+
 ![https://xkcd.com/908/](img/slides107.png)
 
 # Cloud computing: deployment models
