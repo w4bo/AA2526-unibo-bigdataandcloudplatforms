@@ -1,3 +1,14 @@
+## [1.0.24](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.23...1.0.24) (2025-11-12)
+
+### Dependency updates
+
+* **deps:** update dependency pymongo to v4.15.4 ([#19](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/19)) ([695aaf6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/695aaf67961c7201805154fd559388d21f006666))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.156 ([#18](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/18)) ([3685a1e](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/3685a1e284a1f1eeabbe6fbdc9020a294d47d215))
+
+### Bug Fixes
+
+* update slides ([84e1dd1](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/84e1dd100ab2610c3802661e620a8cabb7492604))
+
 ## [1.0.23](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.22...1.0.23) (2025-11-11)
 
 ### Dependency updates
