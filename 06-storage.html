@@ -962,12 +962,6 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <section id="delta-lake-4" class="title-slide slide level1 center">
 <h1>Delta Lake</h1>
-<p>Checkpoint <code>00000000000000000002.checkpoint.parquet</code></p>
-
-<img src="lakehouse/00000000000000000002.checkpoint.parquet.png" class="center-img r-stretch"></section>
-
-<section id="delta-lake-5" class="title-slide slide level1 center">
-<h1>Delta Lake</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Once we have made several commits to the transaction log, Delta Lake saves a <strong>checkpoint file</strong> in Parquet format in <code>_delta_log</code></p>
@@ -982,7 +976,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div></div>
 </section>
 
-<section id="delta-lake-6" class="title-slide slide level1 center">
+<section id="delta-lake-5" class="title-slide slide level1 center">
 <h1>Delta Lake</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -996,7 +990,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div><div class="column" style="width:50%;">
 <p><img data-src="img/deltalake3.png"></p>
 </div></div>
-<p>Imagine that we’ve created commits up to <code>000007.json</code> and that Spark has cached this version of the table in memory.</p>
+<p>Imagine that we have created commits up to <code>000007.json</code> and that Spark has cached this version of the table in memory.</p>
 <ul>
 <li>In the meantime, other writers have written new data to the table, adding commits up to <code>0000012.json</code>.</li>
 <li>To incorporate these new transactions, Spark runs a <code>listFrom</code> version 7 operation to see the new changes to the table.</li>
@@ -1004,6 +998,12 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li>… Spark skips ahead to the most recent checkpoint file since it contains the entire state of the table at commit <code>#10</code>.</li>
 </ul>
 </section>
+
+<section id="delta-lake-6" class="title-slide slide level1 center">
+<h1>Delta Lake</h1>
+<p>Checkpoint <code>00000000000000000002.checkpoint.parquet</code></p>
+
+<img src="lakehouse/00000000000000000002.checkpoint.parquet.png" class="center-img r-stretch"></section>
 
 <section id="delta-lake-7" class="title-slide slide level1 center">
 <h1>Delta Lake</h1>
@@ -1063,20 +1063,24 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="delta-lake-9" class="title-slide slide level1 center">
 <h1>Delta Lake</h1>
 <p>Example of a <em>write transaction</em>: read the data at table version <code>r</code> and attempt to write log record <code>r+1</code></p>
-<ul>
+<ol type="1">
 <li>Read data at table version <code>r</code>, if required combine previous checkpoint and further log records</li>
-<li>Write any new data into new files in the correct data directories, generating the object names using GUIDs.
+<li>Write any new data into new files in the correct data directories, generating the object names using GUIDs.</li>
+</ol>
 <ul>
 <li>This step can happen in parallel</li>
 <li>At the end, these objects are ready to be referenced in a new log record.</li>
-</ul></li>
-<li>Attempt to write the transaction’s log record into the <code>r+1.json</code> log object, if no other client has written this object
+</ul>
+<ol start="3" type="1">
+<li>Attempt to write the transaction’s log record into the <code>r+1.json</code> log object, if no other client has written this object</li>
+</ol>
 <ul>
 <li><em>This step needs to be atomic</em>: only 1 client should succeed.</li>
 <li>If the step fails, the transaction can be retried; depending on the query’s semantics (optimistic concurrency)</li>
-</ul></li>
-<li>Optionally, write a new <code>.parquet</code> checkpoint for log record <code>r+1</code></li>
 </ul>
+<ol start="4" type="1">
+<li>Optionally, write a new <code>.parquet</code> checkpoint for log record <code>r+1</code></li>
+</ol>
 <p>Not all large-scale storage systems have an atomic put operation</p>
 <ul>
 <li>Google Cloud Storage and Azure Blob Store support atomic put-if-absent operations</li>
