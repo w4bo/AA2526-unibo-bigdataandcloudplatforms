@@ -250,7 +250,7 @@ Having consistent principles on how to organize your data is important
 - Copy data from SA to PA and then into DWH without applying any business logic
 - Having a data set in the data warehouse and PA that is a replica can be helpful when debugging any issues with the business logic
 
-**Cloud data warehouse (DWH)**
+**(Cloud) data warehouse (DWH)**
 
 **Failed area (FA)**
 
@@ -319,7 +319,7 @@ Different areas will have slightly different folder structures
 
 # Data Lakehouse
 
-Combine the key benefits of data lakes and data warehouses
+Combine the key benefits of data lakes and DWHs
 
 - Low-cost storage in an open format accessible by a variety of systems from the former
 - Powerful management and optimization features from the latter
@@ -347,16 +347,16 @@ Combine the key benefits of data lakes and data warehouses
 :::
 ::::
 
-# Data Lakehouse [@armbrust2021lakehouse]
+# Data Lakehouse
 
 ![From DWH to Data Lakehouse](img/slides195.png)
 
-# Data Lakehouse [@armbrust2021lakehouse]
+# Data Lakehouse
 
 **1st generation systems**: data warehousing started with helping business decision-makers get analytical insights
 
-- Data in warehouses (DWH) would be written with *schema-on-write* to ensure that data is optimized for BI applications
-  - *Schema on write* is defined as creating a schema for data before writing into the database
+- DWHs are written with *schema-on-write* to ensure that data is optimized for BI applications
+  - *Schema-on-write* is defined as creating a schema for data before writing into the database
 - Several challenges
   - DWH typically couples compute and storage into an on-premises appliance
     - This forced enterprises to provision and pay for the peak of user load and data under management, which is very costly
@@ -367,26 +367,26 @@ Combine the key benefits of data lakes and data warehouses
 **2nd generation**: offloading all the raw data into data lakes
 
 - The data lake is *schema-on-read* and stores any data at low cost
-  - *Schema on read* postpones the structuring of data to the time of analysis or reading 
+  - *Schema-on-read* postpones the structuring of data to the time of analysis or reading 
 - From 2015 onwards, cloud data lakes, such as S3 and GCS, started replacing HDFS
   - Superior durability (often >10 nines), geo-replication, and most importantly, extremely low cost
-- The use of *open formats* also made data lake data directly accessible to a wide range of other analytics engines, such as machine learning systems
-  - An *open file format* is a file format for storing digital data, defined by an openly published specification usually maintained by a standards organization, and which can be used and implemented by anyone.
-- A small subset of data in the lake would later be ETLed to a downstream data warehouse
+- Using *open formats* makes data lake files directly accessible to many analytics and ML engines.
+  - An *open file format* is a publicly documented, standards-based format that anyone can use or implement.
+- A small subset of data in the lake would later be ETLed to a downstream DWH
   - *Problems*?
 
 # Data Lakehouse
 
 A two-tier architecture is highly complex for users
 
-- (Optional) Data is first *ETLed* into lakes, ...
-- ... and then *ELTed* into warehouses
-- Enterprise use cases now include advanced analytics such as machine learning, for which warehouses are not ideal
+- (Optional) Data is first *ELTed* into data lakes, ...
+- ... and then *ETLed* into DWH
+- Enterprise use cases now include advanced analytics such as machine learning, for which DWHs are not ideal
 
 (Some) main problems:
 
-- *Reliability*: keeping the data lake and warehouse consistent is difficult and costly
-- *Staleness*: the data in the warehouse is stale compared to that of the data lake, with new data frequently taking days to load
+- *Reliability*: keeping the data lake and DWH consistent is difficult and costly
+- *Staleness*: the data in the DWH is stale compared to that of the data lake, with new data frequently taking days to load
 - *Limited support for advanced analytics*: businesses want to ask predictive questions using their warehousing data
   - E.g., "Which customers should I offer discounts to?" 
   - E.g., process large datasets using complex non-SQL code
@@ -419,7 +419,7 @@ The market is pushing for the adoption of Lakehouse as a standard *de facto*
 
 Juliana Freire, keynote @ EDBT 2023
 
-# Data Lakehouse
+# Data Lakehouse [@armbrust2021lakehouse]
 
 Idea
 
@@ -429,25 +429,12 @@ Idea
 
 ![Lakehouse](img/slides196.png)
 
-# Data Lakehouse
-
-Metadata alone is insufficient to achieve good performance, challenges:
-
-- *Data warehouses use several techniques to get state-of-the-art performance*
-  - Storing hot data on fast devices such as SSDs, maintaining statistics, building efficient indexes, etc.
-- Most *data lakes (cloud object stores) are merely key-value stores*, with no cross-key consistency
-  - *Multi-object updates are not atomic*, there is no isolation between queries
-    - If a query updates multiple objects in a table, readers will see partial updates as the query updates each object individually
-- In *data lakes* it is possible to implement other optimizations that leave the data files unchanged
-  - For large tables with millions of objects, *metadata operations are expensive*
-  - The latency of cloud object stores is so much higher that these data-skipping checks can take longer than the actual query
-
 # Delta Lake [@armbrust2020delta]
 
 :::: {.columns}
 ::: {.column width=50%}
 
-Delta Lake uses a **transaction log** and stores data into Apache Parquet for significantly faster metadata operations for large tabular datasets
+Delta Lake uses a **transaction log** and stores data into Apache Parquet for fast metadata operations
 
 - E.g., quickly search billions of table partitions
 - The log is stored in the `_delta_log` subdirectory
@@ -486,8 +473,8 @@ Whenever a user modifies a table (such as an INSERT, UPDATE, or DELETE), Delta L
 
 ```sql
 CREATE TABLE suppliers(id INT, name STRING, age INT)
- TBLPROPERTIES ('foo'='bar')
- COMMENT 'this is a comment'
+    TBLPROPERTIES ('foo'='bar')
+    COMMENT 'this is a comment'
     LOCATION 's3://...';
 ```
 
@@ -509,35 +496,35 @@ Create a table of `suppliers`, the content of `00000000000000000000.json`
 
 ```json
 {
-    "commitInfo": {
-        "timestamp": 1709133408152,
-        "userId": "8355321721036096",
-        "userName": "user1@foo.bar",
-        "operation": "CREATE TABLE AS SELECT",
-        "operationParameters": {
-            "partitionBy": "[]",
-            "description": null,
-            "isManaged": "false",
-            "properties": "{}",
-            "statsOnLoad": false
- },
-        "notebook": {
-            "notebookId": "68312033830310"
- },
-        "clusterId": "0112-095737-cgwksnoz",
-        "isolationLevel": "WriteSerializable",
-        "isBlindAppend": true,
-        "operationMetrics": {
-            "numFiles": "4",
-            "numOutputRows": "1000000",
-            "numOutputBytes": "79811576"
- },
-        "tags": {
-            "restoresDeletedRows": "false"
- },
-        "engineInfo": "Databricks-Runtime/13.3.x-scala2.12",
-        "txnId": "afc094e5-7096-40cb-b4f7-33e98c5d3a4b"
- }
+  "commitInfo":{
+    "timestamp":1709133408152,
+    "userId":"8355321721036096",
+    "userName":"user1@foo.bar",
+    "operation":"CREATE TABLE AS SELECT",
+    "operationParameters":{
+      "partitionBy":"[]",
+      "description":null,
+      "isManaged":"false",
+      "properties":"{}",
+      "statsOnLoad":false
+    },
+    "notebook":{
+      "notebookId":"68312033830310"
+    },
+    "clusterId":"0112-095737-cgwksnoz",
+    "isolationLevel":"WriteSerializable",
+    "isBlindAppend":true,
+    "operationMetrics":{
+      "numFiles":"4",
+      "numOutputRows":"1000000",
+      "numOutputBytes":"79811576"
+    },
+    "tags":{
+      "restoresDeletedRows":"false"
+    },
+    "engineInfo":"Databricks-Runtime/13.3.x-scala2.12",
+    "txnId":"afc094e5-7096-40cb-b4f7-33e98c5d3a4b"
+  }
 }
 ```
 
@@ -546,36 +533,38 @@ Create a table of `suppliers`, the content of `00000000000000000000.json`
 
 ```json
 {
-    "add": {
-        "path": "part-00000-d7654bfc-8169-41a7-a7fc-28586c8f73f9-c000.snappy.parquet",
-        "partitionValues": {},
-        "size": 20588082,
-        "modificationTime": 1709133407000,
-        "dataChange": true,
-        "stats": "{\"numRecords\":257994,\"minValues\":{\"s_suppkey\":1,\"s_name\":\"Supplier#000000001\",\"s_address\":\" , Jd6qNPDAgz\",\"s_nationkey\":0,\"s_phone\":\"10-100-166-6237\",\"s_acctbal\":-999.94,\"s_comment\":\" Customer  blithely regular pint\"},\"maxValues\":{\"s_suppkey\":257994,\"s_name\":\"Supplier#000257994\",\"s_address\":\"zzyv9d9xGUF QcjHQG8gDjuLo pLBxBZ�\",\"s_nationkey\":24,\"s_phone\":\"34-999-987-5257\",\"s_acctbal\":9999.93,\"s_comment\":\"zzle. sometimes bold pinto beans�\"},\"nullCount\":{\"s_suppkey\":0,\"s_name\":0,\"s_address\":0,\"s_nationkey\":0,\"s_phone\":0,\"s_acctbal\":0,\"s_comment\":0}}",
-        "tags": {
-            "INSERTION_TIME": "1709133407000000",
-            "MIN_INSERTION_TIME": "1709133407000000",
-            "MAX_INSERTION_TIME": "1709133407000000",
-            "OPTIMIZE_TARGET_SIZE": "268435456"
- }
- }
+  "add":{
+    "path":"part-00000-d7654bfc-8169-41a7-a7fc-28586c8f73f9-c000.snappy.parquet",
+    "partitionValues":{},
+    "size":20588082,
+    "modificationTime":1709133407000,
+    "dataChange":true,
+    "stats":"{\"numRecords\":257994,\"minValues\":{\"s_suppkey\":1,\"s_name\":\"Supplier#000000001\",\"s_address\":\" , Jd6qNPDAgz\",\"s_nationkey\":0,\"s_phone\":\"10-100-166-6237\",\"s_acctbal\":-999.94,\"s_comment\":\" Customer  blithely regular pint\"},\"maxValues\":{\"s_suppkey\":257994,\"s_name\":\"Supplier#000257994\",\"s_address\":\"zzyv9d9xGUF QcjHQG8gDjuLo pLBxBZ�\",\"s_nationkey\":24,\"s_phone\":\"34-999-987-5257\",\"s_acctbal\":9999.93,\"s_comment\":\"zzle. sometimes bold pinto beans�\"},\"nullCount\":{\"s_suppkey\":0,\"s_name\":0,\"s_address\":0,\"s_nationkey\":0,\"s_phone\":0,\"s_acctbal\":0,\"s_comment\":0}}",
+    "tags":{
+      "INSERTION_TIME":"1709133407000000",
+      "MIN_INSERTION_TIME":"1709133407000000",
+      "MAX_INSERTION_TIME":"1709133407000000",
+      "OPTIMIZE_TARGET_SIZE":"268435456"
+    }
+  }
 }
+```
+```json
 {
-    "add": {
-        "path": "part-00001-758ed86b-1400-46b8-b73f-50c6ad4324f1-c000.snappy.parquet",
-        "partitionValues": {},
-        "size": 20516343,
-        "modificationTime": 1709133408000,
-        "dataChange": true,
-        "stats": "{\"numRecords\":257111,\"minValues\":{\"s_suppkey\":257995,\"s_name\":\"Supplier#000257995\",\"s_address\":\" t2HGWJzQQcWUyx\",\"s_nationkey\":0,\"s_phone\":\"10-100-154-1322\",\"s_acctbal\":-999.96,\"s_comment\":\" Customer  blithe requesComplain\"},\"maxValues\":{\"s_suppkey\":515105,\"s_name\":\"Supplier#000515105\",\"s_address\":\"zzyvSACyGWpp5gCaZbUL7lKRUnhe7m6p�\",\"s_nationkey\":24,\"s_phone\":\"34-999-802-1817\",\"s_acctbal\":9999.95,\"s_comment\":\"zzle. regular foxes are ironic p�\"},\"nullCount\":{\"s_suppkey\":0,\"s_name\":0,\"s_address\":0,\"s_nationkey\":0,\"s_phone\":0,\"s_acctbal\":0,\"s_comment\":0}}",
-        "tags": {
-            "INSERTION_TIME": "1709133407000001",
-            "MIN_INSERTION_TIME": "1709133407000001",
-            "MAX_INSERTION_TIME": "1709133407000001",
-            "OPTIMIZE_TARGET_SIZE": "268435456"
- }
- }
+  "add":{
+    "path":"part-00001-758ed86b-1400-46b8-b73f-50c6ad4324f1-c000.snappy.parquet",
+    "partitionValues":{},
+    "size":20516343,
+    "modificationTime":1709133408000,
+    "dataChange":true,
+    "stats":"{\"numRecords\":257111,\"minValues\":{\"s_suppkey\":257995,\"s_name\":\"Supplier#000257995\",\"s_address\":\" t2HGWJzQQcWUyx\",\"s_nationkey\":0,\"s_phone\":\"10-100-154-1322\",\"s_acctbal\":-999.96,\"s_comment\":\" Customer  blithe requesComplain\"},\"maxValues\":{\"s_suppkey\":515105,\"s_name\":\"Supplier#000515105\",\"s_address\":\"zzyvSACyGWpp5gCaZbUL7lKRUnhe7m6p�\",\"s_nationkey\":24,\"s_phone\":\"34-999-802-1817\",\"s_acctbal\":9999.95,\"s_comment\":\"zzle. regular foxes are ironic p�\"},\"nullCount\":{\"s_suppkey\":0,\"s_name\":0,\"s_address\":0,\"s_nationkey\":0,\"s_phone\":0,\"s_acctbal\":0,\"s_comment\":0}}",
+    "tags":{
+      "INSERTION_TIME":"1709133407000001",
+      "MIN_INSERTION_TIME":"1709133407000001",
+      "MAX_INSERTION_TIME":"1709133407000001",
+      "OPTIMIZE_TARGET_SIZE":"268435456"
+    }
+  }
 }
 ```
 :::
@@ -590,34 +579,34 @@ Add a new `supplier`, content of `00000000000000000009.json`
 
 ```json
 {
-    "commitInfo": {
-        "timestamp": 1709134798441,
-        "userId": "8047431628735957",
-        "userName": "user2@foo.bar",
-        "operation": "WRITE",
-        "operationParameters": {
-            "mode": "Append",
-            "statsOnLoad": false,
-            "partitionBy": "[]"
- },
-        "notebook": {
-            "notebookId": "4471242088384584"
- },
-        "clusterId": "0112-095737-cgwksnoz",
-        "readVersion": 8,
-        "isolationLevel": "WriteSerializable",
-        "isBlindAppend": true,
-        "operationMetrics": {
-            "numFiles": "1",
-            "numOutputRows": "1",
-            "numOutputBytes": "2675"
- },
-        "tags": {
-            "restoresDeletedRows": "false"
- },
-        "engineInfo": "Databricks-Runtime/13.3.x-scala2.12",
-        "txnId": "45786330-12ee-4e73-85ff-38cdd2caffcf"
- }
+  "commitInfo":{
+    "timestamp":1709134798441,
+    "userId":"8047431628735957",
+    "userName":"user2@foo.bar",
+    "operation":"WRITE",
+    "operationParameters":{
+      "mode":"Append",
+      "statsOnLoad":false,
+      "partitionBy":"[]"
+    },
+    "notebook":{
+      "notebookId":"4471242088384584"
+    },
+    "clusterId":"0112-095737-cgwksnoz",
+    "readVersion":8,
+    "isolationLevel":"WriteSerializable",
+    "isBlindAppend":true,
+    "operationMetrics":{
+      "numFiles":"1",
+      "numOutputRows":"1",
+      "numOutputBytes":"2675"
+    },
+    "tags":{
+      "restoresDeletedRows":"false"
+    },
+    "engineInfo":"Databricks-Runtime/13.3.x-scala2.12",
+    "txnId":"45786330-12ee-4e73-85ff-38cdd2caffcf"
+  }
 }
 ```
 
@@ -626,20 +615,20 @@ Add a new `supplier`, content of `00000000000000000009.json`
 
 ```json
 {
-    "add": {
-        "path": "part-00000-7b0e114f-e86f-4952-a030-b877001f8074-c000.snappy.parquet",
-        "partitionValues": {},
-        "size": 2675,
-        "modificationTime": 1709134799000,
-        "dataChange": true,
-        "stats": "{\"numRecords\":1,\"minValues\":{\"s_suppkey\":1,\"s_name\":\"Supplier#000000001\",\"s_address\":\" N kD4on9OM Ipw3,gf0JBoQDd7tgrzr\",\"s_nationkey\":17,\"s_phone\":\"27-918-335-1736\",\"s_acctbal\":5755.94,\"s_comment\":\"each slyly above the careful\"},\"maxValues\":{\"s_suppkey\":1,\"s_name\":\"Supplier#000000001\",\"s_address\":\" N kD4on9OM Ipw3,gf0JBoQDd7tgrzr�\",\"s_nationkey\":17,\"s_phone\":\"27-918-335-1736\",\"s_acctbal\":5755.94,\"s_comment\":\"each slyly above the careful\"},\"nullCount\":{\"s_suppkey\":0,\"s_name\":0,\"s_address\":0,\"s_nationkey\":0,\"s_phone\":0,\"s_acctbal\":0,\"s_comment\":0}}",
-        "tags": {
-            "INSERTION_TIME": "1709134799000000",
-            "MIN_INSERTION_TIME": "1709134799000000",
-            "MAX_INSERTION_TIME": "1709134799000000",
-            "OPTIMIZE_TARGET_SIZE": "268435456"
- }
- }
+  "add":{
+    "path":"part-00000-7b0e114f-e86f-4952-a030-b877001f8074-c000.snappy.parquet",
+    "partitionValues":{},
+    "size":2675,
+    "modificationTime":1709134799000,
+    "dataChange":true,
+    "stats":"{\"numRecords\":1,\"minValues\":{\"s_suppkey\":1,\"s_name\":\"Supplier#000000001\",\"s_address\":\" N kD4on9OM Ipw3,gf0JBoQDd7tgrzr\",\"s_nationkey\":17,\"s_phone\":\"27-918-335-1736\",\"s_acctbal\":5755.94,\"s_comment\":\"each slyly above the careful\"},\"maxValues\":{\"s_suppkey\":1,\"s_name\":\"Supplier#000000001\",\"s_address\":\" N kD4on9OM Ipw3,gf0JBoQDd7tgrzr�\",\"s_nationkey\":17,\"s_phone\":\"27-918-335-1736\",\"s_acctbal\":5755.94,\"s_comment\":\"each slyly above the careful\"},\"nullCount\":{\"s_suppkey\":0,\"s_name\":0,\"s_address\":0,\"s_nationkey\":0,\"s_phone\":0,\"s_acctbal\":0,\"s_comment\":0}}",
+    "tags":{
+      "INSERTION_TIME":"1709134799000000",
+      "MIN_INSERTION_TIME":"1709134799000000",
+      "MAX_INSERTION_TIME":"1709134799000000",
+      "OPTIMIZE_TARGET_SIZE":"268435456"
+    }
+  }
 }
 ```
 
@@ -746,11 +735,6 @@ deltaTable.optimize().executeCompaction()
 deltaTable.optimize().where("date='2021-11-18'").executeCompaction()
 ```
 
-*Auto compaction* automatically reduce small file problems.
-
-- Occur after a write to a table has succeeded and runs synchronously on the cluster that has performed the write.
-- Compact files that haven’t been compacted previously.
-
 :::
 ::: {.column width=40%}
 
@@ -758,6 +742,11 @@ deltaTable.optimize().where("date='2021-11-18'").executeCompaction()
 
 :::
 ::::
+
+*Auto compaction* automatically reduce small file problems.
+
+- Occur after a write to a table has succeeded and runs synchronously on the cluster that has performed the write.
+- Compact files that haven’t been compacted previously.
 
 # Delta Lake
 
