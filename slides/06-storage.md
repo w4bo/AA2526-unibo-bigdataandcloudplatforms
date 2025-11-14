@@ -462,7 +462,7 @@ Whenever a user modifies a table (such as an INSERT, UPDATE, or DELETE), Delta L
 
 - *Add file*: adds a data file.
 - *Remove file*: removes a data file.
-- *Update metadata*: Updates the table’s metadata (e.g., changing the table’s name, schema, or partitioning).
+- *Update metadata*: Updates the table's metadata (e.g., changing the table's name, schema, or partitioning).
 - *Set transaction*: Records that a structured streaming job has committed a micro-batch with the given ID.
 - *Change protocol*: enables new features by switching the Delta Lake transaction log to the newest software protocol.
 - *Commit info*: Contains information around the commit, which operation was made, from where, and when.
@@ -637,12 +637,6 @@ Add a new `supplier`, content of `00000000000000000009.json`
 
 # Delta Lake
 
-Checkpoint `00000000000000000002.checkpoint.parquet`
-
-<img src="lakehouse/00000000000000000002.checkpoint.parquet.png" class="center-img" />
-
-# Delta Lake
-
 :::: {.columns}
 ::: {.column width=50%}
 
@@ -668,7 +662,7 @@ Once we have made several commits to the transaction log, Delta Lake saves a **c
 
 Checkpoints save the entire state of the table at a point in time.
 
-A "shortcut" to reproducing a table’s state to avoid reprocessing what could be thousands of tiny, inefficient JSON files.
+A "shortcut" to reproducing a table's state to avoid reprocessing what could be thousands of tiny, inefficient JSON files.
 
 Spark runs a `listFrom v` operation to view all files in the transaction log, starting from `v`
 
@@ -682,7 +676,7 @@ Spark runs a `listFrom v` operation to view all files in the transaction log, st
 :::
 ::::
 
-Imagine that we’ve created commits up to `000007.json` and that Spark has cached this version of the table in memory.
+Imagine that we have created commits up to `000007.json` and that Spark has cached this version of the table in memory.
 
 - In the meantime, other writers have written new data to the table, adding commits up to `0000012.json`.
 - To incorporate these new transactions, Spark runs a `listFrom` version 7 operation to see the new changes to the table.
@@ -691,10 +685,16 @@ Imagine that we’ve created commits up to `000007.json` and that Spark has cach
 
 # Delta Lake
 
+Checkpoint `00000000000000000002.checkpoint.parquet`
+
+<img src="lakehouse/00000000000000000002.checkpoint.parquet.png" class="center-img" />
+
+# Delta Lake
+
 **Time Travel**
 
 - Every table is the sum of all commits recorded in the transaction log.
-- The log provides a step-by-step instruction guide, detailing how to get from the table’s original state to its current state.
+- The log provides a step-by-step instruction guide, detailing how to get from the table's original state to its current state.
 - Recreate a table at any point in time by starting with the original version and processing only commits before that version. 
 
 ```sql
@@ -746,20 +746,20 @@ deltaTable.optimize().where("date='2021-11-18'").executeCompaction()
 *Auto compaction* automatically reduce small file problems.
 
 - Occur after a write to a table has succeeded and runs synchronously on the cluster that has performed the write.
-- Compact files that haven’t been compacted previously.
+- Compact files that haven't been compacted previously.
 
 # Delta Lake
 
 Example of a *write transaction*: read the data at table version `r` and attempt to write log record `r+1`
 
-- Read data at table version `r`, if required combine previous checkpoint and further log records
-- Write any new data into new files in the correct data directories, generating the object names using GUIDs.
+1. Read data at table version `r`, if required combine previous checkpoint and further log records
+2. Write any new data into new files in the correct data directories, generating the object names using GUIDs.
   - This step can happen in parallel
   - At the end, these objects are ready to be referenced in a new log record.
-- Attempt to write the transaction's log record into the `r+1.json` log object, if no other client has written this object
+3. Attempt to write the transaction's log record into the `r+1.json` log object, if no other client has written this object
   - *This step needs to be atomic*: only 1 client should succeed.
   - If the step fails, the transaction can be retried; depending on the query's semantics (optimistic concurrency)
-- Optionally, write a new `.parquet` checkpoint for log record `r+1`
+4. Optionally, write a new `.parquet` checkpoint for log record `r+1`
 
 Not all large-scale storage systems have an atomic put operation
 
