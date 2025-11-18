@@ -313,7 +313,7 @@ Use folders to organize data inside areas into a logical structure
 
 Different areas will have slightly different folder structures
 
-- /landing/ETL/sales\_oracle\_ingest/customers/01DFTFX89YDFAXREPJTR94
+- `/landing/ETL/sales_oracle_ingest/customers/01DFTFX89YDFAXREPJTR94`
 
 # Data Lakehouse
 
