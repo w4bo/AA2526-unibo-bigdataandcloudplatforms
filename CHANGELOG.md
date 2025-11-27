@@ -1,3 +1,20 @@
+## [1.0.28](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.27...1.0.28) (2025-11-27)
+
+### Dependency updates
+
+* **deps:** update dependency notebook to v7.5.0 ([#22](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/22)) ([f9a54d8](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/f9a54d8c1fdc3438242f7b430c64647d121ee266))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.157 ([#21](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/21)) ([f19b55f](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/f19b55fd1fcfc8073a4740afab2bff318477fde6))
+
+### Bug Fixes
+
+* update slides ([7c85da3](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/7c85da3caa2a10db37d64b84a612ba02b50d42e9))
+* update slides ([30b7537](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/30b75377d685c716379a5839c4414e19ba910df2))
+* update slides ([546222f](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/546222fccb2055e20325c16aa271fa0aa6bb4d6e))
+
+### Build and continuous integration
+
+* **deps:** update actions/checkout action to v6 ([#23](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/23)) ([7ea046d](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/7ea046ddda7bc41b93b80fde9a94748c1d8cecd9))
+
 ## [1.0.27](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.26...1.0.27) (2025-11-18)
 
 ### Bug Fixes
