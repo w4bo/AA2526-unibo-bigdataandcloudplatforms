@@ -391,7 +391,7 @@ Challenges:
 
 - The metadata layer is insufficient to achieve good SQL performance
 - DWHs use several techniques to get state-of-the-art performance
--   Storing hot data on fast devices such as SSDs, maintaining statistics, building efficient indexes, etc.
+  - Storing hot data on fast devices such as SSDs, maintaining statistics, building efficient indexes, etc.
 - In a Lakehouse it is not possible to change the format, but it is possible to implement other optimizations that leave the data files unchanged
 
 # Data lakehouse
@@ -690,7 +690,7 @@ No need to access `R.a`, `min(R.a) >= 10`
 
 # Data governance: data provenance
 
-# Data provenance
+# Data provenance [@herschel2017survey]
 
 > **Provenance** (also referred to as lineage, pedigree, parentage, genealogy)
 > 
@@ -731,7 +731,7 @@ Astronomers are creating an international Virtual Observatory.
 
 # Data provenance
 
-Provenance is a graph, for which we have a standard: [PROV-DM](https://www.w3.org/TR/prov-dm/)
+Provenance is a graph, for which we have a standard: [PROV-DM](https://www.w3.org/TR/prov-dm/) [@moreau2022provenance]
 
 :::: {.columns}
 ::: {.column width=60%}
@@ -759,6 +759,26 @@ _Agent_
 ::::
 
 [https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/](https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/)
+
+# Data provenance
+
+:::: {.columns}
+::: {.column width=70%}
+Measures of centrality
+
+* **Betweenness centrality (A)**
+  * Number of shortest paths between two nodes that pass from a certain node
+* **Closeness centrality (B)**
+  * Sum of distances to all other nodes.
+* **Eigenvector centrality (C)**
+  * The score of a node is influenced by score of adjacent nodes (Page rank)
+* **Degree centrality (D)**
+  * Number of adjacent nodes
+:::
+::: {.column width=30%}
+![Centrality measures](img/phdslides_208.png)
+:::
+::::
 
 # Data provenance 
 
@@ -832,6 +852,19 @@ How would you document this table update?
 
 :::
 ::::
+
+# Data provenance: fine-grained vs coarse-grained
+
+*Fine-grained* provenance is typically used for single vertical applications
+
+* It requires to collect huge amounts of detailed information to enable a very detailed tracing
+
+*Coarse-grained* provenance is appropriate to ensure a broad coverage of heterogeneous transformations involving several applications
+
+Choosing a granularity is the *result of a trade-off between accuracy and computational effort*
+
+* Storing only the name and the version of a clustering algorithm enables an approximate reproducibility of the results
+* Storing all its parameters makes this functionality much more accurate
 
 # Data provenance
 
@@ -1107,14 +1140,6 @@ It is a unified architecture with an integrated set of technologies and services
 
 # Data fabric
 
-* *Catalog all data*: Cover business glossary, design-time, and runtime metadata.
-* *Enable self-service capabilities*: Support data discovery, profiling, exploration, quality checks, and consumption.
-* *Provide a knowledge graph*: Visualize links among data, people, processes, and systems for actionable insight.
-* *Deliver automatic integration*: Help IT and business users with data integration, transformation, virtualization, and federation.
-* *Manage unified lifecycle*: Maintain a consistent end-to-end Data Fabric lifecycle across platforms and teams.
-
-# Data fabric
-
 **It is a design concept**
 
 - It optimizes data management by automating repetitive tasks
@@ -1137,10 +1162,18 @@ It is a unified architecture with an integrated set of technologies and services
 
 # Data fabric
 
+* *Catalog all data*: Cover business glossary, design-time, and runtime metadata.
+* *Enable self-service capabilities*: Support data discovery, profiling, exploration, quality checks, and consumption.
+* *Provide a knowledge graph*: Visualize links among data, people, processes, and systems for actionable insight.
+* *Deliver automatic integration*: Help IT and business users with data integration, transformation, virtualization, and federation.
+* *Manage unified lifecycle*: Maintain a consistent end-to-end Data Fabric lifecycle across platforms and teams.
+
+# Data fabric
+
 :::: {.columns}
 ::: {.column width=55%}
 
-**Active metadata** is a way of managing metadata that leverages open APIs to connect all services in your data platform.
+**Active metadata**: leverage open APIs to connect platform services using metadata.
 
 *Active metadata is always on*
 
@@ -1168,6 +1201,95 @@ It is a unified architecture with an integrated set of technologies and services
 ::::
 
 [Gartner (2021). Data fabric is key to modernizing data management](https://www.gartner.com/smarterwithgartner/data-fabric-architecture-is-key-to-modernizing-data-management-and-integration)
+
+# Automation through orchestration
+
+The orchestrator is the component in charge of controlling the execution of computation activities
+
+  * Either through a regular scheduling of the activities
+  * Or by triggering a process in response to a certain event
+
+Several entities (either processes or human beings) can cover this role to activate some data processes
+
+# Automation through orchestration
+
+Dynamic/condition-based behavior
+
+* Decide _what_ data process should be activated under different conditions
+* Decide _how_ to tune the parameters in case of parametric data processes
+
+Triggering
+
+* Decide _when_ to trigger a certain data process
+
+Scoping
+
+* Assess the trustworthiness of objects to decide _if_ a certain data process should be activated or not
+
+Resource estimation or prediction (based on previous executions and current settings)
+
+* Decide the optimal amount of resources required to terminate successfully while leaving sufficient resources to the other concurrent process
+* Negotiate the resources with the cluster's resource manager
+
+# Automation through orchestration
+
+:::: {.columns}
+::: {.column width=60%}
+
+![[@barika2019orchestrating]](img/phdslides_209.png)
+
+:::
+::: {.column width=40%}
+
+R1 Compute/CPU resource provisioning
+
+* Determine the right amount of resources
+* Continuous management in a dynamic environment
+
+R2 Storage
+
+* Choose the right cloud storage resource, data location, and format (if the application is parametric)
+
+R3 Data movement
+
+* Dynamically transfer large datasets between compute and storage resources
+
+R4 Synchronization and asynchronization
+
+* Manage data flow dependencies across analytics tasks
+
+:::
+::::
+
+# Automation through orchestration
+
+:::: {.columns}
+::: {.column width=60%}
+
+![[@barika2019orchestrating]](img/phdslides_209.png)
+
+:::
+::: {.column width=40%}
+
+R5 Analytic Task Scheduling and Execution
+
+- Coordinate workflows across diverse big data models
+- Track and capture data provenance
+
+R6 Service Level Agreement
+
+- Meet user-defined QoS, such as strict deadlines
+
+R7 Security
+
+- Support anonymous computation, verify outcomes in multi-party settings, etc.
+
+R8 Monitoring and Failure-Tolerance
+
+- Ensure streamlined execution
+- Handle or predict failures as they occur
+:::
+::::
 
 # Data mesh
 
@@ -1417,14 +1539,14 @@ DevOps practices enable software development (dev) and operations (ops) teams to
 # ... to DataOps
 
 :::: {.columns}
-::: {.column width=50%}
+::: {.column width=60%}
 
 **DataOps** refers to a general process aimed at shortening the end-to-end data analytics life-cycle time by introducing automation in the data collection, validation, and verification process
 
 ![Evolution of DataOps [@munappy2020ad]](img/slides30.png)
 
 :::
-::: {.column width=50%}
+::: {.column width=40%}
 
 ![Evolution of DataOps](img/slides31.png)
 
