@@ -716,7 +716,7 @@ Examples of use cases [@simmhan2005survey]
 
 # Data provenance
 
-Provenance is a graph, for which we have a standard: [PROV-DM](https://www.w3.org/TR/prov-dm/) [@moreau2022provenance]
+Provenance is a graph, for which we have a standard: [PROV-DM](https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/) [@moreau2022provenance]
 
 ::::{.columns}
 :::{.column width=60%}
@@ -742,8 +742,6 @@ _Agent_
 
 :::
 ::::
-
-[https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/](https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/)
 
 # Data provenance
 
@@ -933,8 +931,7 @@ What about updating?
 
 **Data compression** is the process of encoding data using fewer bits than the original representation
 
-- *Lossless*: reduces bits by identifying and eliminating redundancy
-  - No information is lost in lossless compression
+- *Lossless*: reduces bits by identifying and eliminating redundancy (no information is lost)
   - Examples?
 - *Lossy*: reduces bits by removing less important information
   - Examples?
@@ -988,20 +985,20 @@ What about updating?
 
 # Entity resolution
 
+Entity resolution [@papadakis2020blocking], also known as entity matching or linking
+
+- Find records that refer to the same entity across different data sources
+
 ::::{.columns}
 :::{.column width=50%}
 
-Entity resolution [@papadakis2020blocking]
-
-- (also known as entity matching, linking)
-- Find records that refer to the same entity across different data sources (e.g., data files, books, websites, and databases)
+![Example of intra-source entity resolution](img/slides20.png)
 
 :::
 :::{.column width=50%}
 
-![Example of entity resolution](img/slides20.png)
 
-![Example of entity resolution](img/entityresolution.png)
+![Example of inter-source entity resolution](img/entityresolution.png)
 
 :::
 ::::
@@ -1284,11 +1281,11 @@ R8 Monitoring and Failure-Tolerance
 
 # Data mesh
 
-Distributed data architecture under centralized governance and standardization for interoperability, enabled by a shared and harmonized self-serve data infrastructure
+Distributed data architecture under centralized governance for interoperability, enabled by a shared and harmonized self-serve data infrastructure
 
 - *Domain-oriented decentralized data ownership*
   - Decentralization and distribution of responsibility to people who are closest to the data, to support continuous change and scalability
-  - Each domain exposes its own op/analytical APIs
+  - Each domain exposes its own operational/analytical APIs
 - **Data as a product** (_quantum_)
   - Products must be discoverable, addressable, trustworthy, self-describing, and secure
 - *Self-serve data infrastructure as a platform*

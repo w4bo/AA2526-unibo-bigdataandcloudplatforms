@@ -158,7 +158,7 @@ Problems:
 
 # Step 2: Clustering by Schema Similarity
 
-We can use **clustering** to group files with *similar schemas*
+We can use **(agglomerative) clustering** to group files with *similar schemas*
 
 ::::{.columns}
 :::{.column width="50%"}
@@ -206,7 +206,7 @@ Capture **spelling variations** in column names
 
 - String similarity based on **edit distance**
 - Two attributes are match if they differ by a few characters (i.e., if their similarity is above a threshold $\alpha$)
-    -  Example metric: **Levenshtein distance**
+    -  Example metric: **Levenshtein distance** [@lcvenshtcin1966binary]
 
 > Example:  
 > 
@@ -218,30 +218,31 @@ Capture **spelling variations** in column names
 
 # Step 2.b: Clustering by Schema Similarity
 
-Compute the **Fuzzy Matching similarity** between files
+What about the computational cost/complexity?
 
-- What about the computational cost/complexity?
+$\operatorname {lev} (a,b)={\begin{cases}|a|&{\text{ if }}|b|=0,\\|b|&{\text{ if }}|a|=0,\\\operatorname {lev} {\big (}\operatorname {tail} (a),\operatorname {tail} (b){\big )}&{\text{ if }}\operatorname {head} (a)=\operatorname {head} (b),\\1+\min {\begin{cases}\operatorname {lev} {\big (}\operatorname {tail} (a),b{\big )}\\\operatorname {lev} {\big (}a,\operatorname {tail} (b){\big )}\\\operatorname {lev} {\big (}\operatorname {tail} (a),\operatorname {tail} (b){\big )}\\\end{cases}}&{\text{ otherwise}}\end{cases}}$
 
-Cluster files using **Agglomerative Clustering**
+The complexity of computing the distance between two strings of length $m$ and $n$ is $\Theta (m \cdot n)$
 
-```
-Cluster 1:
-  Intersection schema: {'currency', 'price', 'product_id', 'name', 'type'}
-  Average Jaccard similarity: 0.75
-    File: /home/datalake/data/bronze/department_a/products/products_a.json  Schema: ['currency', 'price', 'product_id', 'name', 'type']
-    File: /home/datalake/data/bronze/department_a/products/products_b.json  Schema: ['currency', 'material', 'price', 'product_id', 'name', 'color', 'type', 'stock']
-    File: /home/datalake/data/bronze/department_b/products/products_c.json  Schema: ['currency', 'price', 'product_id', 'name', 'type']
+# Step 2.b: Clustering by Schema Similarity
 
-...
+Given a *metric* to measure the distance between two elements of a set, we can use a **BK-tree** [@burkhard1973some]. 
 
-Cluster 3:
-  Intersection schema: {'telephone', 'first_name', 'customer_id', 'country', 'email'}
-  Average Jaccard similarity: 1.00
-    File: /home/datalake/data/bronze/department_a/customers/customers_part1.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
-    File: /home/datalake/data/bronze/department_a/customers/customers_part2.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
+- All nodes in a subtree has an equal distance to the root node
+- The edge weight of the edge connecting the subtree to the root is equal to the distance. 
+- Each subtree of a BK-tree is a BK-tree.
 
-...
-```
+::::{.columns}
+:::{.column width=40%}
+![](https://upload.wikimedia.org/wikipedia/commons/e/ee/A_diagram_of_the_structure_of_BK-tree.png)
+:::
+:::{.column width=40%}
+![](https://upload.wikimedia.org/wikipedia/commons/d/de/Bk_tree.svg)
+:::
+::::
+
+In the average case, insertion and lookup take $\Theta (\log n)$
+
 # Step 2.c: Embeddings (Similarity Measures)
 
 Fuzzy Matching does not capture **semantic similarity** between column names
@@ -305,7 +306,7 @@ Apply unified schema to all files in a cluster
 
 Concatenate into a **single governed dataset**
 
-# <img src="./img/cs.svg" class="title-icon" /> **Problems**?
+# <img src="./img/cs.svg" class="title-icon" /> Step 3: **Problems**?
 
 # Step 3: Merging
 
