@@ -967,8 +967,10 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>Challenges:</p>
 <ul>
 <li>The metadata layer is insufficient to achieve good SQL performance</li>
-<li>DWHs use several techniques to get state-of-the-art performance</li>
+<li>DWHs use several techniques to get state-of-the-art performance
+<ul>
 <li>Storing hot data on fast devices such as SSDs, maintaining statistics, building efficient indexes, etc.</li>
+</ul></li>
 <li>In a Lakehouse it is not possible to change the format, but it is possible to implement other optimizations that leave the data files unchanged</li>
 </ul>
 </section>
@@ -2072,8 +2074,8 @@ memory usage: 6.0 KB</code></pre>
 
 </section>
 
-<section id="data-provenance" class="title-slide slide level1 center">
-<h1>Data provenance</h1>
+<section id="data-provenance-herschel2017survey" class="title-slide slide level1 center">
+<h1>Data provenance <span class="citation" data-cites="herschel2017survey">(<a href="#/references" role="doc-biblioref" onclick="">Herschel, Diestelkämper, and Ben Lahmar 2017</a>)</span></h1>
 <blockquote>
 <p><strong>Provenance</strong> (also referred to as lineage, pedigree, parentage, genealogy)</p>
 <ul>
@@ -2119,9 +2121,9 @@ memory usage: 6.0 KB</code></pre>
 <p><a href="https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy">https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy</a> (accessed 2022-08-01)</p>
 </section>
 
-<section id="data-provenance-1" class="title-slide slide level1 center">
+<section id="data-provenance" class="title-slide slide level1 center">
 <h1>Data provenance</h1>
-<p>Provenance is a graph, for which we have a standard: <a href="https://www.w3.org/TR/prov-dm/">PROV-DM</a></p>
+<p>Provenance is a graph, for which we have a standard: <a href="https://www.w3.org/TR/prov-dm/">PROV-DM</a> <span class="citation" data-cites="moreau2022provenance">(<a href="#/references" role="doc-biblioref" onclick="">Moreau and Groth 2022</a>)</span></p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><em>Entity</em></p>
@@ -2147,6 +2149,39 @@ memory usage: 6.0 KB</code></pre>
 </div>
 </div></div>
 <p><a href="https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/">https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/</a></p>
+</section>
+
+<section id="data-provenance-1" class="title-slide slide level1 center">
+<h1>Data provenance</h1>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Measures of centrality</p>
+<ul>
+<li><strong>Betweenness centrality (A)</strong>
+<ul>
+<li>Number of shortest paths between two nodes that pass from a certain node</li>
+</ul></li>
+<li><strong>Closeness centrality (B)</strong>
+<ul>
+<li>Sum of distances to all other nodes.</li>
+</ul></li>
+<li><strong>Eigenvector centrality (C)</strong>
+<ul>
+<li>The score of a node is influenced by score of adjacent nodes (Page rank)</li>
+</ul></li>
+<li><strong>Degree centrality (D)</strong>
+<ul>
+<li>Number of adjacent nodes</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/phdslides_208.png"></p>
+<figcaption>Centrality measures</figcaption>
+</figure>
+</div>
+</div></div>
 </section>
 
 <section id="data-provenance-2" class="title-slide slide level1 center">
@@ -2269,6 +2304,20 @@ memory usage: 6.0 KB</code></pre>
 </div>
 </div></div>
 </div></div>
+</section>
+
+<section id="data-provenance-fine-grained-vs-coarse-grained-2" class="title-slide slide level1 center">
+<h1>Data provenance: fine-grained vs coarse-grained</h1>
+<p><em>Fine-grained</em> provenance is typically used for single vertical applications</p>
+<ul>
+<li>It requires to collect huge amounts of detailed information to enable a very detailed tracing</li>
+</ul>
+<p><em>Coarse-grained</em> provenance is appropriate to ensure a broad coverage of heterogeneous transformations involving several applications</p>
+<p>Choosing a granularity is the <em>result of a trade-off between accuracy and computational effort</em></p>
+<ul>
+<li>Storing only the name and the version of a clustering algorithm enables an approximate reproducibility of the results</li>
+<li>Storing all its parameters makes this functionality much more accurate</li>
+</ul>
 </section>
 
 <section id="data-provenance-4" class="title-slide slide level1 center">
@@ -2595,17 +2644,6 @@ memory usage: 6.0 KB</code></pre>
 
 <section id="data-fabric-1" class="title-slide slide level1 center">
 <h1>Data fabric</h1>
-<ul>
-<li><em>Catalog all data</em>: Cover business glossary, design-time, and runtime metadata.</li>
-<li><em>Enable self-service capabilities</em>: Support data discovery, profiling, exploration, quality checks, and consumption.</li>
-<li><em>Provide a knowledge graph</em>: Visualize links among data, people, processes, and systems for actionable insight.</li>
-<li><em>Deliver automatic integration</em>: Help IT and business users with data integration, transformation, virtualization, and federation.</li>
-<li><em>Manage unified lifecycle</em>: Maintain a consistent end-to-end Data Fabric lifecycle across platforms and teams.</li>
-</ul>
-</section>
-
-<section id="data-fabric-2" class="title-slide slide level1 center">
-<h1>Data fabric</h1>
 <p><strong>It is a design concept</strong></p>
 <ul>
 <li>It optimizes data management by automating repetitive tasks</li>
@@ -2630,11 +2668,22 @@ memory usage: 6.0 KB</code></pre>
 <p><a href="https://www.gartner.com/smarterwithgartner/data-fabric-architecture-is-key-to-modernizing-data-management-and-integration">Gartner (2021). Data fabric is key to modernizing data management</a></p>
 </section>
 
+<section id="data-fabric-2" class="title-slide slide level1 center">
+<h1>Data fabric</h1>
+<ul>
+<li><em>Catalog all data</em>: Cover business glossary, design-time, and runtime metadata.</li>
+<li><em>Enable self-service capabilities</em>: Support data discovery, profiling, exploration, quality checks, and consumption.</li>
+<li><em>Provide a knowledge graph</em>: Visualize links among data, people, processes, and systems for actionable insight.</li>
+<li><em>Deliver automatic integration</em>: Help IT and business users with data integration, transformation, virtualization, and federation.</li>
+<li><em>Manage unified lifecycle</em>: Maintain a consistent end-to-end Data Fabric lifecycle across platforms and teams.</li>
+</ul>
+</section>
+
 <section id="data-fabric-3" class="title-slide slide level1 center">
 <h1>Data fabric</h1>
 <div class="columns">
 <div class="column" style="width:55%;">
-<p><strong>Active metadata</strong> is a way of managing metadata that leverages open APIs to connect all services in your data platform.</p>
+<p><strong>Active metadata</strong>: leverage open APIs to connect platform services using metadata.</p>
 <p><em>Active metadata is always on</em></p>
 <ul>
 <li>Automatically and continually collect metadata from various sources.</li>
@@ -2661,6 +2710,101 @@ memory usage: 6.0 KB</code></pre>
 </div>
 </div></div>
 <p><a href="https://www.gartner.com/smarterwithgartner/data-fabric-architecture-is-key-to-modernizing-data-management-and-integration">Gartner (2021). Data fabric is key to modernizing data management</a></p>
+</section>
+
+<section id="automation-through-orchestration" class="title-slide slide level1 center">
+<h1>Automation through orchestration</h1>
+<p>The orchestrator is the component in charge of controlling the execution of computation activities</p>
+<ul>
+<li>Either through a regular scheduling of the activities</li>
+<li>Or by triggering a process in response to a certain event</li>
+</ul>
+<p>Several entities (either processes or human beings) can cover this role to activate some data processes</p>
+</section>
+
+<section id="automation-through-orchestration-1" class="title-slide slide level1 center">
+<h1>Automation through orchestration</h1>
+<p>Dynamic/condition-based behavior</p>
+<ul>
+<li>Decide <em>what</em> data process should be activated under different conditions</li>
+<li>Decide <em>how</em> to tune the parameters in case of parametric data processes</li>
+</ul>
+<p>Triggering</p>
+<ul>
+<li>Decide <em>when</em> to trigger a certain data process</li>
+</ul>
+<p>Scoping</p>
+<ul>
+<li>Assess the trustworthiness of objects to decide <em>if</em> a certain data process should be activated or not</li>
+</ul>
+<p>Resource estimation or prediction (based on previous executions and current settings)</p>
+<ul>
+<li>Decide the optimal amount of resources required to terminate successfully while leaving sufficient resources to the other concurrent process</li>
+<li>Negotiate the resources with the cluster’s resource manager</li>
+</ul>
+</section>
+
+<section id="automation-through-orchestration-2" class="title-slide slide level1 center">
+<h1>Automation through orchestration</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/phdslides_209.png"></p>
+<figcaption><span class="citation" data-cites="barika2019orchestrating">(<a href="#/references" role="doc-biblioref" onclick="">Barika et al. 2019</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<p>R1 Compute/CPU resource provisioning</p>
+<ul>
+<li>Determine the right amount of resources</li>
+<li>Continuous management in a dynamic environment</li>
+</ul>
+<p>R2 Storage</p>
+<ul>
+<li>Choose the right cloud storage resource, data location, and format (if the application is parametric)</li>
+</ul>
+<p>R3 Data movement</p>
+<ul>
+<li>Dynamically transfer large datasets between compute and storage resources</li>
+</ul>
+<p>R4 Synchronization and asynchronization</p>
+<ul>
+<li>Manage data flow dependencies across analytics tasks</li>
+</ul>
+</div></div>
+</section>
+
+<section id="automation-through-orchestration-3" class="title-slide slide level1 center">
+<h1>Automation through orchestration</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/phdslides_209.png"></p>
+<figcaption><span class="citation" data-cites="barika2019orchestrating">(<a href="#/references" role="doc-biblioref" onclick="">Barika et al. 2019</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<p>R5 Analytic Task Scheduling and Execution</p>
+<ul>
+<li>Coordinate workflows across diverse big data models</li>
+<li>Track and capture data provenance</li>
+</ul>
+<p>R6 Service Level Agreement</p>
+<ul>
+<li>Meet user-defined QoS, such as strict deadlines</li>
+</ul>
+<p>R7 Security</p>
+<ul>
+<li>Support anonymous computation, verify outcomes in multi-party settings, etc.</li>
+</ul>
+<p>R8 Monitoring and Failure-Tolerance</p>
+<ul>
+<li>Ensure streamlined execution</li>
+<li>Handle or predict failures as they occur</li>
+</ul>
+</div></div>
 </section>
 
 <section id="data-mesh" class="title-slide slide level1 center">
@@ -2949,7 +3093,7 @@ memory usage: 6.0 KB</code></pre>
 <section id="to-dataops" class="title-slide slide level1 center">
 <h1>… to DataOps</h1>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:60%;">
 <p><strong>DataOps</strong> refers to a general process aimed at shortening the end-to-end data analytics life-cycle time by introducing automation in the data collection, validation, and verification process</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2957,7 +3101,7 @@ memory usage: 6.0 KB</code></pre>
 <figcaption>Evolution of DataOps <span class="citation" data-cites="munappy2020ad">(<a href="#/references" role="doc-biblioref" onclick="">Munappy et al. 2020</a>)</span></figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/slides31.png"></p>
@@ -3041,6 +3185,9 @@ Ahmed, Mohiuddin. 2019. <span>“Data Summarization: A Survey.”</span> <em>Kno
 <div id="ref-armbrust2021lakehouse" class="csl-entry" role="listitem">
 Armbrust, Michael, Ali Ghodsi, Reynold Xin, and Matei Zaharia. 2021. <span>“Lakehouse: A New Generation of Open Platforms That Unify Data Warehousing and Advanced Analytics.”</span> In <em>Proceedings of CIDR</em>, 8:28.
 </div>
+<div id="ref-barika2019orchestrating" class="csl-entry" role="listitem">
+Barika, Mutaz, Saurabh Garg, Albert Y Zomaya, Lizhe Wang, Aad Van Moorsel, and Rajiv Ranjan. 2019. <span>“Orchestrating Big Data Analysis Workflows in the Cloud: Research Challenges, Survey, and Future Directions.”</span> <em>ACM Computing Surveys (CSUR)</em> 52 (5): 1–41.
+</div>
 <div id="ref-bruno2002exploiting" class="csl-entry" role="listitem">
 Bruno, Nicolas, and Surajit Chaudhuri. 2002. <span>“Exploiting Statistics on Query Expressions for Optimization.”</span> In <em>Proceedings of the 2002 ACM SIGMOD International Conference on Management of Data</em>, 263–74.
 </div>
@@ -3062,11 +3209,17 @@ Golfarelli, Matteo, Dario Maio, and Stefano Rizzi. 1998a. <span>“Conceptual De
 <div id="ref-golfarelli2009data" class="csl-entry" role="listitem">
 Golfarelli, Matteo, and Stefano Rizzi. 2009. <em>Data Warehouse Design: Modern Principles and Methodologies</em>. McGraw-Hill, Inc.
 </div>
+<div id="ref-herschel2017survey" class="csl-entry" role="listitem">
+Herschel, Melanie, Ralf Diestelkämper, and Houssem Ben Lahmar. 2017. <span>“A Survey on Provenance: What for? What Form? What From?”</span> <em>The VLDB Journal</em> 26 (6): 881–906.
+</div>
 <div id="ref-ikeda2009data" class="csl-entry" role="listitem">
 Ikeda, Robert, and Jennifer Widom. 2009. <span>“Data Lineage: A Survey.”</span> Stanford InfoLab.
 </div>
 <div id="ref-mann2002some" class="csl-entry" role="listitem">
 Mann, Bob. 2002. <span>“Some Data Derivation and Provenance Issues in Astronomy.”</span> In <em>Workshop on Data Derivation and Provenance, Chicago</em>.
+</div>
+<div id="ref-moreau2022provenance" class="csl-entry" role="listitem">
+Moreau, Luc, and Paul Groth. 2022. <em>Provenance: An Introduction to PROV</em>. Springer Nature.
 </div>
 <div id="ref-munappy2020ad" class="csl-entry" role="listitem">
 Munappy, Aiswarya Raj, David Issa Mattos, Jan Bosch, Helena Holmström Olsson, and Anas Dakkak. 2020. <span>“From Ad-Hoc Data Analytics to Dataops.”</span> In <em>Proceedings of the International Conference on Software and System Processes</em>, 165–74.
