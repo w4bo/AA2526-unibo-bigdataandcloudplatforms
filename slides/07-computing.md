@@ -12,14 +12,14 @@ We can choose the XaaS configuration to build our pipelines
 
 # Supporting data pipelines: *IaaS*
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 - Outsource virtual machines to the cloud ([AWS EC2](https://aws.amazon.com/ec2))
 - (You) Manage technological and business challenges
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![EC2](img/slides197.png)
 
@@ -28,8 +28,8 @@ We can choose the XaaS configuration to build our pipelines
 
 # Single instance: AWS EC2
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Amazon **Elastic Compute Cloud** (EC2)
 
@@ -51,7 +51,7 @@ Interact with EC2 instance as with any computer
 - You have complete control of your instances
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![AMI Instance](img/slides199.png)
 
@@ -60,13 +60,13 @@ Interact with EC2 instance as with any computer
 
 # Single instance: AWS EC2
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![General purpose](img/slides201.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Compute optimized](img/slides200.png)
 
@@ -75,14 +75,14 @@ Interact with EC2 instance as with any computer
 
 # Supporting data pipelines: *PaaS*
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 - Outsource the data ecosystem to the cloud (e.g., [AWS EMR](https://aws.amazon.com/emr))
 - (You) Manage business challenges
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![EMR](img/slides198.png)
 
@@ -107,13 +107,13 @@ Example of workload
 
 # AWS EMR
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Deploy multiple clusters](img/288a.svg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Add or remove capacity at any time](img/288b.svg)
 
@@ -122,8 +122,8 @@ Example of workload
 
 # AWS EMR
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 EMR cluster
 
@@ -142,7 +142,7 @@ EMR cluster
 - Provide computational power
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/289.svg)
 
@@ -295,8 +295,8 @@ aws emr create-cluster
 
 # Cluster lifecycle
 
-:::: {.columns}
-::: {.column width=40%}
+::::{.columns}
+:::{.column width=40%}
 
 Creating a cluster (it takes ~10 minutes)
 
@@ -304,7 +304,7 @@ Creating a cluster (it takes ~10 minutes)
 - It can only be terminated
 
 :::
-::: {.column width=60%}
+:::{.column width=60%}
 
 ![Lifecycle](img/slides295.png)
 

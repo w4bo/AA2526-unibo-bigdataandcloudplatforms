@@ -8,8 +8,8 @@ subtitle: Cloud computing
 
 # Reference scenario
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 The big-data cube [@meijer2012your]
 
@@ -18,7 +18,7 @@ The big-data cube [@meijer2012your]
 - *Velocity*: pull to push
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Big data cube](img/173.svg)
 
@@ -27,8 +27,8 @@ The big-data cube [@meijer2012your]
 
 # Reference scenario
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Variety**
 
@@ -42,7 +42,7 @@ The big-data cube [@meijer2012your]
   - ...
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Variety](img/slides96.png)
 
@@ -55,8 +55,8 @@ The big-data cube [@meijer2012your]
 
 # Reference scenario
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Velocity** (latency)
 
@@ -69,7 +69,7 @@ The big-data cube [@meijer2012your]
 - *Low*: processing can take hours
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Velocity](img/slides98.png)
 
@@ -88,16 +88,16 @@ The big-data cube [@meijer2012your]
 
 # Number of days to 1 million users
 
-::: {.fragment}
+:::{.fragment}
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 
 ![Number of days to 1 million users](img/1-million-users-a.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Number of days to 1 million users](img/1-million-users-b.png)
 
@@ -108,8 +108,8 @@ The big-data cube [@meijer2012your]
 
 # [Data never sleeps](https://www.domo.com/learn/infographic/data-never-sleeps-11)
 
-:::: {.columns}
-::: {.column width=33%}
+::::{.columns}
+:::{.column width=33%}
 
 <figure>
     <img src="img/dns10.png" class="center-img"  style="max-height:550px!important" />
@@ -117,7 +117,7 @@ The big-data cube [@meijer2012your]
 </figure>
 
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 <figure>
 <img src="img/dns11.png" class="center-img"  style="max-height:550px!important" />
@@ -125,7 +125,7 @@ The big-data cube [@meijer2012your]
 </figure>
 
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 <figure>
 <img src="img/dns12.avif" class="center-img"  style="max-height:550px!important" />
@@ -141,8 +141,8 @@ The big-data cube [@meijer2012your]
 
 # [Data never sleeps](https://www.domo.com/learn/infographic/data-never-sleeps-11)
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 <figure>
     <img src="img/dns-ai-2024.avif" class="center-img" style="max-height:550px!important" />
@@ -150,7 +150,7 @@ The big-data cube [@meijer2012your]
 </figure>
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 <figure>
 <img src="img/dns-ai-2025.png" class="center-img"  style="max-height:550px!important" />
@@ -162,8 +162,8 @@ The big-data cube [@meijer2012your]
 
 #
 
-:::: {.columns}
-::: {.column width=25%}
+::::{.columns}
+:::{.column width=25%}
 
 <figure>
     <img src="img/slides99.png" style="max-height:475px!important" />
@@ -171,7 +171,7 @@ The big-data cube [@meijer2012your]
 </figure>
 
 :::
-::: {.column width=25%}
+:::{.column width=25%}
 
 <figure>
     <img src="img/slides100.jpg" style="max-height:475px!important" />
@@ -179,7 +179,7 @@ The big-data cube [@meijer2012your]
 </figure>
 
 :::
-::: {.column width=25%}
+:::{.column width=25%}
 
 <figure>
     <img src="img/slides101.jpg" style="max-height:475px!important" />
@@ -187,7 +187,7 @@ The big-data cube [@meijer2012your]
 </figure>
 
 :::
-::: {.column width=25%}
+:::{.column width=25%}
 
 <figure>
     <img src="img/slides102.png" style="max-height:475px!important" />
@@ -234,8 +234,8 @@ The Netflix scenario
 
 # Reference scenario
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Plus other Vs
 
@@ -251,7 +251,7 @@ Our focus
 **Goal**: keep in mind the cube to categorize the services
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Big data cube](img/180.svg)
 
@@ -311,8 +311,8 @@ Moving from A to B is a multi-year process made up of intermediate goals
 
 # Types of cloud
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 There are different types of clouds.
 
@@ -325,7 +325,7 @@ There are different types of clouds.
 - **Hybrid**: a mix of the previous
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Types of cloud](img/slides108.png)
 
@@ -354,8 +354,8 @@ There are different types of clouds.
 
 # Why moving to the cloud?
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Hardware scalability
 
@@ -366,7 +366,7 @@ Grow storage from GBs to PBs.
 - 1PB: one hundred 10TB Enterprise Capacity 3.5 HDD hard drives
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Physical space](img/slides103.jpg)
 
@@ -390,8 +390,8 @@ Grow storage from GBs to PBs.
 
 How do we provide computational resources?
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 *Containers* and *virtual machines* are packaged computing environments
 
@@ -408,7 +408,7 @@ How do we provide computational resources?
 - On top of a hypervisor (VM monitor)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Containers vs VMs](img/slides112.jpg)
 
@@ -433,8 +433,8 @@ Containerization isolates an application from its environment.
 
 # Why moving to the cloud?
 
-:::: {.columns}
-::: {.column width=40%}
+::::{.columns}
+:::{.column width=40%}
 
 **Worldwide deployment**
 
@@ -444,7 +444,7 @@ Containerization isolates an application from its environment.
 - Compliant to privacy regulations (e.g., GDPR)
 
 :::
-::: {.column width=60%}
+:::{.column width=60%}
 
 ![Google's [Worldwide deployment](https://cloud.google.com/about/locations)](img/google-worlwide.jpg)
 
@@ -459,8 +459,8 @@ The importance of geographical redundancy.
 
 # Worldwide deployment
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Cloud services are hosted in separate geographic areas.
 
@@ -479,7 +479,7 @@ Availability zones in a region
 - Resources are usually replicated across zones but not regions
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Regions](img/slides109.png)
 
@@ -496,13 +496,13 @@ Measured **quality of service**
 
 # Why moving to the cloud?
 
-:::: {.columns}
-::: {.column width=40%}
+::::{.columns}
+:::{.column width=40%}
 
 ![AWS Services](img/aws-services.jpg)
 
 :::
-::: {.column width=60%}
+:::{.column width=60%}
 
 Service **integration**
 
@@ -524,14 +524,14 @@ Service **integration**
 
 # Cloud computing: principal vendors
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 
 ![Magic Quadrant 2025](img/gartner-mq-2025.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 How do we choose the Cloud Service Providers?
 
@@ -549,19 +549,19 @@ How do we choose the Cloud Service Providers?
 
 # Cloud computing: principal vendors
 
-:::: {.columns}
-::: {.column width=33%}
+::::{.columns}
+:::{.column width=33%}
 
 ![Magic Quadrant 2020](img/slides110.png)
 
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 ![Magic Quadrant 2023](img/gartner_mq_2023.png)
 
 :::
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 ![Magic Quadrant 2025](img/gartner-mq-2025.png)
 
@@ -576,8 +576,8 @@ How do we choose the Cloud Service Providers?
 
 # Data pipeline - AWS
 
-:::: {.columns}
-::: {.column width=30%}
+::::{.columns}
+:::{.column width=30%}
 
 Three main steps
 
@@ -593,7 +593,7 @@ Three main steps
   - Machine learning services
 
 :::
-::: {.column width=70%}
+:::{.column width=70%}
 
 ![AWS](img/slides181.png)
 
@@ -602,8 +602,8 @@ Three main steps
 
 # Data pipeline - Google Cloud
 
-:::: {.columns}
-::: {.column width=30%}
+::::{.columns}
+:::{.column width=30%}
 
 Three main steps
 
@@ -619,7 +619,7 @@ Three main steps
   - BigQuery (query service)
 
 :::
-::: {.column width=70%}
+:::{.column width=70%}
 
 ![Google Cloud](img/slides182.png)
 
@@ -632,8 +632,8 @@ Three main steps
 
 # A tentative organization
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 We have services
 
@@ -648,7 +648,7 @@ The (DIKW) pyramid abstracts many techniques and algorithms.
 - Accessibility through APIs
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![DIKW](img/246.svg)
 
@@ -657,8 +657,8 @@ The (DIKW) pyramid abstracts many techniques and algorithms.
 
 # A tentative organization
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 This is not a sharp taxonomy.
 
@@ -668,7 +668,7 @@ This is not a sharp taxonomy.
 - ... and (event) processing
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Ingestion vs Analytics](img/248.svg)
 
@@ -677,8 +677,8 @@ This is not a sharp taxonomy.
 
 # A tentative organization
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 This is not a sharp taxonomy.
 
@@ -689,7 +689,7 @@ This is not a sharp taxonomy.
 - ... and with serving capability
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Storage vs Serving](img/249.svg)
 
@@ -708,13 +708,13 @@ This is not a sharp taxonomy.
 
 # Is cloud a silver bullet?
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![[Google Energy](https://sustainability.google/progress/energy/)](img/google-energy1.jpg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![[Google Energy](https://sustainability.google/progress/energy/)](img/google-energy2.jpg)
 
@@ -751,8 +751,8 @@ Understanding architectures is paramount to successful systems.
 
 # Cloud computing: deployment models
 
-:::: {.columns}
-::: {.column width=70%}
+::::{.columns}
+:::{.column width=70%}
 
 **On-premises**
 
@@ -762,7 +762,7 @@ Understanding architectures is paramount to successful systems.
 - Often a distraction from strategic tasks
 
 :::
-::: {.column width=30%}
+:::{.column width=30%}
 
 ![On-premises](img/202.svg)
 
@@ -771,8 +771,8 @@ Understanding architectures is paramount to successful systems.
 
 # Cloud computing: deployment models
 
-:::: {.columns}
-::: {.column width=70%}
+::::{.columns}
+:::{.column width=70%}
 
 **Infrastructure as a service (IaaS)**
 
@@ -782,7 +782,7 @@ Understanding architectures is paramount to successful systems.
 - Possibly requires managing many environments
 
 :::
-::: {.column width=30%}
+:::{.column width=30%}
 
 ![IaaS](img/203.svg)
 
@@ -791,8 +791,8 @@ Understanding architectures is paramount to successful systems.
 
 # Cloud computing: deployment models
 
-:::: {.columns}
-::: {.column width=70%}
+::::{.columns}
+:::{.column width=70%}
 
 **Platform as a Service (PaaS)**
 
@@ -801,7 +801,7 @@ Understanding architectures is paramount to successful systems.
 - Avoid the expense/complexity of managing licenses and application infrastructure
 
 :::
-::: {.column width=30%}
+:::{.column width=30%}
 
 ![PaaS](img/204.svg)
 
@@ -810,8 +810,8 @@ Understanding architectures is paramount to successful systems.
 
 # Cloud computing: deployment models
 
-:::: {.columns}
-::: {.column width=70%}
+::::{.columns}
+:::{.column width=70%}
 
 **Function as a Service (FaaS)**
 
@@ -819,7 +819,7 @@ Understanding architectures is paramount to successful systems.
 - Infrastructure provisioning and management are invisible to the developer
 
 :::
-::: {.column width=30%}
+:::{.column width=30%}
 
 ![FaaS](img/207.svg)
 
@@ -828,13 +828,13 @@ Understanding architectures is paramount to successful systems.
 
 # Cloud computing: deployment models
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![AWS Lambda](img/enowell_otel-python-lamda_f1_1000.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![AWS Lambda](img/enowell_otel-python-lamda_f15.png)
 
@@ -864,8 +864,8 @@ FaaS is not a silver bullet.
 
 # Cloud computing: deployment models
 
-:::: {.columns}
-::: {.column width=70%}
+::::{.columns}
+:::{.column width=70%}
 
 **Software as a service (SaaS)**
 
@@ -873,7 +873,7 @@ FaaS is not a silver bullet.
 - Access cloud-based apps over the Internet (e.g., email, Microsoft Office 365, GitHub)
 
 :::
-::: {.column width=30%}
+:::{.column width=30%}
 
 ![SaaS](img/209.svg)
 

@@ -4,8 +4,8 @@ subtitle: Building data pipelines
 
 # A necessary introduction
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Computational thinking: solving problems using concepts and ideas from computer science.
 
@@ -22,7 +22,7 @@ Pillars to computational thinking:
 * Abstraction
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Pillars to computational thinking](img/slides62.png)
 
@@ -70,8 +70,8 @@ Focus on the problem **understanding**, **definition**, and **solution**!
 
 # Integrated analytics lab
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Building data pipelines
 
@@ -85,7 +85,7 @@ Building data pipelines
 * Launch, monitor, and maintain your system
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![CRISP-DM](img/slides63.png)
 
@@ -99,13 +99,13 @@ Building data pipelines
 * _Frame the problem_ and look at the big picture
 * _"We'll use the California Housing Prices. Our task is to use California census data to forecast housing prices given the population, median income, and median housing price for each block group in California. Block groups are the smallest geographical unit for which the US Census Bureau publishes sample data (a block group typically has a population of 600 to 3,000 people)"_
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Raw data](img/slides65.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Open (external) data](img/slides66.png)
 

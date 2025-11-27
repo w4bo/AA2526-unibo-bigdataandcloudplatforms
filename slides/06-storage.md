@@ -30,8 +30,8 @@ What storage do we choose?
 |Structured|Database|Relational|
 </br>
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Relational database**
 
@@ -40,7 +40,7 @@ What storage do we choose?
 - Maintain referential integrity
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![[AWS databases](https://aws.amazon.com/products/databases/)](img/253.svg)
 
@@ -55,8 +55,8 @@ What storage do we choose?
 |Semi/unstructured|Database|\*|
 </br>
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 - **Key/value**: store and retrieve large volumes of data
 - **Document**: store semi-structured data as JSON-like documents
@@ -65,7 +65,7 @@ What storage do we choose?
 - ... and more
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![[AWS databases](https://aws.amazon.com/products/databases/)](img/254.svg)
 
@@ -74,13 +74,13 @@ What storage do we choose?
 
 # Storage models ([Google Cloud](https://cloud.google.com/products/databases))
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![](img/slides188.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![](img/slides189.png)
 
@@ -127,8 +127,8 @@ Benefits
 
 # Storage: access frequency (AWS)
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 AWS S3: [storage classes](https://aws.amazon.com/s3/storage-classes/)
 
@@ -141,7 +141,7 @@ AWS S3: [storage classes](https://aws.amazon.com/s3/storage-classes/)
 - *Intelligent-Tiering*: move objects between access tiers when access patterns change
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/258.svg)
 
@@ -150,8 +150,8 @@ AWS S3: [storage classes](https://aws.amazon.com/s3/storage-classes/)
 
 # Storage: access frequency (AWS)
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 [Object lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html)
 
@@ -165,7 +165,7 @@ Two types of actions:
   - Amazon S3 deletes expired objects on your behalf
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/259.svg)
 
@@ -174,13 +174,13 @@ Two types of actions:
 
 # Storage: access frequency ([Google Cloud](https://cloud.google.com/blog/products/storage-data-transfer/archive-storage-class-for-coldest-data-now-available))
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![](img/slides192.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![](img/slides193.png)
 
@@ -191,8 +191,8 @@ Two types of actions:
 
 # Organizing the data lake
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Having consistent principles on how to organize your data is important
 
@@ -202,7 +202,7 @@ Having consistent principles on how to organize your data is important
 - Decoupling storage from processing
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Areas](img/261.svg)
 
@@ -211,8 +211,8 @@ Having consistent principles on how to organize your data is important
 
 # Organizing the data lake
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Landing area (LA)**
 
@@ -229,7 +229,7 @@ Having consistent principles on how to organize your data is important
 - Useful for debugging and testing
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Areas](img/262.svg)
 
@@ -238,8 +238,8 @@ Having consistent principles on how to organize your data is important
 
 # Organizing the data lake
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Production area (PA)**
 
@@ -258,7 +258,7 @@ Having consistent principles on how to organize your data is important
 - There might be bugs in the pipeline code, and cloud resources may fail
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Areas](img/263.svg)
 
@@ -279,15 +279,15 @@ Having consistent principles on how to organize your data is important
 
 Alternative organizations are available
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 > "A data lake is a central repository system for storage, processing, and analysis of raw data, in which the data is **kept in its original format ** and is processed to be queried only when needed. It can store a **varied amount of formats ** in big data ecosystems, from unstructured, semi-structured, to structured data sources."
 >
 > [@couto2019mapping]
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/266.svg)
 
@@ -332,15 +332,15 @@ Combine the key benefits of data lakes and DWHs
 
 # Data Independence
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Data independence**: modify the schema at one level of the database system without altering the schema at the next higher level
 
 - It can be explained using the three-schema architecture
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides194.png)
 
@@ -394,13 +394,13 @@ A two-tier architecture is highly complex for users
 
 # Data Lakehouse
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![2023](img/hypecycle-dm-2023.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![2024](img/hypecycle-dm-2024.png)
 
@@ -431,8 +431,8 @@ Idea
 
 # Delta Lake [@armbrust2020delta]
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Delta Lake uses a **transaction log** and stores data into Apache Parquet for fast metadata operations
 
@@ -443,7 +443,7 @@ Delta Lake uses a **transaction log** and stores data into Apache Parquet for fa
   - Occasional *checkpoints* for specific log objects that summarize the log up to that point
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![[Delta Lake transaction log](https://www.databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html)](img/deltalake1.png)
 
@@ -491,8 +491,8 @@ Delta tables are stored in S3 (simple files in a data lake), and they can be rea
 
 Create a table of `suppliers`, the content of `00000000000000000000.json`
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ```json
 {
@@ -529,7 +529,7 @@ Create a table of `suppliers`, the content of `00000000000000000000.json`
 ```
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ```json
 {
@@ -574,8 +574,8 @@ Create a table of `suppliers`, the content of `00000000000000000000.json`
 
 Add a new `supplier`, content of `00000000000000000009.json`
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ```json
 {
@@ -611,7 +611,7 @@ Add a new `supplier`, content of `00000000000000000009.json`
 ```
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ```json
 {
@@ -637,8 +637,8 @@ Add a new `supplier`, content of `00000000000000000009.json`
 
 # Delta Lake
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Once we have made several commits to the transaction log, Delta Lake saves a **checkpoint file** in Parquet format in `_delta_log`
 
@@ -649,7 +649,7 @@ Once we have made several commits to the transaction log, Delta Lake saves a **c
 
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![](img/deltalake2.png)
 :::
@@ -657,8 +657,8 @@ Once we have made several commits to the transaction log, Delta Lake saves a **c
 
 # Delta Lake
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Checkpoints save the entire state of the table at a point in time.
 
@@ -670,7 +670,7 @@ Spark runs a `listFrom v` operation to view all files in the transaction log, st
 - ... only processes JSON commits made since the most recent checkpoint file was saved.
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![](img/deltalake3.png)
 :::
@@ -716,8 +716,8 @@ delete from suppliers; -- delete is important for GDPR
 
 # Delta Lake
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Optimize**: Delta Lake can improve the speed of read queries from a table by coalescing small files into larger ones.
 
@@ -736,7 +736,7 @@ deltaTable.optimize().where("date='2021-11-18'").executeCompaction()
 ```
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Optimize](img/deltalake6.svg)
 

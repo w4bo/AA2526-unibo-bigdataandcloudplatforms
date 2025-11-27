@@ -62,15 +62,15 @@ Getting _value_ from data _is not_ (only) a matter of _storage_
 
 # Data platform
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 > **Database** [@ozsu2018]
 >
 > "A database is a _structured and persistent collection_ of information about some aspect of the real world, organized and stored in a way that facilitates efficient retrieval and modification. The structure of a database is determined by an _abstract data model_. Primarily, it is this structure that differentiates a database from a data file."
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Relational database](img/20.svg)
 
@@ -107,8 +107,8 @@ The role of computer science in companies has radically changed since the early 
 
 # Data platform
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 > **Schemaless databases**
 >
@@ -116,7 +116,7 @@ The role of computer science in companies has radically changed since the early 
 > As a result, you don't need to know the structure of your data, enabling you to store all your data more easily and quickly.
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![NoSQL](img/24.svg)
 
@@ -153,15 +153,15 @@ Scenario:
 
 # Data platform 
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 > **Data Warehouse (DWH)** [@golfarelli2009data]
 >
 > "A collection of data that supports decision-making processes. It provides the following features: subject-oriented, integrated and consistent, not volatile."
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![DWH](img/21.svg)
 
@@ -191,13 +191,13 @@ The **multidimensional model** is the key for representing and querying informat
 
 Querying the cube with OLAP operators: *roll up*
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Multidimensional cube](img/cube.svg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 :::{.fragment}
 ![Roll up](img/cube-rollup.svg)
@@ -209,13 +209,13 @@ Querying the cube with OLAP operators: *roll up*
 
 Querying the cube with OLAP operators: *drill down*
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Roll up](img/cube-rollup.svg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 :::{.fragment}
 ![Drill down](img/cube-drilldown.svg)
 :::
@@ -237,13 +237,13 @@ The **Dimensional Fact Model** [@DBLP:journals/ijcis/GolfarelliMR98] is a graphi
 
 # Data platform
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![DFM](img/cube-dfm.svg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 :::{.fragment}
 ![Corresponding Entity-Relationsip representation [@DBLP:conf/hicss/GolfarelliMR98]](img/cube-dfm.png)
@@ -270,15 +270,15 @@ The **Dimensional Fact Model** [@DBLP:journals/ijcis/GolfarelliMR98] is a graphi
 
 # Data platform
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 > **Data lake** [@couto2019mapping]
 >
 > "A DL is a _central repository_ system for _storage, processing, and analysis of raw data_, in which the data is kept in its _original format and is processed to be queried only when needed_. It can _store a varied amount of formats_ in big data ecosystems, from unstructured, semi-structured, to structured data sources."
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Data lake](img/slides9.jpg)
 
@@ -354,8 +354,8 @@ While the data lake and DWH architecture is ostensibly cheap, a two-tier archite
 
 # Data lakehouse [@armbrust2021lakehouse]
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 > **Data lakehouse**
 >
@@ -368,7 +368,7 @@ Key technologies used to implement Data Lakehouses
 - Apache Iceberg
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Data lakehouse](img/slides27.png)
 
@@ -404,8 +404,8 @@ Challenges:
 - For large tables with millions of objects, metadata operations are costly.
   - The latency of cloud object stores can make data-skipping checks slower than the query itself.  
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 **Delta Lake** uses a transaction log compacted into Apache Parquet for much faster metadata operations on large tabular datasets.  
 
@@ -415,7 +415,7 @@ Challenges:
   - Periodic checkpoints summarizing the log up to that point  
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Delta lake](img/deltalake.png)
 
@@ -492,8 +492,8 @@ Are we done? No!
 
 # Data governance
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 > **Data governance**
 >
@@ -505,7 +505,7 @@ Are we done? No!
 A *data steward* is a role that ensures that data governance processes are followed and that guidelines are enforced, and recommends improvements to data governance processes. 
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Data governance](img/datagovernance.png)
 
@@ -526,8 +526,8 @@ A *data steward* is a role that ensures that data governance processes are follo
 
 # Data profiling
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Data profiling [@naumann2014data]
 
@@ -535,7 +535,7 @@ Data profiling [@naumann2014data]
 - E.g., in a _relational_ scenario, _tables_ of a relational database are _scanned_ to derive _metadata_, such as _data types_, _completeness_ and _uniqueness_ of columns, _keys_ and  _foreign keys_, and occasionally _functional dependencies_ and _association rules_
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Characteristics of data profiling](img/slides19.png)
 
@@ -623,8 +623,8 @@ The results of data profiling are _computationally heavy_ to discover
 
 # Data profiling
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Given a table with four columns $\{w, x, y, z\}$
 
@@ -636,7 +636,7 @@ Given a table with four columns $\{w, x, y, z\}$
 </div>
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Powerset of four columns](img/lattice.svg)
 
@@ -662,8 +662,8 @@ Use cases
 
 # Data profiling: statistic query optimization
 
-:::: {.columns}
-::: {.column width=30%}
+::::{.columns}
+:::{.column width=30%}
 
 > Table `R`
 >
@@ -680,7 +680,7 @@ Use cases
 No need to access `R.a`, `min(R.a) >= 10`
 
 :::
-::: {.column width=70%}
+:::{.column width=70%}
 
 ![[@bruno2002exploiting]](img/executionplan.png)
 
@@ -708,8 +708,8 @@ Examples of use cases [@simmhan2005survey]
 
 # Data provenance: astronomers 
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Astronomers are creating an international Virtual Observatory.
 
@@ -720,7 +720,7 @@ Astronomers are creating an international Virtual Observatory.
 - Raw data bear _many instrumental signatures that must be removed_ in the process of generating data products [@mann2002some]
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![James Webb Space Telescope (2021)](img/slides14.jpg)
 
@@ -733,8 +733,8 @@ Astronomers are creating an international Virtual Observatory.
 
 Provenance is a graph, for which we have a standard: [PROV-DM](https://www.w3.org/TR/prov-dm/) [@moreau2022provenance]
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 _Entity_
 
@@ -751,7 +751,7 @@ _Agent_
 - Takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![PROV standard](img/slides17.png)
 
@@ -762,8 +762,8 @@ _Agent_
 
 # Data provenance
 
-:::: {.columns}
-::: {.column width=70%}
+::::{.columns}
+:::{.column width=70%}
 Measures of centrality
 
 * **Betweenness centrality (A)**
@@ -775,7 +775,7 @@ Measures of centrality
 * **Degree centrality (D)**
   * Number of adjacent nodes
 :::
-::: {.column width=30%}
+:::{.column width=30%}
 ![Centrality measures](img/phdslides_208.png)
 :::
 ::::
@@ -795,8 +795,8 @@ Granularity [@simmhan2005survey]
 
 How would you document this table update?
  
-> :::: {.columns}
-> ::: {.column width=50%}
+> ::::{.columns}
+> :::{.column width=50%}
 > 
 > Original data
 > 
@@ -810,7 +810,7 @@ How would you document this table update?
 > | "p6"         |      30 |
 > 
 > :::
-> ::: {.column width=50%}
+> :::{.column width=50%}
 > 
 > Update action: ```sales_v2 = sales_v1 + 1```
 > 
@@ -828,19 +828,19 @@ How would you document this table update?
 
 # Data provenance: fine-grained vs coarse-grained
 
-:::: {.columns}
-::: {.column width=20%}
+::::{.columns}
+:::{.column width=20%}
 
 :::
-::: {.column width=60%}
+:::{.column width=60%}
 
-:::: {.columns}
-::: {.column width=100%}
+::::{.columns}
+:::{.column width=100%}
 
 ![Coarse grained](img/coarsegrained.png)
 
 :::
-::: {.column width=100%}
+:::{.column width=100%}
 
 :::{.fragment}
 
@@ -893,8 +893,8 @@ Use cases for data provenance.
 
 # Data versioning
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Version control
 
@@ -909,7 +909,7 @@ However, data pipelines are not only about code but also about
 - Model Performance Comparison
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![CRISP-DM](img/slides21.png)
 
@@ -922,18 +922,18 @@ Support CRUD (Create, Read, Update, Delete) operations with versions.
 
 For example, on [AWS (PUT, GET, DELETE)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html)
 
-:::: {.columns}
-::: {.column width=40%}
+::::{.columns}
+:::{.column width=40%}
 
 ![GET](img/slides23.png)
 
 :::
-::: {.column width=24%}
+:::{.column width=24%}
 
 ![PUT](img/slides22.png)
 
 :::
-::: {.column width=25%}
+:::{.column width=25%}
 
 ![DELETE](img/slides24.png)
 
@@ -946,8 +946,8 @@ What about updating?
 
 # Compression
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Data compression** is the process of encoding information using fewer bits than the original representation
 
@@ -959,8 +959,8 @@ What about updating?
 
 **Summarization**: find a concise representation of a dataset in a comprehensible, informative manner
 
-> :::: {.columns}
-> ::: {.column width=50%}
+> ::::{.columns}
+> :::{.column width=50%}
 > 
 > Transaction dataset
 >
@@ -972,7 +972,7 @@ What about updating?
 > | T3  | Beer, Diapers |
 >
 >:::
->::: {.column width=50%}
+>:::{.column width=50%}
 >
 > Frequent itemset mining
 >
@@ -986,7 +986,7 @@ What about updating?
 > ::::
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Characteristics of data summarization [@ahmed2019data]](img/slides18.png)
 
@@ -997,8 +997,8 @@ What about updating?
 
 # Entity resolution
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Entity resolution [@papadakis2020blocking]
 
@@ -1006,7 +1006,7 @@ Entity resolution [@papadakis2020blocking]
 - Find records that refer to the same entity across different data sources (e.g., data files, books, websites, and databases)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Example of entity resolution](img/slides20.png)
 
@@ -1019,8 +1019,8 @@ Entity resolution [@papadakis2020blocking]
 
 # Data catalog
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 A **data catalog** is an organized inventory of the company's data [@olesen2023enterprise]
 
@@ -1029,7 +1029,7 @@ A **data catalog** is an organized inventory of the company's data [@olesen2023e
 - Everyone see everything without fear of exposing confidential or sensitive data.
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Data catalog](img/datacatalog.PNG)
 
@@ -1038,15 +1038,15 @@ A **data catalog** is an organized inventory of the company's data [@olesen2023e
 
 # Data catalog
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Metadata is organized into **domains**.
 
 - A domain is a group of entities sharing knowledge, goals, methods of operation, and communication
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Organization of domains](img/datacatalog-domain.PNG)
 
@@ -1055,7 +1055,7 @@ Metadata is organized into **domains**.
 
 # Data catalog: processes vs capabilities
 
-:::: {.columns}
+::::{.columns}
 
 *Processes* describe how a company performs its tasks.
 
@@ -1063,12 +1063,12 @@ Metadata is organized into **domains**.
 
 - Neither processes nor capabilities reflect the business units of your company 1:1.
 
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Process oriented](img/datacatalog-domain1.PNG)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Capability oriented](img/datacatalog-domain2.PNG)
 
@@ -1145,13 +1145,13 @@ It is a unified architecture with an integrated set of technologies and services
 - It optimizes data management by automating repetitive tasks
 - According to Gartner estimates, 25% of data management vendors will provide a complete framework for data fabric by 2024 – up from 5% today
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Providers](img/slides34.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Providers](img/slides35.png)
 
@@ -1170,8 +1170,8 @@ It is a unified architecture with an integrated set of technologies and services
 
 # Data fabric
 
-:::: {.columns}
-::: {.column width=55%}
+::::{.columns}
+:::{.column width=55%}
 
 **Active metadata**: leverage open APIs to connect platform services using metadata.
 
@@ -1193,7 +1193,7 @@ It is a unified architecture with an integrated set of technologies and services
 - Use APIs to hook into every piece of the data platform.
 
 :::
-::: {.column width=45%}
+:::{.column width=45%}
 
 ![Data fabric](img/slides37.png)
 
@@ -1233,13 +1233,13 @@ Resource estimation or prediction (based on previous executions and current sett
 
 # Automation through orchestration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 ![[@barika2019orchestrating]](img/phdslides_209.png)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 R1 Compute/CPU resource provisioning
 
@@ -1263,13 +1263,13 @@ R4 Synchronization and asynchronization
 
 # Automation through orchestration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 ![[@barika2019orchestrating]](img/phdslides_209.png)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 R5 Analytic Task Scheduling and Execution
 
@@ -1313,8 +1313,8 @@ Distributed data architecture under centralized governance and standardization f
 
 # Data mesh
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Data Mesh organizes data around **business domain owners** and transforms relevant data assets (data sources) to **data products** that can be consumed by distributed business users from various business domains or functions.
 
@@ -1322,7 +1322,7 @@ Data Mesh organizes data around **business domain owners** and transforms releva
 - **Self-service capabilities**, which we have already referenced as a Data Fabric capability, enable business organizations to entertain a data marketplace with shopping-for-data characteristics
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Data mesh](img/slides38.png)
 
@@ -1398,13 +1398,13 @@ Takeaway:
 
 # Data mesh
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![2024](img/hypecycle-dm-2024.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![2025](img/hypecycle-dm-2025.png)
 
@@ -1415,13 +1415,13 @@ As new technologies and solutions mature to support a centralized approach to da
 
 # Data mesh
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![2023](img/hypecycle-dm-2023.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![2024](img/hypecycle-dm-2024.png)
 
@@ -1436,18 +1436,18 @@ As new technologies and solutions mature to support a centralized approach to da
 
 # (Some) References
 
-:::: {.columns}
-::: {.column width=33%}
+::::{.columns}
+:::{.column width=33%}
 
 ![Ref 1](img/slides40.jpg)
 
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 ![Ref 2](img/slides41.png)
 
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 ![Ref 3](img/slides42.png)
 
@@ -1538,15 +1538,15 @@ DevOps practices enable software development (dev) and operations (ops) teams to
 
 # ... to DataOps
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **DataOps** refers to a general process aimed at shortening the end-to-end data analytics life-cycle time by introducing automation in the data collection, validation, and verification process
 
 ![Evolution of DataOps [@munappy2020ad]](img/slides30.png)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Evolution of DataOps](img/slides31.png)
 
@@ -1555,8 +1555,8 @@ DevOps practices enable software development (dev) and operations (ops) teams to
 
 # DataOps
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 From DevOps to DataOps
 
@@ -1571,7 +1571,7 @@ Some key rules
 - Design process for growth and extensibility
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![DevOps](img/slides32.png)
 

@@ -88,13 +88,13 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 
 *Not just rows and tables*: several data models adopted to store and manipulate data
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Relational data model](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Relational_database_terms.svg/2880px-Relational_database_terms.svg.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Graph data model](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/PageRanks-Example.svg/2560px-PageRanks-Example.svg.png)
 
@@ -105,13 +105,13 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 
 *Freedom from joins*: joins are either not supported or discouraged
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![SQL Join](https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Triangle-query-join-query-plan-r-st.svg/1920px-Triangle-query-join-query-plan-r-st.svg.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Aggregate-oriented modeling](https://martinfowler.com/bliki/images/aggregateOrientedDatabase/aggregate-split.png)
 
@@ -132,8 +132,8 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 
 *Freedom from rigid schemas*: data can be stored or queried without pre-defining a schema (*schemaless* or *soft-schema*)
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 |Product|Name|Price|
 |:-:|:-:|:-:|
@@ -142,7 +142,7 @@ Today, *NoSQL* indicates *DBMSs* adopting a *different data model from the relat
 |P3|Pizza|6|
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ```json
 [
@@ -235,13 +235,13 @@ Each DB contains one or more *graphs*
 
 IDs are implicitly handled; different edge colors imply different edge types.
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Graph implementation](img/104a.svg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Running example](img/104b.svg)
 
@@ -308,8 +308,8 @@ Based on the concept of encapsulation
 
 # Document: data model
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Each DB contains one or more *collections* (corresponding to tables)
 
@@ -327,7 +327,7 @@ Each field corresponds to a *key-value pair*
   - A complex field can contain other fields
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ```json
 [
@@ -397,13 +397,13 @@ Different implementations, different functionalities
 
 # Data modeling example: aggregate model
 
-:::: {.columns}
-::: {.column width=40%}
+::::{.columns}
+:::{.column width=40%}
 
 ![Designing aggregates](img/109.svg)
 
 :::
-::: {.column width=60%}
+:::{.column width=60%}
 
 Collection answering the blue query
 
@@ -453,13 +453,13 @@ Collection answering the purple query
 
 # Data modeling example: document model
 
-:::: {.columns}
-::: {.column width=40%}
+::::{.columns}
+:::{.column width=40%}
 
 ![Designing aggregates](img/108.svg)
 
 :::
-::: {.column width=60%}
+:::{.column width=60%}
 
 ```json
 [
@@ -615,8 +615,8 @@ Main issue: each update must be pushed to every replica
 
 # Master-slave replication
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 *Master*
 
@@ -631,7 +631,7 @@ Main issue: each update must be pushed to every replica
 - Can become a master if the latter fails
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Master-slave replication](img/slides85.png)
 
@@ -659,8 +659,8 @@ Main issue: each update must be pushed to every replica
 
 # Peer-to-peer replication
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Each node has the same importance.
 
@@ -669,7 +669,7 @@ Each node has the same importance.
 The loss of a node does not compromise reads or writes.
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![P2P replicaion](img/slides86.png)
 
@@ -709,8 +709,8 @@ Write conflicts (P2P model)
 
 # The quorum mechanism
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 The *quorum mechanism* ensures consistent IO under replication.
 
@@ -727,7 +727,7 @@ Each data item has $N$ replicas.
   - Ensures that (at least) one copy with the up-to-date value is read
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Quorum](img/133.svg)
 
@@ -740,8 +740,8 @@ A look behind the curtain
 
 # RDBMS vs NoSQL: different philosophies
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 RDBMSs come from decades of widespread usage.
 
@@ -756,7 +756,7 @@ NoSQL systems are designed to succeed where RDBMSs fail.
 - Speed and manageability rather than consistency at all costs
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![RDBMS vs NoSQL](img/slides87.png)
 
@@ -835,8 +835,8 @@ They are not properties on which NoSQL systems rely.
 
 # Consistency in NoSQL: CAP
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 "Theorem": only two of the following three properties can be guaranteed
 
@@ -854,7 +854,7 @@ They are not properties on which NoSQL systems rely.
 - In distributed systems, network **partitioning is inevitably a possibility**
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Network partitioning](img/slides88.png)
 
@@ -1057,8 +1057,8 @@ Examples
 
 # Polyglot persistence
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 *Different databases are designed to solve different problems*
 
@@ -1075,7 +1075,7 @@ Using a single DBMS to handle everything...
 - Each activity has its own requirements (availability, consistency, fault tolerance, etc.)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Polyglot system](img/slides90.jpg)
 
@@ -1142,8 +1142,8 @@ Database-as-a-service
 
 # Key-value: data model
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Each DB contains one or more *collections* (corresponding to tables)
 
@@ -1160,7 +1160,7 @@ Looks like a simple dictionary
   - Definitions, synonyms and antonyms, images, etc.
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Key-value](img/slides76.png)
 
@@ -1169,8 +1169,8 @@ Looks like a simple dictionary
 
 # Key-value: querying
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Three simple kinds of query:
 
@@ -1189,7 +1189,7 @@ The value is a *black box*: it cannot be queried!
 - Schema information is often indicated in the key
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 | Key | Value |
 |:-: |:-: |
@@ -1204,8 +1204,8 @@ The value is a *black box*: it cannot be queried!
 
 # Data modeling example: key-value model
 
-:::: {.columns}
-::: {.column width=20%}
+::::{.columns}
+:::{.column width=20%}
 
 Product collection
 
@@ -1215,7 +1215,7 @@ Product collection
 | p-2:name | Fanta |
 
 :::
-::: {.column width=80%}
+:::{.column width=80%}
 
 Customer collection
 
@@ -1230,8 +1230,8 @@ Customer collection
 
 # Wide column: data model
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 Each DB contains one or more *column families* (corresponding to tables)
 
@@ -1250,7 +1250,7 @@ Essentially a 2-dimensional key-value store
 - Particularly suited for sparse matrices and many-to-many relationships
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Wide column](img/slides77.png)
 
@@ -1271,18 +1271,18 @@ Given the similarity with the relational model, a *SQL-like * language is often 
 
 # Wide column: ≠ columnar
 
-:::: {.columns}
-::: {.column width=33%}
+::::{.columns}
+:::{.column width=33%}
 
 ![Table](img/slides78.png)
 
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 ![Row-oriented](img/slides79.png)
 
 :::
-::: {.column width=33%}
+:::{.column width=33%}
 
 ![Column-oriented](img/slides80.png)
 

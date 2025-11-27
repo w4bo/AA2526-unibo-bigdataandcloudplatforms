@@ -8,8 +8,8 @@ subtitle: Data pipelines on cloud (Streaming)
 
 # Batch vs. Streaming systems
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 What is a *bulk processing* system?
 
@@ -18,7 +18,7 @@ What is a *bulk processing* system?
 - Process massive data at once (... is this true?)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 What is a *streaming* system?
 
@@ -30,15 +30,15 @@ What is a *streaming* system?
 
 # Batch vs. Streaming systems [@akidau2018streaming]
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 What is a bulk processing system?
 
 - An engine capable of handling processing on **bounded** datasets
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 What is a streaming system?
 
@@ -67,8 +67,8 @@ How many *days*?
 
 Batch/Bulk: move data from on-premises storage
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 AWS Snowball
 
@@ -79,7 +79,7 @@ AWS Snowball
   - 10 Gbps using a fiber optic connection
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![AWS Snowball](img/slides354.png)
 
@@ -108,8 +108,8 @@ What if we have exabytes of data?
 
 # Ingestion: stream [@kreps2014heart]
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Data (often) flows in both directions, storage systems are both sources and destinations for data transformations
 
@@ -118,7 +118,7 @@ Two pipelines per application (data in/out)
 - Worst case (full connectivity): $O(N^2)$
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Connecting sources and consumers](img/slides356.png)
 
@@ -127,8 +127,8 @@ Two pipelines per application (data in/out)
 
 # Ingestion: stream 
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Stream**: real-time streaming data
 
@@ -146,7 +146,7 @@ Two pipelines per application (data in/out)
 - *Messages* are events
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides357.jpg)
 
@@ -155,8 +155,8 @@ Two pipelines per application (data in/out)
 
 # Ingestion: stream [@kreps2014heart]
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Log**
 
@@ -167,7 +167,7 @@ Two pipelines per application (data in/out)
 The log acts as a messaging system with durability guarantees and ordering semantics
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides358.png)
 
@@ -176,8 +176,8 @@ The log acts as a messaging system with durability guarantees and ordering seman
 
 # Ingestion: stream
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 General idea:
 
@@ -190,7 +190,7 @@ General idea:
 - *Unified*, *append-only*, *ordered*, *distributed* log that allows the centralization of event streams
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides359.jpg)
 
@@ -214,8 +214,8 @@ General idea:
 
 # Ingestion: stream
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Distributed**: the unified log lives across a cluster of machines
 
@@ -230,7 +230,7 @@ Distribution ensures
 Using a log as a universal integration mechanism is never going to be more than an elegant fantasy if we can’t build a log that is fast, cheap, and scalable
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides360.jpg)
 
@@ -239,8 +239,8 @@ Using a log as a universal integration mechanism is never going to be more than 
 
 # Ingestion: stream
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Ordered**: events in a shard have sequential IDs (unique in a shard)
 
@@ -248,7 +248,7 @@ Using a log as a universal integration mechanism is never going to be more than 
 - Applications maintain their cursor for each shard
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides361.jpg)
 
@@ -257,8 +257,8 @@ Using a log as a universal integration mechanism is never going to be more than 
 
 # Ingestion: stream
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Two types of processing
 
@@ -272,7 +272,7 @@ Two types of processing
   - Reordering events based on a sort key
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides362.png)
 
@@ -281,8 +281,8 @@ Two types of processing
 
 # Ingestion: stream (AWS)
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html)
 
@@ -298,7 +298,7 @@ Two types of processing
 - Records are retained for 7 days at maximum
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![AWS Kinesis](img/slides363.png)
 
@@ -342,8 +342,8 @@ Costs
 
 # Serverless computing/processing
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **AWS Lambda**: compose code functions in a loose orchestration
 
@@ -357,7 +357,7 @@ With Lambda, you are responsible only for your code (Lambda function)
   - Provisioning capacity, monitoring fleet health, applying security patches, etc.
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides364.png)
 
@@ -366,8 +366,8 @@ With Lambda, you are responsible only for your code (Lambda function)
 
 # Serverless computing (AWS Lambda)
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 AWS Lambda
 
@@ -380,7 +380,7 @@ AWS Lambda
 - Invocation supports push/pull events
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides365.png)
 
@@ -402,8 +402,8 @@ FaaS: write single-purpose stateless functions
 
 # Patterns for data pipelines
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Patterns are architectural solutions to problems in software design
 
@@ -418,7 +418,7 @@ Patterns for serverless data pipelines
 - *Pipes and filters* pattern
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides366.jpg)
 
@@ -427,8 +427,8 @@ Patterns for serverless data pipelines
 
 # Command pattern
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Command pattern
 
@@ -439,7 +439,7 @@ Encapsulate a request as an object
 - Issue requests to objects without knowing anything about the operation being requested or the receiver
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides367.png)
 
@@ -448,8 +448,8 @@ Encapsulate a request as an object
 
 # Pipes and filters pattern
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Decompose a complex processing task into a sequence of manageable services
 
@@ -457,7 +457,7 @@ Decompose a complex processing task into a sequence of manageable services
 - Connectors that pass data between components are referred to as pipes
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides368.png)
 
@@ -466,8 +466,8 @@ Decompose a complex processing task into a sequence of manageable services
 
 # Messaging pattern
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Messaging pattern
 
@@ -479,7 +479,7 @@ Decouple services from direct dependence and allow storage of events in a queue
 - A message queue can have a single sender/receiver or multiple senders/receivers
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides369.png)
 
@@ -488,8 +488,8 @@ Decouple services from direct dependence and allow storage of events in a queue
 
 # Priority queue pattern
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Decouple and prioritize requests sent to services
 
@@ -502,7 +502,7 @@ Control how and when messages are dealt with
 - High-priority messages go through expensive services with more capacity
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides370.png)
 

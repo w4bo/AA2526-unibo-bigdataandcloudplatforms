@@ -154,33 +154,33 @@ Two sides of the same coin, and your profile is a perfect? fit
 
 # Teaching material
 
-:::: {.columns}
-::: {.column width=25%}
+::::{.columns}
+:::{.column width=25%}
 
 ![Designing Cloud Data Platforms](img/slides0.png)
 
 :::
-::: {.column width=25%}
+:::{.column width=25%}
 
 ![Cloud Computing for Science and Engineering](img/slides2.jpg)
 
 :::
-::: {.column width=25%}
+:::{.column width=25%}
 
 ![Amazon Web Services in Action](img/slides5.png)
 
 :::
-::: {.column width=25%}
+:::{.column width=25%}
 
 ![Programming AWS Lambda](img/slides1.jpg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Coursera](img/slides3.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![Twitch](img/slides4.png)
 

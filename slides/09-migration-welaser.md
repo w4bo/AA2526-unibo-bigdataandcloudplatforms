@@ -4,15 +4,15 @@ subtitle: Cluster migration - WeLASER
 
 # The WeLASER project
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Project description**
 
 - The increased use of pesticides and fertilizers damages the environment, destroys non-target plants and beneficial insects for the soil, and harms human and animal health. Most seeds develop herbicide-resistant properties, rendering pesticides ineffective. Mechanical automatic systems that are studied as alternatives to pesticides deteriorate soil features, damage beneficial soil organisms, and offer limited results for in-row weeding. The EU-funded WeLASER project will develop a non-chemical solution for weed management based on pioneering technology consisting of the application of lethal doses of energy on the weed meristems through a high-power laser source. An AI-vision system separates crops from weeds, identifying the weed meristems and pointing the laser at them. A smart controller based on IoT and cloud computing techniques coordinates the system, which is transferred all over the field by an autonomous vehicle.
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides348.png)
 
@@ -23,8 +23,8 @@ subtitle: Cluster migration - WeLASER
 
 # The WeLASER project
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Which requirements do you foresee?
 
@@ -36,7 +36,7 @@ Assumptions
 - ... and training/deploying the CV algorithm
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/slides348.png)
 
@@ -79,8 +79,8 @@ On-premises (HDFS cluster)
 
 # On-premises
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 On-premises
 
@@ -91,7 +91,7 @@ On-premises
   - 8700€ / 3 years = 2900€
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 |  | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -101,13 +101,13 @@ On-premises
 :::
 ::::
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![[Hardware](https://www.rect.coreto-europe.com/en) as of 2022-09-01](img/slides350.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![[Software](https://www.cloudera.com/products/pricing.html) as of 2022-09-01](img/slides351.png)
 
@@ -116,8 +116,8 @@ On-premises
 
 # On cloud v1
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Moving the Hadoop cluster as IaaS
 
@@ -137,7 +137,7 @@ EMR
 - Storage per Broker (10 GB), \#broker nodes (3), Compute Family (m5.2xlarge)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | [$SOL_{cloud 1}$](https://calculator.aws/#/estimate?id=05965ca7de23fd9e7d2ab2cd0175fe8c01822c9c) | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -151,8 +151,8 @@ EMR
 
 # On cloud v2
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Moving the Hadoop cluster as PaaS
 
@@ -176,7 +176,7 @@ EMR
 - Days for data retention (1 day), Records (100/second), Consumers (3)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | [$SOL_{cloud 2}$](https://calculator.aws/#/estimate?id=53f60ff0412a18877dc8e1274f7d9875aa3bf665) | On-premises | On cloud |
 |:-: |:-: |:-: |

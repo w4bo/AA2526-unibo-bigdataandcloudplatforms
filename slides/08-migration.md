@@ -4,8 +4,8 @@ subtitle: Cluster migration - Based on a true story​
 
 # Migration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Evaluating the costs for a cloud/on-premises data platform
 
@@ -13,7 +13,7 @@ Evaluating the costs for a cloud/on-premises data platform
 - Real-world case study
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | Cost | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -29,13 +29,13 @@ Business intelligence group
 
 # Migration
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Data platform for Agritech](img/322.svg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![HW + SW stack](img/322b.svg)
 
@@ -46,13 +46,13 @@ Business intelligence group
 
 Hardware
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![Hardware configuration](img/324.svg)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ```bash
 lshw -short -C cpu
@@ -76,15 +76,15 @@ Software
 
 # Migration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Hardware cost**: ?
 
 - Refer to [https://www.rect.coreto-europe.com/en/search.html?clearsearch=1](https://www.rect.coreto-europe.com/en/search.html?clearsearch=1)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{on-prem}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -96,8 +96,8 @@ Software
 
 # On-premises
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Hardware cost** (up to Mar 05, 2021): 
 
@@ -106,7 +106,7 @@ Software
 
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{on-prem}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -122,13 +122,13 @@ Software
 
 # On-premises
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Software cost**: ?
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{on-prem}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -140,8 +140,8 @@ Software
 
 # On-premises
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Software cost** (up to 2020): 0€
 
@@ -149,7 +149,7 @@ Software
 - No software licensing (for research purposes)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{on-prem}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -161,8 +161,8 @@ Software
 
 # On-premises
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **Software cost** (up to Mar 05, 2021): 10000€/year x 18 = 180000€/year
 
@@ -177,7 +177,7 @@ Software
 - What about migrating to the cloud? (we only consider AWS)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{on-prem}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -203,15 +203,15 @@ How do we start?
 
 # On cloud v1
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Migrating the cluster as-is: ?
 
 - Hint: add 18 EC2 instances satisfying the hardware requirements
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{cloud 1}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -223,8 +223,8 @@ Migrating the cluster as-is: ?
 
 # On cloud v1
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 $SOL_{cloud 1}$ migrating the cluster as-is: 13500\$/month = 162000\$/year
 
@@ -239,7 +239,7 @@ Prices change over the year
 Still, we have no software configuration
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{cloud 1}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -251,8 +251,8 @@ Still, we have no software configuration
 
 # Migration
 
-:::: {.columns}
-::: {.column width=40%}
+::::{.columns}
+:::{.column width=40%}
 
 
 Pay attention to the region
@@ -262,7 +262,7 @@ Pay attention to the region
 - Remember the GDPR and data locality
 
 :::
-::: {.column width=60%}
+:::{.column width=60%}
 
 ![Ireland vs Milan](img/slides340.png)
 
@@ -286,8 +286,8 @@ How do we proceed with the migration?
 
 # Migration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 **HDFS**
 
@@ -304,7 +304,7 @@ How do we proceed with the migration?
 **Overall**: 50TB storage/year
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/335.svg)
 
@@ -313,8 +313,8 @@ How do we proceed with the migration?
 
 # Migration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Processing takes place each time that ESA provides a satellite image
 
@@ -329,7 +329,7 @@ Processing takes place each time that ESA provides a satellite image
 **Weather processing** is negligible
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![](img/336.svg)
 
@@ -338,8 +338,8 @@ Processing takes place each time that ESA provides a satellite image
 
 # On cloud v2
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 $SOL_{cloud 2}$: compare 4 machines on-premises vs on cloud
 
@@ -359,7 +359,7 @@ AWS
   - Still, no software stack
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{cloud 2}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -379,8 +379,8 @@ AWS
 
 # Migration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 HDFS on EC2
 
@@ -395,7 +395,7 @@ S3
 - Data locality is lost
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 ![Total cost of EC2](img/slides346.png)
 
@@ -406,13 +406,13 @@ S3
 
 # Migration
 
-:::: {.columns}
-::: {.column width=50%}
+::::{.columns}
+:::{.column width=50%}
 
 ![S3 standard](img/slides344.png)
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ![S3 Infrequent Access](img/slides345.png)
 
@@ -421,8 +421,8 @@ S3
 
 # Migration
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Migrating cluster to EMR: *?*
 
@@ -435,7 +435,7 @@ Given the software requirements, we need
 ![](img/342.svg)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 |  | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -447,8 +447,8 @@ Given the software requirements, we need
 
 # On cloud v3
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 Migrating cluster to EMR: *14710€/year*
 
@@ -466,7 +466,7 @@ Migrating cluster to EMR: *14710€/year*
   - Instance type (m4.xlarge)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{cloud 3}$ | On-premises | On cloud |
 |:-: |:-: |:-: |
@@ -478,8 +478,8 @@ Migrating cluster to EMR: *14710€/year*
 
 # On cloud v4
 
-:::: {.columns}
-::: {.column width=60%}
+::::{.columns}
+:::{.column width=60%}
 
 [Migrating cluster to EMR]((https://calculator.aws/#/estimate?id=c3780b12bb43b593d05def5a1d5218d9764b8a65)): *13445€/year*
 
@@ -497,7 +497,7 @@ Migrating cluster to EMR: *14710€/year*
   - Instance type (m4.xlarge)
 
 :::
-::: {.column width=40%}
+:::{.column width=40%}
 
 | $SOL_{cloud 4}$ | On-premises | On cloud |
 |:-: |:-: |:-: |

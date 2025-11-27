@@ -160,7 +160,7 @@ WHERE e1.name = 'a';
 Each entity becomes a (JSON) **document** with customizable attributes.
 
 ::::{.columns}
-::: {.column width=50%}
+:::{.column width=50%}
 
 ```json
 {
@@ -177,7 +177,7 @@ Each entity becomes a (JSON) **document** with customizable attributes.
 ```
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 ```json
 {
@@ -199,7 +199,7 @@ A *collection* is a list of documents.
 # Document-based model
 
 ::::{.columns}
-::: {.column width=50%}
+:::{.column width=50%}
 The relational model is *data-driven*
 
 - It represents concepts as relations and relationships.
@@ -238,7 +238,7 @@ WHERE e.name = 'a';
 :::
 
 :::
-::: {.column width=50%}
+:::{.column width=50%}
 
 :::{.fragment}
 
