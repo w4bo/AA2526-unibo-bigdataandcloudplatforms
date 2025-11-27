@@ -1322,7 +1322,7 @@ product_reviews.csv</code></pre>
 
 <section id="step-2-clustering-by-schema-similarity" class="title-slide slide level1 center">
 <h1>Step 2: Clustering by Schema Similarity</h1>
-<p>We can use <strong>clustering</strong> to group files with <em>similar schemas</em></p>
+<p>We can use <strong>(agglomerative) clustering</strong> to group files with <em>similar schemas</em></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -1440,7 +1440,7 @@ product_reviews.csv</code></pre>
 <li>String similarity based on <strong>edit distance</strong></li>
 <li>Two attributes are match if they differ by a few characters (i.e., if their similarity is above a threshold <span class="math inline">\(\alpha\)</span>)
 <ul>
-<li>Example metric: <strong>Levenshtein distance</strong></li>
+<li>Example metric: <strong>Levenshtein distance</strong> <span class="citation" data-cites="lcvenshtcin1966binary">(<a href="#/references" role="doc-biblioref" onclick="">Lcvenshtcin 1966</a>)</span></li>
 </ul></li>
 </ul>
 <blockquote>
@@ -1457,27 +1457,26 @@ product_reviews.csv</code></pre>
 
 <section id="step-2.b-clustering-by-schema-similarity" class="title-slide slide level1 center">
 <h1>Step 2.b: Clustering by Schema Similarity</h1>
-<p>Compute the <strong>Fuzzy Matching similarity</strong> between files</p>
+<p>What about the computational cost/complexity?</p>
+<p><span class="math inline">\(\operatorname {lev} (a,b)={\begin{cases}|a|&amp;{\text{ if }}|b|=0,\\|b|&amp;{\text{ if }}|a|=0,\\\operatorname {lev} {\big (}\operatorname {tail} (a),\operatorname {tail} (b){\big )}&amp;{\text{ if }}\operatorname {head} (a)=\operatorname {head} (b),\\1+\min {\begin{cases}\operatorname {lev} {\big (}\operatorname {tail} (a),b{\big )}\\\operatorname {lev} {\big (}a,\operatorname {tail} (b){\big )}\\\operatorname {lev} {\big (}\operatorname {tail} (a),\operatorname {tail} (b){\big )}\\\end{cases}}&amp;{\text{ otherwise}}\end{cases}}\)</span></p>
+<p>The complexity of computing the distance between two strings of length <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> is <span class="math inline">\(\Theta (m \cdot n)\)</span></p>
+</section>
+
+<section id="step-2.b-clustering-by-schema-similarity-1" class="title-slide slide level1 center">
+<h1>Step 2.b: Clustering by Schema Similarity</h1>
+<p>Given a <em>metric</em> to measure the distance between two elements of a set, we can use a <strong>BK-tree</strong> <span class="citation" data-cites="burkhard1973some">(<a href="#/references" role="doc-biblioref" onclick="">Burkhard and Keller 1973</a>)</span>.</p>
 <ul>
-<li>What about the computational cost/complexity?</li>
+<li>All nodes in a subtree has an equal distance to the root node</li>
+<li>The edge weight of the edge connecting the subtree to the root is equal to the distance.</li>
+<li>Each subtree of a BK-tree is a BK-tree.</li>
 </ul>
-<p>Cluster files using <strong>Agglomerative Clustering</strong></p>
-<pre><code>Cluster 1:
-  Intersection schema: {'currency', 'price', 'product_id', 'name', 'type'}
-  Average Jaccard similarity: 0.75
-    File: /home/datalake/data/bronze/department_a/products/products_a.json  Schema: ['currency', 'price', 'product_id', 'name', 'type']
-    File: /home/datalake/data/bronze/department_a/products/products_b.json  Schema: ['currency', 'material', 'price', 'product_id', 'name', 'color', 'type', 'stock']
-    File: /home/datalake/data/bronze/department_b/products/products_c.json  Schema: ['currency', 'price', 'product_id', 'name', 'type']
-
-...
-
-Cluster 3:
-  Intersection schema: {'telephone', 'first_name', 'customer_id', 'country', 'email'}
-  Average Jaccard similarity: 1.00
-    File: /home/datalake/data/bronze/department_a/customers/customers_part1.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
-    File: /home/datalake/data/bronze/department_a/customers/customers_part2.csv  Schema: ['telephone', 'first_name', 'customer_id', 'country', 'email']
-
-...</code></pre>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/e/ee/A_diagram_of_the_structure_of_BK-tree.png"></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/d/de/Bk_tree.svg"></p>
+</div></div>
+<p>In the average case, insertion and lookup take <span class="math inline">\(\Theta (\log n)\)</span></p>
 </section>
 
 <section id="step-2.c-embeddings-similarity-measures" class="title-slide slide level1 center">
@@ -1504,15 +1503,15 @@ Cluster 3:
 </div>
 </div><div class="column" style="width:50%;">
 <p>Computing the embeddings:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>{</span>
-<span id="cb16-2"><a href=""></a>  <span class="st">'telephone'</span>: [<span class="op">-</span><span class="fl">0.11484879</span>  <span class="fl">0.06089507</span>  <span class="fl">0.01468573</span> ... ],</span>
-<span id="cb16-3"><a href=""></a>  <span class="st">'first_name'</span>: [<span class="op">-</span><span class="fl">0.11216891</span>  <span class="fl">0.04061386</span> <span class="op">-</span><span class="fl">0.01322238</span> ... ],</span>
-<span id="cb16-4"><a href=""></a>  <span class="st">'customer_id'</span>: [<span class="op">-</span><span class="fl">0.06831077</span>  <span class="fl">0.03470041</span> <span class="op">-</span><span class="fl">0.02761879</span> ... ],</span>
-<span id="cb16-5"><a href=""></a>... }</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>{</span>
+<span id="cb15-2"><a href=""></a>  <span class="st">'telephone'</span>: [<span class="op">-</span><span class="fl">0.11484879</span>  <span class="fl">0.06089507</span>  <span class="fl">0.01468573</span> ... ],</span>
+<span id="cb15-3"><a href=""></a>  <span class="st">'first_name'</span>: [<span class="op">-</span><span class="fl">0.11216891</span>  <span class="fl">0.04061386</span> <span class="op">-</span><span class="fl">0.01322238</span> ... ],</span>
+<span id="cb15-4"><a href=""></a>  <span class="st">'customer_id'</span>: [<span class="op">-</span><span class="fl">0.06831077</span>  <span class="fl">0.03470041</span> <span class="op">-</span><span class="fl">0.02761879</span> ... ],</span>
+<span id="cb15-5"><a href=""></a>... }</span></code></pre></div>
 <p>Computing the similarity between embeddings:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>sim_cos(<span class="st">'country'</span>, <span class="st">'location'</span>): <span class="fl">0.63932264</span>,</span>
-<span id="cb17-2"><a href=""></a>sim_cos(<span class="st">'location'</span>, <span class="st">'name'</span>): <span class="fl">0.39198124</span>,</span>
-<span id="cb17-3"><a href=""></a>sim_cos(<span class="st">'name'</span>, <span class="st">'first_name'</span>): <span class="fl">0.6186802</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>sim_cos(<span class="st">'country'</span>, <span class="st">'location'</span>): <span class="fl">0.63932264</span>,</span>
+<span id="cb16-2"><a href=""></a>sim_cos(<span class="st">'location'</span>, <span class="st">'name'</span>): <span class="fl">0.39198124</span>,</span>
+<span id="cb16-3"><a href=""></a>sim_cos(<span class="st">'name'</span>, <span class="st">'first_name'</span>): <span class="fl">0.6186802</span></span></code></pre></div>
 <p>Example:</p>
 <ul>
 <li><span class="math inline">\(Schema_A = \{`id', `name', `email', `country'\}\)</span></li>
@@ -1605,8 +1604,8 @@ Cluster 3:
 <p>Concatenate into a <strong>single governed dataset</strong></p>
 </section>
 
-<section id="problems" class="title-slide slide level1 center">
-<h1><img src="./img/cs.svg" class="title-icon"> <strong>Problems</strong>?</h1>
+<section id="step-3-problems" class="title-slide slide level1 center">
+<h1><img src="./img/cs.svg" class="title-icon"> Step 3: <strong>Problems</strong>?</h1>
 
 </section>
 
@@ -2106,7 +2105,7 @@ memory usage: 6.0 KB</code></pre>
 
 <section id="data-provenance" class="title-slide slide level1 center">
 <h1>Data provenance</h1>
-<p>Provenance is a graph, for which we have a standard: <a href="https://www.w3.org/TR/prov-dm/">PROV-DM</a> <span class="citation" data-cites="moreau2022provenance">(<a href="#/references" role="doc-biblioref" onclick="">Moreau and Groth 2022</a>)</span></p>
+<p>Provenance is a graph, for which we have a standard: <a href="https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/">PROV-DM</a> <span class="citation" data-cites="moreau2022provenance">(<a href="#/references" role="doc-biblioref" onclick="">Moreau and Groth 2022</a>)</span></p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><em>Entity</em></p>
@@ -2131,7 +2130,6 @@ memory usage: 6.0 KB</code></pre>
 </figure>
 </div>
 </div></div>
-<p><a href="https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/">https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/</a></p>
 </section>
 
 <section id="data-provenance-1" class="title-slide slide level1 center">
@@ -2405,9 +2403,8 @@ memory usage: 6.0 KB</code></pre>
 <h1>Compression</h1>
 <p><strong>Data compression</strong> is the process of encoding data using fewer bits than the original representation</p>
 <ul>
-<li><em>Lossless</em>: reduces bits by identifying and eliminating redundancy
+<li><em>Lossless</em>: reduces bits by identifying and eliminating redundancy (no information is lost)
 <ul>
-<li>No information is lost in lossless compression</li>
 <li>Examples?</li>
 </ul></li>
 <li><em>Lossy</em>: reduces bits by removing less important information
@@ -2481,24 +2478,23 @@ memory usage: 6.0 KB</code></pre>
 
 <section id="entity-resolution" class="title-slide slide level1 center">
 <h1>Entity resolution</h1>
+<p>Entity resolution <span class="citation" data-cites="papadakis2020blocking">(<a href="#/references" role="doc-biblioref" onclick="">Papadakis et al. 2020</a>)</span>, also known as entity matching or linking</p>
+<ul>
+<li>Find records that refer to the same entity across different data sources</li>
+</ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Entity resolution <span class="citation" data-cites="papadakis2020blocking">(<a href="#/references" role="doc-biblioref" onclick="">Papadakis et al. 2020</a>)</span></p>
-<ul>
-<li>(also known as entity matching, linking)</li>
-<li>Find records that refer to the same entity across different data sources (e.g., data files, books, websites, and databases)</li>
-</ul>
-</div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/slides20.png"></p>
-<figcaption>Example of entity resolution</figcaption>
+<figcaption>Example of intra-source entity resolution</figcaption>
 </figure>
 </div>
+</div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/entityresolution.png"></p>
-<figcaption>Example of entity resolution</figcaption>
+<figcaption>Example of inter-source entity resolution</figcaption>
 </figure>
 </div>
 </div></div>
@@ -2801,12 +2797,12 @@ memory usage: 6.0 KB</code></pre>
 
 <section id="data-mesh" class="title-slide slide level1 center">
 <h1>Data mesh</h1>
-<p>Distributed data architecture under centralized governance and standardization for interoperability, enabled by a shared and harmonized self-serve data infrastructure</p>
+<p>Distributed data architecture under centralized governance for interoperability, enabled by a shared and harmonized self-serve data infrastructure</p>
 <ul>
 <li><em>Domain-oriented decentralized data ownership</em>
 <ul>
 <li>Decentralization and distribution of responsibility to people who are closest to the data, to support continuous change and scalability</li>
-<li>Each domain exposes its own op/analytical APIs</li>
+<li>Each domain exposes its own operational/analytical APIs</li>
 </ul></li>
 <li><strong>Data as a product</strong> (<em>quantum</em>)
 <ul>
@@ -3183,6 +3179,9 @@ Barika, Mutaz, Saurabh Garg, Albert Y Zomaya, Lizhe Wang, Aad Van Moorsel, and R
 <div id="ref-bruno2002exploiting" class="csl-entry" role="listitem">
 Bruno, Nicolas, and Surajit Chaudhuri. 2002. <span>“Exploiting Statistics on Query Expressions for Optimization.”</span> In <em>Proceedings of the 2002 ACM SIGMOD International Conference on Management of Data</em>, 263–74.
 </div>
+<div id="ref-burkhard1973some" class="csl-entry" role="listitem">
+Burkhard, Walter A., and Robert M. Keller. 1973. <span>“Some Approaches to Best-Match File Searching.”</span> <em>Communications of the ACM</em> 16 (4): 230–36.
+</div>
 <div id="ref-DBLP:journals/cacm/Codd70" class="csl-entry" role="listitem">
 Codd, E. F. 1970. <span>“A Relational Model of Data for Large Shared Data Banks.”</span> <em>Commun. <span>ACM</span></em> 13 (6): 377–87. <a href="https://doi.org/10.1145/362384.362685">https://doi.org/10.1145/362384.362685</a>.
 </div>
@@ -3206,6 +3205,9 @@ Herschel, Melanie, Ralf Diestelkämper, and Houssem Ben Lahmar. 2017. <span>“A
 </div>
 <div id="ref-ikeda2009data" class="csl-entry" role="listitem">
 Ikeda, Robert, and Jennifer Widom. 2009. <span>“Data Lineage: A Survey.”</span> Stanford InfoLab.
+</div>
+<div id="ref-lcvenshtcin1966binary" class="csl-entry" role="listitem">
+Lcvenshtcin, VI. 1966. <span>“Binary Coors Capable or ‘Correcting Deletions, Insertions, and Reversals.”</span> In <em>Soviet Physics-Doklady</em>. Vol. 10. 8.
 </div>
 <div id="ref-mann2002some" class="csl-entry" role="listitem">
 Mann, Bob. 2002. <span>“Some Data Derivation and Provenance Issues in Astronomy.”</span> In <em>Workshop on Data Derivation and Provenance, Chicago</em>.
