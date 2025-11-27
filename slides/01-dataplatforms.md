@@ -413,7 +413,6 @@ Challenges:
 - It contains:  
   - JSON objects with sequential IDs for log records (i.e., commits)
   - Periodic checkpoints summarizing the log up to that point  
-
 :::
 :::{.column width=50%}
 
@@ -694,37 +693,26 @@ No need to access `R.a`, `min(R.a) >= 10`
 > - The description of the origins of data and the process by which it arrived at the database
 > - Not only data products (e.g., tables, files), but also the processes that created them
 
-:::{.fragment}
-Examples of use cases [@simmhan2005survey]
-
-- Business domain.
-  - Users traditionally work with an _organized data schema_, where the structure and _semantics of the data in use are shared_ across the corporation or even B2B. Yet, a large proportion of businesses deal with _bad-quality data_. _Sources_ of bad data _need to be identified_ and corrected to avoid costly errors in business forecasting.
-- Scientific/research domain.
-  - _Data_ used in the scientific field can be _ad hoc_ and driven by _individual researchers_ or small communities. The scientific field is moving _towards more collaborative research_ and organizational boundaries are disappearing. _Sharing data and metadata across organizations is essential_, leading to convergence on common schemes to ensure compatibility. Issues of _trust_, _quality_, and _copyright_ of data are significant when using third-party data in such a loosely connected network.
-:::
-
 # Data provenance: astronomers 
 
 ::::{.columns}
 :::{.column width=60%}
 
-Astronomers are creating an international Virtual Observatory.
+Examples of use cases [@simmhan2005survey]
 
-- A _federation_ of all the world significant astronomical _data resources_ coupled with _provision of the computational resources_ needed to exploit the data scientifically
 - Astronomy changed from being an individualistic to a _collective enterprise_
 - Telescope time is devoted/allocated to systematic sky surveys, and analysis is performed using data from the archives
+- A _federation_ of astronomical _data resources_ coupled with _computational resources_ needed to exploit the data scientifically
 - Astronomers are _increasingly relying on data that they did not take themselves_
 - Raw data bear _many instrumental signatures that must be removed_ in the process of generating data products [@mann2002some]
 
 :::
 :::{.column width=40%}
 
-![James Webb Space Telescope (2021)](img/slides14.jpg)
+![[James Webb Space Telescope (2021)](https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy)](img/slides14.jpg)
 
 :::
 ::::
-
-[https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy](https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy) (accessed 2022-08-01)
 
 # Data provenance
 
@@ -852,11 +840,11 @@ How would you document this table update?
 
 # Data provenance: fine-grained vs coarse-grained
 
+*Coarse-grained* provenance is appropriate to ensure a broad coverage of heterogeneous transformations involving several applications
+
 *Fine-grained* provenance is typically used for single vertical applications
 
 * It requires to collect huge amounts of detailed information to enable a very detailed tracing
-
-*Coarse-grained* provenance is appropriate to ensure a broad coverage of heterogeneous transformations involving several applications
 
 Choosing a granularity is the *result of a trade-off between accuracy and computational effort*
 
@@ -943,16 +931,22 @@ What about updating?
 
 # Compression
 
-::::{.columns}
-:::{.column width=60%}
-
-**Data compression** is the process of encoding information using fewer bits than the original representation
+**Data compression** is the process of encoding data using fewer bits than the original representation
 
 - *Lossless*: reduces bits by identifying and eliminating redundancy
   - No information is lost in lossless compression
   - Examples?
 - *Lossy*: reduces bits by removing less important information
   - Examples?
+
+# Compression
+
+![Data compression](img/parquet.png)
+
+# Compression
+
+::::{.columns}
+:::{.column width=60%}
 
 **Summarization**: find a concise representation of a dataset in a comprehensible, informative manner
 
