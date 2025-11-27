@@ -1000,7 +1000,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li>It contains:
 <ul>
 <li>JSON objects with sequential IDs for log records (i.e., commits)</li>
-<li>Periodic checkpoints summarizing the log up to that point</li>
+<li>Periodic checkpoints summarizing the log up to that point<br>
+</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -2079,30 +2080,17 @@ memory usage: 6.0 KB</code></pre>
 <li>Not only data products (e.g., tables, files), but also the processes that created them</li>
 </ul>
 </blockquote>
-<div class="fragment">
-<p>Examples of use cases <span class="citation" data-cites="simmhan2005survey">(<a href="#/references" role="doc-biblioref" onclick="">Simmhan et al. 2005</a>)</span></p>
-<ul>
-<li>Business domain.
-<ul>
-<li>Users traditionally work with an <em>organized data schema</em>, where the structure and <em>semantics of the data in use are shared</em> across the corporation or even B2B. Yet, a large proportion of businesses deal with <em>bad-quality data</em>. <em>Sources</em> of bad data <em>need to be identified</em> and corrected to avoid costly errors in business forecasting.</li>
-</ul></li>
-<li>Scientific/research domain.
-<ul>
-<li><em>Data</em> used in the scientific field can be <em>ad hoc</em> and driven by <em>individual researchers</em> or small communities. The scientific field is moving <em>towards more collaborative research</em> and organizational boundaries are disappearing. <em>Sharing data and metadata across organizations is essential</em>, leading to convergence on common schemes to ensure compatibility. Issues of <em>trust</em>, <em>quality</em>, and <em>copyright</em> of data are significant when using third-party data in such a loosely connected network.</li>
-</ul></li>
-</ul>
-</div>
 </section>
 
 <section id="data-provenance-astronomers" class="title-slide slide level1 center">
 <h1>Data provenance: astronomers</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Astronomers are creating an international Virtual Observatory.</p>
+<p>Examples of use cases <span class="citation" data-cites="simmhan2005survey">(<a href="#/references" role="doc-biblioref" onclick="">Simmhan et al. 2005</a>)</span></p>
 <ul>
-<li>A <em>federation</em> of all the world significant astronomical <em>data resources</em> coupled with <em>provision of the computational resources</em> needed to exploit the data scientifically</li>
 <li>Astronomy changed from being an individualistic to a <em>collective enterprise</em></li>
 <li>Telescope time is devoted/allocated to systematic sky surveys, and analysis is performed using data from the archives</li>
+<li>A <em>federation</em> of astronomical <em>data resources</em> coupled with <em>computational resources</em> needed to exploit the data scientifically</li>
 <li>Astronomers are <em>increasingly relying on data that they did not take themselves</em></li>
 <li>Raw data bear <em>many instrumental signatures that must be removed</em> in the process of generating data products <span class="citation" data-cites="mann2002some">(<a href="#/references" role="doc-biblioref" onclick="">Mann 2002</a>)</span></li>
 </ul>
@@ -2110,11 +2098,10 @@ memory usage: 6.0 KB</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/slides14.jpg"></p>
-<figcaption>James Webb Space Telescope (2021)</figcaption>
+<figcaption><a href="https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy">James Webb Space Telescope (2021)</a></figcaption>
 </figure>
 </div>
 </div></div>
-<p><a href="https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy">https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_inspects_the_heart_of_the_Phantom_Galaxy</a> (accessed 2022-08-01)</p>
 </section>
 
 <section id="data-provenance" class="title-slide slide level1 center">
@@ -2304,11 +2291,11 @@ memory usage: 6.0 KB</code></pre>
 
 <section id="data-provenance-fine-grained-vs-coarse-grained-2" class="title-slide slide level1 center">
 <h1>Data provenance: fine-grained vs coarse-grained</h1>
+<p><em>Coarse-grained</em> provenance is appropriate to ensure a broad coverage of heterogeneous transformations involving several applications</p>
 <p><em>Fine-grained</em> provenance is typically used for single vertical applications</p>
 <ul>
 <li>It requires to collect huge amounts of detailed information to enable a very detailed tracing</li>
 </ul>
-<p><em>Coarse-grained</em> provenance is appropriate to ensure a broad coverage of heterogeneous transformations involving several applications</p>
 <p>Choosing a granularity is the <em>result of a trade-off between accuracy and computational effort</em></p>
 <ul>
 <li>Storing only the name and the version of a clustering algorithm enables an approximate reproducibility of the results</li>
@@ -2416,9 +2403,7 @@ memory usage: 6.0 KB</code></pre>
 
 <section id="compression" class="title-slide slide level1 center">
 <h1>Compression</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>Data compression</strong> is the process of encoding information using fewer bits than the original representation</p>
+<p><strong>Data compression</strong> is the process of encoding data using fewer bits than the original representation</p>
 <ul>
 <li><em>Lossless</em>: reduces bits by identifying and eliminating redundancy
 <ul>
@@ -2430,6 +2415,17 @@ memory usage: 6.0 KB</code></pre>
 <li>Examples?</li>
 </ul></li>
 </ul>
+</section>
+
+<section id="compression-1" class="title-slide slide level1 center">
+<h1>Compression</h1>
+
+<img data-src="img/parquet.png" class="r-stretch quarto-figure-center"><p class="caption">Data compression</p></section>
+
+<section id="compression-2" class="title-slide slide level1 center">
+<h1>Compression</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
 <p><strong>Summarization</strong>: find a concise representation of a dataset in a comprehensible, informative manner</p>
 <blockquote>
 <div class="columns">
