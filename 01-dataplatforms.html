@@ -1342,8 +1342,8 @@ product_reviews.csv</code></pre>
 </div></div>
 </section>
 
-<section id="step-2-jaccard-index-similarity-measures" class="title-slide slide level1 center">
-<h1>Step 2: Jaccard Index (Similarity Measures)</h1>
+<section id="step-2.a-jaccard-index-similarity-measures" class="title-slide slide level1 center">
+<h1>Step 2.a: Jaccard Index (Similarity Measures)</h1>
 <p>Measures <strong>overlap of sets</strong>: <span class="math inline">\(J(Schema_A, Schema_B) = \frac{|Schema_A \cap Schema_B|}{|Schema_A \cup Schema_B|}\)</span></p>
 <blockquote>
 <p>Example:</p>
@@ -1358,8 +1358,8 @@ product_reviews.csv</code></pre>
 <p>What do you think about this solution?</p>
 </section>
 
-<section id="step-2-jaccard-index-similarity-measures-1" class="title-slide slide level1 center">
-<h1>Step 2: Jaccard Index (Similarity Measures)</h1>
+<section id="step-2.a-jaccard-index-similarity-measures-1" class="title-slide slide level1 center">
+<h1>Step 2.a: Jaccard Index (Similarity Measures)</h1>
 <table class="caption-top">
 <colgroup>
 <col style="width: 14%">
@@ -1432,8 +1432,8 @@ product_reviews.csv</code></pre>
 
 <img data-src="./img/data-gov/cluster_dendrogram.svg" class="r-stretch quarto-figure-center"><p class="caption">Agglomerative Clustering</p></section>
 
-<section id="step-2-fuzzy-matching-similarity-measures" class="title-slide slide level1 center">
-<h1>Step 2: Fuzzy Matching (Similarity Measures)</h1>
+<section id="step-2.b-fuzzy-matching-similarity-measures" class="title-slide slide level1 center">
+<h1>Step 2.b: Fuzzy Matching (Similarity Measures)</h1>
 <p>Capture <strong>spelling variations</strong> in column names</p>
 <ul>
 <li>String similarity based on <strong>edit distance</strong></li>
@@ -1454,8 +1454,8 @@ product_reviews.csv</code></pre>
 </blockquote>
 </section>
 
-<section id="step-2-clustering-by-schema-similarity-1" class="title-slide slide level1 center">
-<h1>Step 2: Clustering by Schema Similarity</h1>
+<section id="step-2.b-clustering-by-schema-similarity" class="title-slide slide level1 center">
+<h1>Step 2.b: Clustering by Schema Similarity</h1>
 <p>Compute the <strong>Fuzzy Matching similarity</strong> between files</p>
 <ul>
 <li>What about the computational cost/complexity?</li>
@@ -1479,23 +1479,8 @@ Cluster 3:
 ...</code></pre>
 </section>
 
-<section id="step-3-merging" class="title-slide slide level1 center">
-<h1>Step 3: Merging</h1>
-<p>Apply unified schema to all files in a cluster</p>
-<p>Concatenate into a <strong>single governed dataset</strong></p>
-<ul>
-<li><code>Cluster1.csv</code> (merged data)</li>
-<li><code>Cluster1_schema.json</code> (mapping for transparency)</li>
-</ul>
-</section>
-
-<section id="problems" class="title-slide slide level1 center">
-<h1><img src="./img/cs.svg" class="title-icon"> <strong>Problems</strong>?</h1>
-
-</section>
-
-<section id="step-2.alt-embeddings-similarity-measures" class="title-slide slide level1 center">
-<h1>Step 2.alt: Embeddings (Similarity Measures)</h1>
+<section id="step-2.c-embeddings-similarity-measures" class="title-slide slide level1 center">
+<h1>Step 2.c: Embeddings (Similarity Measures)</h1>
 <p>Fuzzy Matching does not capture <strong>semantic similarity</strong> between column names</p>
 <ul>
 <li>We can use <em>transformers</em> to represent words as vectors<br>
@@ -1505,8 +1490,8 @@ Cluster 3:
 <p>See the <a href="https://www.cs.cmu.edu/~dst/WordEmbeddingDemo/">demo</a></p>
 </section>
 
-<section id="step-2.alt-embeddings-similarity-measures-1" class="title-slide slide level1 center">
-<h1>Step 2.alt: Embeddings (Similarity Measures)</h1>
+<section id="step-2.c-embeddings-similarity-measures-1" class="title-slide slide level1 center">
+<h1>Step 2.c: Embeddings (Similarity Measures)</h1>
 <blockquote>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1539,8 +1524,8 @@ Cluster 3:
 </blockquote>
 </section>
 
-<section id="step-2.alt-embeddings-similarity-measures-2" class="title-slide slide level1 center">
-<h1>Step 2.alt: Embeddings (Similarity Measures)</h1>
+<section id="step-2.c-embeddings-similarity-measures-2" class="title-slide slide level1 center">
+<h1>Step 2.c: Embeddings (Similarity Measures)</h1>
 <table class="caption-top">
 <colgroup>
 <col style="width: 18%">
@@ -1613,8 +1598,19 @@ Cluster 3:
 
 <img data-src="./img/data-gov/cluster_dendrogram-semantic.svg" class="r-stretch quarto-figure-center"><p class="caption">Agglomerative Clustering</p></section>
 
-<section id="step-3.alt-merging" class="title-slide slide level1 center">
-<h1>Step 3.alt: Merging</h1>
+<section id="step-3-merging" class="title-slide slide level1 center">
+<h1>Step 3: Merging</h1>
+<p>Apply unified schema to all files in a cluster</p>
+<p>Concatenate into a <strong>single governed dataset</strong></p>
+</section>
+
+<section id="problems" class="title-slide slide level1 center">
+<h1><img src="./img/cs.svg" class="title-icon"> <strong>Problems</strong>?</h1>
+
+</section>
+
+<section id="step-3-merging-1" class="title-slide slide level1 center">
+<h1>Step 3: Merging</h1>
 <p>Within each cluster:</p>
 <ul>
 <li>Detect overlapping columns via hybrid similarity</li>
