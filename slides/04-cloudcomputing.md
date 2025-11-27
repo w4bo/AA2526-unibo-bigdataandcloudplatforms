@@ -93,7 +93,6 @@ The big-data cube [@meijer2012your]
 ::::{.columns}
 :::{.column width=50%}
 
-
 ![Number of days to 1 million users](img/1-million-users-a.png)
 
 :::
@@ -300,7 +299,6 @@ Moving from A to B is a multi-year process made up of intermediate goals
 > - Resource pooling (infrastructure, virtual platforms, and applications)
 > - Rapid elasticity (enable horizontal scalability)
 > - Measured service (pay for the service you consume as you consume)
-
 
 **Digital transformation** involves the **cloud** to create/change business flows
 
@@ -526,7 +524,6 @@ Service **integration**
 
 ::::{.columns}
 :::{.column width=50%}
-
 
 ![Magic Quadrant 2025](img/gartner-mq-2025.png)
 

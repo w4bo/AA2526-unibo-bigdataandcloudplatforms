@@ -104,7 +104,6 @@ Software
 - 1767€ x 18 = 31806€
 - Amortization over 3 years (i.e., *10602€/year*)
 
-
 :::
 :::{.column width=40%}
 
@@ -253,7 +252,6 @@ Still, we have no software configuration
 
 ::::{.columns}
 :::{.column width=40%}
-
 
 Pay attention to the region
 

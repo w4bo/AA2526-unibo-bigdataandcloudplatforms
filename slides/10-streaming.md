@@ -323,7 +323,6 @@ Costs
 - Priced by shard hour, data volume, and data retention period
 - Pay for resources you provision (even if not used)
 
-
 # Ingestion: stream
 
 | Feature | AWS Kinesis | Google Pub/Sub |

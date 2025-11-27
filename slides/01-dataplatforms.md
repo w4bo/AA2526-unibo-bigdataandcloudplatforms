@@ -615,7 +615,6 @@ The results of data profiling are _computationally heavy_ to discover
 
 **Complexity**: given a table with four columns $\{w, x, y, z\}$, how many groups of columns?
 
-
 | w | x | y | z |
 |:-: |:-: |:-: |:-: |
 | 1 | 1 | 2 | 2 |
@@ -659,7 +658,6 @@ Use cases
   - Prepare a cleansing process by revealing errors (e.g., in formatting), missing values, or outliers
 - _Data integration and analytics_
 
-
 # Data profiling: statistic query optimization
 
 ::::{.columns}
@@ -686,7 +684,6 @@ No need to access `R.a`, `min(R.a) >= 10`
 
 :::
 ::::
-
 
 # Data governance: data provenance
 

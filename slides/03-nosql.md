@@ -282,7 +282,6 @@ Graph databases usually model relationship-rich scenarios.
 | Find shortest path from A to B | `shortestPath((userA)-[:KNOWS*..5]-(userB))` |
 | What products were bought by users who purchased the same items? | `(u)-[:PURCHASED]->(p)<-[:PURCHASED]-()-[:PURCHASED]->(otherP)` |
 
-
 # Graph vs Aggregate modeling
 
 The graph data model is intrinsically different from the others.
@@ -901,7 +900,6 @@ It’s important to understand:
 - *What is the tolerance to obsolete reads*
 - *How large can the inconsistency window be*
 
-
 # Consistency in NoSQL: PACELC
 
 Evolution of the CAP theorem (less known, but more precise)
@@ -1093,7 +1091,6 @@ The *one-size-fits-all* solution...
 ... replaced by the *polyglot* solution
 
 ![Polyglot solution](img/slides92.png)
-
 
 # Service-oriented polyglot data management
 

@@ -174,7 +174,7 @@ How do we define the *schema similarity* (or distance)?
 :::
 ::::
 
-# Step 2: Jaccard Index (Similarity Measures)
+# Step 2.a: Jaccard Index (Similarity Measures)
 
 Measures **overlap of sets**: $J(Schema_A, Schema_B) = \frac{|Schema_A \cap Schema_B|}{|Schema_A \cup Schema_B|}$
 
@@ -188,7 +188,7 @@ Measures **overlap of sets**: $J(Schema_A, Schema_B) = \frac{|Schema_A \cap Sche
 
 What do you think about this solution?
 
-# Step 2: Jaccard Index (Similarity Measures)
+# Step 2.a: Jaccard Index (Similarity Measures)
 
 |                     |   countries.xlsx |   customers_part1.csv |   customers_part2.csv |   products_a.json |   products_b.json |   sales_part1.csv |
 |:--------------------|-----------------:|----------------------:|----------------------:|------------------:|------------------:|------------------:|
@@ -198,10 +198,9 @@ What do you think about this solution?
 | products_a.json     |                0 |                 0     |                 0     |          1        |         0.625     |         0.1       |
 | products_b.json     |                0 |                 0     |                 0     |          0.625    |         1         |         0.0769231 |
 
-
 ![Agglomerative Clustering](./img/data-gov/cluster_dendrogram.svg)
 
-# Step 2: Fuzzy Matching (Similarity Measures)
+# Step 2.b: Fuzzy Matching (Similarity Measures)
 
 Capture **spelling variations** in column names
 
@@ -217,7 +216,7 @@ Capture **spelling variations** in column names
 > - $|Schema_A \cup Schema_B| = |\{`id', `name', `email', `fullname'\}| = 4$
 > - $J_{fuz}(Schema_A, Schema_B) = \frac{2}{4} = 0.5$
 
-# Step 2: Clustering by Schema Similarity
+# Step 2.b: Clustering by Schema Similarity
 
 Compute the **Fuzzy Matching similarity** between files
 
@@ -243,19 +242,7 @@ Cluster 3:
 
 ...
 ```
-
-# Step 3: Merging
-
-Apply unified schema to all files in a cluster
-
-Concatenate into a **single governed dataset**
-
-- `Cluster1.csv` (merged data)
-- `Cluster1_schema.json` (mapping for transparency)
-
-# <img src="./img/cs.svg" class="title-icon" /> **Problems**?
-
-# Step 2.alt: Embeddings (Similarity Measures)
+# Step 2.c: Embeddings (Similarity Measures)
 
 Fuzzy Matching does not capture **semantic similarity** between column names
 
@@ -264,7 +251,7 @@ Fuzzy Matching does not capture **semantic similarity** between column names
 
 See the [demo](https://www.cs.cmu.edu/~dst/WordEmbeddingDemo/)
 
-# Step 2.alt: Embeddings (Similarity Measures)
+# Step 2.c: Embeddings (Similarity Measures)
 
 > ::::{.columns}
 > :::{.column width="50%"}
@@ -300,7 +287,7 @@ See the [demo](https://www.cs.cmu.edu/~dst/WordEmbeddingDemo/)
 > :::
 > ::::
 
-# Step 2.alt: Embeddings (Similarity Measures)
+# Step 2.c: Embeddings (Similarity Measures)
 
 |                            |   countries.xlsx |   customers_part1.csv |   customers_part2.csv |   products_a.json |   products_b.json |   sales_part1.csv |
 |:---------------------------|:----------------:|:---------------------:|:---------------------:|:-----------------:|:-----------------:|:-----------------:|
@@ -312,7 +299,15 @@ See the [demo](https://www.cs.cmu.edu/~dst/WordEmbeddingDemo/)
 
 ![Agglomerative Clustering](./img/data-gov/cluster_dendrogram-semantic.svg)
 
-# Step 3.alt: Merging
+# Step 3: Merging
+
+Apply unified schema to all files in a cluster
+
+Concatenate into a **single governed dataset**
+
+# <img src="./img/cs.svg" class="title-icon" /> **Problems**?
+
+# Step 3: Merging
 
 Within each cluster:
 

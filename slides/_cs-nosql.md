@@ -92,7 +92,6 @@ Difficult to store **heterogeneous metadata**:
 | 3         | `api_response`    | json      | 2000      | NULL            | NULL          | NULL           | NULL            | NULL             | `v2.1`              | `["users","metadata"]` | 2                  |
 </div>
 
-
 # Limitations of Relational Model
 
 Relationships (e.g., lineage chains) need complex joins:
@@ -266,7 +265,6 @@ Which activities generated the entity?
 
 :::
 ::::
-
 
 # Limitations of Document-based Model
 

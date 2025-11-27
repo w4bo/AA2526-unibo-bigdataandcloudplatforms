@@ -43,7 +43,6 @@ Assumptions
 :::
 ::::
 
-
 # [Data sources](https://docs.google.com/spreadsheets/d/17zEr62CzyqeIy0vU-DcjEUoxf6bMd3ziLSSeIXvk4Lg/edit?usp=sharing)
 
 *8 cameras on the field*, average image size 3MB; two services:

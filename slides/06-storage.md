@@ -49,7 +49,6 @@ What storage do we choose?
 
 # Storage models (AWS)
 
-
 |*Data structure*|*Data abstraction*|*Data access*|
 |:-:|:-:|:-:|
 |Semi/unstructured|Database|\*|
@@ -646,7 +645,6 @@ Once we have made several commits to the transaction log, Delta Lake saves a **c
 - Checkpoints store all the non-redundant actions in the table's log up to a certain log record ID, in Parquet format
 - Some sets of actions are redundant and can be removed
 - Read the *last checkpoint* object in the table's log directory, if it exists, to obtain a recent checkpoint ID
-
 
 :::
 :::{.column width=50%}
