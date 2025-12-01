@@ -1,3 +1,9 @@
+## [1.0.31](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.30...1.0.31) (2025-12-01)
+
+### Bug Fixes
+
+* refactoring refs ([28e1fd7](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/28e1fd7b7c6ae8e9586f4f38221e4a2a7e7238b2))
+
 ## [1.0.30](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.29...1.0.30) (2025-11-27)
 
 ### Bug Fixes
