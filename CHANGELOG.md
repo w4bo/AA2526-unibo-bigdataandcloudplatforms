@@ -1,3 +1,9 @@
+## [1.0.33](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.32...1.0.33) (2025-12-01)
+
+### Bug Fixes
+
+* removing unused images ([387afa1](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/387afa11a7b9909e0c7e0bfb0810518358b242f4))
+
 ## [1.0.32](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.31...1.0.32) (2025-12-01)
 
 ### Bug Fixes
