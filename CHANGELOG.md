@@ -1,3 +1,9 @@
+## [1.0.32](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.31...1.0.32) (2025-12-01)
+
+### Bug Fixes
+
+* refactoring css ([5bc81da](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/5bc81dab1d2637f5ead1520813437eecd57553d2))
+
 ## [1.0.31](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.30...1.0.31) (2025-12-01)
 
 ### Bug Fixes
