@@ -1094,7 +1094,7 @@ Data management is still a (research) issue in data platforms.
 **Is it a Lakehouse with another name?**
 
 - A Lakehouse is a part of the data platform, a layer that enables querying multiple data sources (with SQL/Spark) transparently by using some metadata (JSON) log
-- Still, you could get a data platform where such transparency is not mandatory or could be achieved by different techniques (e.g., multistore [@forresi2021dataspace])
+- Still, you could get a data platform where such transparency is not mandatory or could be achieved by different techniques (e.g., multistore [@DBLP:journals/vldb/ForresiGGH21])
 
 # Data platform {visibility="hidden"}
 
