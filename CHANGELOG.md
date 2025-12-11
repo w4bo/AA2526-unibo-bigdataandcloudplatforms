@@ -1,3 +1,25 @@
+## [1.0.35](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.34...1.0.35) (2025-12-11)
+
+### Dependency updates
+
+* **deps:** update dependency matplotlib to v3.10.8 ([#34](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/34)) ([c3e4fd7](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/c3e4fd75e707d74b7b9bf740f72c9eea4348f25b))
+* **deps:** update dependency pymongo to v4.15.5 ([#27](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/27)) ([9692e15](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/9692e15ada99f08174b0262a5e30dfe22af837bf))
+* **deps:** update dependency scikit-learn to v1.8.0 ([#31](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/31)) ([180640f](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/180640f491eaead0904026d2cb87f7132e57122d))
+* **deps:** update node.js to 24.12 ([#33](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/33)) ([42435a6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/42435a6d7a7eade5d8984ecfd690ad40a459a3ad))
+* **deps:** update slides/refs digest to 3658a41 ([#26](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/26)) ([8f92d2e](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/8f92d2e61fe7933332934e776ac27051005b7513))
+* **deps:** update slides/utils digest to aba8970 ([#25](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/25)) ([f309e54](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/f309e54cfbf2d63790c17f84e648dd302790a3b9))
+* **deps:** update slides/utils digest to c0b7a27 ([#30](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/30)) ([23b2937](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/23b293783fe7bf0449e5e32f067e02f59c7b27e6))
+* **deps:** update w4bo/quarto-slides docker tag to v1.0.27 ([#32](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/32)) ([3b51af3](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/3b51af3b0d3de8fe72dff5112a630dabe90cef78))
+
+### Bug Fixes
+
+* integrating shared utils ([#35](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/35)) ([cb48cf6](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/cb48cf6447e72e02231862dde1b0813d279d9172))
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-node action to v6.1.0 ([#28](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/28)) ([82535cc](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/82535cc54bd97113e4c65548cd3ecaa9483b0129))
+* **deps:** update jamesives/github-pages-deploy-action action to v4.7.6 ([#29](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/29)) ([a866ed8](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/a866ed8c5b8c9b47dce5f5b99770ce372d971277))
+
 ## [1.0.34](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.33...1.0.34) (2025-12-02)
 
 ### Bug Fixes
