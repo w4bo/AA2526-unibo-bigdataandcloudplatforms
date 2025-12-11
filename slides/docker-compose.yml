@@ -1,18 +1,1 @@
-services:
-  build:
-    init: true
-    image: w4bo/python:1.0.4
-    volumes:
-      - ./:/data
-    command: bash -c "cd /data && ./build.sh"
-
-  publish:
-    init: true
-    image: w4bo/quarto-slides:1.0.27
-    hostname: publish
-    container_name: publish
-    ports:
-      - "6780:6780"
-    volumes:
-      - ./:/data
-    command: ["/bin/bash", "/data/publish.sh"]
+utils/docker-compose.yml
