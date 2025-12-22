@@ -1,3 +1,17 @@
+## [1.0.36](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.35...1.0.36) (2025-12-22)
+
+### Dependency updates
+
+* **deps:** update dependency notebook to v7.5.1 ([#40](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/40)) ([62e44c7](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/62e44c70a6bbf9e24d3e0ac81b6a7e2abf84c3d1))
+* **deps:** update slides/utils digest to 76a0497 ([#39](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/39)) ([1c0e6bf](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/1c0e6bfb0d2f4e7b54f26b11a219efd6148ac6f6))
+* **deps:** update slides/utils digest to 787347f ([#41](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/41)) ([ae0169a](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/ae0169a5a71afe2a9a77e8c22297cdab35750781))
+* **deps:** update slides/utils digest to 7e90833 ([#36](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/36)) ([b9dd69b](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/b9dd69b3e0c8c96499d07d5bcf522b8b7376d775))
+* **deps:** update slides/utils digest to c722254 ([#38](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/issues/38)) ([b7aa22f](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/b7aa22f32ec4f91813d158206c2908cf74e883b5))
+
+### Bug Fixes
+
+* merge feat-build ([d1071dd](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/commit/d1071ddcc97ba3eb1f0a55246ef9883f8e61ec93))
+
 ## [1.0.35](https://github.com/w4bo/AA2526-unibo-bigdataandcloudplatforms/compare/1.0.34...1.0.35) (2025-12-11)
 
 ### Dependency updates
