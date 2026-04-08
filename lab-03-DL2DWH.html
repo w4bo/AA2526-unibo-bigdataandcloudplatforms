@@ -224,27 +224,25 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div class="ansi-escaped-output">
 <pre>Collecting awswrangler
 
-  Downloading awswrangler-3.15.1-py3-none-any.whl.metadata (16 kB)
+  Downloading awswrangler-3.16.0-py3-none-any.whl.metadata (17 kB)
 
 Collecting boto3&lt;2,&gt;=1.20.32 (from awswrangler)
 
-  Downloading boto3-1.42.80-py3-none-any.whl.metadata (6.7 kB)
+  Downloading boto3-1.42.85-py3-none-any.whl.metadata (6.7 kB)
 
 Collecting botocore&lt;2,&gt;=1.23.32 (from awswrangler)
 
-  Downloading botocore-1.42.80-py3-none-any.whl.metadata (5.9 kB)
+  Downloading botocore-1.42.85-py3-none-any.whl.metadata (5.9 kB)
 
 Requirement already satisfied: numpy&lt;3.0,&gt;=1.26 in /usr/local/lib/python3.14/site-packages (from awswrangler) (2.4.2)
 
 Requirement already satisfied: packaging&lt;27.0,&gt;=21.1 in /usr/local/lib/python3.14/site-packages (from awswrangler) (25.0)
 
-Collecting pandas&lt;3.0.0,&gt;=1.2.0 (from awswrangler)
+Requirement already satisfied: pandas&lt;4.0.0,&gt;=1.2.0 in /usr/local/lib/python3.14/site-packages (from awswrangler) (3.0.1)
 
-  Downloading pandas-2.3.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)
+Collecting pyarrow&lt;24.0.0,&gt;=8.0.0 (from awswrangler)
 
-Collecting pyarrow&lt;23.0.0,&gt;=8.0.0 (from awswrangler)
-
-  Downloading pyarrow-22.0.0-cp314-cp314-manylinux_2_28_x86_64.whl.metadata (3.2 kB)
+  Downloading pyarrow-23.0.1-cp314-cp314-manylinux_2_28_x86_64.whl.metadata (3.1 kB)
 
 Requirement already satisfied: setuptools in /usr/local/lib/python3.14/site-packages (from awswrangler) (81.0.0)
 
@@ -262,159 +260,70 @@ Requirement already satisfied: python-dateutil&lt;3.0.0,&gt;=2.1 in /usr/local/l
 
 Requirement already satisfied: urllib3!=2.2.0,&lt;3,&gt;=1.25.4 in /usr/local/lib/python3.14/site-packages (from botocore&lt;2,&gt;=1.23.32-&gt;awswrangler) (2.6.3)
 
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.14/site-packages (from pandas&lt;3.0.0,&gt;=1.2.0-&gt;awswrangler) (2026.1.post1)
-
-Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.14/site-packages (from pandas&lt;3.0.0,&gt;=1.2.0-&gt;awswrangler) (2025.3)
-
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.14/site-packages (from python-dateutil&lt;3.0.0,&gt;=2.1-&gt;botocore&lt;2,&gt;=1.23.32-&gt;awswrangler) (1.17.0)
 
-Downloading awswrangler-3.15.1-py3-none-any.whl (373 kB)
+Downloading awswrangler-3.16.0-py3-none-any.whl (381 kB)
 
-Downloading boto3-1.42.80-py3-none-any.whl (140 kB)
+Downloading boto3-1.42.85-py3-none-any.whl (140 kB)
 
-Downloading botocore-1.42.80-py3-none-any.whl (14.8 MB)
+Downloading botocore-1.42.85-py3-none-any.whl (14.8 MB)
 
    <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0.0/14.8 MB</span> <span class="ansi-red-fg">?</span> eta <span class="ansi-cyan-fg">-:--:--</span>
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">14.8/14.8 MB</span> <span class="ansi-red-fg">265.8 MB/s</span>  <span class="ansi-yellow-fg">0:00:00</span>
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">14.8/14.8 MB</span> <span class="ansi-red-fg">308.5 MB/s</span>  <span class="ansi-yellow-fg">0:00:00</span>
 
 Downloading jmespath-1.1.0-py3-none-any.whl (20 kB)
 
-Downloading pandas-2.3.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.3 MB)
+Downloading pyarrow-23.0.1-cp314-cp314-manylinux_2_28_x86_64.whl (47.6 MB)
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0.0/12.3 MB</span> <span class="ansi-red-fg">?</span> eta <span class="ansi-cyan-fg">-:--:--</span>
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0.0/47.6 MB</span> <span class="ansi-red-fg">?</span> eta <span class="ansi-cyan-fg">-:--:--</span>
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">12.3/12.3 MB</span> <span class="ansi-red-fg">292.3 MB/s</span>  <span class="ansi-yellow-fg">0:00:00</span>
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">47.6/47.6 MB</span> <span class="ansi-red-fg">240.3 MB/s</span>  <span class="ansi-yellow-fg">0:00:00</span>
 
-Downloading pyarrow-22.0.0-cp314-cp314-manylinux_2_28_x86_64.whl (47.7 MB)
-
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0.0/47.7 MB</span> <span class="ansi-red-fg">?</span> eta <span class="ansi-cyan-fg">-:--:--</span>
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━</span><span class="ansi-bright-red-fg">╸</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">17.8/47.7 MB</span> <span class="ansi-red-fg">91.4 MB/s</span> eta <span class="ansi-cyan-fg">0:00:01</span>
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━</span> <span class="ansi-green-fg">43.0/47.7 MB</span> <span class="ansi-red-fg">107.5 MB/s</span> eta <span class="ansi-cyan-fg">0:00:01</span>
-
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">47.7/47.7 MB</span> <span class="ansi-red-fg">100.8 MB/s</span>  <span class="ansi-yellow-fg">0:00:00</span>
 
 Downloading s3transfer-0.16.0-py3-none-any.whl (86 kB)
 
-Installing collected packages: pyarrow, jmespath, pandas, botocore, s3transfer, boto3, awswrangler
+Installing collected packages: pyarrow, jmespath, botocore, s3transfer, boto3, awswrangler
 
 
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/7</span> [pyarrow]
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/6</span> [pyarrow]
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/7</span> [pyarrow]
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/6</span> [pyarrow]
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/7</span> [pyarrow]
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/6</span> [pyarrow]
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/7</span> [pyarrow]
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/6</span> [pyarrow]
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/7</span> [pyarrow]
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/6</span> [pyarrow]
 
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/7</span> [pyarrow]
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0/6</span> [pyarrow]
 
-   <span class="ansi-bright-red-fg">━━━━━</span><span class="ansi-bright-red-fg">╸</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1/7</span> [jmespath]
-  Attempting uninstall: pandas
+   <span class="ansi-bright-red-fg">━━━━━━</span><span class="ansi-bright-red-fg">╸</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1/6</span> [jmespath]
 
-   <span class="ansi-bright-red-fg">━━━━━</span><span class="ansi-bright-red-fg">╸</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1/7</span> [jmespath]
-    Found existing installation: pandas 3.0.1
+   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/6</span> [botocore]
 
-   <span class="ansi-bright-red-fg">━━━━━</span><span class="ansi-bright-red-fg">╸</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1/7</span> [jmespath]
+   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/6</span> [botocore]
 
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-    Uninstalling pandas-3.0.1:
+   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/6</span> [botocore]
 
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-      Successfully uninstalled pandas-3.0.1
+   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-red-fg">╸</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━</span> <span class="ansi-green-fg">4/6</span> [boto3]
 
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
+   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━</span> <span class="ansi-green-fg">5/6</span> [awswrangler]
 
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/7</span> [pandas]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">3/7</span> [botocore]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">3/7</span> [botocore]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">3/7</span> [botocore]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">3/7</span> [botocore]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━</span> <span class="ansi-green-fg">6/7</span> [awswrangler]
-
-   <span class="ansi-bright-red-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><span class="ansi-bright-black-fg">╺</span><span class="ansi-bright-black-fg">━━━━━</span> <span class="ansi-green-fg">6/7</span> [awswrangler]
-
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">7/7</span> [awswrangler]
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">6/6</span> [awswrangler]
 
 
-Successfully installed awswrangler-3.15.1 boto3-1.42.80 botocore-1.42.80 jmespath-1.1.0 pandas-2.3.3 pyarrow-22.0.0 s3transfer-0.16.0
+Successfully installed awswrangler-3.16.0 boto3-1.42.85 botocore-1.42.85 jmespath-1.1.0 pyarrow-23.0.1 s3transfer-0.16.0
 
 <span class="ansi-yellow-fg">WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.</span><span class="ansi-yellow-fg">
 
 </span>
-Requirement already satisfied: pandas in /usr/local/lib/python3.14/site-packages (2.3.3)
+Requirement already satisfied: pandas in /usr/local/lib/python3.14/site-packages (3.0.1)
 
-Requirement already satisfied: numpy&gt;=1.26.0 in /usr/local/lib/python3.14/site-packages (from pandas) (2.4.2)
+Requirement already satisfied: numpy&gt;=2.3.3 in /usr/local/lib/python3.14/site-packages (from pandas) (2.4.2)
 
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.14/site-packages (from pandas) (2.9.0.post0)
-
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.14/site-packages (from pandas) (2026.1.post1)
-
-Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.14/site-packages (from pandas) (2025.3)
 
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.14/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
 
@@ -429,7 +338,8 @@ Collecting sklearn
  \
  | done
 
-  Getting requirements to build wheel ... - error
+  Getting requirements to build wheel ... -
+ error
 
   <span class="ansi-red-fg ansi-bold">error</span>: <span class="ansi-bold">subprocess-exited-with-error</span>
 
@@ -480,7 +390,6 @@ Collecting sklearn
 <span class="ansi-red-fg">ERROR: Failed to build 'sklearn' when getting requirements to build wheel</span><span class="ansi-red-fg">
 
 </span>
-
 Requirement already satisfied: prov in /usr/local/lib/python3.14/site-packages (2.1.1)
 
 Requirement already satisfied: networkx&gt;=2.0 in /usr/local/lib/python3.14/site-packages (from prov) (3.6.1)
@@ -500,7 +409,7 @@ Requirement already satisfied: seaborn in /usr/local/lib/python3.14/site-package
 
 Requirement already satisfied: numpy!=1.24.0,&gt;=1.20 in /usr/local/lib/python3.14/site-packages (from seaborn) (2.4.2)
 
-Requirement already satisfied: pandas&gt;=1.2 in /usr/local/lib/python3.14/site-packages (from seaborn) (2.3.3)
+Requirement already satisfied: pandas&gt;=1.2 in /usr/local/lib/python3.14/site-packages (from seaborn) (3.0.1)
 
 Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in /usr/local/lib/python3.14/site-packages (from seaborn) (3.10.8)
 
@@ -519,10 +428,6 @@ Requirement already satisfied: pillow&gt;=8 in /usr/local/lib/python3.14/site-pa
 Requirement already satisfied: pyparsing&gt;=3 in /usr/local/lib/python3.14/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.3.2)
 
 Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.14/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (2.9.0.post0)
-
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.14/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2026.1.post1)
-
-Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.14/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.3)
 
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.14/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.17.0)
 
@@ -612,7 +517,7 @@ Successfully installed graphviz-0.21
 <li>See <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html</a></li>
 </ul></li>
 </ul>
-<div id="1420f887" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-04-01T01:20:38.457390Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-04-01T01:20:38.457218Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-04-01T01:20:38.460031Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-04-01T01:20:38.459250Z&quot;}}" data-execution_count="4">
+<div id="1420f887" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-04-08T20:17:45.945179Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-04-08T20:17:45.944981Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-04-08T20:17:45.947821Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-04-08T20:17:45.946979Z&quot;}}" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># </span><span class="al">TODO</span></span></code></pre></div>
@@ -734,7 +639,7 @@ Successfully installed graphviz-0.21
 <span id="cb6-19"><a href=""></a>    <span class="cf">return</span> Image(<span class="st">'prov.png'</span>)</span></code></pre></div>
 </details>
 </div>
-<div id="5ea20bb7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-04-01T01:20:38.734340Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-04-01T01:20:38.733989Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-04-01T01:20:38.747365Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-04-01T01:20:38.746600Z&quot;}}" data-execution_count="7">
+<div id="5ea20bb7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-04-08T20:17:46.223393Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-04-08T20:17:46.222872Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-04-08T20:17:46.236575Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-04-08T20:17:46.235691Z&quot;}}" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>plot()</span></code></pre></div>
