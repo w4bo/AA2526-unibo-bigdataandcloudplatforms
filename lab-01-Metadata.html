@@ -230,7 +230,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="setup-library-versioning" class="title-slide slide level1 center">
 <h1>Setup (&amp; library versioning)</h1>
 <p>First of all, we need to setup the Python environment by installing and importing the necessary Python dependencies.</p>
-<div id="cell-3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:30.741213Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:30.741022Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:37.132453Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:37.131599Z&quot;}}" data-outputid="cfb85ad7-1e21-4806-e457-682013a988b5" data-execution_count="1">
+<div id="cell-3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:33.130997Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:33.130749Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:39.766170Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:39.765253Z&quot;}}" data-outputid="cfb85ad7-1e21-4806-e457-682013a988b5" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="op">!</span>pip install prov pydot</span>
@@ -261,7 +261,7 @@ Requirement already satisfied: pyparsing&gt;=3.1.0 in /usr/local/lib/python3.14/
 Downloading prov-3.0.0-py3-none-any.whl (648 kB)
 
    <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">0.0/648.5 kB</span> <span class="ansi-red-fg">?</span> eta <span class="ansi-cyan-fg">-:--:--</span>
-   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">648.5/648.5 kB</span> <span class="ansi-red-fg">49.5 MB/s</span>  <span class="ansi-yellow-fg">0:00:00</span>
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">648.5/648.5 kB</span> <span class="ansi-red-fg">45.1 MB/s</span>  <span class="ansi-yellow-fg">0:00:00</span>
 
 Downloading pydot-4.0.1-py3-none-any.whl (37 kB)
 
@@ -274,7 +274,6 @@ Installing collected packages: pydot, prov
    <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/2</span> [prov]
 
 
-
 Successfully installed prov-3.0.0 pydot-4.0.1
 
 <span class="ansi-yellow-fg">WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.</span><span class="ansi-yellow-fg">
@@ -282,7 +281,7 @@ Successfully installed prov-3.0.0 pydot-4.0.1
 </span>
 
 
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">26.0.1</span> -&gt; <span class="ansi-green-fg">26.1.2</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">26.0.1</span> -&gt; <span class="ansi-green-fg">26.2</span>
 
 <span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">pip install --upgrade pip</span>
 
@@ -305,7 +304,7 @@ Successfully installed prov-3.0.0 pydot-4.0.1
 <section id="data-collection" class="title-slide slide level1 center">
 <h1>Data collection</h1>
 <p>Import the dataset. In this case, there is no need for ETL/integration since the dataset is ready for elaboration.</p>
-<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:37.135067Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:37.134715Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:37.290052Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:37.289453Z&quot;}}" data-outputid="f35e6b70-3545-446e-ce67-d62f2f81fb4b" data-execution_count="2">
+<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:39.768210Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:39.767923Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:39.912383Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:39.911578Z&quot;}}" data-outputid="f35e6b70-3545-446e-ce67-d62f2f81fb4b" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://w4bo.github.io/AA2324-unibo-bigdataandcloudplatforms/housing.csv"</span>)</span>
@@ -498,7 +497,7 @@ Successfully installed prov-3.0.0 pydot-4.0.1
 
 <section id="profiling-schema" class="title-slide slide level1 center">
 <h1>Profiling: Schema</h1>
-<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:37.292413Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:37.292219Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:37.296496Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:37.295694Z&quot;}}" data-execution_count="3">
+<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:39.914250Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:39.914047Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:39.918322Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:39.917425Z&quot;}}" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>df.columns</span></code></pre></div>
@@ -527,7 +526,7 @@ Successfully installed prov-3.0.0 pydot-4.0.1
 
 <section id="profiling-schema-1" class="title-slide slide level1 center">
 <h1>Profiling: Schema</h1>
-<div id="cell-11" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:37.298220Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:37.298054Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:37.306160Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:37.305471Z&quot;}}" data-outputid="ba0c0411-41df-44ff-9a89-4ecfcd40077c" data-execution_count="4">
+<div id="cell-11" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:39.919969Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:39.919801Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:39.927563Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:39.926804Z&quot;}}" data-outputid="ba0c0411-41df-44ff-9a89-4ecfcd40077c" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>df.info()</span></code></pre></div>
@@ -556,7 +555,7 @@ memory usage: 1.6 MB</code></pre>
 
 <section id="profiling-distribution-and-statistics" class="title-slide slide level1 center">
 <h1>Profiling: Distribution and statistics</h1>
-<div id="cell-13" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:37.307951Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:37.307783Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:37.334960Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:37.334129Z&quot;}}" data-outputid="c70f48cf-1080-487a-922e-488b3252f5dd" data-execution_count="5">
+<div id="cell-13" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:39.929320Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:39.929151Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:39.957614Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:39.956755Z&quot;}}" data-outputid="c70f48cf-1080-487a-922e-488b3252f5dd" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>df.describe(include<span class="op">=</span><span class="st">'all'</span>)</span></code></pre></div>
@@ -747,7 +746,7 @@ memory usage: 1.6 MB</code></pre>
 
 <section id="profiling-distribution" class="title-slide slide level1 center">
 <h1>Profiling: Distribution</h1>
-<div id="cell-15" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:37.337138Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:37.336959Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:38.173219Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:38.172420Z&quot;}}" data-outputid="3850aafe-7d6f-4c20-a0a9-e404780b524c" data-execution_count="6">
+<div id="cell-15" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:39.959282Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:39.959112Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:40.944025Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:40.942973Z&quot;}}" data-outputid="3850aafe-7d6f-4c20-a0a9-e404780b524c" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -760,7 +759,7 @@ memory usage: 1.6 MB</code></pre>
 
 <section id="profiling-are-there-relationships-between-variables" class="title-slide slide level1 center">
 <h1>Profiling: are there relationships between variables?</h1>
-<div id="cell-17" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:38.175300Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:38.175112Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:41.155103Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:41.154243Z&quot;}}" data-outputid="04297e5d-6e1d-4b41-9964-05fdb55cf746" data-execution_count="7">
+<div id="cell-17" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:40.945905Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:40.945723Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:44.240746Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:44.239800Z&quot;}}" data-outputid="04297e5d-6e1d-4b41-9964-05fdb55cf746" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>tmp <span class="op">=</span> df[[<span class="st">"median_income"</span>, <span class="st">"housing_median_age"</span>, <span class="st">"median_house_value"</span>, <span class="st">"households"</span>, <span class="st">"population"</span>, <span class="st">"total_rooms"</span>]]</span>
@@ -774,7 +773,7 @@ memory usage: 1.6 MB</code></pre>
 <section id="compression-memory-usage" class="title-slide slide level1 center">
 <h1>Compression: Memory usage</h1>
 <p>What if I change float64 to float32?</p>
-<div id="cell-19" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:41.160288Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:41.160073Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:41.171430Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:41.170568Z&quot;}}" data-outputid="2ab1a8d0-f625-43f6-9133-13cde54fcc4a" data-execution_count="8">
+<div id="cell-19" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:44.245157Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:44.244962Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:44.256886Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:44.256084Z&quot;}}" data-outputid="2ab1a8d0-f625-43f6-9133-13cde54fcc4a" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>dff <span class="op">=</span> df.copy(deep<span class="op">=</span><span class="va">True</span>) <span class="co"># copy the dataframe</span></span>
@@ -807,7 +806,7 @@ memory usage: 887.0 KB</code></pre>
 <section id="compression-memory-usage-1" class="title-slide slide level1 center">
 <h1>Compression: Memory usage</h1>
 <p>What if I change float64 to float16?</p>
-<div id="cell-21" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:41.173255Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:41.173072Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:41.186626Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:41.185764Z&quot;}}" data-execution_count="9">
+<div id="cell-21" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:44.259203Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:44.258866Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:44.272963Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:44.272008Z&quot;}}" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>dff <span class="op">=</span> df.copy(deep<span class="op">=</span><span class="va">True</span>) <span class="co"># copy the dataframe</span></span>
@@ -839,7 +838,7 @@ memory usage: 524.2 KB</code></pre>
 
 <section id="section" class="title-slide slide level1 center">
 <h1></h1>
-<div id="cell-23" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:41.188659Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:41.188468Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:41.219337Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:41.218497Z&quot;}}" data-execution_count="10">
+<div id="cell-23" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:44.274801Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:44.274616Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:44.306363Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:44.305494Z&quot;}}" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>dff.describe()</span></code></pre></div>
@@ -1032,7 +1031,7 @@ memory usage: 524.2 KB</code></pre>
 
 <section id="alternative-pre-processing-pipelines" class="title-slide slide level1 center">
 <h1>Alternative pre-processing pipelines</h1>
-<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:41.221407Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:41.221215Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:41.241493Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:41.240707Z&quot;}}" data-execution_count="11">
+<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:44.308406Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:44.308221Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:44.329062Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:44.327972Z&quot;}}" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
@@ -1060,7 +1059,7 @@ memory usage: 524.2 KB</code></pre>
 
 <section id="alternative-machine-learning-algorithms" class="title-slide slide level1 center">
 <h1>Alternative machine learning algorithms</h1>
-<div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:41.243642Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:41.243447Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:41.320755Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:41.319987Z&quot;}}" data-execution_count="12">
+<div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:44.330990Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:44.330795Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:44.408602Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:44.407773Z&quot;}}" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="co"># Let's import some machine learning models (here we are not addressing hyper-parameter tuning)</span></span>
@@ -1078,7 +1077,7 @@ memory usage: 524.2 KB</code></pre>
 <section id="train-the-models" class="title-slide slide level1 center">
 <h1>Train the models</h1>
 <p>What are the insights?</p>
-<div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:41.323207Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:41.323029Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:44.376505Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:44.375652Z&quot;}}" data-outputid="3940b1a7-1d26-40a6-e423-203e3c7cd50f" data-execution_count="13">
+<div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:44.410874Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:44.410696Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:47.240124Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:47.239156Z&quot;}}" data-outputid="3940b1a7-1d26-40a6-e423-203e3c7cd50f" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
@@ -1108,7 +1107,7 @@ memory usage: 524.2 KB</code></pre>
 
 <section id="creating-and-plotting-the-provenance-graph" class="title-slide slide level1 center">
 <h1>Creating and plotting the provenance graph</h1>
-<div id="cell-38" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:49.112309Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:49.112110Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:49.353496Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:49.352507Z&quot;}}" data-outputid="bbd3f2da-7d24-47b0-b152-1bfce6166bd4" data-execution_count="15">
+<div id="cell-38" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:51.621101Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:51.620899Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:51.880482Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:51.879487Z&quot;}}" data-outputid="bbd3f2da-7d24-47b0-b152-1bfce6166bd4" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="im">from</span> prov.model <span class="im">import</span> ProvDocument</span>
@@ -1138,7 +1137,7 @@ memory usage: 524.2 KB</code></pre>
 
 <section id="can-you-build-and-track-a-better-model" class="title-slide slide level1 center">
 <h1>Can you build and track a better model?</h1>
-<div id="cell-40" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-28T01:00:49.356384Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-28T01:00:49.355720Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-28T01:00:49.359100Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-28T01:00:49.358200Z&quot;}}" data-execution_count="16">
+<div id="cell-40" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-07-31T17:58:51.883048Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-07-31T17:58:51.882421Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-07-31T17:58:51.886558Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-07-31T17:58:51.885704Z&quot;}}" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co"># Try your sk-learn model here</span></span></code></pre></div>
