@@ -5,8 +5,8 @@
 <script src="lab-03-DL2DWH.solution_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lab-03-DL2DWH.solution_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lab-03-DL2DWH.solution_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lab-03-DL2DWH.solution_files/libs/quarto-html/quarto-syntax-highlighting-cdaacfc258cb6f151192107f105ac881.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.12">
+<link href="lab-03-DL2DWH.solution_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Matteo Francia   DISI — University of Bologna   m.francia@unibo.it">
   <title>DL2DWH Lab</title>
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="lab-03-DL2DWH.solution_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="lab-03-DL2DWH.solution_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -94,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lab-03-DL2DWH.solution_files/libs/revealjs/dist/theme/quarto-872a8a23ddcbbde76b8aafaa8fe61ee1.css">
+  <link rel="stylesheet" href="lab-03-DL2DWH.solution_files/libs/revealjs/dist/theme/quarto-3aff54e5f0c64c9f44dab45420b5f30d.css">
   <link href="lab-03-DL2DWH.solution_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lab-03-DL2DWH.solution_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lab-03-DL2DWH.solution_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -197,7 +203,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it 
+Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div>
 </div>
 </div>
@@ -210,24 +216,24 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div id="c62c8a60" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;skip&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="op">!</span>pip install awswrangler</span>
-<span id="cb1-2"><a href=""></a><span class="op">!</span>pip install pandas</span>
-<span id="cb1-3"><a href=""></a><span class="op">!</span>pip install sklearn</span>
-<span id="cb1-4"><a href=""></a><span class="op">!</span>pip install prov</span>
-<span id="cb1-5"><a href=""></a><span class="op">!</span>pip install seaborn</span>
-<span id="cb1-6"><a href=""></a><span class="op">!</span>pip install pydot</span>
-<span id="cb1-7"><a href=""></a><span class="op">!</span>pip install graphviz</span>
-<span id="cb1-8"><a href=""></a><span class="im">import</span> warnings</span>
-<span id="cb1-9"><a href=""></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a><span class="op">!</span>pip install awswrangler</span>
+<span id="cb1-2"><a href="" aria-label="2"></a><span class="op">!</span>pip install pandas</span>
+<span id="cb1-3"><a href="" aria-label="3"></a><span class="op">!</span>pip install sklearn</span>
+<span id="cb1-4"><a href="" aria-label="4"></a><span class="op">!</span>pip install prov</span>
+<span id="cb1-5"><a href="" aria-label="5"></a><span class="op">!</span>pip install seaborn</span>
+<span id="cb1-6"><a href="" aria-label="6"></a><span class="op">!</span>pip install pydot</span>
+<span id="cb1-7"><a href="" aria-label="7"></a><span class="op">!</span>pip install graphviz</span>
+<span id="cb1-8"><a href="" aria-label="8"></a><span class="im">import</span> warnings</span>
+<span id="cb1-9"><a href="" aria-label="9"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code></pre></div>
 </details>
 </div>
 <div id="0927b305" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;slide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href=""></a><span class="im">import</span> awswrangler <span class="im">as</span> wr</span>
-<span id="cb2-3"><a href=""></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-4"><a href=""></a><span class="im">import</span> prov</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="" aria-label="2"></a><span class="im">import</span> awswrangler <span class="im">as</span> wr</span>
+<span id="cb2-3"><a href="" aria-label="3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-4"><a href="" aria-label="4"></a><span class="im">import</span> prov</span></code></pre></div>
 </details>
 </div>
 </section>
@@ -236,64 +242,64 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div id="9ff64bba" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># get the raw data</span></span>
-<span id="cb3-2"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'http://big.csr.unibo.it/projects/nosql-datasets/sales_fact_1997.orig.csv'</span>)</span>
-<span id="cb3-3"><a href=""></a>df</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a><span class="co"># get the raw data</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'http://big.csr.unibo.it/projects/nosql-datasets/sales_fact_1997.orig.csv'</span>)</span>
+<span id="cb3-3"><a href="" aria-label="3"></a>df</span></code></pre></div>
 </details>
 </div>
 <div id="575f29b7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># take a look at the columns</span></span>
-<span id="cb4-2"><a href=""></a>df.info()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-label="1"></a><span class="co"># take a look at the columns</span></span>
+<span id="cb4-2"><a href="" aria-label="2"></a>df.info()</span></code></pre></div>
 </details>
 </div>
 <div id="b813dadb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># select a subset of columns</span></span>
-<span id="cb5-2"><a href=""></a>columns <span class="op">=</span> [</span>
-<span id="cb5-3"><a href=""></a>    <span class="st">"C. City"</span>, <span class="st">"C. Country"</span>, <span class="st">"C. State"</span>, <span class="st">"Customer (Location)"</span>, <span class="st">"Yearly Income"</span>,</span>
-<span id="cb5-4"><a href=""></a>    <span class="st">"Category"</span>, <span class="st">"Subcategory"</span>, <span class="st">"Family"</span>, <span class="st">"Product (Category)"</span>,</span>
-<span id="cb5-5"><a href=""></a>    <span class="st">"S. City"</span>, <span class="st">"S. Country"</span>, <span class="st">"S. State"</span>, <span class="st">"Store"</span>, <span class="st">"Type"</span>,</span>
-<span id="cb5-6"><a href=""></a>    <span class="st">"Sales Date"</span></span>
-<span id="cb5-7"><a href=""></a>]</span>
-<span id="cb5-8"><a href=""></a>df <span class="op">=</span> df[columns <span class="op">+</span> [<span class="st">"Store Cost"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Unit Sales"</span>]].groupby(columns).first().reset_index()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a><span class="co"># select a subset of columns</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a>columns <span class="op">=</span> [</span>
+<span id="cb5-3"><a href="" aria-label="3"></a>    <span class="st">"C. City"</span>, <span class="st">"C. Country"</span>, <span class="st">"C. State"</span>, <span class="st">"Customer (Location)"</span>, <span class="st">"Yearly Income"</span>,</span>
+<span id="cb5-4"><a href="" aria-label="4"></a>    <span class="st">"Category"</span>, <span class="st">"Subcategory"</span>, <span class="st">"Family"</span>, <span class="st">"Product (Category)"</span>,</span>
+<span id="cb5-5"><a href="" aria-label="5"></a>    <span class="st">"S. City"</span>, <span class="st">"S. Country"</span>, <span class="st">"S. State"</span>, <span class="st">"Store"</span>, <span class="st">"Type"</span>,</span>
+<span id="cb5-6"><a href="" aria-label="6"></a>    <span class="st">"Sales Date"</span></span>
+<span id="cb5-7"><a href="" aria-label="7"></a>]</span>
+<span id="cb5-8"><a href="" aria-label="8"></a>df <span class="op">=</span> df[columns <span class="op">+</span> [<span class="st">"Store Cost"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Unit Sales"</span>]].groupby(columns).first().reset_index()</span></code></pre></div>
 </details>
 </div>
 <div id="1f614399" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># rename some columns</span></span>
-<span id="cb6-2"><a href=""></a><span class="cf">if</span> <span class="st">"Customer (Location)"</span> <span class="kw">in</span> df.columns:</span>
-<span id="cb6-3"><a href=""></a>    df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
-<span id="cb6-4"><a href=""></a>        <span class="st">'Customer (Location)'</span>: <span class="st">'Customer'</span>,</span>
-<span id="cb6-5"><a href=""></a>        <span class="st">'Product (Category)'</span>: <span class="st">'Product'</span></span>
-<span id="cb6-6"><a href=""></a>    })</span>
-<span id="cb6-7"><a href=""></a>df</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-label="1"></a><span class="co"># rename some columns</span></span>
+<span id="cb6-2"><a href="" aria-label="2"></a><span class="cf">if</span> <span class="st">"Customer (Location)"</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb6-3"><a href="" aria-label="3"></a>    df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
+<span id="cb6-4"><a href="" aria-label="4"></a>        <span class="st">'Customer (Location)'</span>: <span class="st">'Customer'</span>,</span>
+<span id="cb6-5"><a href="" aria-label="5"></a>        <span class="st">'Product (Category)'</span>: <span class="st">'Product'</span></span>
+<span id="cb6-6"><a href="" aria-label="6"></a>    })</span>
+<span id="cb6-7"><a href="" aria-label="7"></a>df</span></code></pre></div>
 </details>
 </div>
 <div id="be4bdcda" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;skip&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="kw">def</span> csv_download_link(df, csv_file_name, delete_prompt<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb7-2"><a href=""></a>    <span class="co">"""Display a download link to load a data frame as csv from within a Jupyter notebook"""</span></span>
-<span id="cb7-3"><a href=""></a>    df.to_csv(csv_file_name, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-4"><a href=""></a>    <span class="im">from</span> IPython.display <span class="im">import</span> FileLink</span>
-<span id="cb7-5"><a href=""></a>    display(FileLink(csv_file_name))</span>
-<span id="cb7-6"><a href=""></a>    <span class="cf">if</span> delete_prompt:</span>
-<span id="cb7-7"><a href=""></a>        a <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Press enter to delete the file after you have downloaded it.'</span>)</span>
-<span id="cb7-8"><a href=""></a>        <span class="im">import</span> os</span>
-<span id="cb7-9"><a href=""></a>        os.remove(csv_file_name)</span>
-<span id="cb7-10"><a href=""></a></span>
-<span id="cb7-11"><a href=""></a><span class="kw">def</span> download_slice(fr, to, bins):</span>
-<span id="cb7-12"><a href=""></a>    l <span class="op">=</span> <span class="bu">int</span>(df.shape[<span class="dv">0</span>] <span class="op">/</span> bins)</span>
-<span id="cb7-13"><a href=""></a>    csv_download_link(df[fr <span class="op">*</span> l: to <span class="op">*</span> l], <span class="st">'slice-</span><span class="sc">{}</span><span class="st">-</span><span class="sc">{}</span><span class="st">.csv'</span>.<span class="bu">format</span>(fr, to), delete_prompt<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-14"><a href=""></a></span>
-<span id="cb7-15"><a href=""></a>bins <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb7-16"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, bins <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb7-17"><a href=""></a>    download_slice(i <span class="op">-</span> <span class="dv">1</span>, i, bins)</span>
-<span id="cb7-18"><a href=""></a>    </span></code></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-label="1"></a><span class="kw">def</span> csv_download_link(df, csv_file_name, delete_prompt<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb7-2"><a href="" aria-label="2"></a>    <span class="co">"""Display a download link to load a data frame as csv from within a Jupyter notebook"""</span></span>
+<span id="cb7-3"><a href="" aria-label="3"></a>    df.to_csv(csv_file_name, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>    <span class="im">from</span> IPython.display <span class="im">import</span> FileLink</span>
+<span id="cb7-5"><a href="" aria-label="5"></a>    display(FileLink(csv_file_name))</span>
+<span id="cb7-6"><a href="" aria-label="6"></a>    <span class="cf">if</span> delete_prompt:</span>
+<span id="cb7-7"><a href="" aria-label="7"></a>        a <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Press enter to delete the file after you have downloaded it.'</span>)</span>
+<span id="cb7-8"><a href="" aria-label="8"></a>        <span class="im">import</span> os</span>
+<span id="cb7-9"><a href="" aria-label="9"></a>        os.remove(csv_file_name)</span>
+<span id="cb7-10"><a href="" aria-label="10"></a></span>
+<span id="cb7-11"><a href="" aria-label="11"></a><span class="kw">def</span> download_slice(fr, to, bins):</span>
+<span id="cb7-12"><a href="" aria-label="12"></a>    l <span class="op">=</span> <span class="bu">int</span>(df.shape[<span class="dv">0</span>] <span class="op">/</span> bins)</span>
+<span id="cb7-13"><a href="" aria-label="13"></a>    csv_download_link(df[fr <span class="op">*</span> l: to <span class="op">*</span> l], <span class="st">'slice-</span><span class="sc">{}</span><span class="st">-</span><span class="sc">{}</span><span class="st">.csv'</span>.<span class="bu">format</span>(fr, to), delete_prompt<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-14"><a href="" aria-label="14"></a></span>
+<span id="cb7-15"><a href="" aria-label="15"></a>bins <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb7-16"><a href="" aria-label="16"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, bins <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb7-17"><a href="" aria-label="17"></a>    download_slice(i <span class="op">-</span> <span class="dv">1</span>, i, bins)</span>
+<span id="cb7-18"><a href="" aria-label="18"></a>    </span></code></pre></div>
 </details>
 </div>
 </section>
@@ -316,38 +322,38 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div id="5e84224b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>landing_bucket <span class="op">=</span> <span class="st">"s3://landing-raw-sales-123/"</span></span>
-<span id="cb8-2"><a href=""></a>staging_bucket <span class="op">=</span> <span class="st">"s3://staging-clean-sales-123/"</span></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a>file_names <span class="op">=</span> [<span class="st">"sales_fact_1997.slice-0-1.v0.0.1.csv"</span>, <span class="st">"sales_fact_1997.slice-1-2.v0.0.1.csv"</span>, <span class="st">"sales_fact_1997.slice-2-3.v0.0.1.csv"</span>,]</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-label="1"></a>landing_bucket <span class="op">=</span> <span class="st">"s3://landing-raw-sales-123/"</span></span>
+<span id="cb8-2"><a href="" aria-label="2"></a>staging_bucket <span class="op">=</span> <span class="st">"s3://staging-clean-sales-123/"</span></span>
+<span id="cb8-3"><a href="" aria-label="3"></a></span>
+<span id="cb8-4"><a href="" aria-label="4"></a>file_names <span class="op">=</span> [<span class="st">"sales_fact_1997.slice-0-1.v0.0.1.csv"</span>, <span class="st">"sales_fact_1997.slice-1-2.v0.0.1.csv"</span>, <span class="st">"sales_fact_1997.slice-2-3.v0.0.1.csv"</span>,]</span></code></pre></div>
 </details>
 </div>
 <div id="3cd74c82" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># import from S3</span></span>
-<span id="cb9-2"><a href=""></a>df <span class="op">=</span> wr.s3.read_csv(landing_bucket <span class="op">+</span> file_names[<span class="dv">0</span>])</span>
-<span id="cb9-3"><a href=""></a><span class="cf">for</span> file_name <span class="kw">in</span> file_names[<span class="dv">1</span>:]:</span>
-<span id="cb9-4"><a href=""></a>    df <span class="op">=</span> df.append(wr.s3.read_csv(landing_bucket <span class="op">+</span> file_name), ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb9-5"><a href=""></a>df</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-label="1"></a><span class="co"># import from S3</span></span>
+<span id="cb9-2"><a href="" aria-label="2"></a>df <span class="op">=</span> wr.s3.read_csv(landing_bucket <span class="op">+</span> file_names[<span class="dv">0</span>])</span>
+<span id="cb9-3"><a href="" aria-label="3"></a><span class="cf">for</span> file_name <span class="kw">in</span> file_names[<span class="dv">1</span>:]:</span>
+<span id="cb9-4"><a href="" aria-label="4"></a>    df <span class="op">=</span> df.append(wr.s3.read_csv(landing_bucket <span class="op">+</span> file_name), ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-5"><a href="" aria-label="5"></a>df</span></code></pre></div>
 </details>
 </div>
 <div id="15ae01ef" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># import directly from the sources</span></span>
-<span id="cb10-2"><a href=""></a>url <span class="op">=</span> <span class="st">"http://big.csr.unibo.it/projects/nosql-datasets/"</span></span>
-<span id="cb10-3"><a href=""></a>df <span class="op">=</span> pd.read_csv(url <span class="op">+</span> file_names[<span class="dv">0</span>])</span>
-<span id="cb10-4"><a href=""></a><span class="cf">for</span> file_name <span class="kw">in</span> file_names[<span class="dv">1</span>:]:</span>
-<span id="cb10-5"><a href=""></a>    df <span class="op">=</span> df.append(pd.read_csv(url <span class="op">+</span> file_name), ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-6"><a href=""></a>df</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-label="1"></a><span class="co"># import directly from the sources</span></span>
+<span id="cb10-2"><a href="" aria-label="2"></a>url <span class="op">=</span> <span class="st">"http://big.csr.unibo.it/projects/nosql-datasets/"</span></span>
+<span id="cb10-3"><a href="" aria-label="3"></a>df <span class="op">=</span> pd.read_csv(url <span class="op">+</span> file_names[<span class="dv">0</span>])</span>
+<span id="cb10-4"><a href="" aria-label="4"></a><span class="cf">for</span> file_name <span class="kw">in</span> file_names[<span class="dv">1</span>:]:</span>
+<span id="cb10-5"><a href="" aria-label="5"></a>    df <span class="op">=</span> df.append(pd.read_csv(url <span class="op">+</span> file_name), ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-6"><a href="" aria-label="6"></a>df</span></code></pre></div>
 </details>
 </div>
 <p>Save the processed dataset into S3</p>
 <div id="3cfff29a" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>wr.s3.to_csv(df, path<span class="op">=</span>staging_bucket <span class="op">+</span> <span class="st">"sales_fact_1997.v0.0.1.csv"</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-label="1"></a>wr.s3.to_csv(df, path<span class="op">=</span>staging_bucket <span class="op">+</span> <span class="st">"sales_fact_1997.v0.0.1.csv"</span>)</span></code></pre></div>
 </details>
 </div>
 </section>
@@ -381,14 +387,14 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div id="4574a046" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>df.info()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-label="1"></a>df.info()</span></code></pre></div>
 </details>
 </div>
 <p>How many products have been sold?</p>
 <div id="b9d83c5a" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>df[[<span class="st">"Product"</span>]].value_counts()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb13-1"><a href="" aria-label="1"></a>df[[<span class="st">"Product"</span>]].value_counts()</span></code></pre></div>
 </details>
 </div>
 <p>Which functional dependencies hold among the levels?</p>
@@ -399,38 +405,38 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div id="161bdadc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>df.groupby([<span class="st">"Product"</span>])[<span class="st">"Subcategory"</span>, <span class="st">"Category"</span>, <span class="st">"Family"</span>].nunique()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-label="1"></a>df.groupby([<span class="st">"Product"</span>])[<span class="st">"Subcategory"</span>, <span class="st">"Category"</span>, <span class="st">"Family"</span>].nunique()</span></code></pre></div>
 </details>
 </div>
 <div id="ad8e8e1e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>df.groupby([<span class="st">"Subcategory"</span>])[<span class="st">"Category"</span>, <span class="st">"Family"</span>].nunique()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb15-1"><a href="" aria-label="1"></a>df.groupby([<span class="st">"Subcategory"</span>])[<span class="st">"Category"</span>, <span class="st">"Family"</span>].nunique()</span></code></pre></div>
 </details>
 </div>
 <div id="da6c5e9f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>df.groupby([<span class="st">"Category"</span>])[<span class="st">"Family"</span>].nunique()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb16-1"><a href="" aria-label="1"></a>df.groupby([<span class="st">"Category"</span>])[<span class="st">"Family"</span>].nunique()</span></code></pre></div>
 </details>
 </div>
 <div id="ea084847" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>df.groupby([<span class="st">"Family"</span>])[<span class="st">"Category"</span>].nunique()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb17-1"><a href="" aria-label="1"></a>df.groupby([<span class="st">"Family"</span>])[<span class="st">"Category"</span>].nunique()</span></code></pre></div>
 </details>
 </div>
 <p>Are there relationships between measures?</p>
 <div id="c970088d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;-&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>sns.pairplot(df[[<span class="st">"Store Cost"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Unit Sales"</span>]])</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb18-1"><a href="" aria-label="1"></a>sns.pairplot(df[[<span class="st">"Store Cost"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Unit Sales"</span>]])</span></code></pre></div>
 </details>
 </div>
 <div id="5fb9a2f3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>df[[<span class="st">"Store Cost"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Unit Sales"</span>]].corr()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb19-1"><a href="" aria-label="1"></a>df[[<span class="st">"Store Cost"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Unit Sales"</span>]].corr()</span></code></pre></div>
 </details>
 </div>
 </section>
@@ -444,60 +450,60 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div id="1651354b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>host <span class="op">=</span> <span class="st">"sensor-dwh.cd97tkze3ics.us-east-1.rds.amazonaws.com"</span></span>
-<span id="cb20-2"><a href=""></a>port <span class="op">=</span> <span class="dv">5432</span></span>
-<span id="cb20-3"><a href=""></a>user <span class="op">=</span> <span class="st">"postgres"</span></span>
-<span id="cb20-4"><a href=""></a>pwd <span class="op">=</span> <span class="st">"bigdata2022"</span></span>
-<span id="cb20-5"><a href=""></a>db <span class="op">=</span> <span class="st">"postgres"</span></span>
-<span id="cb20-6"><a href=""></a></span>
-<span id="cb20-7"><a href=""></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine</span>
-<span id="cb20-8"><a href=""></a>s <span class="op">=</span> <span class="st">'postgresql://</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">@</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">/</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(user, pwd, host, <span class="bu">str</span>(port), db)</span>
-<span id="cb20-9"><a href=""></a>engine <span class="op">=</span> create_engine(s)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb20-1"><a href="" aria-label="1"></a>host <span class="op">=</span> <span class="st">"sensor-dwh.cd97tkze3ics.us-east-1.rds.amazonaws.com"</span></span>
+<span id="cb20-2"><a href="" aria-label="2"></a>port <span class="op">=</span> <span class="dv">5432</span></span>
+<span id="cb20-3"><a href="" aria-label="3"></a>user <span class="op">=</span> <span class="st">"postgres"</span></span>
+<span id="cb20-4"><a href="" aria-label="4"></a>pwd <span class="op">=</span> <span class="st">"bigdata2022"</span></span>
+<span id="cb20-5"><a href="" aria-label="5"></a>db <span class="op">=</span> <span class="st">"postgres"</span></span>
+<span id="cb20-6"><a href="" aria-label="6"></a></span>
+<span id="cb20-7"><a href="" aria-label="7"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine</span>
+<span id="cb20-8"><a href="" aria-label="8"></a>s <span class="op">=</span> <span class="st">'postgresql://</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">@</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">/</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(user, pwd, host, <span class="bu">str</span>(port), db)</span>
+<span id="cb20-9"><a href="" aria-label="9"></a>engine <span class="op">=</span> create_engine(s)</span></code></pre></div>
 </details>
 </div>
 <p>Doing some ETL</p>
 <div id="23dd43dd" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;-&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="co"># DT_customer</span></span>
-<span id="cb21-2"><a href=""></a>df[[<span class="st">"C. City"</span>, <span class="st">"C. Country"</span>, <span class="st">"C. State"</span>, <span class="st">"Customer"</span>, <span class="st">"Yearly Income"</span>]] <span class="op">\</span></span>
-<span id="cb21-3"><a href=""></a>    .drop_duplicates() <span class="op">\</span></span>
-<span id="cb21-4"><a href=""></a>    .to_sql(<span class="st">'customer'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb21-1"><a href="" aria-label="1"></a><span class="co"># DT_customer</span></span>
+<span id="cb21-2"><a href="" aria-label="2"></a>df[[<span class="st">"C. City"</span>, <span class="st">"C. Country"</span>, <span class="st">"C. State"</span>, <span class="st">"Customer"</span>, <span class="st">"Yearly Income"</span>]] <span class="op">\</span></span>
+<span id="cb21-3"><a href="" aria-label="3"></a>    .drop_duplicates() <span class="op">\</span></span>
+<span id="cb21-4"><a href="" aria-label="4"></a>    .to_sql(<span class="st">'customer'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
 </details>
 </div>
 <div id="958b0a06" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;-&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="co"># DT_store</span></span>
-<span id="cb22-2"><a href=""></a>df[[<span class="st">"S. City"</span>, <span class="st">"S. Country"</span>, <span class="st">"S. State"</span>, <span class="st">"Store"</span>, <span class="st">"Type"</span>]] <span class="op">\</span></span>
-<span id="cb22-3"><a href=""></a>    .drop_duplicates() <span class="op">\</span></span>
-<span id="cb22-4"><a href=""></a>    .to_sql(<span class="st">'store'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb22-1"><a href="" aria-label="1"></a><span class="co"># DT_store</span></span>
+<span id="cb22-2"><a href="" aria-label="2"></a>df[[<span class="st">"S. City"</span>, <span class="st">"S. Country"</span>, <span class="st">"S. State"</span>, <span class="st">"Store"</span>, <span class="st">"Type"</span>]] <span class="op">\</span></span>
+<span id="cb22-3"><a href="" aria-label="3"></a>    .drop_duplicates() <span class="op">\</span></span>
+<span id="cb22-4"><a href="" aria-label="4"></a>    .to_sql(<span class="st">'store'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
 </details>
 </div>
 <div id="d99e6e56" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;subslide&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="co"># DT_product</span></span>
-<span id="cb23-2"><a href=""></a>df[[<span class="st">"Category"</span>, <span class="st">"Subcategory"</span>, <span class="st">"Family"</span>, <span class="st">"Product"</span>]] <span class="op">\</span></span>
-<span id="cb23-3"><a href=""></a>    .drop_duplicates() <span class="op">\</span></span>
-<span id="cb23-4"><a href=""></a>    .to_sql(<span class="st">'product'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb23-1"><a href="" aria-label="1"></a><span class="co"># DT_product</span></span>
+<span id="cb23-2"><a href="" aria-label="2"></a>df[[<span class="st">"Category"</span>, <span class="st">"Subcategory"</span>, <span class="st">"Family"</span>, <span class="st">"Product"</span>]] <span class="op">\</span></span>
+<span id="cb23-3"><a href="" aria-label="3"></a>    .drop_duplicates() <span class="op">\</span></span>
+<span id="cb23-4"><a href="" aria-label="4"></a>    .to_sql(<span class="st">'product'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
 </details>
 </div>
 <div id="a30dbecc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;-&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="co"># DT_date</span></span>
-<span id="cb24-2"><a href=""></a>df[[<span class="st">"Sales Date"</span>]] <span class="op">\</span></span>
-<span id="cb24-3"><a href=""></a>    .drop_duplicates() <span class="op">\</span></span>
-<span id="cb24-4"><a href=""></a>    .to_sql(<span class="st">'date'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb24-1"><a href="" aria-label="1"></a><span class="co"># DT_date</span></span>
+<span id="cb24-2"><a href="" aria-label="2"></a>df[[<span class="st">"Sales Date"</span>]] <span class="op">\</span></span>
+<span id="cb24-3"><a href="" aria-label="3"></a>    .drop_duplicates() <span class="op">\</span></span>
+<span id="cb24-4"><a href="" aria-label="4"></a>    .to_sql(<span class="st">'date'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
 </details>
 </div>
 <div id="7be078b4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;-&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="co"># FT</span></span>
-<span id="cb25-2"><a href=""></a>df[[<span class="st">"Customer"</span>, <span class="st">"Store"</span>, <span class="st">"Product"</span>, <span class="st">"Sales Date"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Store Cost"</span>, <span class="st">"Unit Sales"</span>]] <span class="op">\</span></span>
-<span id="cb25-3"><a href=""></a>    .to_sql(<span class="st">'sales'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb25-1"><a href="" aria-label="1"></a><span class="co"># FT</span></span>
+<span id="cb25-2"><a href="" aria-label="2"></a>df[[<span class="st">"Customer"</span>, <span class="st">"Store"</span>, <span class="st">"Product"</span>, <span class="st">"Sales Date"</span>, <span class="st">"Store Sales"</span>, <span class="st">"Store Cost"</span>, <span class="st">"Unit Sales"</span>]] <span class="op">\</span></span>
+<span id="cb25-3"><a href="" aria-label="3"></a>    .to_sql(<span class="st">'sales'</span>, engine, index<span class="op">=</span><span class="va">False</span>, if_exists<span class="op">=</span><span class="st">'replace'</span>)</span></code></pre></div>
 </details>
 </div>
 </section>
@@ -571,55 +577,55 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <div id="8b5c9fb0" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;skip&quot;}}">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="im">from</span> prov.model <span class="im">import</span> ProvDocument</span>
-<span id="cb26-2"><a href=""></a><span class="im">from</span> prov.dot <span class="im">import</span> prov_to_dot</span>
-<span id="cb26-3"><a href=""></a><span class="im">from</span> IPython.display <span class="im">import</span> Image</span>
-<span id="cb26-4"><a href=""></a></span>
-<span id="cb26-5"><a href=""></a><span class="kw">def</span> plot():</span>
-<span id="cb26-6"><a href=""></a>    <span class="co"># Create a new provenance document</span></span>
-<span id="cb26-7"><a href=""></a>    d1 <span class="op">=</span> ProvDocument()  <span class="co"># d1 is now an empty provenance document</span></span>
-<span id="cb26-8"><a href=""></a>    </span>
-<span id="cb26-9"><a href=""></a>    d1.add_namespace(<span class="st">'s3'</span>, <span class="st">'https://s3.console.aws.amazon.com/s3'</span>)</span>
-<span id="cb26-10"><a href=""></a>    d1.add_namespace(<span class="st">'rds'</span>, <span class="st">'https://us-east-1.console.aws.amazon.com/rds'</span>)</span>
-<span id="cb26-11"><a href=""></a>    d1.add_namespace(<span class="st">'unibo'</span>, <span class="st">'https://www.unibo.it'</span>)</span>
-<span id="cb26-12"><a href=""></a>    d1.add_namespace(<span class="st">'pd'</span>, <span class="st">'https://pandas.pydata.org/'</span>)</span>
-<span id="cb26-13"><a href=""></a>    </span>
-<span id="cb26-14"><a href=""></a>    agent <span class="op">=</span> d1.agent(<span class="st">'unibo:mfrancia'</span>)</span>
-<span id="cb26-15"><a href=""></a></span>
-<span id="cb26-16"><a href=""></a>    DT_time <span class="op">=</span> d1.entity(<span class="st">'rds:DT_time'</span>)</span>
-<span id="cb26-17"><a href=""></a>    DT_customer <span class="op">=</span> d1.entity(<span class="st">'rds:DT_customer'</span>)</span>
-<span id="cb26-18"><a href=""></a>    DT_store <span class="op">=</span> d1.entity(<span class="st">'rds:DT_store'</span>)</span>
-<span id="cb26-19"><a href=""></a>    DT_product <span class="op">=</span> d1.entity(<span class="st">'rds:DT_product'</span>)</span>
-<span id="cb26-20"><a href=""></a>    FT <span class="op">=</span> d1.entity(<span class="st">'rds:FT'</span>)</span>
-<span id="cb26-21"><a href=""></a>    </span>
-<span id="cb26-22"><a href=""></a>    etl <span class="op">=</span> d1.activity(<span class="st">'pd:etl'</span>)</span>
-<span id="cb26-23"><a href=""></a>    d1.wasGeneratedBy(DT_time, etl)</span>
-<span id="cb26-24"><a href=""></a>    d1.wasGeneratedBy(DT_customer, etl)</span>
-<span id="cb26-25"><a href=""></a>    d1.wasGeneratedBy(DT_store, etl)</span>
-<span id="cb26-26"><a href=""></a>    d1.wasGeneratedBy(DT_product, etl)</span>
-<span id="cb26-27"><a href=""></a>    d1.wasGeneratedBy(FT, etl)</span>
-<span id="cb26-28"><a href=""></a>    </span>
-<span id="cb26-29"><a href=""></a>    processed_dataset <span class="op">=</span> d1.entity(<span class="st">'s3:sales_fact_1997.v0.0.1.csv'</span>)  <span class="co"># create an entity representing the processed dataset</span></span>
-<span id="cb26-30"><a href=""></a>    d1.used(etl, processed_dataset)  <span class="co"># the activity used the dataset as input</span></span>
-<span id="cb26-31"><a href=""></a>    append <span class="op">=</span> d1.activity(<span class="st">'pd:append'</span>)  <span class="co"># create the processing activity</span></span>
-<span id="cb26-32"><a href=""></a>    d1.wasGeneratedBy(processed_dataset, append)  <span class="co"># the processed dataset has been created by the `append` activity</span></span>
-<span id="cb26-33"><a href=""></a>    </span>
-<span id="cb26-34"><a href=""></a>    <span class="cf">for</span> file_name <span class="kw">in</span> file_names:</span>
-<span id="cb26-35"><a href=""></a>        original_dataset <span class="op">=</span> d1.entity(<span class="st">'s3:'</span> <span class="op">+</span> file_name)  <span class="co"># register the original datasets</span></span>
-<span id="cb26-36"><a href=""></a>        d1.wasAttributedTo(original_dataset, agent)  <span class="co"># attribute the dataset to the agent who created it</span></span>
-<span id="cb26-37"><a href=""></a>        d1.wasDerivedFrom(processed_dataset, original_dataset)  <span class="co"># the processed dataset has been derived from the original one</span></span>
-<span id="cb26-38"><a href=""></a>        d1.used(append, original_dataset)  <span class="co"># the activity used the dataset as input</span></span>
-<span id="cb26-39"><a href=""></a></span>
-<span id="cb26-40"><a href=""></a>    <span class="co"># visualize the graph</span></span>
-<span id="cb26-41"><a href=""></a>    dot <span class="op">=</span> prov_to_dot(d1)</span>
-<span id="cb26-42"><a href=""></a>    dot.write_png(<span class="st">'prov.png'</span>)</span>
-<span id="cb26-43"><a href=""></a>    <span class="cf">return</span> Image(<span class="st">'prov.png'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb26-1"><a href="" aria-label="1"></a><span class="im">from</span> prov.model <span class="im">import</span> ProvDocument</span>
+<span id="cb26-2"><a href="" aria-label="2"></a><span class="im">from</span> prov.dot <span class="im">import</span> prov_to_dot</span>
+<span id="cb26-3"><a href="" aria-label="3"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image</span>
+<span id="cb26-4"><a href="" aria-label="4"></a></span>
+<span id="cb26-5"><a href="" aria-label="5"></a><span class="kw">def</span> plot():</span>
+<span id="cb26-6"><a href="" aria-label="6"></a>    <span class="co"># Create a new provenance document</span></span>
+<span id="cb26-7"><a href="" aria-label="7"></a>    d1 <span class="op">=</span> ProvDocument()  <span class="co"># d1 is now an empty provenance document</span></span>
+<span id="cb26-8"><a href="" aria-label="8"></a>    </span>
+<span id="cb26-9"><a href="" aria-label="9"></a>    d1.add_namespace(<span class="st">'s3'</span>, <span class="st">'https://s3.console.aws.amazon.com/s3'</span>)</span>
+<span id="cb26-10"><a href="" aria-label="10"></a>    d1.add_namespace(<span class="st">'rds'</span>, <span class="st">'https://us-east-1.console.aws.amazon.com/rds'</span>)</span>
+<span id="cb26-11"><a href="" aria-label="11"></a>    d1.add_namespace(<span class="st">'unibo'</span>, <span class="st">'https://www.unibo.it'</span>)</span>
+<span id="cb26-12"><a href="" aria-label="12"></a>    d1.add_namespace(<span class="st">'pd'</span>, <span class="st">'https://pandas.pydata.org/'</span>)</span>
+<span id="cb26-13"><a href="" aria-label="13"></a>    </span>
+<span id="cb26-14"><a href="" aria-label="14"></a>    agent <span class="op">=</span> d1.agent(<span class="st">'unibo:mfrancia'</span>)</span>
+<span id="cb26-15"><a href="" aria-label="15"></a></span>
+<span id="cb26-16"><a href="" aria-label="16"></a>    DT_time <span class="op">=</span> d1.entity(<span class="st">'rds:DT_time'</span>)</span>
+<span id="cb26-17"><a href="" aria-label="17"></a>    DT_customer <span class="op">=</span> d1.entity(<span class="st">'rds:DT_customer'</span>)</span>
+<span id="cb26-18"><a href="" aria-label="18"></a>    DT_store <span class="op">=</span> d1.entity(<span class="st">'rds:DT_store'</span>)</span>
+<span id="cb26-19"><a href="" aria-label="19"></a>    DT_product <span class="op">=</span> d1.entity(<span class="st">'rds:DT_product'</span>)</span>
+<span id="cb26-20"><a href="" aria-label="20"></a>    FT <span class="op">=</span> d1.entity(<span class="st">'rds:FT'</span>)</span>
+<span id="cb26-21"><a href="" aria-label="21"></a>    </span>
+<span id="cb26-22"><a href="" aria-label="22"></a>    etl <span class="op">=</span> d1.activity(<span class="st">'pd:etl'</span>)</span>
+<span id="cb26-23"><a href="" aria-label="23"></a>    d1.wasGeneratedBy(DT_time, etl)</span>
+<span id="cb26-24"><a href="" aria-label="24"></a>    d1.wasGeneratedBy(DT_customer, etl)</span>
+<span id="cb26-25"><a href="" aria-label="25"></a>    d1.wasGeneratedBy(DT_store, etl)</span>
+<span id="cb26-26"><a href="" aria-label="26"></a>    d1.wasGeneratedBy(DT_product, etl)</span>
+<span id="cb26-27"><a href="" aria-label="27"></a>    d1.wasGeneratedBy(FT, etl)</span>
+<span id="cb26-28"><a href="" aria-label="28"></a>    </span>
+<span id="cb26-29"><a href="" aria-label="29"></a>    processed_dataset <span class="op">=</span> d1.entity(<span class="st">'s3:sales_fact_1997.v0.0.1.csv'</span>)  <span class="co"># create an entity representing the processed dataset</span></span>
+<span id="cb26-30"><a href="" aria-label="30"></a>    d1.used(etl, processed_dataset)  <span class="co"># the activity used the dataset as input</span></span>
+<span id="cb26-31"><a href="" aria-label="31"></a>    append <span class="op">=</span> d1.activity(<span class="st">'pd:append'</span>)  <span class="co"># create the processing activity</span></span>
+<span id="cb26-32"><a href="" aria-label="32"></a>    d1.wasGeneratedBy(processed_dataset, append)  <span class="co"># the processed dataset has been created by the `append` activity</span></span>
+<span id="cb26-33"><a href="" aria-label="33"></a>    </span>
+<span id="cb26-34"><a href="" aria-label="34"></a>    <span class="cf">for</span> file_name <span class="kw">in</span> file_names:</span>
+<span id="cb26-35"><a href="" aria-label="35"></a>        original_dataset <span class="op">=</span> d1.entity(<span class="st">'s3:'</span> <span class="op">+</span> file_name)  <span class="co"># register the original datasets</span></span>
+<span id="cb26-36"><a href="" aria-label="36"></a>        d1.wasAttributedTo(original_dataset, agent)  <span class="co"># attribute the dataset to the agent who created it</span></span>
+<span id="cb26-37"><a href="" aria-label="37"></a>        d1.wasDerivedFrom(processed_dataset, original_dataset)  <span class="co"># the processed dataset has been derived from the original one</span></span>
+<span id="cb26-38"><a href="" aria-label="38"></a>        d1.used(append, original_dataset)  <span class="co"># the activity used the dataset as input</span></span>
+<span id="cb26-39"><a href="" aria-label="39"></a></span>
+<span id="cb26-40"><a href="" aria-label="40"></a>    <span class="co"># visualize the graph</span></span>
+<span id="cb26-41"><a href="" aria-label="41"></a>    dot <span class="op">=</span> prov_to_dot(d1)</span>
+<span id="cb26-42"><a href="" aria-label="42"></a>    dot.write_png(<span class="st">'prov.png'</span>)</span>
+<span id="cb26-43"><a href="" aria-label="43"></a>    <span class="cf">return</span> Image(<span class="st">'prov.png'</span>)</span></code></pre></div>
 </details>
 </div>
 <div id="48e8df41" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>plot()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines"><code class="sourceCode python"><span id="cb27-1"><a href="" aria-label="1"></a>plot()</span></code></pre></div>
 </details>
 </div>
 
