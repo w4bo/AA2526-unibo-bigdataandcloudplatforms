@@ -12,7 +12,7 @@ prov[dot]==3.1.0
 pydot==4.0.1
 pymongo==4.17.0
 scikit-learn==1.9.0
-scipy==1.18.0
+scipy==1.18.1
 seaborn==0.13.2
 traitlets==5.16.1
 xlrd==2.0.2
